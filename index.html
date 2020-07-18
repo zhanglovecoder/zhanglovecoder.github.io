@@ -160,7 +160,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/NoteBook3/">我的第三篇博客</a>
+      <a class="article-title" href="/2020/07/18/NoteBook3/">方法的概念</a>
     </h1>
   
 
@@ -176,7 +176,118 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="方法的重载（OverLoad"><a href="#方法的重载（OverLoad" class="headerlink" title="方法的重载（OverLoad)"></a>方法的重载（OverLoad)</h3><ul>
+<li><p>多个方法的名称一样，但是参数列表不一样。</p>
+</li>
+<li><p>好处：只需要记住唯一一个方法名称，就可以实现类似的多个功能</p>
+</li>
+<li><p>方法重载与下列因素相关：</p>
+<ol>
+<li>参数个数不同</li>
+<li>参数类型不同</li>
+<li>参数的多类型顺序不同</li>
+</ol>
+</li>
+<li><p>方法重载与哪些无关：</p>
+<ol>
+<li>与参数名称无关</li>
+<li>与方法返回值类型无关</li>
+</ol>
+</li>
+<li><p>方法的重载举例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  b(<span class="number">1</span>);</span><br><span class="line">b(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">b(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">z=z++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z,<span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    z=z+r;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z,<span class="keyword">int</span> r,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">z=z+r+w;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="二-数组Arrays"><a href="#二-数组Arrays" class="headerlink" title="二.数组Arrays"></a>二.数组Arrays</h3><ul>
+<li>数组的概念：是一种容器，可以同时存放多个数据值</li>
+<li>数组的特点：</li>
+</ul>
+<ol>
+<li>数组是一种引用数据类型</li>
+<li>数组当中的多个数组，类型必须统一</li>
+<li>数组的长度在程序运行期间不可改变</li>
+</ol>
+<ul>
+<li>数组的初始化方式</li>
+</ul>
+<ol>
+<li><p>动态初始化（指定长度） <strong>动态初始化数组的格式：数据类型[] 数组名称 = new 数据类型 [数组长度]；</strong></p>
+</li>
+<li><p>静态初始化（指定内容） <strong>静态初始化数组的格式：数据类型[] 数组名称 = new 数据类型 []{数组存放内容};</strong></p>
+<p>静态初始化：<strong>省略格式 数据类型[] 数组名称 = { … 数组存放内容};</strong></p>
+</li>
+<li><p>无论静态初始化还是动态初始化，数组都有一个长度</p>
+</li>
+</ol>
+<ul>
+<li>数组的注意事项</li>
+</ul>
+<ol>
+<li>静态初始化一旦使用省略格式，就不能拆分为两个步骤了</li>
+</ol>
+<ul>
+<li>获取数组内容的方式<blockquote>
+<p> 数组名字[索引值] 索引值：是一个int数字 代表数组当中元素编号，从0开始，一直到数组的长度-1为止</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p> 动态初始化数组每一个元素都会有一个默认初始值（静态初始化也有默认初始值，只不过系统马上替换到了大括号中的赋予他的值）</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>数组一旦创建，程序运行期间，长度不可改变</li>
+<li>数组作为方法的参数</li>
+</ul>
+<ol>
+<li>当调用方法的时候，向方法的小括号传参，传递进去的其实是数组的地址值</li>
+<li>数组作为方法返回的时候，返回的其实也是数组的地址值</li>
+</ol>
+<ul>
+<li>数组的举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">ints[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">ints[<span class="number">2</span>] = <span class="number">20</span>;</span><br><span class="line">ints[<span class="number">3</span>] = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="三-JAVA中的内存划分"><a href="#三-JAVA中的内存划分" class="headerlink" title="三.JAVA中的内存划分"></a>三.JAVA中的内存划分</h3><ul>
+<li><strong>栈(Stack)</strong>：存放的都是方法中的局部变量</li>
+</ul>
+<ol>
+<li>局部变量：方法的参数，或者是方法{}内部的变量</li>
+<li>作用域：一旦超出作用域，立刻从栈内存中消失</li>
+</ol>
+<ul>
+<li><strong>堆(Heap)</strong>：凡是new出来的东西，都在堆中</li>
+</ul>
+<p>1.堆内存里面利的东西都有一个地址值：16进制<br>2.堆内存里面的数据都有默认值 整数：0 浮点数：0.0 字符：’\u0000’ 布尔型：false 引用类型：null</p>
+<ul>
+<li><strong>方法区(Method Area)</strong>：存储.class相关信息，包含方法的信息</li>
+<li><strong>本地方法栈(Native Method Stack)</strong>:与操作系统相关</li>
+<li><strong>寄存器(pc Register)</strong>:与CPU相关</li>
+</ul>
+<h2 id><a href="#" class="headerlink" title></a><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595053060536&di=53ffe9c43b29830e29e2db52e85d59c9&imgtype=0&src=http%3A%2F%2Fpics5.baidu.com%2Ffeed%2Ffcfaaf51f3deb48f0a4b8da7936caa2d2df57824.jpeg%3Ftoken%3Df82314901eb960dbdc90cf1372fa08a0%26s%3D8DF2CF17C19F65CA52C18D4D0300F033" alt="avatar"></h2><h3 id="四-方法的格式"><a href="#四-方法的格式" class="headerlink" title="四.方法的格式"></a>四.方法的格式</h3><ul>
+<li>修饰符 返回值类型 方法名（参数列表）</li>
+<li>方法名称：方法的名字，规则和变量一样，小驼峰</li>
+<li>参数类型：进入方法的数据是什么类型</li>
+<li>参数名称：进入方法的数据对应的变量名称</li>
+<li>方法体：方法需要做的事情，若干行代码</li>
+<li>return:两个作用，第一停止当前方法，第二将后面的值还给调用出</li>
+<li>return后面的返回值必须和方法名称前面的返回值类型，保持对应</li>
+<li>方法调用的三种形式：</li>
+</ul>
+<ol>
+<li>单独调用：方法名称（参数）</li>
+<li>打印调用：System.out.println(方法名称（参数）)</li>
+<li>赋值调用：数据类型 变量名称 = 方法名称（参数）<blockquote>
+<p>返回值类型为void 只能进行单独调用，不能进行打印调用和赋值调用</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public(修饰符) void(无返回值情况) a(方法名称)  (int b----&gt;参数类型和名称)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
       
 
       
@@ -184,6 +295,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -218,14 +340,14 @@
 
 
   
-    <article id="post-NokteBook2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-NoteBook2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/NokteBook2/">运算符与数据类型转换</a>
+      <a class="article-title" href="/2020/07/18/NoteBook2/">运算符与数据类型转换</a>
     </h1>
   
 
@@ -233,7 +355,7 @@
 
 <!--显示阅读次数完毕-->
         
-        <a href="/2020/07/18/NokteBook2/" class="archive-article-date">
+        <a href="/2020/07/18/NoteBook2/" class="archive-article-date">
   	<time datetime="2020-07-18T01:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
         
@@ -379,7 +501,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/NokteBook2/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/18/NoteBook2/">展开全文 >></a>
         </p>
       
 
@@ -686,6 +808,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
             
             <div class="clearfix"></div>
