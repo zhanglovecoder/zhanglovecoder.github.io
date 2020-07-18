@@ -160,7 +160,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2/">面向对象的思想与概念</a>
+      <a class="article-title" href="/2020/07/18/%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2/">面向对象概念及变量</a>
     </h1>
   
 
@@ -195,8 +195,42 @@
 <li><strong>创建</strong>：类名称.对象名 = new 类名称();</li>
 <li><strong>使用</strong>：使用成员变量：对象名.成员变量名 使用成员方法：对象名.成员方法名(参数)</li>
 <li>如果成员变量没有赋值，将会有一个默认值，规则跟数组一样</li>
-<li>堆当中的成员方法保存的是<strong>地址值</strong>，<strong>指向方法区的成员方法</strong></li>
+<li>堆当中的成员方法保存的是<strong>地址值</strong>，<strong>指向方法区的成员方法</strong><h4 id="面向对象的调用概念等"><a href="#面向对象的调用概念等" class="headerlink" title="面向对象的调用概念等"></a>面向对象的调用概念等</h4></li>
 </ol>
+<ul>
+<li>对象之间赋值，进行赋值的是<strong>内存地址</strong></li>
+<li>当一个对象作为参数传递时，传递方法中，实际传递进去的是<strong>对象的地址值</strong><h4 id="局部变量和成员变量"><a href="#局部变量和成员变量" class="headerlink" title="局部变量和成员变量"></a>局部变量和成员变量</h4></li>
+<li>定义的位置不一样<blockquote>
+<p>局部变量：在方法的内部</p>
+<p>成员变量：在方法的外部</p>
+</blockquote>
+</li>
+<li>作用范围不一样<blockquote>
+<p>局部变量：只有在方法中才可以使用，除了方法就不能再用</p>
+<p>成员变量：整个类都可以使用</p>
+</blockquote>
+</li>
+<li>默认值不一样<blockquote>
+<p>局部变量：没有默认值，如果想要使用，必须手动进行赋值</p>
+<p>成员变量：如果没有赋值 会有默认值</p>
+</blockquote>
+</li>
+<li>内存的位置不一样<blockquote>
+<p>局部变量：位于栈内存</p>
+<p>成员变量：位于堆内存</p>
+</blockquote>
+</li>
+<li>生命周期不一样<blockquote>
+<p>局部变量：随着方法进栈而诞生，随着方法出栈而消失</p>
+<p>成员变量：随着对象创建而诞生，随着对象被垃圾回收而消失</p>
+</blockquote>
+</li>
+<li>当方法的局部变量和类的成员变量重名的时候，根据“就近原则”，优先使用局部变量<blockquote>
+<p>如果需要访问本类中的变量，需要使用格式，this.成员变量名</p>
+<p>通过谁调用的方法，谁就是this</p>
+</blockquote>
+</li>
+</ul>
 
       
 
@@ -362,10 +396,8 @@
 <ul>
 <li><strong>方法区(Method Area)</strong>：存储.class相关信息，包含方法的信息</li>
 <li><strong>本地方法栈(Native Method Stack)</strong>:与操作系统相关</li>
-<li><strong>寄存器(pc Register)</strong>:与CPU相关</li>
+<li><strong>寄存器(pc Register)</strong>:与CPU相关<br><img src="/2020/07/18/NoteBook3/z.jpg" alt></li>
 </ul>
-<p><img src="/2020/07/18/NoteBook3/image.jpg" alt></p>
-
 <hr>
 <h3 id="四-方法的格式"><a href="#四-方法的格式" class="headerlink" title="四.方法的格式"></a>四.方法的格式</h3><ul>
 <li>修饰符 返回值类型 方法名（参数列表）</li>
