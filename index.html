@@ -160,7 +160,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/">第二篇博客</a>
+      <a class="article-title" href="/2020/07/18/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/">运算符与数据类型转换</a>
     </h1>
   
 
@@ -176,7 +176,112 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h4><ul>
+<li>在java中要求进行”赋值运算”和”算数运算时” 参与运算的数据类型必须保持一致</li>
+<li>当数据类型不一样会发生数据类型转换</li>
+</ul>
+<ol>
+<li>显示类型转换 需要自己手动处理</li>
+<li>隐式类型转换(自动转换)</li>
+</ol>
+<ul>
+<li>自动类型转换（隐式）</li>
+</ul>
+<ol>
+<li>特点：代码不需要进行特殊处理，自动完成</li>
+<li>规则：数据范围从小到大<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte num = 125;</span><br><span class="line"></span><br><span class="line">把int型常量赋给byte，short和char类型时，属于自动转换的特例</span><br><span class="line">只需要不超过byte、short、char的表数范围即可</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><ul>
+<li>特点：代码需要进行特殊的格式处理，不能自动完成</li>
+<li>格式：范围小的类型 范围小的变量名 = （范围小的类型） 原本范围大的数据</li>
+<li>注意事项：</li>
+</ul>
+<ol>
+<li>强制类型转换一般不推荐使用，因为有可能发生精度损失，数据溢出</li>
+<li>byte/short/char这三种类型都可以发生数学运算，例如加法”+”</li>
+<li>byte/short/char这三种类型在运算的时候都先被提升为int类型，然后再计算</li>
+<li>boolean类型不能发生数据类型转换<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double b &#x3D; 10.20;</span><br><span class="line">int num &#x3D; (int)b;</span><br><span class="line">强制性的将double类型b转换为int类型并赋值给num变量</span><br><span class="line">将造成精度丢失</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="ASCII码表"><a href="#ASCII码表" class="headerlink" title="ASCII码表"></a>ASCII码表</h4><ul>
+<li>数字和字符的对照关系表（编码表）</li>
+<li>ASCII码表：美国信息交换标准代码</li>
+<li>Unicode码表:万国码:也是数字和符号的对照关系，开头0-123部分和ASCII完全一样，但是从128开始包含有更多字符</li>
+<li>‘0’ = 48 ‘A’=65 ‘a’=97</li>
+</ul>
+<hr>
+<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><ul>
+<li><strong>加</strong> +  <strong>减</strong> - <strong>乘</strong> * <strong>除</strong> / <strong>取模</strong> % </li>
+<li>一旦运算当中有不同类型的数据，那么结果将会是数据类型范围大的那种</li>
+<li>加号的三种用法+</li>
+</ul>
+<ol>
+<li>进行加法运算</li>
+<li>char类型计算前会提升为int类型 例如’a’+1;</li>
+<li>对于字符串String起连接操作</li>
+</ol>
+<ul>
+<li>自增自减运算符 ++，–；</li>
+<li>使用方式</li>
+</ul>
+<ol>
+<li>单独使用：单独使用的时候，前++和后++没有任何区别；</li>
+<li>混合使用：在混合使用的时候，有重大区别</li>
+</ol>
+<p>#重点记录！<br>####（1） 如果是前++，那么变量立刻马上+1，然后拿着结果进行使用  先加后用！！！</p>
+<h4 id="（2）-如果是后-，那么先使用变量的值，然后再让变量-1-先用后加！！！"><a href="#（2）-如果是后-，那么先使用变量的值，然后再让变量-1-先用后加！！！" class="headerlink" title="（2） 如果是后++，那么先使用变量的值，然后再让变量+1   先用后加！！！"></a>（2） 如果是后++，那么先使用变量的值，然后再让变量+1   先用后加！！！</h4><hr>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><ul>
+<li>基本赋值运算符：+</li>
+<li>复合赋值运算符：+=，-=，*=，/=，%=；</li>
+<li>只有变量才能使用赋值运算符，变量不能进行赋值</li>
+<li>复合赋值运算符中隐含了一个强制类型转换</li>
+<li>num=num+5;<br>num=byte+int;<br>num=int+int;<br>num=int<br>num=(byte)int</li>
+</ul>
+<hr>
+<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><ul>
+<li>与&amp;&amp; 全部是true 才是true</li>
+<li>或|| 有一个是true 就是true</li>
+<li>非！ 本来是true 变成false 本来是false 变成true</li>
+<li>逻辑运算符只能应用于boolean值</li>
+<li>三元运算符</li>
+</ul>
+<ol>
+<li>需要三个数据才可以进行操作的运算符</li>
+<li>格式： 数据类型变量名称 = 条件判断 ？ 表达式A:表达式B</li>
+</ol>
+<p>流程：首先判断条件是否成立</p>
+<p>如果成立为true,那么将表达式A的值赋值给左侧的变量</p>
+<p>如果不成立为flase,那么将表达式B的值赋值给左侧的变量</p>
+<p>A和B要同时符合左侧数据类型的要求</p>
+<hr>
+<h4 id="三种循环方式的区别"><a href="#三种循环方式的区别" class="headerlink" title="三种循环方式的区别"></a>三种循环方式的区别</h4><ul>
+<li>如果条件判断从来没有满足过，那么for循环和while循环将会执行0次，但是do-while循环会执行至少一次</li>
+<li>for循环的变量在小括号中定义，只有循环内部才可以使用，while循环初始化语句本来就在外面，所以出来循环以后可以继续使用</li>
+<li>Switch语句使用的注意事项：</li>
+</ul>
+<ol>
+<li>多个case后面的数值不可以重复</li>
+<li>switch后面小括号只能是基本数据类型(byte/short/char/int)和引用数据类型(String字符串,enum枚举)；</li>
+<li>switch语句格式可以很灵活，前后顺序可以颠倒，而且break语句可以省略</li>
+<li>匹配哪个case就从哪一个位置向下执行，直到遇到了break或者整体结束为止</li>
+</ol>
+<ul>
+<li>for循环<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span>  <span class="title">a</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</span><br><span class="line">  &#123;</span><br><span class="line">  s=s+i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>do-while和while循环</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int i=50,s=0;</span><br><span class="line">while(i&gt;20)</span><br><span class="line">&#123;</span><br><span class="line">s++;</span><br><span class="line">i--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">int i=10,s=0;</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">i--;</span><br><span class="line">s++;</span><br><span class="line">&#125;</span><br><span class="line">while(i&gt;0)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>switch循环<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int i=2;</span><br><span class="line">switch(i)</span><br><span class="line">&#123;</span><br><span class="line">case 1: System.out.println("你好1");</span><br><span class="line">case 2: System.out.println("你好2");</span><br><span class="line">case 3: System.out.println("你好3");</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
       
 
       
@@ -184,6 +289,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
