@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>初步了解gc及垃圾回收机制 | CoderZhang&#39;s blog</title>
+  <title>gc的初步了解 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于GC初步了解什么是gc JVM的gc概述:gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。  gc存在的意义: java 语言并不要求 JVM 有 gc， 也没有规定 gc 如何工作。 不过常用的 JVM 都有 gc， 而且大多数 gc 都使用类似的算法管理内存和执行收集操作。  gc优化机制:在充分理解了垃圾收集算法和执">
+  <meta name="description" content="一.什么是gc JVM的gc概述: gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。  gc存在的意义: java 语言并不要求JVM有g，也没有规定gc如何工作。不过常用的JVM都有gc,而且大多数gc都使用类似的算法管理内存和执行收集操作。  gc优化机制: 在充分理解了垃圾收集算法和执行过程后,才能有效的优化它的性能。有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初步了解gc及垃圾回收机制">
+<meta property="og:title" content="gc的初步了解">
 <meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="关于GC初步了解什么是gc JVM的gc概述:gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。  gc存在的意义: java 语言并不要求 JVM 有 gc， 也没有规定 gc 如何工作。 不过常用的 JVM 都有 gc， 而且大多数 gc 都使用类似的算法管理内存和执行收集操作。  gc优化机制:在充分理解了垃圾收集算法和执">
+<meta property="og:description" content="一.什么是gc JVM的gc概述: gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。  gc存在的意义: java 语言并不要求JVM有g，也没有规定gc如何工作。不过常用的JVM都有gc,而且大多数gc都使用类似的算法管理内存和执行收集操作。  gc优化机制: 在充分理解了垃圾收集算法和执行过程后,才能有效的优化它的性能。有">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-18T13:26:07.000Z">
-<meta property="article:modified_time" content="2020-07-18T13:31:31.447Z">
+<meta property="article:modified_time" content="2020-07-19T02:20:23.411Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      初步了解gc及垃圾回收机制
+      gc的初步了解
     </h1>
   
 
@@ -185,70 +185,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于GC初步了解"><a href="#关于GC初步了解" class="headerlink" title="关于GC初步了解"></a>关于GC初步了解</h3><h4 id="什么是gc"><a href="#什么是gc" class="headerlink" title="什么是gc"></a>什么是gc</h4><ul>
-<li><p>JVM的gc概述:<strong>gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。</strong></p>
+        <h4 id="一-什么是gc"><a href="#一-什么是gc" class="headerlink" title="一.什么是gc"></a>一.什么是gc</h4><ul>
+<li><p><strong>JVM的gc概述</strong>: <strong>gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。</strong></p>
 </li>
-<li><p>gc存在的意义: <strong>java 语言并不要求 JVM 有 gc， 也没有规定 gc 如何工作。 不过常用的 JVM 都有 gc， 而且大多数 gc 都使用类似的算法<br>管理内存和执行收集操作。</strong></p>
+<li><p><strong>gc存在的意义</strong>: java 语言并不要求JVM有g，也没有规定gc如何工作。不过常用的JVM都有gc,而且大多数gc都使用类似的算法<br>管理内存和执行收集操作。</p>
 </li>
-<li><p>gc优化机制:<strong>在充分理解了垃圾收集算法和执行过程后， 才能有效的优化它的性能。 有些垃圾收集专用于特殊的应用程序。 比如，<br>实时应用程序主要是为了避免垃圾收集中断， 而大多数 OLTP 应用程序则注重整体效率。<br>理解了应用程序的工作负荷和 JVM 支持的垃圾收集算法，<br>便可以进行优化配置垃圾收集器。 垃圾收集的目的在于清除不再使用的对象， gc 通过确定对象是否被活动对象引用来确定是否收集该对象。 gc 首先要判断该对象是否是时候可以收集， 引用计数和对象引用遍历是两种常用的方法。</strong></p>
-</li>
-<li><p>引用计数：</p>
+<li><p><strong>gc优化机制</strong>: 在充分理解了垃圾收集算法和执行过程后,才能有效的优化它的性能。有些垃圾收集专用于特殊的应用程序。比如，<br>实时应用程序主要是为了避免垃圾收集中断，而大多数 OLTP 应用程序则注重整体效率。<br>理解了应用程序的工作负荷和 JVM 支持的垃圾收集算法，便可以进行优化配置垃圾收集器。垃圾收集的目的在于清除不再使用的对象,gc 通过确定对象是否被活动对象引用来确定是否收集该对象。</p>
 </li>
 </ul>
-<p>引用计数存储对特定对象的所有引用数， 也就是说， 当应用程序创建引用以及引用超出范围时， JVM 必须适当<br>增减引用数。 当某对象的引用数为 0 时， 便可以进行垃圾收集。</p>
-<ul>
-<li>对象引用遍历：</li>
+<hr>
+<h4 id="二-gc方法"><a href="#二-gc方法" class="headerlink" title="二.gc方法"></a>二.gc方法</h4><ul>
+<li><strong>gc首先要判断该对象是否是时候可以收集， 引用计数和对象引用遍历是两种常用的方法。</strong></li>
+<li><strong>引用计数</strong>：<ol>
+<li>引用计数存储对特定对象的所有引用数</li>
+<li>也就是说,当应用程序创建引用以及引用超出范围时,JVM 必须适当增减引用数。当某对象的引用数为 0 时,便可以进行垃圾收集。</li>
+</ol>
+</li>
+<li><strong>对象引用遍历</strong><ol>
+<li>早期的 JVM 使用引用计数,现在大多数 JVM 采用对象引用遍历。</li>
+<li>对象引用遍历从一组对象开始,沿着整个对象图上的每条链接,递归确定可到达(reachable)的对象。如果某对象不能从这些根对象的一个（ 至少一个）到达,则将它作为垃圾收集。</li>
+<li>在对象遍历阶段,gc 必须记住哪些对象可以到达,以便删除不可到达的对象，这称为标记（ marking） 对象。下一步,gc 要删除不可到达的对象。<br>删除时,有些 gc 只是简单的扫描堆栈,删除未标记的对象,并释放它们的内存以生成新的对象,这叫做清除（ sweeping）。</li>
+<li>这种方法的问题在于内存会分成好多小段,而它们不足以用于新的对象,但是组合起来却很大。因此,许多 gc 可以重新组织内存中的对象,并进行压缩（ compact）,形成可利用的空间。<br>为此,gc 需要停止其他的活动。这种方法意味着所有与应用程序相关的工作停止,只有 gc 运行。结果,在响应期间增减了许多混杂请求。</li>
+<li>更复杂的 gc 不断增加或同时运行以减少或者清除应用程序的中断。有的 gc 使用单线程完成这项工作,有的则采用多线程以增加效率。<br>Java 语言没有提供释放已分配内存的显示操作方法。</li>
+</ol>
+</li>
 </ul>
-<p>早期的 JVM 使用引用计数， 现在大多数 JVM 采用对象引用遍历。</p>
-<p>对象引用遍历从一组对象开始， 沿着整个对象图上的每条链接， 递归确定可到达（ reachable） 的对象。 如果某对象不能从这些根对象的一个（ 至少一个）到达， 则将它作为垃圾收集。 </p>
-<p>在对象遍历阶段， gc 必须记住哪些对象可以到达， 以便删除不可到达的对象，这称为标记（ marking） 对象。 下一步， gc 要删除不可到达的对象。</p>
-<p>删除时， 有些 gc 只是简单的扫描堆栈，删除未标记的对象， 并释放它们的内存以生成新的对象， 这叫做清除（ sweeping） 。</p>
-<p>这种方法的问题在于内存会分成好多小段， 而它们不足以用于新的对象， 但是组合起来却很大。 因此， 许多 gc 可以重新组织内存中的对象， 并进行压缩（ compact） ， 形成可利用的空间。</p>
-<p>为此， gc 需要停止其他的活动。 这种方法意味着所有与应用程序相关的工作停止， 只有 gc 运行。 结果， 在响应期间增减了许多混杂请求。</p>
-<p>另外， 更复杂的 gc 不断增加或同时运行以减少或者清除应用程序的中断。 有的 gc 使用单线程完成这项工作， 有的则采用多线程以增加效率。</p>
-<p>Java 语言没有提供释放已分配内存的显示操作方法。</p>
-<p>程序员可以手动执行 System.gc()， 通知 GC 运行， 但是 Java 语言规范并不保证 GC 一定会执行。</p>
+<p><code>程序员可以手动执行 System.gc()， 通知 GC 运行， 但是 Java 语言规范并不保证 GC 一定会执行。</code></p>
+<hr>
 <h4 id="几种垃圾回收机制"><a href="#几种垃圾回收机制" class="headerlink" title="几种垃圾回收机制"></a>几种垃圾回收机制</h4><ul>
-<li>标记－清除收集器</li>
+<li><strong>标记－清除收集器</strong></li>
 </ul>
 <blockquote>
-<p>这种收集器首先遍历对象图并标记可到达的对象， 然后扫描堆栈以寻找未标记对象并释放它们的内存。 这种收<br>集器一般使用单线程工作并停止其他操作。</p>
+<p>这种收集器首先遍历对象图并标记可到达的对象,然后扫描堆栈以寻找未标记对象并释放它们的内存。这种收<br>集器一般使用单线程工作并停止其他操作。</p>
 </blockquote>
 <ul>
-<li><p>标记－压缩收集器</p>
+<li><p><strong>标记－压缩收集器</strong></p>
 <blockquote>
-<p>有时也叫标记－清除－压缩收集器， 与标记－清除收集器有相同的标记阶段。 在第二阶段， 则把标记对象复制<br>到堆栈的新域中以便压缩堆栈。 这种收集器也停止其他操作。</p>
+<p>有时也叫标记－清除－压缩收集器,与标记－清除收集器有相同的标记阶段。在第二阶段,则把标记对象复制<br>到堆栈的新域中以便压缩堆栈。这种收集器也停止其他操作。</p>
 </blockquote>
 </li>
-<li><p>复制收集器</p>
+<li><p><strong>复制收集器</strong></p>
 </li>
 </ul>
 <blockquote>
-<p> 这种收集器将堆栈分为两个域， 常称为半空间。 每次仅使用一半的空间， JVM 生成的新对象则放在另一半空间<br>中。 gc 运行时， 它把可到达对象复制到另一半空间， 从而压缩了堆栈。 这种方法适用于短生存期的对象， 持<br>续复制长生存期的对象则导致效率降低。</p>
+<p> 这种收集器将堆栈分为两个域,常称为半空间。每次仅使用一半的空间,JVM 生成的新对象则放在另一半空间<br>中。gc 运行时,它把可到达对象复制到另一半空间,从而压缩了堆栈。这种方法适用于短生存期的对象,持<br>续复制长生存期的对象则导致效率降低。</p>
 </blockquote>
 <ul>
-<li>增量收集器</li>
+<li><strong>增量收集器</strong></li>
 </ul>
 <blockquote>
-<p>增量收集器把堆栈分为多个域， 每次仅从一个域收集垃圾。 这会造成较小的应用程序中断。</p>
+<p>增量收集器把堆栈分为多个域,每次仅从一个域收集垃圾。这会造成较小的应用程序中断。</p>
 </blockquote>
 <ul>
-<li>分代收集器</li>
+<li><strong>分代收集器</strong></li>
 </ul>
 <blockquote>
-<p> 这种收集器把堆栈分为两个或多个域， 用以存放不同寿命的对象。 JVM 生成的新对象一般放在其中的某个域<br>中。 过一段时间， 继续存在的对象将获得使用期并转入更长寿命的域中。 分代收集器对不同的域使用不同的算<br>法以优化性能。</p>
+<p> 这种收集器把堆栈分为两个或多个域,用以存放不同寿命的对象。JVM 生成的新对象一般放在其中的某个域<br>中。过一段时间,继续存在的对象将获得使用期并转入更长寿命的域中。分代收集器对不同的域使用不同的算<br>法以优化性能。</p>
 </blockquote>
 <ul>
-<li>并发收集器</li>
+<li><strong>并发收集器</strong></li>
 </ul>
 <blockquote>
-<p>并发收集器与应用程序同时运行。 这些收集器在某点上（ 比如压缩时） 一般都不得不停止其他操作以完成特定<br>的任务， 但是因为其他应用程序可进行其他的后台操作， 所以中断其他处理的实际时间大大降低。</p>
+<p>并发收集器与应用程序同时运行。这些收集器在某点上（ 比如压缩时） 一般都不得不停止其他操作以完成特定<br>的任务,但是因为其他应用程序可进行其他的后台操作,所以中断其他处理的实际时间大大降低。</p>
 </blockquote>
 <ul>
-<li>并行收集器</li>
+<li><strong>并行收集器</strong></li>
 </ul>
 <blockquote>
-<p> 并行收集器使用某种传统的算法并使用多线程并行的执行它们的工作。 在多 CPU 机器上使用多线程技术可以显<br>著的提高 java 应用程序的可扩展性。</p>
+<p> 并行收集器使用某种传统的算法并使用多线程并行的执行它们的工作。在多 CPU 机器上使用多线程技术可以显<br>著的提高 java 应用程序的可扩展性。</p>
 </blockquote>
 
       
@@ -355,7 +359,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/07/18/NoteBook5/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/07/18/BlogBook5/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">面向对象特性之封装性</div>
       <i class="icon-circle-right"></i>
     </a>
