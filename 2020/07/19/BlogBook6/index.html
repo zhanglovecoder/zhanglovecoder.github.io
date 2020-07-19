@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Tag: Java基础 | CoderZhang&#39;s blog</title>
+  <title>面向对象之继承性 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总有人会赢 为什么不是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CoderZhang&#39;s blog">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/tags/Java%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="继承概述 继承是多态的前提，如果没有继承就没有多态 继承主要解决的问题：共性抽取 继承的特点：   子类可以拥有父类的内容 子类还可以拥有自己专属的内容   在继承关系中：“子类就是一个父类”，也就是说，子类可以被当作父类看待 例如：父类是员工，子类是讲师，那么“讲师就是一个员工”，关系：is-a 用extends来继承父类      Author : ZhangRenwei  继承性！！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象之继承性">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/19/BlogBook6/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="总有人会赢 为什么不是我">
+<meta property="og:description" content="继承概述 继承是多态的前提，如果没有继承就没有多态 继承主要解决的问题：共性抽取 继承的特点：   子类可以拥有父类的内容 子类还可以拥有自己专属的内容   在继承关系中：“子类就是一个父类”，也就是说，子类可以被当作父类看待 例如：父类是员工，子类是讲师，那么“讲师就是一个员工”，关系：is-a 用extends来继承父类      Author : ZhangRenwei  继承性！！！">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-19T03:45:47.000Z">
+<meta property="article:modified_time" content="2020-07-19T04:10:10.449Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Java特性">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -151,37 +155,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-BlogBook6" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      面向对象之继承性
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/07/19/BlogBook6/" class="archive-article-date">
   	<time datetime="2020-07-19T03:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/19/BlogBook6/">面向对象之继承性</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="继承概述"><a href="#继承概述" class="headerlink" title="继承概述"></a>继承概述</h3><ul>
+<li>继承是<strong>多态的前提</strong>，如果没有继承就没有多态</li>
+<li>继承主要解决的问题：<strong>共性抽取</strong></li>
+<li><strong>继承的特点</strong>：</li>
+</ul>
+<ol>
+<li>子类可以拥有父类的内容</li>
+<li>子类还可以拥有自己专属的内容</li>
+</ol>
+<ul>
+<li>在继承关系中：“子类就是一个父类”，也就是说，子类可以被当作父类看待<blockquote>
+<p>例如：父类是员工，子类是讲师，那么“讲师就是一个员工”，关系：is-a</p>
+<p>用extends来继承父类</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>继承性！！！</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h3><ul>
+<li>在父子类的继承关系中，如果成员变量重名，则创建子类对象时，访问有两种方式</li>
+</ul>
+<ol>
+<li>直接通过子类对象访问成员变量：等号左边是谁，就优先用谁，没有则向上找</li>
+<li>间接通过成员方法访问成员变量：该方法属于谁定义在哪里，就优先用谁，没有则向上找</li>
+</ol>
+<ul>
+<li><code>自己心得：当父类中和子类有同一个成员变量且不同的时候，如果用子类调用父类的方法进行打印这个成员变量时，输出的是父类的值，如果调用子类本身的
+成员变量进行打印，输出的是子类的值</code></li>
+<li>区分父类子类成员变量重命名的三种</li>
+</ul>
+<ol>
+<li><strong>局部变量</strong>：  直接写</li>
+<li><strong>本类中的成员变量</strong>：this.成员变量</li>
+<li><strong>父类中的成员变量</strong>：super.成员变量</li>
+</ol>
+<ul>
+<li>区分父类子类方法重命名的访问<blockquote>
+<p>创建的对象是谁，谁访问的这个方法，就优先用谁，没有则向上找</p>
+<p>无论方法还是成员变量，如果没有都是向上找，绝对不会向下找</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="继承中的重写-Override-与重载不是一个概念不要混淆"><a href="#继承中的重写-Override-与重载不是一个概念不要混淆" class="headerlink" title="继承中的重写(Override)(与重载不是一个概念不要混淆)"></a>继承中的重写(Override)(<strong>与重载不是一个概念不要混淆</strong>)</h3><ul>
+<li>概念：在继承关系中，方法的名称一样，参数列表也一样。<blockquote>
+<p>重写（Override): 方法的名称一样，参数列表也一样。可以叫方法的覆写</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>重载(Overload): 方法的名称一样，参数列表不一样</p>
+</blockquote>
+<ul>
+<li>方法的覆盖重写特点：如果创建的是子类对象，则优先用子类方法</li>
+<li>方法覆盖重写的注意事项：</li>
+</ul>
+<ol>
+<li><strong>子类覆写的方法必须与父类的方法名称一样，参数列表相同</strong><blockquote>
+<p>Override：写在方法前面，用来检测是不是真正的覆盖重写</p>
+<p>如果没有Override,如果覆写方法正确，也可以（可选的安全检测手段）</p>
+</blockquote>
+</li>
+<li>子类方法的返回值必须小于等于父类方法的返回值范围</li>
+<li>java.long.Object是所有类的公共子类(祖宗类)，java.long.String就是Object的子类</li>
+<li>子类方法的权限必须大于等于父类方法的权限修饰符</li>
+</ol>
+<p><code>小扩展提示：public&gt;protected&gt;(default)&gt;private  备注：(default)不是关键字default，而是什么都不写，留空</code></p>
+<ul>
+<li>进行父类方法覆写时，尽量不要修改父类的方法内容，想增加什么在子类方法中增加即可</li>
+<li>继承关系中：<strong>父子类构造方法的特点</strong></li>
+</ul>
+<ol>
+<li>子类构造方法中有一个默认隐含的super()调用，所以一定先执行父类构造，再执行子类</li>
+<li>可以通过super关键字来子类构造调用父类重载构造</li>
+<li>super的父类构造调用，只能是子类的第一个语句，不能一个子类构造调用多个super构造</li>
+<li><strong>子类必须调用父类构造方法</strong>，不写则赠送super(),写了则用指定的super()调用，且只能有一个</li>
+</ol>
+<hr>
+<ul>
+<li>方法重写代码举例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    String name ;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    People(String name ,<span class="keyword">int</span> age)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//getter setter方法省略</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">z</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这个人的名字"</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    Student(String name ,<span class="keyword">int</span> age)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">super</span>(name,age);</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//getter setter方法省略</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">z</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"他的名字叫"</span>+name+<span class="string">"重写"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Arraylist</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student student = <span class="keyword">new</span> Student(<span class="string">"张人伟"</span>,<span class="number">18</span>);</span><br><span class="line">        student.z(student.name);</span><br><span class="line">        People people = <span class="keyword">new</span> People(<span class="string">"哈哈哈"</span>,<span class="number">20</span>);</span><br><span class="line">        people.z(people.name);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="this和super方法的使用"><a href="#this和super方法的使用" class="headerlink" title="this和super方法的使用"></a>this和super方法的使用</h3><ul>
+<li>super方法的使用</li>
+</ul>
+<ol>
+<li>在子类的成员方法中，可以通过super调用父类的成员变量</li>
+<li>在子类的成员方法中，可以通过super调用父类的成员方法</li>
+<li>在子类的构造方法中，可以通过super调用父类的构造方法</li>
+</ol>
+<ul>
+<li>this方法的使用</li>
+</ul>
+<ol>
+<li>在本类的成员方法中，访问本类的成员变量</li>
+<li>在本类的成员方法中，访问本类的另一个成员方法</li>
+<li>在本类的构造方法中，访问本类的另一个构造方法<br>在第三种用法当中要注意<br>A.this(…)调用也必须是构造方法的第一个语句，唯一一个<br>B.<strong>super和this两种构造调用，不能同时使用</strong></li>
+</ol>
+<hr>
+<ul>
+<li>this super使用代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">String name;</span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line">People(String name,<span class="keyword">int</span> age)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">this</span>.name=name;</span><br><span class="line"><span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">extends</span> <span class="title">People</span></span>&#123;</span><br><span class="line">Teacher()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Teacher(String name,<span class="keyword">int</span> age)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">super</span>(name,age);</span><br><span class="line"><span class="keyword">this</span>.name=name;</span><br><span class="line"><span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="继承方法的特点"><a href="#继承方法的特点" class="headerlink" title="继承方法的特点"></a>继承方法的特点</h3><ul>
+<li><strong>JAVA语言是单继承的，一个类的直接父类只有唯一一个</strong></li>
+<li><strong>JAVA语言可以多级继承：我有一个父亲，我父亲还有一个父亲，也就是爷爷</strong></li>
+<li><strong>一个子类的多个父类是唯一的，但是一个父类可以拥有很多子类</strong></li>
+</ul>
+<hr>
+<h3 id="抽象的概念"><a href="#抽象的概念" class="headerlink" title="抽象的概念"></a>抽象的概念</h3><ul>
+<li>如果父类当中的方法不确定如何实现，那么这就应该是一个抽象方法</li>
+<li>抽象方法：就是加上abstract关键字，然后去掉大括号，直接分号结束</li>
+<li>抽象类:抽象方法所在的类必须是抽象类，在class之前写上abstract即可</li>
+<li><strong>如何使用抽象类和抽象方法：</strong></li>
+</ul>
+<ol>
+<li>不能直接创建抽象类对象</li>
+<li>必须用一个子类来继承父类</li>
+<li>子类必须覆盖重写父类中的所有抽象方法：去掉abstract，加上方法体{}</li>
+</ol>
+<ul>
+<li><strong>注意事项</strong></li>
+</ul>
+<ol>
+<li>抽象类不能创建对象，如果创建，编译无法通过而报错，只能创建其非抽象子类的对象</li>
+<li>抽象类中，可以有构造方法，是供子类创建对象时，初始化父类成员使用的</li>
+<li>抽象类中，不一定包含抽象方法，但是有抽象方法的类必定是抽象类</li>
+<li>抽象类的子类，必须重写抽象父类中所有的抽象方法，否则，编译无法通过而报错，除非子类也是抽象类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">eat</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这是一个抽象类以及抽象方法</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,183 +373,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/19/BlogBook6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-07-18T13:26:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gc的初步了解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/">gc的初步了解</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook5/" class="archive-article-date">
-  	<time datetime="2020-07-18T13:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook5/">面向对象特性之封装性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BolgBook4/" class="archive-article-date">
-  	<time datetime="2020-07-18T12:38:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BolgBook4/">面向对象概念及变量</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook3/" class="archive-article-date">
-  	<time datetime="2020-07-18T03:13:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook3/">方法的概念</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -407,9 +506,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
