@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>API概述和使用步骤 | CoderZhang&#39;s blog</title>
+  <title>String类的使用和Static静态的用处 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="API概述 一本程序员的字典，是JDK中提供给我们使用的类的说明文档Scanner的类的使用 可以用来从键盘进行输入,到程序中 Scanner src &#x3D; new Scanner(System.in); 获取键盘输入的一个int数字：int num &#x3D; src.nextInt() 获取键盘输入的一个String字符串：String str &#x3D; src.next() 可以通过匿名对象进行方法的传参和">
+  <meta name="description" content="字符串的概述和特点 程序当中所有双引号字符串，都是String类的对象(即使没有new出来也是) 字符串的特点   字符串的内容永不可变 正是因为字符串不可改变，所以字符串可以共享使用; 字符串效果上相当于char[]型字符数组，底层原理是byte[]字节数组   创建字符串的常见3+1方式   public String(),创建一个空白字符串，不含有内容 public String(char[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="API概述和使用步骤">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/21/BlogBook8/index.html">
+<meta property="og:title" content="String类的使用和Static静态的用处">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/21/BlogBook9/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="API概述 一本程序员的字典，是JDK中提供给我们使用的类的说明文档Scanner的类的使用 可以用来从键盘进行输入,到程序中 Scanner src &#x3D; new Scanner(System.in); 获取键盘输入的一个int数字：int num &#x3D; src.nextInt() 获取键盘输入的一个String字符串：String str &#x3D; src.next() 可以通过匿名对象进行方法的传参和">
+<meta property="og:description" content="字符串的概述和特点 程序当中所有双引号字符串，都是String类的对象(即使没有new出来也是) 字符串的特点   字符串的内容永不可变 正是因为字符串不可改变，所以字符串可以共享使用; 字符串效果上相当于char[]型字符数组，底层原理是byte[]字节数组   创建字符串的常见3+1方式   public String(),创建一个空白字符串，不含有内容 public String(char[">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-21T01:38:17.000Z">
-<meta property="article:modified_time" content="2020-07-21T02:25:17.856Z">
+<meta property="article:published_time" content="2020-07-21T02:30:15.000Z">
+<meta property="article:modified_time" content="2020-07-21T03:00:16.745Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -151,14 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook8" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      API概述和使用步骤
+      String类的使用和Static静态的用处
     </h1>
   
 
@@ -180,112 +180,104 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/21/BlogBook8/" class="archive-article-date">
-  	<time datetime="2020-07-21T01:38:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+<a href="/2020/07/21/BlogBook9/" class="archive-article-date">
+  	<time datetime="2020-07-21T02:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="API概述"><a href="#API概述" class="headerlink" title="API概述"></a>API概述</h3><ul>
-<li>一本程序员的字典，是JDK中提供给我们使用的类的说明文档<h3 id="Scanner的类的使用"><a href="#Scanner的类的使用" class="headerlink" title="Scanner的类的使用"></a>Scanner的类的使用</h3></li>
-<li>可以用来从键盘进行输入,到程序中</li>
-<li><strong>Scanner src = new Scanner(System.in);</strong></li>
-<li>获取键盘输入的一个int数字：<strong>int num = src.nextInt()</strong></li>
-<li>获取键盘输入的一个String字符串：<strong>String str = src.next()</strong></li>
-<li>可以通过匿名对象进行方法的传参和返回</li>
-<li>使用Scanner类基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);<span class="comment">//在控制台进行输入</span></span><br><span class="line">        <span class="keyword">int</span> num = scanner.nextInt();<span class="comment">//定义int型变量num接收输入的数值并赋值给num</span></span><br><span class="line">        <span class="keyword">if</span>(num==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"好的"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"不好"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<code>注意事项:Scanner的注意事项：Scanner类的next(),nextInt()等方法以空白符为分隔符读取数据</code></li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>常用工具类</strong></p>
-</li>
-</ul>
-<a id="more"></a>
-
-<h3 id="Random类的使用"><a href="#Random类的使用" class="headerlink" title="Random类的使用"></a>Random类的使用</h3><ul>
-<li><strong>Random random = new Random();</strong></li>
-<li>进行获取</li>
+        <h3 id="字符串的概述和特点"><a href="#字符串的概述和特点" class="headerlink" title="字符串的概述和特点"></a>字符串的概述和特点</h3><ul>
+<li><strong>程序当中所有双引号字符串，都是String类的对象</strong>(即使没有new出来也是)</li>
+<li><strong>字符串的特点</strong></li>
 </ul>
 <ol>
-<li>获取一个随机的int数字:int num = r.nextInt()<blockquote>
-<p>也可以在括号里添加数字，规定随机范围</p>
+<li>字符串的内容<strong>永不可变</strong></li>
+<li>正是因为字符串不可改变，所以字符串可以<strong>共享使用</strong>;</li>
+<li>字符串效果上相当于char[]型字符数组，<strong>底层原理是byte[]字节数组</strong></li>
+</ol>
+<ul>
+<li>创建字符串的常见3+1方式</li>
+</ul>
+<ol>
+<li>public String(),创建一个空白字符串，不含有内容</li>
+<li>public String(char[] array),根据字符数组的内容创造相应字符串</li>
+<li>public String(byte[] array),根据字节数组的内容创造相应字符串</li>
+</ol>
+<p><code>一种直接创建：String str = &quot;HelloWorld&quot;;</code></p>
+<hr>
+<ul>
+<li><strong>字符串常量池</strong>：程序中直接写上双引号的字符串，就在常量池中</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String s = <span class="keyword">new</span> String();<span class="comment">//第一种方式</span></span><br><span class="line"><span class="keyword">char</span>[] chars = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1</span>];</span><br><span class="line">String s1 = <span class="keyword">new</span> String(chars);<span class="comment">//第二种方式</span></span><br><span class="line">String s2 = <span class="keyword">new</span> String(bytes);<span class="comment">//第三种方式</span></span><br><span class="line">String s3 = <span class="string">"Hello"</span>;<span class="comment">//第四种方式</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="字符串内容比较，用两个方法"><a href="#字符串内容比较，用两个方法" class="headerlink" title="字符串内容比较，用两个方法:"></a>字符串内容比较，用两个方法:</h3><ul>
+<li>第一种:<strong>public boolean equals(Object obj) 任何对象都能用Object比较</strong><ul>
+<li>注意事项:</li>
+</ul>
+<ol>
+<li>equals方法具有对称性，也是a.equals(b)和b.equals(a)效果一样</li>
+<li>如果双方比较一个是常量一个是引用，通常常量.equals(引用类型)</li>
+</ol>
+</li>
+<li>第二种比较方法：<strong>public boolean euqalsIgnoreCase()</strong><blockquote>
+<p>两种区别:上面区分大小写 下面不区分大小写</p>
+</blockquote>
+</li>
+<li>代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String a = <span class="string">"Hello"</span>; </span><br><span class="line">  String b = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="keyword">boolean</span> equals = a.equals(b);<span class="comment">//区分大小写</span></span><br><span class="line"><span class="keyword">boolean</span> b1 = a.equalsIgnoreCase(b);<span class="comment">//不区分大小写</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的获取常用方法"><a href="#字符串的获取常用方法" class="headerlink" title="字符串的获取常用方法"></a>字符串的获取常用方法</h3></li>
+<li><strong>public int length()</strong> 获取字符串中含有的字符个数,拿到字符串长度</li>
+<li><strong>public String concat(String str)</strong> 将当前字符串和参数字符串拼接成为返回值新的字符</li>
+<li><strong>public char charAt(int index)</strong> 获取指定索引位置的单个字符</li>
+<li><strong>public  int indexOf(String str)</strong> 查找参数字符串在本字符串当中首次出现的位置，如果没有返回-1<h3 id="字符串中的截取方法"><a href="#字符串中的截取方法" class="headerlink" title="字符串中的截取方法"></a>字符串中的截取方法</h3></li>
+<li><strong>public String substring(int index)</strong> 从参数位置一直截取到字符串结尾，返回新字符串</li>
+<li><strong>public String substring(int begin,int end)</strong> 数组从begin开始，一直到end结束，截取字符包含左边不包含右边<h3 id="字符串中的转换方法"><a href="#字符串中的转换方法" class="headerlink" title="字符串中的转换方法"></a>字符串中的转换方法</h3></li>
+<li><strong>public char[] to CharArray()</strong> 将当前字符串拆分为字符数组作为返回值</li>
+<li><strong>public byte[] getBytes()</strong> 获取当前字符串底层的字节数组</li>
+<li><strong>public String replace(CharSequence oldString,CharSequence newString)</strong> 将所有出现的老字符串替换成为新的，返回替换之后的结果新字符串<h3 id="字符串中的分割方法"><a href="#字符串中的分割方法" class="headerlink" title="字符串中的分割方法"></a>字符串中的分割方法</h3></li>
+<li><strong>public Stringp[] split(String regex)</strong> :按照参数的规则，将字符串分为若干部分</li>
+<li>注意事项:<blockquote>
+<p>split方法的参数其实是一个”正则表达式”,如果按照英文句点”.”进行划分，必须写”\.”(两个反斜杠)</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="字符串方法基本代码举例"><a href="#字符串方法基本代码举例" class="headerlink" title="字符串方法基本代码举例"></a>字符串方法基本代码举例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String string = <span class="string">"HelloWorld"</span>;</span><br><span class="line">String string1 = <span class="string">"Zrw"</span> ;</span><br><span class="line"><span class="keyword">int</span> length = string.length();<span class="comment">//获取长度</span></span><br><span class="line">String concat = string.concat(string1);<span class="comment">//拼接字符串</span></span><br><span class="line"><span class="keyword">char</span> c = string.charAt(<span class="number">1</span>);<span class="comment">//通过索引获取单个字符</span></span><br><span class="line"><span class="keyword">int</span> i = string.indexOf(<span class="string">'H'</span>);<span class="comment">//查找字符在字符串中出现的次数</span></span><br><span class="line">String substring = string.substring(<span class="number">5</span>);<span class="comment">//从开始一直截取到索引下标为5的字符</span></span><br><span class="line">String substring1 = string.substring(<span class="number">2</span>,<span class="number">5</span>);<span class="comment">//从索引为2的字符开始截取到索引为5的字符</span></span><br><span class="line"><span class="keyword">char</span>[] chars = string.toCharArray();<span class="comment">//将字符串转化为字符数组</span></span><br><span class="line"><span class="keyword">byte</span>[] b = string.getBytes();<span class="comment">//将字符串转化为字节数组</span></span><br><span class="line">String s = string.replaceAll(string1);<span class="comment">//将字符串全部替换为新的参数字符串</span></span><br><span class="line">String[] split = string.split(<span class="string">"e"</span>);<span class="comment">//将字符串从e开始划分 并将划分后的几段字符串存放到新的字符串数组中</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Static静态关键字基本含义"><a href="#Static静态关键字基本含义" class="headerlink" title="Static静态关键字基本含义"></a>Static静态关键字基本含义</h3><ul>
+<li>如果一个成员变量使用了static关键字，那么这个变量不再属于对象自己，而是属于所在的类，多个对象共享同一份数据</li>
+<li><strong>一旦static修饰成员方法，那么这就成为了静态方法，静态方法不属于对象，而是属于类</strong></li>
+<li>如果没有static关键字，那么必须首先创建对象，然后通过对象才能使用它</li>
+<li>对于静态方法来说，可以<strong>通过对象名进行调用，也可以通过类名称进行调用</strong></li>
+<li>如果有了static关键字，那么不需要创建对象，直接就能通过<strong>类名称使用它</strong></li>
+<li>无论是成员变量，还是成员方法，<strong>如果有了static,都推荐使用类名称进行调用，对于本类当中的静态方法，可以省略类名称调用</strong></li>
+<li><strong>注意事项：</strong></li>
+</ul>
+<ol>
+<li><strong>静态只能直接访问静态，不能直接访问非静态</strong><blockquote>
+<p>原因：因为在内存中没创建对象的时候就已经有了静态内容，而非静态内容是后来才有的</p>
 </blockquote>
 </li>
 </ol>
 <ul>
-<li>Random类基本代码使用举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Random random = <span class="keyword">new</span> Random(<span class="number">10</span>);<span class="comment">//从1到10随机</span></span><br><span class="line"><span class="keyword">int</span> num = random.nextInt();<span class="comment">//接收random变量随机的值并赋值给num</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(num&gt;<span class="number">5</span>)</span><br><span class="line">&#123;</span><br><span class="line">System.out.println(<span class="string">"很好"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">System.out.println(<span class="string">"很不好"</span>);</span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<code>注意事项：使用Random类时要注意，由于时钟分辨率有限，频繁地创建不同的Random对象会创造出产生相同随机数系列的随机数生成器。所有编写程序时，应该通过创建单个而不是多个Random对象来生成随机数，以便让其随着时间的推移而生成不同的随机值</code></li>
-</ul>
-<hr>
-<h3 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h3><ul>
-<li><strong>数组的长度不可以发生改变，但是ArrayList集合的长度可以发生改变</strong></li>
-<li>对于ArrayList来说，有一个间或靠<E>代表泛型<blockquote>
-<p>泛型，也就是装在集合中的所有元素，全部都是统一的什么类型</p>
-<p>泛型：只能是引用类型，不能是基本类型</p>
-</blockquote>
-</E></li>
-<li><strong>从JDK1.7开始</strong>，右侧的尖括号内部可以不写内容，但是&lt;&gt;本身还是要写的</li>
-<li>注意事项：对于ArrayList集合来说，直接打印得到的不是地址值，而是内容<blockquote>
-<p>如果内容是空，得到的是空的中括号，[]</p>
+<li>静态方法中不能使用this关键字<blockquote>
+<p>原因：this代表当前对象，通过谁调用的方法，谁就是当前对象</p>
 </blockquote>
 </li>
-<li>ArrayList当中常用方法有：</li>
+<li>根据类名称访问静态成员变量时，全程和对象没有关系，只和类有关系</li>
+<li>静态代码块</li>
 </ul>
 <ol>
-<li>public boolean add(E e) 向集合中添加元素，参数类型和泛型一致,返回值添加是否成功<blockquote>
-<p>对于ArrayList集合add添加方法是一定成功的，返回值可用可不用，但是对于其他的集合不一定</p>
-</blockquote>
-</li>
-<li>public E get(int(index)) 从集合中获取元素，参数是索引编号，返回值是对应位置的元素</li>
-<li>public E remove(int index) 从集合中删除元素，参数是索引编号，返回值是被删除的元素</li>
-<li>public int size() 获取集合的尺寸长度，返回值是集合中包含的元素个数</li>
+<li>格式是：public class 类名称{ static{//静态代码块的内容 } }</li>
+<li>特点是：当第一次用到本类时，静态代码执行唯一的一次</li>
+<li>静态代码块总是优先于非静态代码块执行，且优先于构造方法执行</li>
+<li>典型用途：用来一次性的对静态成员变量赋值</li>
 </ol>
 <ul>
-<li>如果希望向集合中ArrayList当中存储数据类型，必须使用基本类型相对应的“包装类”</li>
-<li>基本类型 包装类(引用类型，包装类都位于java.lang包下)<blockquote>
-<p>  int    Integer[特殊]</p>
-<p> char    Character[特殊]</p>
-<p>其他基本类型的包装类等于基本类型首字母大写</p>
-</blockquote>
-</li>
-<li>从JDK 1.5+开始，支持自动装箱，自动拆箱<blockquote>
-<p>自动装箱：基本类型—&gt;包装类型 int-&gt;Integer</p>
-<p>自动拆箱：包装类型—&gt;基本类型 Integer-&gt;int</p>
-</blockquote>
-</li>
-<li>ArrayList基本代码举例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  ArrayList  &lt;Integer&gt;arrayList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">arrayList.add(<span class="number">1</span>);<span class="comment">//添加元素</span></span><br><span class="line">arrayList.add(<span class="number">2</span>);</span><br><span class="line">arrayList.add(<span class="number">3</span>);</span><br><span class="line">arrayList.add(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">int</span> num = arrayList.get(<span class="number">2</span>);<span class="comment">//获取集合中的元素，方法中的参数为元素下标索引</span></span><br><span class="line"><span class="keyword">int</span> num1 = arrayList.remove(<span class="number">2</span>);<span class="comment">//删除集合中的元素，方法中的参数为元素下标索引</span></span><br><span class="line"><span class="keyword">int</span> size = arrayList.size();<span class="comment">//获取集合的长度</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="数组工具类Arrays"><a href="#数组工具类Arrays" class="headerlink" title="数组工具类Arrays"></a>数组工具类Arrays</h3><ul>
-<li>java.util.Arrays<strong>是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作</strong></li>
-<li>public static String toString(数组),将参数数组变成字符串</li>
-<li>public static void sort(数组),按照默认升序()对数组的元素进行排序<blockquote>
-<p>备注：如果是数值,sort默认按照升序从小到大</p>
-<p>如果是字符串,sort默认按照字母升序</p>
-<p>如果是自定义的类型，那么这个自定义的类需要有Comparable或者Comparator接口的支持(以后学习)</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//建立长整型数组并赋值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;ints.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ints[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        ints[<span class="number">3</span>]=<span class="number">10</span>;</span><br><span class="line">        Arrays.sort(ints);<span class="comment">//利用sort方法进行升序排序</span></span><br><span class="line">        String string = Arrays.toString(ints);<span class="comment">//利用Arrays类中的toString方法将数组转化为字符串</span></span><br><span class="line">        System.out.println(string);</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><ul>
-<li>java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，完成与数学相关运算的操作</li>
-</ul>
-<ol>
-<li>public static double abs(double num)获取绝对值</li>
-<li>public static double ceil(double num)向上取整</li>
-<li>public static double floor(double num)向下取整</li>
-<li>public static long round(double num)四舍五入</li>
-</ol>
-<ul>
-<li>强制转换(int)会舍弃所有小数位<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> a1 = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> a2 = <span class="number">20</span>;</span><br><span class="line">      <span class="keyword">int</span> a3 = a1-a2;</span><br><span class="line">        System.out.println(a3);</span><br><span class="line">        System.out.println(Math.abs(a3));<span class="comment">//通过Math类中的abs方法获取绝对值</span></span><br><span class="line">        <span class="keyword">double</span> a4 = <span class="number">10.05</span>;</span><br><span class="line">        <span class="keyword">double</span> a5 = <span class="number">0.15</span>;</span><br><span class="line">        <span class="keyword">double</span> a6 = a4-a5;</span><br><span class="line">        System.out.println(Math.ceil(a6));<span class="comment">//通过Math类中的ceil方法向上取整</span></span><br><span class="line">        System.out.println(Math.floor(a6));<span class="comment">//通过Math类中的floor方法向下取整</span></span><br><span class="line">        System.out.println(Math.round(a6));<span class="comment">//通过Math类中的round方法四舍五入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="以上是初学常用工具类的使用"><a href="#以上是初学常用工具类的使用" class="headerlink" title="以上是初学常用工具类的使用"></a>以上是初学常用工具类的使用</h4></li>
+<li>静态代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">10</span>;<span class="comment">//静态变量</span></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line"> System.out.println(<span class="string">"我是静态代码块"</span>);<span class="comment">//静态代码块</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  A.z();<span class="comment">//静态方法，直接通过类名调用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">z</span><span class="params">()</span></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"我是静态方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以上是String类以及初步了解静态的概念及使用注意事项"><a href="#以上是String类以及初步了解静态的概念及使用注意事项" class="headerlink" title="以上是String类以及初步了解静态的概念及使用注意事项"></a>以上是String类以及初步了解静态的概念及使用注意事项</h3></li>
 </ul>
 
       
@@ -377,7 +369,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/21/BlogBook8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/21/BlogBook9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -391,18 +383,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/21/BlogBook9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          String类的使用和Static静态的用处
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/19/BlogBook6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">面向对象之继承性</div>
+    <a href="/2020/07/21/BlogBook8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">API概述和使用步骤</div>
       <i class="icon-circle-right"></i>
     </a>
   

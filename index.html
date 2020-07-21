@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 10
+    总文章数 11
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -83,10 +83,9 @@
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=70 src="//music.163.com/outchain/player?type=2&id=404610&auto=1&height=66"></iframe>
 				
 					<a class="weibo" target="_blank" href="https://weibo.com/u/5431808344/home?topnav=1&wvr=6" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="mail" target="_blank" href="mailto:867731354@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -125,8 +124,6 @@
 					
 						<a class="weibo" target="_blank" href="https://weibo.com/u/5431808344/home?topnav=1&wvr=6" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:867731354@qq.com" title="mail"><i class="icon-mail"></i></a>
-			        
 				</div>
 			</nav>
 
@@ -152,6 +149,174 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/21/BlogBook9/">String类的使用和Static静态的用处</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/21/BlogBook9/" class="archive-article-date">
+  	<time datetime="2020-07-21T02:30:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字符串的概述和特点"><a href="#字符串的概述和特点" class="headerlink" title="字符串的概述和特点"></a>字符串的概述和特点</h3><ul>
+<li><strong>程序当中所有双引号字符串，都是String类的对象</strong>(即使没有new出来也是)</li>
+<li><strong>字符串的特点</strong></li>
+</ul>
+<ol>
+<li>字符串的内容<strong>永不可变</strong></li>
+<li>正是因为字符串不可改变，所以字符串可以<strong>共享使用</strong>;</li>
+<li>字符串效果上相当于char[]型字符数组，<strong>底层原理是byte[]字节数组</strong></li>
+</ol>
+<ul>
+<li>创建字符串的常见3+1方式</li>
+</ul>
+<ol>
+<li>public String(),创建一个空白字符串，不含有内容</li>
+<li>public String(char[] array),根据字符数组的内容创造相应字符串</li>
+<li>public String(byte[] array),根据字节数组的内容创造相应字符串</li>
+</ol>
+<p><code>一种直接创建：String str = &quot;HelloWorld&quot;;</code></p>
+<hr>
+<ul>
+<li><strong>字符串常量池</strong>：程序中直接写上双引号的字符串，就在常量池中</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String s = <span class="keyword">new</span> String();<span class="comment">//第一种方式</span></span><br><span class="line"><span class="keyword">char</span>[] chars = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1</span>];</span><br><span class="line">String s1 = <span class="keyword">new</span> String(chars);<span class="comment">//第二种方式</span></span><br><span class="line">String s2 = <span class="keyword">new</span> String(bytes);<span class="comment">//第三种方式</span></span><br><span class="line">String s3 = <span class="string">"Hello"</span>;<span class="comment">//第四种方式</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="字符串内容比较，用两个方法"><a href="#字符串内容比较，用两个方法" class="headerlink" title="字符串内容比较，用两个方法:"></a>字符串内容比较，用两个方法:</h3><ul>
+<li>第一种:<strong>public boolean equals(Object obj) 任何对象都能用Object比较</strong><ul>
+<li>注意事项:</li>
+</ul>
+<ol>
+<li>equals方法具有对称性，也是a.equals(b)和b.equals(a)效果一样</li>
+<li>如果双方比较一个是常量一个是引用，通常常量.equals(引用类型)</li>
+</ol>
+</li>
+<li>第二种比较方法：<strong>public boolean euqalsIgnoreCase()</strong><blockquote>
+<p>两种区别:上面区分大小写 下面不区分大小写</p>
+</blockquote>
+</li>
+<li>代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String a = <span class="string">"Hello"</span>; </span><br><span class="line">  String b = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="keyword">boolean</span> equals = a.equals(b);<span class="comment">//区分大小写</span></span><br><span class="line"><span class="keyword">boolean</span> b1 = a.equalsIgnoreCase(b);<span class="comment">//不区分大小写</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的获取常用方法"><a href="#字符串的获取常用方法" class="headerlink" title="字符串的获取常用方法"></a>字符串的获取常用方法</h3></li>
+<li><strong>public int length()</strong> 获取字符串中含有的字符个数,拿到字符串长度</li>
+<li><strong>public String concat(String str)</strong> 将当前字符串和参数字符串拼接成为返回值新的字符</li>
+<li><strong>public char charAt(int index)</strong> 获取指定索引位置的单个字符</li>
+<li><strong>public  int indexOf(String str)</strong> 查找参数字符串在本字符串当中首次出现的位置，如果没有返回-1<h3 id="字符串中的截取方法"><a href="#字符串中的截取方法" class="headerlink" title="字符串中的截取方法"></a>字符串中的截取方法</h3></li>
+<li><strong>public String substring(int index)</strong> 从参数位置一直截取到字符串结尾，返回新字符串</li>
+<li><strong>public String substring(int begin,int end)</strong> 数组从begin开始，一直到end结束，截取字符包含左边不包含右边<h3 id="字符串中的转换方法"><a href="#字符串中的转换方法" class="headerlink" title="字符串中的转换方法"></a>字符串中的转换方法</h3></li>
+<li><strong>public char[] to CharArray()</strong> 将当前字符串拆分为字符数组作为返回值</li>
+<li><strong>public byte[] getBytes()</strong> 获取当前字符串底层的字节数组</li>
+<li><strong>public String replace(CharSequence oldString,CharSequence newString)</strong> 将所有出现的老字符串替换成为新的，返回替换之后的结果新字符串<h3 id="字符串中的分割方法"><a href="#字符串中的分割方法" class="headerlink" title="字符串中的分割方法"></a>字符串中的分割方法</h3></li>
+<li><strong>public Stringp[] split(String regex)</strong> :按照参数的规则，将字符串分为若干部分</li>
+<li>注意事项:<blockquote>
+<p>split方法的参数其实是一个”正则表达式”,如果按照英文句点”.”进行划分，必须写”\.”(两个反斜杠)</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="字符串方法基本代码举例"><a href="#字符串方法基本代码举例" class="headerlink" title="字符串方法基本代码举例"></a>字符串方法基本代码举例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String string = <span class="string">"HelloWorld"</span>;</span><br><span class="line">String string1 = <span class="string">"Zrw"</span> ;</span><br><span class="line"><span class="keyword">int</span> length = string.length();<span class="comment">//获取长度</span></span><br><span class="line">String concat = string.concat(string1);<span class="comment">//拼接字符串</span></span><br><span class="line"><span class="keyword">char</span> c = string.charAt(<span class="number">1</span>);<span class="comment">//通过索引获取单个字符</span></span><br><span class="line"><span class="keyword">int</span> i = string.indexOf(<span class="string">'H'</span>);<span class="comment">//查找字符在字符串中出现的次数</span></span><br><span class="line">String substring = string.substring(<span class="number">5</span>);<span class="comment">//从开始一直截取到索引下标为5的字符</span></span><br><span class="line">String substring1 = string.substring(<span class="number">2</span>,<span class="number">5</span>);<span class="comment">//从索引为2的字符开始截取到索引为5的字符</span></span><br><span class="line"><span class="keyword">char</span>[] chars = string.toCharArray();<span class="comment">//将字符串转化为字符数组</span></span><br><span class="line"><span class="keyword">byte</span>[] b = string.getBytes();<span class="comment">//将字符串转化为字节数组</span></span><br><span class="line">String s = string.replaceAll(string1);<span class="comment">//将字符串全部替换为新的参数字符串</span></span><br><span class="line">String[] split = string.split(<span class="string">"e"</span>);<span class="comment">//将字符串从e开始划分 并将划分后的几段字符串存放到新的字符串数组中</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Static静态关键字基本含义"><a href="#Static静态关键字基本含义" class="headerlink" title="Static静态关键字基本含义"></a>Static静态关键字基本含义</h3><ul>
+<li>如果一个成员变量使用了static关键字，那么这个变量不再属于对象自己，而是属于所在的类，多个对象共享同一份数据</li>
+<li><strong>一旦static修饰成员方法，那么这就成为了静态方法，静态方法不属于对象，而是属于类</strong></li>
+<li>如果没有static关键字，那么必须首先创建对象，然后通过对象才能使用它</li>
+<li>对于静态方法来说，可以<strong>通过对象名进行调用，也可以通过类名称进行调用</strong></li>
+<li>如果有了static关键字，那么不需要创建对象，直接就能通过<strong>类名称使用它</strong></li>
+<li>无论是成员变量，还是成员方法，<strong>如果有了static,都推荐使用类名称进行调用，对于本类当中的静态方法，可以省略类名称调用</strong></li>
+<li><strong>注意事项：</strong></li>
+</ul>
+<ol>
+<li><strong>静态只能直接访问静态，不能直接访问非静态</strong><blockquote>
+<p>原因：因为在内存中没创建对象的时候就已经有了静态内容，而非静态内容是后来才有的</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>静态方法中不能使用this关键字<blockquote>
+<p>原因：this代表当前对象，通过谁调用的方法，谁就是当前对象</p>
+</blockquote>
+</li>
+<li>根据类名称访问静态成员变量时，全程和对象没有关系，只和类有关系</li>
+<li>静态代码块</li>
+</ul>
+<ol>
+<li>格式是：public class 类名称{ static{//静态代码块的内容 } }</li>
+<li>特点是：当第一次用到本类时，静态代码执行唯一的一次</li>
+<li>静态代码块总是优先于非静态代码块执行，且优先于构造方法执行</li>
+<li>典型用途：用来一次性的对静态成员变量赋值</li>
+</ol>
+<ul>
+<li>静态代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">10</span>;<span class="comment">//静态变量</span></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line"></span><br><span class="line"> System.out.println(<span class="string">"我是静态代码块"</span>);<span class="comment">//静态代码块</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  A.z();<span class="comment">//静态方法，直接通过类名调用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">z</span><span class="params">()</span></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"我是静态方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以上是String类以及初步了解静态的概念及使用注意事项"><a href="#以上是String类以及初步了解静态的概念及使用注意事项" class="headerlink" title="以上是String类以及初步了解静态的概念及使用注意事项"></a>以上是String类以及初步了解静态的概念及使用注意事项</h3></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/21/BlogBook9/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -220,109 +385,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/21/BlogBook8/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BlogBook7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/19/BlogBook7/">面向对象之多态性</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/19/BlogBook7/" class="archive-article-date">
-  	<time datetime="2020-07-19T03:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="面向对象的多态性（一个对象拥有多种形态）Multi"><a href="#面向对象的多态性（一个对象拥有多种形态）Multi" class="headerlink" title="面向对象的多态性（一个对象拥有多种形态）Multi"></a>面向对象的多态性（一个对象拥有多种形态）Multi</h3><ul>
-<li>extends继承或者implements实现，是<strong>多态性的前提</strong></li>
-<li>代码中体现多态性，其实就是一句话，<strong>父类引用指向子类对象</strong><blockquote>
-<p>格式：父类名称 对象名 = new 子类名称(); 或者：接口名称 对象名 = new 实现类名称();</p>
-</blockquote>
-</li>
-<li>访问成员变量的<strong>两种方式</strong>：</li>
-</ul>
-<ol>
-<li>通过对象名称直接访问成员变量，看等号左边是谁，优先用谁，没有则向上找</li>
-<li>通过成员方法访问成员变量，看方法属于谁，优先用谁，没有则向上找</li>
-</ol>
-<ul>
-<li><p>成员方法访问规则：看New的是谁就优先用谁，没有则向上找</p>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>多态性！！！</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/19/BlogBook7/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/19/BlogBook7/">点击查看全文 >></a>
         </p>
       
 
@@ -429,6 +491,109 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/19/BlogBook6/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-BlogBook7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/19/BlogBook7/">面向对象之多态性</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/19/BlogBook7/" class="archive-article-date">
+  	<time datetime="2020-07-19T03:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象的多态性（一个对象拥有多种形态）Multi"><a href="#面向对象的多态性（一个对象拥有多种形态）Multi" class="headerlink" title="面向对象的多态性（一个对象拥有多种形态）Multi"></a>面向对象的多态性（一个对象拥有多种形态）Multi</h3><ul>
+<li>extends继承或者implements实现，是<strong>多态性的前提</strong></li>
+<li>代码中体现多态性，其实就是一句话，<strong>父类引用指向子类对象</strong><blockquote>
+<p>格式：父类名称 对象名 = new 子类名称(); 或者：接口名称 对象名 = new 实现类名称();</p>
+</blockquote>
+</li>
+<li>访问成员变量的<strong>两种方式</strong>：</li>
+</ul>
+<ol>
+<li>通过对象名称直接访问成员变量，看等号左边是谁，优先用谁，没有则向上找</li>
+<li>通过成员方法访问成员变量，看方法属于谁，优先用谁，没有则向上找</li>
+</ol>
+<ul>
+<li><p>成员方法访问规则：看New的是谁就优先用谁，没有则向上找</p>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>多态性！！！</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/19/BlogBook7/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/19/BlogBook7/">点击查看全文 >></a>
         </p>
       
 
@@ -1027,77 +1192,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/05/08/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-08T05:39:04.808Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p><strong>Author : ZhangRenwei</strong></p>
-<p><strong>hexo基本指令</strong></p>
-        
-          <a class="article-more-a" href="/2020/05/08/hello-world/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/hello-world/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
