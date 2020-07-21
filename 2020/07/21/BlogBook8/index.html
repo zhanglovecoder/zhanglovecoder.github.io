@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>面向对象概念及变量 | CoderZhang&#39;s blog</title>
+  <title>API概述和使用步骤 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面向的对象的思想与概念面向的对象的思想举例 面向对象：强调对象  面向过程：强调过程  三大特性：封装，继承，多态  类：是一组相关属性和行为的集合，可以看成是一类事物的模板  属性：就是该事物的状态信息 行为：就是该事物能够做什么    定义成员方法不带有static关键字      Author : ZhangRenwei  面向对象及局部和成员变量">
+  <meta name="description" content="API概述 一本程序员的字典，是JDK中提供给我们使用的类的说明文档Scanner的类的使用 可以用来从键盘进行输入,到程序中 Scanner src &#x3D; new Scanner(System.in); 获取键盘输入的一个int数字：int num &#x3D; src.nextInt() 获取键盘输入的一个String字符串：String str &#x3D; src.next() 可以通过匿名对象进行方法的传参和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象概念及变量">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/18/BolgBook4/index.html">
+<meta property="og:title" content="API概述和使用步骤">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/21/BlogBook8/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="面向的对象的思想与概念面向的对象的思想举例 面向对象：强调对象  面向过程：强调过程  三大特性：封装，继承，多态  类：是一组相关属性和行为的集合，可以看成是一类事物的模板  属性：就是该事物的状态信息 行为：就是该事物能够做什么    定义成员方法不带有static关键字      Author : ZhangRenwei  面向对象及局部和成员变量">
+<meta property="og:description" content="API概述 一本程序员的字典，是JDK中提供给我们使用的类的说明文档Scanner的类的使用 可以用来从键盘进行输入,到程序中 Scanner src &#x3D; new Scanner(System.in); 获取键盘输入的一个int数字：int num &#x3D; src.nextInt() 获取键盘输入的一个String字符串：String str &#x3D; src.next() 可以通过匿名对象进行方法的传参和">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-18T12:38:41.000Z">
-<meta property="article:modified_time" content="2020-07-19T03:39:11.641Z">
+<meta property="article:published_time" content="2020-07-21T01:38:17.000Z">
+<meta property="article:modified_time" content="2020-07-21T02:25:17.856Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -154,14 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BolgBook4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      面向对象概念及变量
+      API概述和使用步骤
     </h1>
   
 
@@ -183,77 +183,112 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/BolgBook4/" class="archive-article-date">
-  	<time datetime="2020-07-18T12:38:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/07/21/BlogBook8/" class="archive-article-date">
+  	<time datetime="2020-07-21T01:38:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="面向的对象的思想与概念"><a href="#面向的对象的思想与概念" class="headerlink" title="面向的对象的思想与概念"></a>面向的对象的思想与概念</h3><h4 id="面向的对象的思想举例"><a href="#面向的对象的思想举例" class="headerlink" title="面向的对象的思想举例"></a>面向的对象的思想举例</h4><ul>
-<li><p><del>面向对象：强调对象</del></p>
-</li>
-<li><p>面向过程：强调过程</p>
-</li>
-<li><p>三大特性：<strong>封装，继承，多态</strong></p>
-</li>
-<li><p>类：是一组相关属性和行为的集合，可以看成是一类事物的模板</p>
-<blockquote>
-<p>属性：就是该事物的状态信息 行为：就是该事物能够做什么</p>
-</blockquote>
-<p>  定义成员方法不带有static关键字 </p>
-</li>
+        <h3 id="API概述"><a href="#API概述" class="headerlink" title="API概述"></a>API概述</h3><ul>
+<li>一本程序员的字典，是JDK中提供给我们使用的类的说明文档<h3 id="Scanner的类的使用"><a href="#Scanner的类的使用" class="headerlink" title="Scanner的类的使用"></a>Scanner的类的使用</h3></li>
+<li>可以用来从键盘进行输入,到程序中</li>
+<li><strong>Scanner src = new Scanner(System.in);</strong></li>
+<li>获取键盘输入的一个int数字：<strong>int num = src.nextInt()</strong></li>
+<li>获取键盘输入的一个String字符串：<strong>String str = src.next()</strong></li>
+<li>可以通过匿名对象进行方法的传参和返回</li>
+<li>使用Scanner类基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);<span class="comment">//在控制台进行输入</span></span><br><span class="line">        <span class="keyword">int</span> num = scanner.nextInt();<span class="comment">//定义int型变量num接收输入的数值并赋值给num</span></span><br><span class="line">        <span class="keyword">if</span>(num==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"好的"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"不好"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<code>注意事项:Scanner的注意事项：Scanner类的next(),nextInt()等方法以空白符为分隔符读取数据</code></li>
 </ul>
 <hr>
 <ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>面向对象及局部和成员变量</strong></p>
+<li><p><strong>常用工具类</strong></p>
 </li>
 </ul>
 <a id="more"></a>
 
-<h4 id="对象的创建和使用"><a href="#对象的创建和使用" class="headerlink" title="对象的创建和使用"></a>对象的创建和使用</h4><ol>
-<li><strong>导包</strong>：也就是指出需要使用的类在什么位置  import 包名称.类名称</li>
-<li><strong>创建</strong>：类名称.对象名 = new 类名称();</li>
-<li><strong>使用</strong>：使用成员变量：对象名.成员变量名 使用成员方法：对象名.成员方法名(参数)</li>
-<li>如果成员变量没有赋值，将会有一个默认值，规则跟数组一样</li>
-<li>堆当中的成员方法保存的是<strong>地址值</strong>，<strong>指向方法区的成员方法</strong><h4 id="面向对象的调用概念等"><a href="#面向对象的调用概念等" class="headerlink" title="面向对象的调用概念等"></a>面向对象的调用概念等</h4></li>
+<h3 id="Random类的使用"><a href="#Random类的使用" class="headerlink" title="Random类的使用"></a>Random类的使用</h3><ul>
+<li><strong>Random random = new Random();</strong></li>
+<li>进行获取</li>
+</ul>
+<ol>
+<li>获取一个随机的int数字:int num = r.nextInt()<blockquote>
+<p>也可以在括号里添加数字，规定随机范围</p>
+</blockquote>
+</li>
 </ol>
 <ul>
-<li>对象之间赋值，进行赋值的是<strong>内存地址</strong></li>
-<li>当一个对象作为参数传递时，传递方法中，实际传递进去的是<strong>对象的地址值</strong><h4 id="局部变量和成员变量"><a href="#局部变量和成员变量" class="headerlink" title="局部变量和成员变量"></a>局部变量和成员变量</h4></li>
-<li>定义的位置不一样<blockquote>
-<p>局部变量：在方法的内部</p>
-<p>成员变量：在方法的外部</p>
+<li>Random类基本代码使用举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Random random = <span class="keyword">new</span> Random(<span class="number">10</span>);<span class="comment">//从1到10随机</span></span><br><span class="line"><span class="keyword">int</span> num = random.nextInt();<span class="comment">//接收random变量随机的值并赋值给num</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(num&gt;<span class="number">5</span>)</span><br><span class="line">&#123;</span><br><span class="line">System.out.println(<span class="string">"很好"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">System.out.println(<span class="string">"很不好"</span>);</span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<code>注意事项：使用Random类时要注意，由于时钟分辨率有限，频繁地创建不同的Random对象会创造出产生相同随机数系列的随机数生成器。所有编写程序时，应该通过创建单个而不是多个Random对象来生成随机数，以便让其随着时间的推移而生成不同的随机值</code></li>
+</ul>
+<hr>
+<h3 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h3><ul>
+<li><strong>数组的长度不可以发生改变，但是ArrayList集合的长度可以发生改变</strong></li>
+<li>对于ArrayList来说，有一个间或靠<E>代表泛型<blockquote>
+<p>泛型，也就是装在集合中的所有元素，全部都是统一的什么类型</p>
+<p>泛型：只能是引用类型，不能是基本类型</p>
+</blockquote>
+</E></li>
+<li><strong>从JDK1.7开始</strong>，右侧的尖括号内部可以不写内容，但是&lt;&gt;本身还是要写的</li>
+<li>注意事项：对于ArrayList集合来说，直接打印得到的不是地址值，而是内容<blockquote>
+<p>如果内容是空，得到的是空的中括号，[]</p>
 </blockquote>
 </li>
-<li>作用范围不一样<blockquote>
-<p>局部变量：只有在方法中才可以使用，除了方法就不能再用</p>
-<p>成员变量：整个类都可以使用</p>
+<li>ArrayList当中常用方法有：</li>
+</ul>
+<ol>
+<li>public boolean add(E e) 向集合中添加元素，参数类型和泛型一致,返回值添加是否成功<blockquote>
+<p>对于ArrayList集合add添加方法是一定成功的，返回值可用可不用，但是对于其他的集合不一定</p>
 </blockquote>
 </li>
-<li>默认值不一样<blockquote>
-<p>局部变量：没有默认值，如果想要使用，必须手动进行赋值</p>
-<p>成员变量：如果没有赋值 会有默认值</p>
+<li>public E get(int(index)) 从集合中获取元素，参数是索引编号，返回值是对应位置的元素</li>
+<li>public E remove(int index) 从集合中删除元素，参数是索引编号，返回值是被删除的元素</li>
+<li>public int size() 获取集合的尺寸长度，返回值是集合中包含的元素个数</li>
+</ol>
+<ul>
+<li>如果希望向集合中ArrayList当中存储数据类型，必须使用基本类型相对应的“包装类”</li>
+<li>基本类型 包装类(引用类型，包装类都位于java.lang包下)<blockquote>
+<p>  int    Integer[特殊]</p>
+<p> char    Character[特殊]</p>
+<p>其他基本类型的包装类等于基本类型首字母大写</p>
 </blockquote>
 </li>
-<li>内存的位置不一样<blockquote>
-<p>局部变量：位于栈内存</p>
-<p>成员变量：位于堆内存</p>
+<li>从JDK 1.5+开始，支持自动装箱，自动拆箱<blockquote>
+<p>自动装箱：基本类型—&gt;包装类型 int-&gt;Integer</p>
+<p>自动拆箱：包装类型—&gt;基本类型 Integer-&gt;int</p>
 </blockquote>
 </li>
-<li>生命周期不一样<blockquote>
-<p>局部变量：随着方法进栈而诞生，随着方法出栈而消失</p>
-<p>成员变量：随着对象创建而诞生，随着对象被垃圾回收而消失</p>
-</blockquote>
+<li>ArrayList基本代码举例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  ArrayList  &lt;Integer&gt;arrayList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">arrayList.add(<span class="number">1</span>);<span class="comment">//添加元素</span></span><br><span class="line">arrayList.add(<span class="number">2</span>);</span><br><span class="line">arrayList.add(<span class="number">3</span>);</span><br><span class="line">arrayList.add(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">int</span> num = arrayList.get(<span class="number">2</span>);<span class="comment">//获取集合中的元素，方法中的参数为元素下标索引</span></span><br><span class="line"><span class="keyword">int</span> num1 = arrayList.remove(<span class="number">2</span>);<span class="comment">//删除集合中的元素，方法中的参数为元素下标索引</span></span><br><span class="line"><span class="keyword">int</span> size = arrayList.size();<span class="comment">//获取集合的长度</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>当方法的局部变量和类的成员变量重名的时候，根据“就近原则”，优先使用局部变量<blockquote>
-<p>如果需要访问本类中的变量，需要使用格式，this.成员变量名</p>
-<p>通过谁调用的方法，谁就是this</p>
+</ul>
+<hr>
+<h3 id="数组工具类Arrays"><a href="#数组工具类Arrays" class="headerlink" title="数组工具类Arrays"></a>数组工具类Arrays</h3><ul>
+<li>java.util.Arrays<strong>是一个与数组相关的工具类，里面提供了大量静态方法，用来实现数组常见的操作</strong></li>
+<li>public static String toString(数组),将参数数组变成字符串</li>
+<li>public static void sort(数组),按照默认升序()对数组的元素进行排序<blockquote>
+<p>备注：如果是数值,sort默认按照升序从小到大</p>
+<p>如果是字符串,sort默认按照字母升序</p>
+<p>如果是自定义的类型，那么这个自定义的类需要有Comparable或者Comparator接口的支持(以后学习)</p>
 </blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//建立长整型数组并赋值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;ints.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ints[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        ints[<span class="number">3</span>]=<span class="number">10</span>;</span><br><span class="line">        Arrays.sort(ints);<span class="comment">//利用sort方法进行升序排序</span></span><br><span class="line">        String string = Arrays.toString(ints);<span class="comment">//利用Arrays类中的toString方法将数组转化为字符串</span></span><br><span class="line">        System.out.println(string);</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<hr>
+<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><ul>
+<li>java.util.Math类是数学相关的工具类，里面提供了大量的静态方法，完成与数学相关运算的操作</li>
+</ul>
+<ol>
+<li>public static double abs(double num)获取绝对值</li>
+<li>public static double ceil(double num)向上取整</li>
+<li>public static double floor(double num)向下取整</li>
+<li>public static long round(double num)四舍五入</li>
+</ol>
+<ul>
+<li>强制转换(int)会舍弃所有小数位<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> a1 = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> a2 = <span class="number">20</span>;</span><br><span class="line">      <span class="keyword">int</span> a3 = a1-a2;</span><br><span class="line">        System.out.println(a3);</span><br><span class="line">        System.out.println(Math.abs(a3));<span class="comment">//通过Math类中的abs方法获取绝对值</span></span><br><span class="line">        <span class="keyword">double</span> a4 = <span class="number">10.05</span>;</span><br><span class="line">        <span class="keyword">double</span> a5 = <span class="number">0.15</span>;</span><br><span class="line">        <span class="keyword">double</span> a6 = a4-a5;</span><br><span class="line">        System.out.println(Math.ceil(a6));<span class="comment">//通过Math类中的ceil方法向上取整</span></span><br><span class="line">        System.out.println(Math.floor(a6));<span class="comment">//通过Math类中的floor方法向下取整</span></span><br><span class="line">        System.out.println(Math.round(a6));<span class="comment">//通过Math类中的round方法四舍五入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="以上是初学常用工具类的使用"><a href="#以上是初学常用工具类的使用" class="headerlink" title="以上是初学常用工具类的使用"></a>以上是初学常用工具类的使用</h4></li>
 </ul>
 
       
@@ -345,7 +380,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/18/BolgBook4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/21/BlogBook8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -359,18 +394,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/18/BlogBook5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          面向对象特性之封装性
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/18/BlogBook3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">方法的概念</div>
+    <a href="/2020/07/19/BlogBook7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象之多态性</div>
       <i class="icon-circle-right"></i>
     </a>
   
