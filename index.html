@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 12
+    总文章数 13
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -149,6 +149,106 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/21/BlogBook11/">权限修饰符以及内部类</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/21/BlogBook11/" class="archive-article-date">
+  	<time datetime="2020-07-21T08:16:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="四种权限修饰符"><a href="#四种权限修饰符" class="headerlink" title="四种权限修饰符"></a>四种权限修饰符</h3><ul>
+<li><p>一共有四种权限修饰符：<strong>public project (default) private</strong></p>
+</li>
+<li><p>四种权限修饰符对应权限的大小为:public&gt;project&gt;(default)&gt;private 其中的default是什么也不写的意思 并不是default关键字</p>
+</li>
+<li><p>四个人的权限分为四种情况：</p>
+</li>
+</ul>
+<ol>
+<li><strong>同包同类</strong>：public √ project √  (default) √  private √ </li>
+<li><strong>同包不同类</strong>：public √ project √  (default) √  private ×</li>
+<li><strong>不同包子类</strong>：public √ project √  (default) ×  private ×</li>
+<li><strong>不同包非子类</strong>：public √ project ×  (default) ×  private ×</li>
+</ol>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>权限修饰符以及内部类</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/21/BlogBook11/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/21/BlogBook11/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1027,97 +1127,6 @@ public class B implements A{}</code></li>
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/18/BlogBook3/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BlogBook2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/BlogBook2/">运算符与数据类型转换</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/18/BlogBook2/" class="archive-article-date">
-  	<time datetime="2020-07-18T01:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h4><ul>
-<li>在java中要求进行”赋值运算”和”算数运算时” 参与运算的数据类型必须保持一致</li>
-<li>当数据类型不一样会发生数据类型转换</li>
-</ul>
-<ol>
-<li>显示类型转换 需要自己手动处理</li>
-<li>隐式类型转换(自动转换)</li>
-</ol>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>数据类型转换及运算符</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/07/18/BlogBook2/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/BlogBook2/">点击查看全文 >></a>
         </p>
       
 

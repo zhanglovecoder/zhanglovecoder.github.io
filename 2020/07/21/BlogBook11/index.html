@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>计算机基础 | CoderZhang&#39;s blog</title>
+  <title>权限修饰符以及内部类 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="计算机基础部分计算机存储单元 位(bit)，一个数字0或者一个数字1，代表一位。 字节(Byte)，每逢8位是一个字节，这是数据存储得最小单位123456781. Byte &#x3D; 8 bit2. 1KB&#x3D;1024Byte3. 1MB&#x3D;1024KB4. 1GB&#x3D;1024MB5. 1TB&#x3D;1024GB6. 1PB&#x3D;1024TB7.1EB&amp;#x3">
+  <meta name="description" content="四种权限修饰符 一共有四种权限修饰符：public project (default) private  四种权限修饰符对应权限的大小为:public&gt;project&gt;(default)&gt;private 其中的default是什么也不写的意思 并不是default关键字  四个人的权限分为四种情况：    同包同类：public √ project √  (default) √">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机基础">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/18/BlogBook1/index.html">
+<meta property="og:title" content="权限修饰符以及内部类">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/21/BlogBook11/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="计算机基础部分计算机存储单元 位(bit)，一个数字0或者一个数字1，代表一位。 字节(Byte)，每逢8位是一个字节，这是数据存储得最小单位123456781. Byte &#x3D; 8 bit2. 1KB&#x3D;1024Byte3. 1MB&#x3D;1024KB4. 1GB&#x3D;1024MB5. 1TB&#x3D;1024GB6. 1PB&#x3D;1024TB7.1EB&amp;#x3">
+<meta property="og:description" content="四种权限修饰符 一共有四种权限修饰符：public project (default) private  四种权限修饰符对应权限的大小为:public&gt;project&gt;(default)&gt;private 其中的default是什么也不写的意思 并不是default关键字  四个人的权限分为四种情况：    同包同类：public √ project √  (default) √">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-18T01:25:56.000Z">
-<meta property="article:modified_time" content="2020-07-19T03:18:11.531Z">
+<meta property="article:published_time" content="2020-07-21T08:16:05.000Z">
+<meta property="article:modified_time" content="2020-07-21T09:07:49.934Z">
 <meta property="article:author" content="CoderZhang">
-<meta property="article:tag" content="计算机基础">
+<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -151,14 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook11" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计算机基础
+      权限修饰符以及内部类
     </h1>
   
 
@@ -180,49 +180,125 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/BlogBook1/" class="archive-article-date">
-  	<time datetime="2020-07-18T01:25:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/07/21/BlogBook11/" class="archive-article-date">
+  	<time datetime="2020-07-21T08:16:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计算机基础部分"><a href="#计算机基础部分" class="headerlink" title="计算机基础部分"></a>计算机基础部分</h2><h4 id="计算机存储单元"><a href="#计算机存储单元" class="headerlink" title="计算机存储单元"></a>计算机存储单元</h4><ul>
-<li>位(bit)，一个数字0或者一个数字1，代表一位。</li>
-<li>字节(Byte)，每逢8位是一个字节，这是数据存储得最小单位<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. Byte &#x3D; 8 bit</span><br><span class="line">2. 1KB&#x3D;1024Byte</span><br><span class="line">3. 1MB&#x3D;1024KB</span><br><span class="line">4. 1GB&#x3D;1024MB</span><br><span class="line">5. 1TB&#x3D;1024GB</span><br><span class="line">6. 1PB&#x3D;1024TB</span><br><span class="line">7.1EB&#x3D;1024PB</span><br><span class="line">8. 1ZB&#x3D;1024EB</span><br></pre></td></tr></table></figure>
+        <h3 id="四种权限修饰符"><a href="#四种权限修饰符" class="headerlink" title="四种权限修饰符"></a>四种权限修饰符</h3><ul>
+<li><p>一共有四种权限修饰符：<strong>public project (default) private</strong></p>
 </li>
-</ul>
-<hr>
-<ul>
-<li><strong>Author : ZhangRenwei</strong></li>
-<li><strong>初步了解存储单元以及CMD指令及Java特性</strong><a id="more"></a>
-<h4 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h4></li>
-<li>MS-DOS(Microsoft Disk Operating System)：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 命令提示符(cmd)</span><br><span class="line">2. 启动:WIN+R   cmd</span><br><span class="line">3. 切换硬盘 硬盘名称+: </span><br><span class="line">4. 返回上一级 cd+..</span><br><span class="line">5. 下一级cd+文件夹名称</span><br><span class="line">6. 直接返回根路径 cd+\</span><br><span class="line">7. 查找目录下得文件:dir</span><br><span class="line">8. 清空界面:cls</span><br><span class="line">9. 退出cmd:exit</span><br><span class="line">10. 1.15JVM JAVA虚拟机</span><br></pre></td></tr></table></figure>
-
-
+<li><p>四种权限修饰符对应权限的大小为:public&gt;project&gt;(default)&gt;private 其中的default是什么也不写的意思 并不是default关键字</p>
 </li>
-</ul>
-<h4 id="Java具有跨平台性"><a href="#Java具有跨平台性" class="headerlink" title="Java具有跨平台性"></a>Java具有跨平台性</h4><ul>
-<li>JDK,JRE,JVM JDK包括JRE包括JVM<ul>
-<li>驼峰<br>类名首字母大写 后面得每一个单词首字母都要大写</li>
-<li>变量首字母小写 后面得每一个单词首字母要大写</li>
-</ul>
+<li><p>四个人的权限分为四种情况：</p>
 </li>
-<li>八种数据基本类型</li>
 </ul>
 <ol>
-<li>byte1字节 </li>
-<li>short2字节 </li>
-<li>int4字节 </li>
-<li>long8字节</li>
-<li>float4字节单精度 </li>
-<li>double8字节双精度 </li>
-<li>char字符 </li>
-<li>boolean布尔变量flase/true</li>
+<li><strong>同包同类</strong>：public √ project √  (default) √  private √ </li>
+<li><strong>同包不同类</strong>：public √ project √  (default) √  private ×</li>
+<li><strong>不同包子类</strong>：public √ project √  (default) ×  private ×</li>
+<li><strong>不同包非子类</strong>：public √ project ×  (default) ×  private ×</li>
 </ol>
-<p><code>定义变量不可以超过类型的最大数值</code></p>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>权限修饰符以及内部类</strong></p>
+</li>
+</ul>
+<a id="more"></a>
 
+<h3 id="内部类的概念"><a href="#内部类的概念" class="headerlink" title="内部类的概念"></a>内部类的概念</h3><ul>
+<li><strong>内部类的概念：如果一个事物的内部包含另一个事物 那么这就是一个类的内部包含另一个类</strong><blockquote>
+<p>例如：身体和心脏 汽车和发动机</p>
+</blockquote>
+</li>
+<li>内部类分为：<ul>
+<li>局部内部类（包含匿名内部类）  </li>
+<li>成员内部类</li>
+</ul>
+</li>
+<li>成员内部类的定义：</li>
+</ul>
+<ol>
+<li>格式：修饰符 class 外部类名称{ 修饰符 class 内部类名称 { 方法体 } }</li>
+<li><strong>内用外随意访问 外用内需要内部类对象</strong></li>
+</ol>
+<ul>
+<li>如何使用成员内部类有两种方式</li>
+</ul>
+<ol>
+<li>间接方式：在外部类的方法中使用内部类，然后main只是调用外部类的方法</li>
+<li>直接方式：公式：<strong>外部类名称.内部类名称 对象名 = new 外部类名称().new 内部类名称()</strong></li>
+<li>如果出现了重名的现象<blockquote>
+<p>内部类的成员变量：this.内部变量名   </p>
+<p>外部类的成员变量：外部类名称.this.外部类变量名</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>内部类的基本代码举例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;<span class="comment">//外部类A</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;<span class="comment">//外部成员方法run()</span></span><br><span class="line">System.out.println(<span class="string">"飞快的跑"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">B</span></span>&#123;<span class="comment">//内部类B</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;<span class="comment">//内部成员方法eat()</span></span><br><span class="line">System.out.println(<span class="string">"好好吃"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">C</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  A.B b = <span class="keyword">new</span> A().<span class="keyword">new</span> B();<span class="comment">//使用内部类以及内部类的成员方法</span></span><br><span class="line">b.eat();</span><br><span class="line"> A a = <span class="keyword">new</span> A();<span class="comment">//使用外部类以及外部类的成员方法</span></span><br><span class="line">a.run();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><ul>
+<li><strong>概念：如果接口的实现类（或者父类的子类）只需要使用唯一的一次，那么这种<br>情况下就可以省略该类的定义，而改为使用匿名内部类</strong></li>
+<li>匿名内部类的定义格式:<strong>接口名称 对象名 = new 接口名称(){//覆盖重写所有抽象方法};</strong>  末尾的分号不要丢  </li>
+<li>对格式new 接口名称（）{…}进行解析<blockquote>
+<p>new代表创建对象的动作</p>
+<p>接口名称就是匿名内部类需要实现在哪个接口</p>
+<p>{…}这才是匿名内部类的主要内容</p>
+</blockquote>
+</li>
+<li><strong>匿名内部类的注意事项：</strong><ol>
+<li>在创建对象的时候 只能使用唯一一次 如果希望多次创建对象，而且类的内容一样的话，那么就必须使用单独定义的实现类了</li>
+<li>匿名对象在【调用方法时】只能调用一次，如果希望同一对象调用多次方法，那么必须给对象起名字</li>
+<li>匿名内部类是省略了【实现类】名称，但是匿名对象是省略了【对象名称】</li>
+<li>强调：匿名内部类和匿名对象名称不是一回事</li>
+</ol>
+</li>
+<li>匿名内部类代码实现举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> <span class="keyword">extends</span> <span class="title">Thread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"匿名内部类的经典使用场景"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h3></li>
+<li><strong>局部内部类的概念：如果一个类是定义在方法内部的 那么这个类就是局部内部类 “局部”：只有当前所属的方法才能使用他，出了这个方法外面就不能用了</strong></li>
+<li>定义格式：修饰符 class 外部类名称{  修饰符 返回值类型 外部类方法名称（参数列表）{ 修饰符 class 局部内部类名称{ } } }</li>
+<li>小节一下类的权限修饰符</li>
+</ul>
+<ol>
+<li>public&gt;project&gt;(default)&gt;private 定义一个类的时候 权限修饰符的规则</li>
+<li>外部类的规则：public/(default)</li>
+<li>成员内部类的规则：public/(defautl)/private/project</li>
+<li>局部内部类的规则: (default)</li>
+</ol>
+<ul>
+<li><p><strong>局部内部类的final问题：如果希望访问所在方法的局部变量，那么这个局部变量必须是有效final的</strong></p>
+<blockquote>
+<p>从java8+开始 如果局部变量的值不变 那么final可以不写</p>
+</blockquote>
+</li>
+<li><p>原因：</p>
+<ol>
+<li>new出来的对象在堆内存生存</li>
+<li>局部变量是跟着方法走的 在栈内存中</li>
+<li>方法运行完后 立刻出栈 局部变量就会消失</li>
+<li>但是new出来的对象会在堆内存中持续存在，直到垃圾回收、</li>
+</ol>
+</li>
+<li><p>为什么去使用及什么时候用</p>
+<ol>
+<li><strong>局部内部类就是定义在某个方法内部的内部类，它的作用域仅限于这个方法</strong></li>
+<li><strong>当我们在外围类中定义的内部类仅仅在某个方法中使用了一次，这种情况下，我们就可以选择去使用局部内部类</strong></li>
+</ol>
+</li>
+<li><p>基本代码使用举例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;<span class="comment">//外部类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;<span class="comment">//外部类的方法</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;<span class="comment">//局部内部类</span></span><br><span class="line">           <span class="keyword">final</span>  <span class="keyword">int</span> num =<span class="number">3</span>;<span class="comment">//局部内部类的局部变量 注意final赋值</span></span><br><span class="line">            &#125;</span><br><span class="line">        B b = <span class="keyword">new</span> B();<span class="comment">//创建局部内部类对象并调用其局部变量</span></span><br><span class="line">        System.out.println(<span class="string">"局部内部类"</span>+b.num);</span><br><span class="line">        System.out.println(<span class="string">"疯狂的吃"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">kkk</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        a.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以上是权限修饰符以及内部类的大致概念"><a href="#以上是权限修饰符以及内部类的大致概念" class="headerlink" title="以上是权限修饰符以及内部类的大致概念"></a>以上是权限修饰符以及内部类的大致概念</h3>
       
 
       
@@ -256,7 +332,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
@@ -312,7 +388,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/18/BlogBook1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/21/BlogBook11/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +402,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/18/BlogBook2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          运算符与数据类型转换
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/07/21/BlogBook10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">接口以及final关键字</div>
       <i class="icon-circle-right"></i>
     </a>
   
