@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>方法的概念 | CoderZhang&#39;s blog</title>
+  <title>部分类及方法使用(Object等) | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法的重载（OverLoad) 多个方法的名称一样，但是参数列表不一样。  好处：只需要记住唯一一个方法名称，就可以实现类似的多个功能  方法重载与下列因素相关：  参数个数不同 参数类型不同 参数的多类型顺序不同   方法重载与哪些无关：  与参数名称无关 与方法返回值类型无关   Author : ZhangRenwei  方法重载及内存划分">
+  <meta name="description" content="类和方法Object类中的toString方法 所有类都默认集成了Object类，所以可以使用Object类中的toString方法  String toString()返回该对象的字符串表示   看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）如果重写了toString()方法，那么就按照重写的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="方法的概念">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/18/BlogBook3/index.html">
+<meta property="og:title" content="部分类及方法使用(Object等)">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/22/BlogBook13/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="方法的重载（OverLoad) 多个方法的名称一样，但是参数列表不一样。  好处：只需要记住唯一一个方法名称，就可以实现类似的多个功能  方法重载与下列因素相关：  参数个数不同 参数类型不同 参数的多类型顺序不同   方法重载与哪些无关：  与参数名称无关 与方法返回值类型无关   Author : ZhangRenwei  方法重载及内存划分">
+<meta property="og:description" content="类和方法Object类中的toString方法 所有类都默认集成了Object类，所以可以使用Object类中的toString方法  String toString()返回该对象的字符串表示   看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）如果重写了toString()方法，那么就按照重写的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-18T03:13:34.000Z">
-<meta property="article:modified_time" content="2020-07-19T03:18:46.997Z">
+<meta property="article:published_time" content="2020-07-22T01:56:22.000Z">
+<meta property="article:modified_time" content="2020-07-22T02:53:59.807Z">
 <meta property="article:author" content="CoderZhang">
-<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -147,14 +146,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook13" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      方法的概念
+      部分类及方法使用(Object等)
     </h1>
   
 
@@ -176,132 +175,117 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/BlogBook3/" class="archive-article-date">
-  	<time datetime="2020-07-18T03:13:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/07/22/BlogBook13/" class="archive-article-date">
+  	<time datetime="2020-07-22T01:56:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="方法的重载（OverLoad"><a href="#方法的重载（OverLoad" class="headerlink" title="方法的重载（OverLoad)"></a>方法的重载（OverLoad)</h3><ul>
-<li><p>多个方法的名称一样，但是参数列表不一样。</p>
+        <h3 id="类和方法"><a href="#类和方法" class="headerlink" title="类和方法"></a>类和方法</h3><h3 id="Object类中的toString方法"><a href="#Object类中的toString方法" class="headerlink" title="Object类中的toString方法"></a>Object类中的toString方法</h3><ul>
+<li><p><strong>所有类都默认集成了Object类，所以可以使用Object类中的toString方法</strong></p>
+<blockquote>
+<p>String toString()返回该对象的字符串表示</p>
+</blockquote>
 </li>
-<li><p>好处：只需要记住唯一一个方法名称，就可以实现类似的多个功能</p>
+<li><p><strong>看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）<br>如果重写了toString()方法，那么就按照重写的方式打印</strong></p>
+<blockquote>
+<p>public String toString()</p>
+</blockquote>
 </li>
-<li><p>方法重载与下列因素相关：</p>
-<ol>
-<li>参数个数不同</li>
-<li>参数类型不同</li>
-<li>参数的多类型顺序不同</li>
-</ol>
-</li>
-<li><p>方法重载与哪些无关：</p>
-<ol>
-<li>与参数名称无关</li>
-<li>与方法返回值类型无关</li>
-</ol>
-</li>
+<li><p>基本代码演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String string = <span class="string">"你好"</span>;</span><br><span class="line"> System.out.println(string);<span class="comment">//没有重写toString()方法 所以打印出来的是地址值</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>方法重载及内存划分</strong></p>
+<li><p><strong>Object类及其他类的使用！！</strong></p>
+</li>
+</ul>
 <a id="more"></a>
-</li>
-<li><p>方法的重载举例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  b(<span class="number">1</span>);</span><br><span class="line">b(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">b(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">z=z++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z,<span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    z=z+r;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">(<span class="keyword">int</span> z,<span class="keyword">int</span> r,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">z=z+r+w;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<h3 id="Object类的equals方法"><a href="#Object类的equals方法" class="headerlink" title="Object类的equals方法"></a>Object类的equals方法</h3><ul>
+<li>boolean equals(Object obj)指示<strong>其他某个对象是否与此对象“相等”</strong></li>
+<li>equals方法源码：<strong>public boolean equals(Object obj){return (this==obj));}</strong></li>
+<li>参数：</li>
+</ul>
+<ol>
+<li><strong>Object obj:可以传递任何对象,==比较运算符，返回的是一个布尔值 true flase</strong></li>
+<li>==比较运算符，返回的是一个布尔值 true false</li>
+<li>基本数据类型：<strong>比较的是值</strong></li>
+<li>引用数据类型：<strong>比较的是两个对象的地址值</strong></li>
+<li>this是谁？那个对象调用的方法，方法中的this就是那个对象;</li>
+</ol>
+<ul>
+<li>Object类的equals方法，默认比较的是两个对象的地址值，没有意义 所以我们要重写equals方法，比较两个对象的属性(name,age)</li>
+<li>问题：隐含着一个多态 <strong>多态的弊端：无法使用子类特有的内容（属性和方法）,可以使用向下转型</strong></li>
+</ul>
+<h3 id="Objects类的equals方法"><a href="#Objects类的equals方法" class="headerlink" title="Objects类的equals方法"></a>Objects类的equals方法</h3><ul>
+<li><strong>也可以进行两个对象之间比较，常将Objects类中的这个equals方法添加到Object中的equals中： public static boolean equals(Object a, Object b) {<br>return (a == b) || (a != null &amp;&amp; a.equals(b));</strong><blockquote>
+<p>目的是为了更简便的防止空指针异常</p>
+</blockquote>
+</li>
+<li>Object类的equals方法代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    String name ;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">final</span> String name, <span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(<span class="keyword">final</span> Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">//判断参数o是否是本类对象 如果是返回true</span></span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> A)) <span class="keyword">return</span> <span class="keyword">false</span>;<span class="comment">//如果o不是A类对象 返回false</span></span><br><span class="line">        <span class="keyword">final</span> A a = (A) o;<span class="comment">//多态 向下转型 将a转换为A类对象 并将地址值传给a</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getAge() == a.getAge() &amp;&amp;</span><br><span class="line">                Objects.equals(<span class="keyword">this</span>.getName(), a.getName());<span class="comment">//判断两个对象的姓名以及年龄是否相同</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A(<span class="string">"张人伟"</span>,<span class="number">20</span>);</span><br><span class="line">        <span class="keyword">boolean</span> b = a.equals(<span class="keyword">new</span> A(<span class="string">"张人伟"</span>, <span class="number">20</span>));<span class="comment">//对象a调用重写后的Object中的equals方法进行比较</span></span><br><span class="line">        System.out.println(b);<span class="comment">//输出比较结果 相同为true 不同为false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="二-数组Arrays"><a href="#二-数组Arrays" class="headerlink" title="二.数组Arrays"></a>二.数组Arrays</h3><ul>
-<li>数组的概念：是一种容器，可以同时存放多个数据值</li>
-<li>数组的特点：</li>
-</ul>
-<ol>
-<li>数组是一种引用数据类型</li>
-<li>数组当中的多个数组，类型必须统一</li>
-<li>数组的长度在程序运行期间不可改变</li>
-</ol>
-<ul>
-<li>数组的初始化方式</li>
-</ul>
-<ol>
-<li><p>动态初始化（指定长度） <strong>动态初始化数组的格式：数据类型[] 数组名称 = new 数据类型 [数组长度]；</strong></p>
-</li>
-<li><p>静态初始化（指定内容） <strong>静态初始化数组的格式：数据类型[] 数组名称 = new 数据类型 []{数组存放内容};</strong></p>
-<p>静态初始化：<strong>省略格式 数据类型[] 数组名称 = { … 数组存放内容};</strong></p>
-</li>
-<li><p>无论静态初始化还是动态初始化，数组都有一个长度</p>
-</li>
-</ol>
-<ul>
-<li>数组的注意事项</li>
-</ul>
-<ol>
-<li>静态初始化一旦使用省略格式，就不能拆分为两个步骤了</li>
-</ol>
-<ul>
-<li>获取数组内容的方式<blockquote>
-<p> 数组名字[索引值] 索引值：是一个int数字 代表数组当中元素编号，从0开始，一直到数组的长度-1为止</p>
+<h3 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h3><ul>
+<li><strong>java.util.Data:表示日期和时间的类</strong><blockquote>
+<p>表示特定的瞬间，精确到毫秒:千分之一秒 1000毫秒=1秒</p>
+<p>毫秒值的作用：可以对时间和日期进行计算</p>
 </blockquote>
 </li>
-</ul>
-<blockquote>
-<blockquote>
-<p> 动态初始化数组每一个元素都会有一个默认初始值（静态初始化也有默认初始值，只不过系统马上替换到了大括号中的赋予他的值）</p>
+<li>时间原点(0毫秒)：1970年1月1日 00：00：00(英国格林威治)<br>就是计算当前日期到时间原点之间一共经历了多少毫秒(long类型)<blockquote>
+<p>注意：中国属于东八区，会把时间增加八个小时1970.1.1 08：00：00</p>
+<p>System.currentTimeMillis()</p>
 </blockquote>
-</blockquote>
-<ul>
-<li>数组一旦创建，程序运行期间，长度不可改变</li>
-<li>数组作为方法的参数</li>
-</ul>
-<ol>
-<li>当调用方法的时候，向方法的小括号传参，传递进去的其实是数组的地址值</li>
-<li>数组作为方法返回的时候，返回的其实也是数组的地址值</li>
+</li>
+<li>常用的两个构造方法和一个成员方法<ol>
+<li><strong>Date类的空参构造方法Date() 用来获取当前系统的时间</strong></li>
+<li><strong>Date类的有参构造方法Date(long date)传递毫秒值 把毫秒值转换为Date日期</strong></li>
+<li><strong>Date类中的getTime()方法，返回至1970年1月1日00：00：00的毫秒值，与System.currentTimeMillis()类似</strong></li>
 </ol>
-<ul>
-<li>数组的举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">ints[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">ints[<span class="number">2</span>] = <span class="number">20</span>;</span><br><span class="line">ints[<span class="number">3</span>] = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(System.currentTimeMillis());<span class="comment">//currentTimeMillis方法输出对应日期的时间毫秒值</span></span><br><span class="line">          Date date1 = <span class="keyword">new</span> Date(<span class="number">1595385502913L</span>);<span class="comment">//Date类的有参构造方法 传递毫秒值 转换为Date日期</span></span><br><span class="line">          System.out.println(date1);</span><br><span class="line">          <span class="keyword">long</span> time = date1.getTime();<span class="comment">//返回至1970年1月1日00：00：00的毫秒值，与System.currentTimeMillis()类似</span></span><br><span class="line">          System.out.println(time);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="三-JAVA中的内存划分"><a href="#三-JAVA中的内存划分" class="headerlink" title="三.JAVA中的内存划分"></a>三.JAVA中的内存划分</h3><ul>
-<li><strong>栈(Stack)</strong>：存放的都是方法中的局部变量</li>
+<h3 id="DateFormat类（抽象类）"><a href="#DateFormat类（抽象类）" class="headerlink" title="DateFormat类（抽象类）"></a>DateFormat类（抽象类）</h3><ul>
+<li>DateFormat类：<strong>是日期/时间格式化子类的抽象类，我们通过这个可以帮我们完成日期和文本之间的转换，也就是Date对象<br>和String对象之间的转换</strong></li>
+<li>作用:<strong>格式化（也就是日期—&gt;文本）,解析（文本—&gt;日期）</strong></li>
+<li>成员方法：<ol>
+<li><strong>String format(Date date) 按照指定的模式，把Date日期，格式化为符合模式的字符串</strong></li>
+<li><strong>Date parse(String source)把符合模式的字符串，解析为Date日期</strong></li>
+<li><strong>需要使用DateFormat的子类SimpleDateFormat来创建对象</strong></li>
+</ol>
+</li>
+<li>构造方法：<strong>SimpleDateFormat(String pattern):用给定的模式和默认语言环境的日期格式符号构造 SimpleDateFormat</strong></li>
+<li>参数：<strong>String pattern:传递指定的模式</strong></li>
+<li>模式：<strong>区分大小写的  y 年 M 月 d 日 H 是 m分 s 秒 S 毫秒</strong></li>
+<li>写对应的模式，会把模式替换为对应的时期和时间：例如：”yyyy-MM-dd日 HH:mm:ss”</li>
+<li>注意：模式中的字母不能更改，连接模式的符号可以改变：”yyyy年MM月dd日 HH:mm:ss”</li>
+<li>使用DateFormat类中的方法format，把日期格式转化为文本</li>
 </ul>
 <ol>
-<li>局部变量：方法的参数，或者是方法{}内部的变量</li>
-<li>作用域：一旦超出作用域，立刻从栈内存中消失</li>
+<li>创建SimpleDateFormat对象，构造方法中传递指定的模式</li>
+<li>调用SimpleDateFormat对象中的方法format,按照构造方法中指定的模式，把Date日期转化为符合模式的字符串</li>
 </ol>
 <ul>
-<li><strong>堆(Heap)</strong>：凡是new出来的东西，都在堆中</li>
-</ul>
-<p>1.堆内存里面利的东西都有一个地址值：16进制<br>2.堆内存里面的数据都有默认值 整数：0 浮点数：0.0 字符：’\u0000’ 布尔型：false 引用类型：null</p>
-<ul>
-<li><strong>方法区(Method Area)</strong>：存储.class相关信息，包含方法的信息</li>
-<li><strong>本地方法栈(Native Method Stack)</strong>:与操作系统相关</li>
-<li><strong>寄存器(pc Register)</strong>:与CPU相关</li>
-</ul>
-<hr>
-<h3 id="四-方法的格式"><a href="#四-方法的格式" class="headerlink" title="四.方法的格式"></a>四.方法的格式</h3><ul>
-<li>修饰符 返回值类型 方法名（参数列表）</li>
-<li>方法名称：方法的名字，规则和变量一样，小驼峰</li>
-<li>参数类型：进入方法的数据是什么类型</li>
-<li>参数名称：进入方法的数据对应的变量名称</li>
-<li>方法体：方法需要做的事情，若干行代码</li>
-<li>return:两个作用，第一停止当前方法，第二将后面的值还给调用出</li>
-<li>return后面的返回值必须和方法名称前面的返回值类型，保持对应</li>
-<li>方法调用的三种形式：</li>
+<li>使用DateFormat类中的方法parse，把文本解析为日期</li>
 </ul>
 <ol>
-<li>单独调用：方法名称（参数）</li>
-<li>打印调用：System.out.println(方法名称（参数）)</li>
-<li>赋值调用：数据类型 变量名称 = 方法名称（参数）<blockquote>
-<p>返回值类型为void 只能进行单独调用，不能进行打印调用和赋值调用</p>
+<li>创建SimpleDateFormat对象，构造方法中传递指定的模式</li>
+<li>调用SimpleDateFormat对象中的方法parse,按照构造方法中指定的模式，把符合模式的字符串解析为Date日期<blockquote>
+<p>注意：public Date parse(String source)throws ParseException 如果字符串和构造方法的模式不一样，那么程序就会抛出此异常</p>
 </blockquote>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public(修饰符) void(无返回值情况) a(方法名称)  (int b----&gt;参数类型和名称)</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
-
+<ul>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DateFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.FieldPosition;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStudy3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">Demo();</span><br><span class="line">Demo1();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Demo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-d HH-mm-ss"</span>);<span class="comment">//创建DateFormat子类对象SimpleDateFormat 传入日期与字符串之间转化的格式</span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();<span class="comment">//获取当前系统日期时间</span></span><br><span class="line">        System.out.println(simpleDateFormat.format(date));<span class="comment">//通过format()成员方法将系统时间转换为构造方法中传入的字符串格式</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Demo1</span><span class="params">()</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-d HH-mm-ss"</span>);<span class="comment">//创建DateFormat子类对象SimpleDateFormat 传入日期与字符串之间转化的格式</span></span><br><span class="line">        Date date = simpleDateFormat1.parse(<span class="string">"2020-03-16 00-24-43"</span>);<span class="comment">//传入符合构造方法格式的字符串自定义时间 然后转化为日期格式文本</span></span><br><span class="line">        System.out.println(date);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="以上是Object类常用方法以及其他类的常用方法使用"><a href="#以上是Object类常用方法以及其他类的常用方法使用" class="headerlink" title="以上是Object类常用方法以及其他类的常用方法使用"></a>以上是Object类常用方法以及其他类的常用方法使用</h3>
       
 
       
@@ -330,17 +314,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -391,7 +364,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/18/BlogBook3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/22/BlogBook13/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -405,18 +378,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/18/BolgBook4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          面向对象概念及变量
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/18/BlogBook2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">运算符与数据类型转换</div>
+    <a href="/2020/07/21/BlogBook12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">类和接口的几种使用场景</div>
       <i class="icon-circle-right"></i>
     </a>
   
