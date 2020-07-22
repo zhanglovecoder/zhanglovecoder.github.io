@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Archives | CoderZhang&#39;s blog</title>
+  <title>Calendar+System+StringBuilder类 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总有人会赢 为什么不是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CoderZhang&#39;s blog">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/archives/page/2/index.html">
+  <meta name="description" content="Calendar(日历)类 Calendar类是一个抽象类，里面提供了许多操作日历字段的方法（YEAR,MONTH,DAY_OF_MONTH,HOUR)  Calendar类无法直接创建对象使用，里面有一个静态方法叫getInstance(),该方法返回了Calendar类的子类对象  static Calendar getInstance()使用默认时区和语言环境获得一个日历  常用方法  pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calendar+System+StringBuilder类">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/22/BlogBook14/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="总有人会赢 为什么不是我">
+<meta property="og:description" content="Calendar(日历)类 Calendar类是一个抽象类，里面提供了许多操作日历字段的方法（YEAR,MONTH,DAY_OF_MONTH,HOUR)  Calendar类无法直接创建对象使用，里面有一个静态方法叫getInstance(),该方法返回了Calendar类的子类对象  static Calendar getInstance()使用默认时区和语言环境获得一个日历  常用方法  pu">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-22T02:55:34.000Z">
+<meta property="article:modified_time" content="2020-07-22T03:22:06.973Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -144,80 +147,161 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-BlogBook14" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Calendar+System+StringBuilder类
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/07/22/BlogBook14/" class="archive-article-date">
+  	<time datetime="2020-07-22T02:55:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Calendar-日历-类"><a href="#Calendar-日历-类" class="headerlink" title="Calendar(日历)类"></a>Calendar(日历)类</h3><ul>
+<li><p>Calendar类是一个抽象类，里面提供了许多操作日历字段的方法（<strong>YEAR,MONTH,DAY_OF_MONTH,HOUR</strong>)</p>
+</li>
+<li><p><strong>Calendar类无法直接创建对象使用，里面有一个静态方法叫getInstance(),该方法返回了Calendar类的子类对象</strong></p>
+</li>
+<li><p><strong>static Calendar getInstance()使用默认时区和语言环境获得一个日历</strong></p>
+</li>
+<li><p>常用方法</p>
+<ol>
+<li>public int get(int field):返回给定日历字段的值</li>
+<li>public void set(int field,int value):将给定的日历字段设置为给定值</li>
+<li>public abstract void add(int field,int amount):根据日历的规则，为给定的日历字段添加或减去指定时间量</li>
+<li>public DategetTime():返回一个表示此Calendar的时间值（从历元到现在的毫秒偏移量）的Date对象<blockquote>
+<p>成员方法的参数：int field:日历类的字段，可以使用Calendar类的静态成员变量获取</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>部分类的使用及常用方法！！</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>个人总结：<blockquote>
+<p>由于Calendar类是抽象类 但是抽象类中提供了一个静态方法可以通过类名直接调用，该方法为<br>getInstance(),这个方法可以返回一个通用对象. </p>
+<p>上面第三个方法是抽象方法 但是通过getInstance()返回的子对象可以发现对add方法进行了重写 所以可以使用</p>
+</blockquote>
+</li>
+<li>基本代码演示举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar instance = Calendar.getInstance(Locale.ENGLISH);<span class="comment">//通过Calendar直接调用静态方法getInstance创建对象instance</span></span><br><span class="line">        Date time = instance.getTime();<span class="comment">//instance对象调用getTime()方法获取到当前系统日期</span></span><br><span class="line">        System.out.println(time);</span><br><span class="line">        instance.add(Calendar.MONTH,<span class="number">1</span>);<span class="comment">//调用add()方法 为获取到的系统日期进行修改(增减)</span></span><br><span class="line">        System.out.println(instance.getTime());</span><br><span class="line">  instance.set(Calendar.YEAR,<span class="number">1999</span>);<span class="comment">//调用set()方法 为获取到的日期设置时间</span></span><br><span class="line">        System.out.println(instance.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h3><ul>
+<li>java.lang.System类中提供了大量的静态方法，可以获取与系统相关的信息或者系统操作，在System类的API文档中，常用的方法有：<ol>
+<li>public static long currentTimeMillis():返回以毫秒为单位的当前时间 用来测试程序的效率</li>
+<li>public static void arraycopy(Object str,int srcPos,Object dest,int destPos,int length):将数组中的数据拷贝到另一个数组中<blockquote>
+<p>str = 源数组 srcPos = 源数组中的起始位置 dest = 目标数组 destPos = 目标数据的起始位置 length = 要复制数组元素的数量</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>个人总结:</li>
+</ul>
+<ol>
+<li>此类首先可以利用第一个方法进行电脑效率的检测</li>
+<li>如果有两个数组需要将第二数组的某部分值需要更改成前一个数组的一部分，可以采用第二个方法进行数组间的赋值</li>
+</ol>
+<ul>
+<li>基本代码演示举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> [] i = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;;<span class="comment">//源数组</span></span><br><span class="line">        <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">15</span>];<span class="comment">//目标数组</span></span><br><span class="line">        System.arraycopy(i,<span class="number">0</span>,ints,<span class="number">0</span>,<span class="number">10</span>);<span class="comment">//System中的arraycop方法数组复制</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> anInt : ints) &#123;</span><br><span class="line">            System.out.println(anInt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h3><ul>
+<li><strong>StringBuilder类是字符串缓冲区 可以提高字符串的操作效率（看成一个长度可以变化的字符串）底层也是一个数组 但是没有被<br>final修饰，可以改变长度</strong><blockquote>
+<p>String类底层：private final byte[] vlue;</p>
+<p>StringBuilder类底层：byte [] value = new byte[16];</p>
+</blockquote>
+</li>
+<li>StringBuilder在内存中始终是一个数组，占用内存少，效率高，如果超出了StringBuilder的容量，会自动的扩容</li>
+<li>根据StringBuilder的API文档，常用的构造方法有两个<ol>
+<li>public StringBuilder():构造一个空的StringBuilder容量 初始容量为16字符</li>
+<li>public StringBuilder(String str):构造一个StringBuilder容器，并将字符串添加进去</li>
+</ol>
+</li>
+<li>StringBuilder常用的两个方法<ol>
+<li>public StringBuilder append(…):添加任意类型数据的字符串形式，并返回对象自身</li>
+<li>StringBuilder和String可以相互转换：StringBuilder:可以使用StringBuilder的构造方法<blockquote>
+<p>StringBuilder(String str)构造一个字符串生成器，并初始化为指定的字符串内容</p>
+<p>StringBuilder–&gt;String：可以使用StringBuilder中的toString方法 public String toString():将当前StringBuilder对象转换为String对象</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>个人总结：</li>
+</ul>
+<ol>
+<li>StringBuilder主要常用有两个构造方法和两个常用方法：</li>
+<li>两个构造方法分别用来构造一个StringBuilder数组容器(16字节)和向StringBuilder类对象添加String类对象</li>
+<li>两个常用方法分别用来（append)用来StringBuilder连接字符串和StringBuilder和String类的相互转换</li>
+<li><strong>为什么要用这个呢：因为这个可以提高效率 String类中的值都不可改变 由于是用的final修饰，所以耗费空间<br>但是StringBuilder类中的底层数组没有final修饰 值是可以改变的 属于字符缓冲类</strong> </li>
+<li><strong>重点功能：提高字符串的操作效率</strong></li>
+</ol>
+<ul>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();<span class="comment">//创建StringBuilder类的对象</span></span><br><span class="line">        StringBuilder hh = stringBuilder.append(<span class="string">"你好"</span>);<span class="comment">//调用append()方法 向其中添加数据</span></span><br><span class="line">        System.out.println(hh);</span><br><span class="line">        StringBuilder stringBuilder1 = <span class="keyword">new</span> StringBuilder(<span class="string">"我是有参构造方法"</span>);<span class="comment">//创建StringBuilder类的对象</span></span><br><span class="line">        System.out.println(stringBuilder1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="以上是部分类的使用及常用方法-部分理解不全概念不清可查API文档"><a href="#以上是部分类的使用及常用方法-部分理解不全概念不清可查API文档" class="headerlink" title="以上是部分类的使用及常用方法 部分理解不全概念不清可查API文档"></a>以上是部分类的使用及常用方法 部分理解不全概念不清可查API文档</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook5/" class="archive-article-date">
-  	<time datetime="2020-07-18T13:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook5/">面向对象特性之封装性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BolgBook4/" class="archive-article-date">
-  	<time datetime="2020-07-18T12:38:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BolgBook4/">面向对象概念及变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -229,167 +313,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/22/BlogBook14/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook3/" class="archive-article-date">
-  	<time datetime="2020-07-18T03:13:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/22/BlogBook13/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部分类及方法使用(Object等)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook3/">方法的概念</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook2/" class="archive-article-date">
-  	<time datetime="2020-07-18T01:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook2/">运算符与数据类型转换</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook1/" class="archive-article-date">
-  	<time datetime="2020-07-18T01:25:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook1/">计算机基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/08/hello-world/" class="archive-article-date">
-  	<time datetime="2020-05-08T05:39:04.808Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -424,8 +446,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
