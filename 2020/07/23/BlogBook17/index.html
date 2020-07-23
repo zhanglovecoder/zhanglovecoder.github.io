@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>接口以及final关键字 | CoderZhang&#39;s blog</title>
+  <title>泛型的概念及使用 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="接口Interface 接口是一种特殊的抽象类 接口就是一种公共的规范标准，只要符合规范标准就可以大家通用 接口就是多个类的公共规范，接口是一种引用数据类型，最重要的内容就是其中的抽象方法 如何定义一个接口的格式：public interface 接口名称{} 接口中可以包含的内容有：   常量 抽象方法 默认方法 静态方法 私有方法   在任何版本的java中，接口都能定义抽象方法 注意事项:">
+  <meta name="description" content="泛型泛型的概念 泛型是一种未知的数据类型，当我们不知道使用什么数据类型的时候，可以使用泛型 泛型也可以看出是一个变量来接受数据类型 E e &#x3D; Element 元素 T t &#x3D; Type 类型   例如添加和获取的两个方法返回值都是E（未知类型) 通过创建集合对象时候确定的泛型数据类型来传递到E中 public class ArrayList{public boolean add(E e){} p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="接口以及final关键字">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/21/BlogBook10/index.html">
+<meta property="og:title" content="泛型的概念及使用">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/23/BlogBook17/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="接口Interface 接口是一种特殊的抽象类 接口就是一种公共的规范标准，只要符合规范标准就可以大家通用 接口就是多个类的公共规范，接口是一种引用数据类型，最重要的内容就是其中的抽象方法 如何定义一个接口的格式：public interface 接口名称{} 接口中可以包含的内容有：   常量 抽象方法 默认方法 静态方法 私有方法   在任何版本的java中，接口都能定义抽象方法 注意事项:">
+<meta property="og:description" content="泛型泛型的概念 泛型是一种未知的数据类型，当我们不知道使用什么数据类型的时候，可以使用泛型 泛型也可以看出是一个变量来接受数据类型 E e &#x3D; Element 元素 T t &#x3D; Type 类型   例如添加和获取的两个方法返回值都是E（未知类型) 通过创建集合对象时候确定的泛型数据类型来传递到E中 public class ArrayList{public boolean add(E e){} p">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-21T04:43:12.000Z">
-<meta property="article:modified_time" content="2020-07-21T08:10:42.953Z">
+<meta property="article:published_time" content="2020-07-23T06:22:51.000Z">
+<meta property="article:modified_time" content="2020-07-23T12:07:22.305Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -147,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook10" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook17" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      接口以及final关键字
+      泛型的概念及使用
     </h1>
   
 
@@ -176,175 +176,108 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/21/BlogBook10/" class="archive-article-date">
-  	<time datetime="2020-07-21T04:43:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+<a href="/2020/07/23/BlogBook17/" class="archive-article-date">
+  	<time datetime="2020-07-23T06:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="接口Interface"><a href="#接口Interface" class="headerlink" title="接口Interface"></a>接口Interface</h3><ul>
-<li>接口是一种<strong>特殊的抽象类</strong></li>
-<li>接口就是一种公共的规范标准，只要符合规范标准就可以大家通用</li>
-<li>接口就是多个类的公共规范，接口是一种引用数据类型，最重要的内容就是其中的抽象方法</li>
-<li>如何定义一个接口的格式：<strong>public interface 接口名称{}</strong></li>
-<li>接口中可以包含的内容有：</li>
-</ul>
-<ol>
-<li><strong>常量</strong></li>
-<li><strong>抽象方法</strong></li>
-<li><strong>默认方法</strong></li>
-<li><strong>静态方法</strong></li>
-<li><strong>私有方法</strong></li>
+        <h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><h4 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h4><ul>
+<li><strong>泛型是一种未知的数据类型，当我们不知道使用什么数据类型的时候，可以使用泛型</strong></li>
+<li><strong>泛型也可以看出是一个变量来接受数据类型</strong><ol>
+<li>E e = Element 元素</li>
+<li>T t = Type 类型</li>
 </ol>
-<ul>
-<li>在任何版本的java中，接口都能定义抽象方法</li>
-<li>注意事项:</li>
-</ul>
-<ol>
-<li>接口中的抽象方法，修饰符必须时两个固定的关键字：<strong>public abstract(可以选择省略)</strong></li>
-<li>方法的三要素可以随意定义<br><code>public abstract interface A{}
-public class B implements A{}</code></li>
+</li>
+<li><strong>例如添加和获取的两个方法返回值都是E（未知类型) 通过创建集合对象时候确定的泛型<br>数据类型来传递到E中</strong><ol>
+<li><strong>public class ArrayList<E>{public boolean add(E e){}</E></strong></li>
+<li><strong>public E get(int index){}</strong></li>
 </ol>
+</li>
+</ul>
+<hr>
 <ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>接口以及final</strong></p>
+<li><p><strong>泛型的概念及其使用</strong></p>
 </li>
 </ul>
 <a id="more"></a>
 
-<hr>
-<h3 id="接口使用步骤"><a href="#接口使用步骤" class="headerlink" title="接口使用步骤"></a>接口使用步骤</h3><ol>
-<li>接口不能直接使用，必须有一个“<strong>实现类</strong>”类“实现”接口</li>
-<li>格式：public class 实现类名称 implements 接口名称{}</li>
-<li><strong>接口的实现类必须覆盖重写(实现)接口中的所有抽象方法</strong></li>
-<li>创建实现类的对象，进行使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;<span class="comment">//接口A</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;<span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">A</span></span>&#123;<span class="comment">//实现类B</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;<span class="comment">//重写接口中的方法</span></span><br><span class="line">System.out.println(<span class="string">"好好吃"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
 <ul>
-<li>注意事项：<blockquote>
-<p>如果实现类并没有覆盖重写接口中所有的抽象方法，那么这个实现类自己就必须是抽象类</p>
-</blockquote>
+<li>基本代码展示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>&lt;<span class="title">E</span>&gt;</span>&#123;<span class="comment">//为Student类添加泛型E</span></span><br><span class="line">    <span class="keyword">private</span> E age;<span class="comment">//类的成员age添加泛型E</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(E age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(E age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStudy1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student student = <span class="keyword">new</span> Student();</span><br><span class="line">        student.setAge(<span class="string">"长不高"</span>);<span class="comment">//由于age类型没有确定 为泛型 所以可以添加各种类型的数据 这个是String类型</span></span><br><span class="line">        System.out.println(student.getAge());</span><br><span class="line">        Student &lt;Integer&gt; student1 = <span class="keyword">new</span> Student&lt;&gt;();</span><br><span class="line">        student1.setAge(<span class="number">21</span>);<span class="comment">//添加的int类型</span></span><br><span class="line">        System.out.println(student1.getAge());</span><br><span class="line">        Student &lt;Character&gt; student2 = <span class="keyword">new</span> Student&lt;&gt;();</span><br><span class="line">        student2.setAge(<span class="string">'Z'</span>);<span class="comment">//添加的是char字符类型</span></span><br><span class="line">        System.out.println(student2.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>接口中允许定义默认方法：接口中的默认方法，可以解决接口升级的问题<blockquote>
-<p>格式：public default 返回值类型 方法名称(参数列表){方法体}</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String nmae)</span></span>&#123;</span><br><span class="line"> System.out.println(<span class="string">"疯狂的跑"</span>+name);</span><br><span class="line">&#125;&#125;<span class="comment">//接口中的默认方法定义</span></span><br></pre></td></tr></table></figure></li>
-<li>默认方法会被实现类继承下去以及使用</li>
-</ul>
-<ol>
-<li><strong>接口的默认方法，可以通过接口实现类对象，直接调用</strong></li>
-<li><strong>接口的默认方法，也可以被接口实现类进行覆盖重写</strong></li>
-</ol>
-<hr>
-<h3 id="从Java-8开始接口中允许定义静态方法"><a href="#从Java-8开始接口中允许定义静态方法" class="headerlink" title="从Java 8开始接口中允许定义静态方法"></a>从Java 8开始接口中允许定义静态方法</h3><blockquote>
-<p>格式： public static 返回值类型 方法名称（参数列表）{方法体}</p>
-<p>提示：就是将abstract或者default换成static即可，带上方法体</p>
-</blockquote>
-<ul>
-<li>接口中如何使用静态方法：<strong>（要在jdk1.8及以上才可以）</strong><blockquote>
-<p>注意事项：不能通过接口实现类的对象来调用接口中的静态方法</p>
-<p>正确用法：直接通过接口来调用接口中的静态方法 接口名称.方法名称（参数)</p>
-</blockquote>
-</li>
-<li>接口中的私有方法定义(<strong>要在jdk1.9及以上才可以</strong>)</li>
-</ul>
-<ol>
-<li>普通私有方法：解决多个默认方法之间重复代码问题 格式：private 返回值类型 方法名称（参数列表）{方法体}</li>
-<li>静态私有方法：解决多个静态方法之间重复代码问题 格式：private static 返回值类型 方法名称（参数列表）{方法体}</li>
-</ol>
-<ul>
-<li>接口当中也可以定义“成员变量”，但是必须使用<strong>public static final</strong>三个关键字，从效果上看，这其实就是接口的[常量]<blockquote>
-<p>格式：public static final 数据类型 常量名称 = 数据值；</p>
-<p>一旦使用final关键字进行修饰，说明不可改变</p>
-</blockquote>
-</li>
-<li><strong>接口中的常量 可以省略public static final 注意，不写也照样是这样</strong></li>
-<li><strong>接口中的常量 必须进行赋值 不可以不赋值</strong></li>
-<li><strong>接口中常量的名称 使用完全大写的符号 而且用下划线进行分割（推荐命名规则）</strong></li>
-<li>代码举例演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">interface</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUM = <span class="number">10</span>;<span class="comment">//成员变量 不可改变 也称为"常量"</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;<span class="comment">//静态方法 通过接口名直接调用 jdk1.8</span></span><br><span class="line">System.out.println(<span class="string">"数字为"</span>+a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Z2</span><span class="params">(<span class="keyword">int</span> a2)</span></span>&#123;<span class="comment">//私有静态方法 jdk1.9以上</span></span><br><span class="line">System.out.println(a2);</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
-<code>注意事项：在使用时注意看一下自己的jdk版本</code></li>
 </ul>
 <hr>
-<h3 id="接口Inerface小结Java9"><a href="#接口Inerface小结Java9" class="headerlink" title="接口Inerface小结Java9+"></a>接口Inerface小结Java9+</h3><ul>
-<li><p>成员便令其实是常量 格式：<strong>[public] [static] [final]常量名称 = 数据值；</strong></p>
-<blockquote>
-<p>注意：常量必须进行赋值，而且一旦赋值不能改变，常量名称完全大写，用下划线进行分割</p>
-</blockquote>
-</li>
-<li><p>接口中最重要的是抽象方法，格式: <strong>[public] [abstract] 返回值类型 方法名称（参数列表）;</strong></p>
-<blockquote>
-<p>注意：实现类必须覆盖重写接口中所有的抽象方法，除非实现类是抽象类</p>
-</blockquote>
-</li>
-<li><p>从Java8开始，接口里允许定义默认方法，格式：<strong>public default 返回值类型 方法名称（参数列表）{方法体}</strong></p>
-<blockquote>
-<p>注意：默认方法也可以被覆盖重写</p>
-</blockquote>
-</li>
-<li><p>从Java8开始，接口里允许定义静态方法，格式：<strong>public static 返回值类型 方法名称（参数里列表）{方法体}</strong></p>
-<blockquote>
-<p>注意：静态方法不可以由实现类创建的对象调用，只可以通过接口名称进行调用</p>
-</blockquote>
-</li>
-<li><p>从Java9开始，接口里允许定义私有方法，格式：</p>
-</li>
-</ul>
-<ol>
-<li>普通私有方法：<strong>private 返回值类型 方法名称（参数列表）{方法体}</strong></li>
-<li>静态私有方法：<strong>private static 返回值类型 方法名称（参数列表）{方法体}</strong><blockquote>
-<p>注意：private方法不可以由实现类创建的对象调用，只可以通过接口名称进行调用</p>
-</blockquote>
-</li>
+<h3 id="创建对象使用泛型和不使用泛型的好处和坏处"><a href="#创建对象使用泛型和不使用泛型的好处和坏处" class="headerlink" title="创建对象使用泛型和不使用泛型的好处和坏处"></a>创建对象使用泛型和不使用泛型的好处和坏处</h3><ul>
+<li><strong>使用泛型的好处：</strong><ol>
+<li>避免了类型转换的麻烦，存储的是什么类型，取出的就是什么类型</li>
+<li>把运行期的异常（代码运行之后会抛出的异常），提升到了编译器（写代码时会报错）</li>
 </ol>
-<ul>
-<li><strong>使用接口的时候需要注意</strong>：</li>
+</li>
+<li><strong>坏处：</strong><blockquote>
+<p>泛型是什么类型，只能存储什么类型的数据</p>
+</blockquote>
+</li>
+<li><strong>不使用泛型的好处：集合不使用泛型 默认的类型就是Object类型，可以存储任意类型的数据</strong></li>
+<li><strong>不适用泛型的坏处：不安全，会引发异常</strong></li>
 </ul>
-<ol>
-<li>接口是没有静态代码块和构造方法的</li>
-<li>一个类的直接父类是唯一的，但是<strong>一个类可以同时实现多个接口</strong> pbulic calss MyInterfaceImpl implement MyInterfaceA,MyInterfaceB</li>
-<li>如果实现类实现的多个接口<strong>有重命名的抽象方法，那么只实现一个抽象方法即可</strong></li>
-<li>如果实现类没有覆盖重写所有接口中的所有抽象方法，那么实现类就必须是一个抽象类</li>
-<li>如果实现类所实现的多个接口中，存在重复的默认方法，那么实现类一定要对冲突的默认方法进行重写</li>
-<li>一个子类<strong>如果父类中的方法跟接口中的默认方法重名，那么优先使用父类中的方法，继承优先于接口实现</strong></li>
-</ol>
-<p><code>切记切记：继承优先于接口实现</code></p>
 <hr>
-<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><ul>
-<li><strong>final概念：代表最终，不可改变的</strong></li>
-<li>常见的四种用法：</li>
+<h3 id="定义和使用含有泛型的类-接口-方法"><a href="#定义和使用含有泛型的类-接口-方法" class="headerlink" title="定义和使用含有泛型的类 接口 方法"></a>定义和使用含有泛型的类 接口 方法</h3><ul>
+<li>含有泛型的类 格式：<strong>修饰符 class 类名&lt;代表泛型的变量&gt;{}</strong></li>
+<li>含有泛型的方法 </li>
 </ul>
 <ol>
-<li>用来修饰一个类</li>
-<li>用来修饰一个方法</li>
-<li>用来修饰一个成员变量</li>
-<li>用来修饰一个局部变量</li>
+<li>格式： <strong>修饰符 &lt;代表泛型的变量&gt; 返回值类型 方法名(参数){}</strong></li>
+<li>静态方法格式： <strong>修饰符 static &lt;代表泛型的变量&gt; 返回值类型 方法名(参数){}</strong><blockquote>
+<p>建议不要通过创建对象来调用此静态方法，因为静态方法可以通过类直接进行调用</p>
+</blockquote>
+</li>
 </ol>
 <ul>
-<li>当final关键字用来修饰一个类的时候：格式：<strong>public final class 类名称</strong><blockquote>
-<p>含义:当前这个类不能有任何子类，但是可以有父类（太监类），一个类如果是final的那么其中所有的成员方法都无法进行覆盖重写（因为不可以有子类继承）</p>
+<li>含有泛型的接口：<strong>修饰符 interface 接口名&lt;代表泛型的变量&gt;{ }</strong></li>
+<li>第一种使用方式：<strong>定义接口的实现类，实现接口，指定接口的泛型</strong><blockquote>
+<p>第一种的格式:public interface Iterator<E>{E next();}</E></p>
+<p>Scanner类实现了Iterator接口，并指定接口的泛型为String,所以重写的next()方法泛型默认为String型</p>
+<p>public final class Scanner implements Iterator<String>{public String next(){}}</String></p>
 </blockquote>
 </li>
-<li>当final关键字用来修饰一个方法的时候：格式：<strong>public final void method(){}</strong><blockquote>
-<p>如果final修饰方法，那么这个方法就是最终方法，不能进行覆盖重写</p>
-<p>对于类和方法来说，abstract关键字和final关键字不能同时使用 因为矛盾</p>
+<li>第二种使用方式：<strong>接口使用什么泛型，实现类就使用什么泛型，类跟着接口走<br>就相当于定义了一个含有泛型的类，创建对象的时候确定泛型的类型</strong><blockquote>
+<p>public interface List<E>{ boolean add(E e); E get(int index);}</E></p>
+<p>public class ArrayList<E> implements List<E>{public boolean add(E e){}<br>public E get(int index){}}</E></E></p>
 </blockquote>
 </li>
-<li>final关键字用来修饰一个成员变量的时候，格式为<strong>public final 成员类型 成员名称</strong><blockquote>
-<p>由于成员变量具有默认值，当用final修饰后必须手动赋值，不会再给默认值了</p>
-<p>对于final修饰的成员变量，要么直接赋值，要么通过构造方法赋值</p>
-</blockquote>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span>  <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt;</span>&#123;<span class="function">E <span class="title">next</span><span class="params">()</span></span>;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">A</span> <span class="keyword">implements</span>  <span class="title">Iterator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;<span class="function"><span class="keyword">public</span> Integer <span class="title">next</span><span class="params">()</span><span class="comment">//接口</span></span></span><br><span class="line"><span class="function"><span class="comment">// 实现类是Integer类型 接口所以接口也默认为Integer类型 实现类实现接口 指定接口泛型</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"第一种方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>final关键字修饰一个局部变量的时候，格式为<strong>public final 变量类型 变量名称</strong><blockquote>
-<p>一旦经过final修饰后的局部变量 一旦赋值 就不可以更改 “一次赋值，终生不变”</p>
-<p>对于基本类型来说，不变的是其中的数值不变；对于引用类型来说不变的是其中的地址值不变</p>
-</blockquote>
-</li>
-<li>基本代码举例演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Ff</span></span>&#123;<span class="comment">//用final修饰一个类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span>  String name = <span class="string">"zhangRenWei"</span>;<span class="comment">//用final修饰成员变量</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;<span class="comment">//用final修饰成员方法</span></span><br><span class="line">System.out.println(<span class="string">"这是一个被final修饰的方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> num = <span class="number">3</span>;<span class="comment">//用final修饰局部变量</span></span><br><span class="line">System.out.println(num);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="以上是对接口以及final修饰符的初步了解"><a href="#以上是对接口以及final修饰符的初步了解" class="headerlink" title="以上是对接口以及final修饰符的初步了解"></a>以上是对接口以及final修饰符的初步了解</h3></li>
 </ul>
-
+<hr>
+<ul>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">A</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  B&lt;String&gt; stringB = <span class="keyword">new</span> B&lt;&gt;();<span class="comment">//创建对象的时候再指定对象的类型是什么</span></span><br><span class="line">stringB.use();<span class="comment">//String类型的对象创建成功然后调用user方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">()</span></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"第二种方法"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h3><ul>
+<li>概念： <strong>当使用泛型类或者接口时，传递的数据中，泛型类型不确定，可以通过两个通配符&lt;?&gt;表示，但是一旦使用泛型的通配符后，只能<br>使用Object类中的共性方法，集合中的元素自身方法无法使用</strong></li>
+<li>泛型的通配符：<strong>不知道使用什么类型来接收的时候，此时可以使用?,?表示未知的通配符</strong><blockquote>
+<p>此时只能接收数据 不能存储数据</p>
+</blockquote>
+</li>
+<li>使用方式：<strong>不能创建对象使用 只能作为方法的参数使用</strong></li>
+<li>泛型的高级方式<ol>
+<li><strong>泛型的上限限定: ? extends E 代表使用的泛型只能时E类型的子类/本身</strong></li>
+<li><strong>泛型的下限限定：? super E 代表使用的泛型只能是E类型的父类/本身</strong></li>
+</ol>
+</li>
+<li>例子<blockquote>
+<p>public static ArrayList&lt;?&gt; method(ArrayList&lt;? extends Number&gt; arrayList)此时泛型必须时Number类型或者Number类型的子类</p>
+<p>public static ArrayList&lt;?&gt; method1(ArrayList&lt;? super  Number&gt; arrayList)此时泛型必须时Number类型或者Number类型的父类</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="以上是对泛型的初步了解以及大致使用的总结"><a href="#以上是对泛型的初步了解以及大致使用的总结" class="headerlink" title="以上是对泛型的初步了解以及大致使用的总结"></a>以上是对泛型的初步了解以及大致使用的总结</h3>
       
 
       
@@ -434,7 +367,7 @@ public class B implements A{}</code></li>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/21/BlogBook10/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/23/BlogBook17/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -448,18 +381,9 @@ public class B implements A{}</code></li>
   
 <nav id="article-nav">
   
-    <a href="/2020/07/21/BlogBook11/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          权限修饰符以及内部类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/21/BlogBook9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">String类的使用和Static静态的用处</div>
+    <a href="/2020/07/23/BlogBook16/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合框架</div>
       <i class="icon-circle-right"></i>
     </a>
   
