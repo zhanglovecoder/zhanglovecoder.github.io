@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>数据装箱拆箱及转换 | CoderZhang&#39;s blog</title>
+  <title>Java集合之List接口下的集合 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="包装类 概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能 概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型 除int,char外的六个基本数据类型的包装类都是首字母大写 int—-&gt;Integer  char—&gt;character">
+  <meta name="description" content="集合List接口 java.util.list接口 extends Collection接口  特点：  有序的集合 存储和取出的元素顺序是一致的 List集合是有索引的，包含了一些带索引的方法 与Set接口不同 List接口允许存储重复元素   List接口中带索引的方法(特有)  public void add(int index,E element):将指定的元素，添加到该集合的指定位置上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据装箱拆箱及转换">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/22/BlogBook15/index.html">
+<meta property="og:title" content="Java集合之List接口下的集合">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/23/BlogBook19/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="包装类 概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能 概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型 除int,char外的六个基本数据类型的包装类都是首字母大写 int—-&gt;Integer  char—&gt;character">
+<meta property="og:description" content="集合List接口 java.util.list接口 extends Collection接口  特点：  有序的集合 存储和取出的元素顺序是一致的 List集合是有索引的，包含了一些带索引的方法 与Set接口不同 List接口允许存储重复元素   List接口中带索引的方法(特有)  public void add(int index,E element):将指定的元素，添加到该集合的指定位置上">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-22T03:54:38.000Z">
-<meta property="article:modified_time" content="2020-07-22T04:17:55.713Z">
+<meta property="article:published_time" content="2020-07-23T12:29:20.000Z">
+<meta property="article:modified_time" content="2020-07-23T12:54:25.708Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Java集合">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -147,14 +148,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook15" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook19" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数据装箱拆箱及转换
+      Java集合之List接口下的集合
     </h1>
   
 
@@ -176,82 +177,99 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/22/BlogBook15/" class="archive-article-date">
-  	<time datetime="2020-07-22T03:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+<a href="/2020/07/23/BlogBook19/" class="archive-article-date">
+  	<time datetime="2020-07-23T12:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><ul>
-<li><strong>概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能</strong></li>
-<li><strong>概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型</strong></li>
-<li>除int,char外的六个基本数据类型的包装类都是首字母大写 <strong>int—-&gt;Integer  char—&gt;character</strong></li>
-</ul>
-<hr>
-<ul>
+        <h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List<E>接口</E></h4><ul>
+<li><p><strong>java.util.list接口 extends Collection接口</strong></p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li><strong>有序的集合 存储和取出的元素顺序是一致的</strong></li>
+<li><strong>List集合是有索引的，包含了一些带索引的方法</strong></li>
+<li><strong>与Set接口不同 List接口允许存储重复元素</strong></li>
+</ol>
+</li>
+<li><p>List接口中带索引的方法(<strong>特有</strong>)</p>
+<ol>
+<li><strong>public void add(int index,E element)</strong>:将指定的元素，添加到该集合的指定位置上</li>
+<li><strong>public E get(int index)</strong>:返回集合中指定位置的元素</li>
+<li><strong>public E remove(int index)</strong>：移除列表中指定位置的元素，返回的是被移除的元素</li>
+<li><strong>public E set(int index,E element)</strong>：用指定元素替换集合中指定位置的元素，并返回被替换的元素<blockquote>
+<p>注意：操作索引的时候 一定要防止索引越界异常</p>
+</blockquote>
+</li>
+</ol>
+</li>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>装箱拆箱及String类型转换！！</strong></p>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h3><ul>
-<li>装箱：<strong>从基本类型转换为对应的包装类对象</strong></li>
-<li>拆箱: <strong>从包装类对象转换为对应的基本类型</strong></li>
-<li>构造方法：<br>  <strong>1. Integer(int value)构造一个新分配得 Integer对象，它表示指定得int值</strong><br>  <strong>2. Integer(String s)构造一个新分配得Integer对象，它表示String参数所指示的int值</strong><blockquote>
-<p>传递的字符串，必须是基本类型的字符串，否则会抛出异常 “100”正确 “a”抛异常</p>
-</blockquote>
-</li>
-<li>静态方法：<ol>
-<li><strong>static Integer valueOf(int i) 返回一个表示指定的int值得Integer实例</strong></li>
-<li><strong>static Integer valueOf(String s)返回保存指定得String 得值得Integer对象</strong></li>
-</ol>
-</li>
-<li>成员方法:<strong>int intvalue() 以int类型返回该Integer得值</strong></li>
-<li><strong>个人总结</strong>：</li>
-</ul>
+<li><p><strong>List接口下的集合</strong></p>
+<a id="more"></a></li>
+<li><p>异常：</p>
 <ol>
-<li>为啥要用到包装类:因为基本数据类型的使用方法太单一，但是通过包装类（装箱）包装起来，可以通过这个包装类来调用许多方法提升多样性</li>
-<li>创建对象进行使用的话，对象可以做更多的功能，其中以int举例子可以通过两个构造方法两个常用方法进行装箱，然后一个常用方法进行拆箱</li>
+<li><strong>IndexOutOfBoundsException:索引越界异常，集合会报</strong></li>
+<li><strong>ArrayIndexOutOfBoundsException:数组索引越界异常</strong></li>
+<li><strong>StringIndexOutOfBoundsException:字符串索引越界异常</strong></li>
 </ol>
-<ul>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStduy7</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer integer = <span class="keyword">new</span> Integer(<span class="string">"1"</span>);<span class="comment">//Integer类的构造方法 传入String类型的参数 将其转化为Integer类型的对象</span></span><br><span class="line">        System.out.println(integer);</span><br><span class="line">        Integer integer1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//Integer类的构造方法 传入int值将其包装成Integer类型的对象</span></span><br><span class="line">        System.out.println(integer1);</span><br><span class="line">        Integer integer2 = Integer.valueOf(<span class="number">1</span>);<span class="comment">//Integer类的静态方法valueOf() 返回一个表示指定的int值得Integer实例</span></span><br><span class="line">        System.out.println(integer2);</span><br><span class="line">        Integer integer3 = Integer.valueOf(<span class="string">"10"</span>);<span class="comment">//返回保存指定得String 得值得Integer对象</span></span><br><span class="line">        System.out.println(integer3);</span><br><span class="line">        <span class="keyword">int</span> i = integer2.intValue();<span class="comment">//Integer类对象的成员方法 以int类型返回该Integer得值 可以用来Integer类的拆箱</span></span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基本代码演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//创建ArrayList类对象</span></span><br><span class="line">list.add(<span class="number">10</span>);<span class="comment">//List接口中添加数据add()方法</span></span><br><span class="line">list.add(<span class="number">20</span>);</span><br><span class="line">list.add(<span class="number">1</span>,<span class="number">30</span>);<span class="comment">//List接口中添加数据带索引的add()方法</span></span><br><span class="line">list.get(<span class="number">0</span>);<span class="comment">//List接口中获取数据带索引的get()方法</span></span><br><span class="line">list.remove(<span class="number">1</span>);<span class="comment">//List接口中带索引的删除数据方法带索引的remove()方法</span></span><br><span class="line">list.set(<span class="number">1</span>,<span class="number">100</span>);<span class="comment">//List接口中带索引的添加(覆盖)数据的set()方法</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="自动装箱与自动拆箱"><a href="#自动装箱与自动拆箱" class="headerlink" title="自动装箱与自动拆箱"></a>自动装箱与自动拆箱</h3><ul>
-<li>概念：<strong>基本类型的数据和包装类之间可以自动的相互转换 JDK1.5之后出现的特性</strong></li>
-<li><strong>包装类无法直接参与运算</strong> 可以自动转换为基本数据类型，再进行计算</li>
-<li>自动装箱：直接把int类型的整型赋值包装类 Integer in = 1;就相当于 Integer in = new Integer(1);</li>
-<li>自动拆箱：in是包装类，无法直接参与运算，可以自动转换为基本数据类型，再进行计算，in+2就相当于in.inValue()+2 = 3</li>
+<h3 id="ArrayList集合-list子集-多线程"><a href="#ArrayList集合-list子集-多线程" class="headerlink" title="ArrayList集合(list子集)多线程"></a>ArrayList集合(list子集)多线程</h3><ul>
+<li><strong>java.util.ArrayList集合数据存储的结构是数组结构，元素增删慢，查找快，由于日常开发中使用最多的功能为查询数据遍历数据，所以<br>ArrayList是最常用的集合</strong></li>
+<li><strong>注意严谨性 多线程(数据不是同步的)</strong></li>
 </ul>
-<h2 id="in-in-inValue-2-3-又是一个自动装箱"><a href="#in-in-inValue-2-3-又是一个自动装箱" class="headerlink" title="in = in.inValue() + 2 = 3 又是一个自动装箱"></a><code>in = in.inValue() + 2 = 3 又是一个自动装箱</code></h2><h3 id="基本类型与字符串之间得相互转换"><a href="#基本类型与字符串之间得相互转换" class="headerlink" title="基本类型与字符串之间得相互转换"></a>基本类型与字符串之间得相互转换</h3><ul>
-<li><strong>基本类型–&gt;字符串（String)</strong><ol>
-<li>基本类型得值+” “ 最简单得方法(工作中常用)</li>
-<li>包装类得静态方法toString(参数)，不是Object类得toString()重载  static  String toString(int i)返回一个表示指定整数得String对象</li>
-<li>String类得静态方法valueOf(参数) static String valueOf(int i)返回int 参数得字符串表示方式</li>
-<li>字符(String)—-&gt;基本类型 使用int包装类得静态方法parseXXX(“字符串”);<blockquote>
-<p>Integer类:static int parseInt(String s)</p>
-<p>Double类：static double parseDouble(String s)</p>
+<hr>
+<h3 id="LinkedList集合-list子集-多线程"><a href="#LinkedList集合-list子集-多线程" class="headerlink" title="LinkedList集合(list子集)多线程"></a>LinkedList集合(list子集)多线程</h3><ul>
+<li><strong>java.util.LinkedList集合数据存储的结构是链表结构，方便元素添加，删除的集合</strong><blockquote>
+<p>LinkedList是一个双向链表</p>
 </blockquote>
 </li>
+<li>LinkList集合的特点：<ol>
+<li><strong>底层是一个链表结构：查询慢，增删快</strong></li>
+<li><strong>里边包含了大量操作首尾元素的方法</strong></li>
+<li><strong>使用了LinkedList集合特有的方法，不能使用多态</strong></li>
 </ol>
 </li>
-<li><strong>个人总结</strong>：</li>
-</ul>
-<ol>
-<li>基本类型(int)可以通过三个基本方法转换为String类型，其中第一种直接添加字符串是最简单得，还有两个包装类的静态方法</li>
-<li>当Int型转变为String类型时，+不再是数值相加 而是字符串相连接的意思</li>
-<li>要注意参数列表返回的是什么类型 String类型转换为int 可以用Int包装类Integer的静态方法parse</li>
+<li>九种方法<ol>
+<li><strong>public void addFirst(E e):指定元素插入列表开头</strong></li>
+<li><strong>public void addLast(E e)：指定元素添加到列表结尾</strong></li>
+<li><strong>public E getFirst()：返回列表的第一个元素</strong></li>
+<li><strong>public E getLast()：返回列表的第二个元素</strong></li>
+<li><strong>public E removeFirst()：移除并返回列表第一个元素</strong></li>
+<li><strong>public E removeLast()：移除并返回列表第二个元素</strong></li>
+<li><strong>public E pop();：从此列表所表示的堆栈处弹出一个元素 等效于addFirst方法</strong></li>
+<li><strong>public void push(E e)：将元素推入此列表所表示的堆栈 等效于removeFirst方法</strong></li>
+<li><strong>public boolean is Empty():列表不包含元素返回true</strong></li>
 </ol>
-<ul>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStudy8</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">        String j = i+<span class="string">" "</span>;<span class="comment">/*最简单得方法 直接添加一个空字符串,转变成String类*/</span></span><br><span class="line">        System.out.println(j+<span class="number">200</span>);</span><br><span class="line">        String s1 = Integer.toString(<span class="number">10</span>);<span class="comment">/*通过基本数据类型包装类得静态stoString方法转变成String类*/</span></span><br><span class="line">        System.out.println(s1+<span class="number">100</span>);</span><br><span class="line">        String s = String.valueOf(<span class="number">10</span>);<span class="comment">/*通过String类得静态方法valueOf传入Int型参数 转变成为String类*/</span></span><br><span class="line">        System.out.println(s+<span class="number">300</span>);</span><br><span class="line">        <span class="keyword">int</span> i1 = Integer.parseInt(s1);<span class="comment">/*通过包装类Integer得静态方法parseInt传入字符串参数(只能是数字)然后转换为int型变量*/</span></span><br><span class="line">        System.out.println(i1+<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Study</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  LinkedList&lt;Integer&gt; linkedList = <span class="keyword">new</span> LinkedList&lt;&gt;();<span class="comment">//创建LinkedList类的对象</span></span><br><span class="line">  linkedList.addFirst(<span class="number">1</span>);<span class="comment">//指定元素插入列表开头addFirst()方法</span></span><br><span class="line">  linkedList.addLast(<span class="number">10</span>);<span class="comment">//指定元素添加到列表结尾addLast()方法</span></span><br><span class="line">  Integer first = linkedList.getFirst();<span class="comment">//返回列表的第一个元素getFirst()方法</span></span><br><span class="line">  Integer last = linkedList.getLast();<span class="comment">//返回列表的第二个元素getLast()方法</span></span><br><span class="line">  Integer integer = linkedList.removeLast();<span class="comment">//移除并返回列表第一个元素removeLast()方法</span></span><br><span class="line">  Integer integer1 = linkedList.removeFirst();<span class="comment">//移除并返回列表第二个元素removeFirst()方法</span></span><br><span class="line">  Integer  pop = linkedList.pop();<span class="comment">//从此列表所表示的堆栈处弹出一个元素 等效于addFirst()方法</span></span><br><span class="line">  linkedList.push();<span class="comment">//将元素推入此列表所表示的堆栈 等效于removeFirst()方法</span></span><br><span class="line">  linkedList.isEmpty();<span class="comment">//列表不包含元素返回true 判断是否是空集合的isEmpty()方法</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-
+<h3 id="Vector集合-单线程"><a href="#Vector集合-单线程" class="headerlink" title="Vector集合(单线程)"></a>Vector集合(单线程)</h3><ul>
+<li><strong>底层也是一个数组 且是一个可增长数组</strong></li>
+<li><strong>可实现接口有List<E> Collection<E></E></E></strong></li>
+<li>方法：</li>
+</ul>
+<ol>
+<li><strong>public void addElement <E obj> 添加方法</E></strong><blockquote>
+<p>了解即可 ：1.2版本以前用的elements来实现遍历（相当于1.2版本后的迭代器）</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>可以使用Collection和List中特有的方法 且可以使用迭代器</strong></li>
+</ul>
+<hr>
+<h3 id="以上是List接口的集合类部分方法以及使用方式-以后会继续补充"><a href="#以上是List接口的集合类部分方法以及使用方式-以后会继续补充" class="headerlink" title="以上是List接口的集合类部分方法以及使用方式 以后会继续补充"></a>以上是List接口的集合类部分方法以及使用方式 以后会继续补充</h3>
       
 
       
@@ -286,6 +304,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
         		</li>
       		
 		</ul>
@@ -341,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/22/BlogBook15/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/23/BlogBook19/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -355,18 +377,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/23/BlogBook16/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java集合框架
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/22/BlogBook14/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Calendar+System+StringBuilder类</div>
+    <a href="/2020/07/23/BlogBook18/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构初步了解</div>
       <i class="icon-circle-right"></i>
     </a>
   

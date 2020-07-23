@@ -6,19 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>数据装箱拆箱及转换 | CoderZhang&#39;s blog</title>
+  <title>CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="包装类 概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能 概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型 除int,char外的六个基本数据类型的包装类都是首字母大写 int—-&gt;Integer  char—&gt;character">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据装箱拆箱及转换">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/22/BlogBook15/index.html">
+  <meta name="description" content="总有人会赢 为什么不是我">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CoderZhang&#39;s blog">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/page/3/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="包装类 概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能 概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型 除int,char外的六个基本数据类型的包装类都是首字母大写 int—-&gt;Integer  char—&gt;character">
+<meta property="og:description" content="总有人会赢 为什么不是我">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-22T03:54:38.000Z">
-<meta property="article:modified_time" content="2020-07-22T04:17:55.713Z">
 <meta property="article:author" content="CoderZhang">
-<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -147,231 +144,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook15" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      数据装箱拆箱及转换
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/08/hello-world/">Hello World</a>
     </h1>
   
 
         <!--显示阅读次数-->
 
-  <br/>
-  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-  <span class="icon-sort"></span>
-  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-  </span>
-  </a>
-
 <!--显示阅读次数完毕-->
         
         
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2020/07/22/BlogBook15/" class="archive-article-date">
-  	<time datetime="2020-07-22T03:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+<a href="/2020/05/08/hello-world/" class="archive-article-date">
+  	<time datetime="2020-05-08T05:39:04.808Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><ul>
-<li><strong>概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能</strong></li>
-<li><strong>概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型</strong></li>
-<li>除int,char外的六个基本数据类型的包装类都是首字母大写 <strong>int—-&gt;Integer  char—&gt;character</strong></li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>装箱拆箱及String类型转换！！</strong></p>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h3><ul>
-<li>装箱：<strong>从基本类型转换为对应的包装类对象</strong></li>
-<li>拆箱: <strong>从包装类对象转换为对应的基本类型</strong></li>
-<li>构造方法：<br>  <strong>1. Integer(int value)构造一个新分配得 Integer对象，它表示指定得int值</strong><br>  <strong>2. Integer(String s)构造一个新分配得Integer对象，它表示String参数所指示的int值</strong><blockquote>
-<p>传递的字符串，必须是基本类型的字符串，否则会抛出异常 “100”正确 “a”抛异常</p>
-</blockquote>
-</li>
-<li>静态方法：<ol>
-<li><strong>static Integer valueOf(int i) 返回一个表示指定的int值得Integer实例</strong></li>
-<li><strong>static Integer valueOf(String s)返回保存指定得String 得值得Integer对象</strong></li>
-</ol>
-</li>
-<li>成员方法:<strong>int intvalue() 以int类型返回该Integer得值</strong></li>
-<li><strong>个人总结</strong>：</li>
-</ul>
-<ol>
-<li>为啥要用到包装类:因为基本数据类型的使用方法太单一，但是通过包装类（装箱）包装起来，可以通过这个包装类来调用许多方法提升多样性</li>
-<li>创建对象进行使用的话，对象可以做更多的功能，其中以int举例子可以通过两个构造方法两个常用方法进行装箱，然后一个常用方法进行拆箱</li>
-</ol>
-<ul>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStduy7</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer integer = <span class="keyword">new</span> Integer(<span class="string">"1"</span>);<span class="comment">//Integer类的构造方法 传入String类型的参数 将其转化为Integer类型的对象</span></span><br><span class="line">        System.out.println(integer);</span><br><span class="line">        Integer integer1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//Integer类的构造方法 传入int值将其包装成Integer类型的对象</span></span><br><span class="line">        System.out.println(integer1);</span><br><span class="line">        Integer integer2 = Integer.valueOf(<span class="number">1</span>);<span class="comment">//Integer类的静态方法valueOf() 返回一个表示指定的int值得Integer实例</span></span><br><span class="line">        System.out.println(integer2);</span><br><span class="line">        Integer integer3 = Integer.valueOf(<span class="string">"10"</span>);<span class="comment">//返回保存指定得String 得值得Integer对象</span></span><br><span class="line">        System.out.println(integer3);</span><br><span class="line">        <span class="keyword">int</span> i = integer2.intValue();<span class="comment">//Integer类对象的成员方法 以int类型返回该Integer得值 可以用来Integer类的拆箱</span></span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="自动装箱与自动拆箱"><a href="#自动装箱与自动拆箱" class="headerlink" title="自动装箱与自动拆箱"></a>自动装箱与自动拆箱</h3><ul>
-<li>概念：<strong>基本类型的数据和包装类之间可以自动的相互转换 JDK1.5之后出现的特性</strong></li>
-<li><strong>包装类无法直接参与运算</strong> 可以自动转换为基本数据类型，再进行计算</li>
-<li>自动装箱：直接把int类型的整型赋值包装类 Integer in = 1;就相当于 Integer in = new Integer(1);</li>
-<li>自动拆箱：in是包装类，无法直接参与运算，可以自动转换为基本数据类型，再进行计算，in+2就相当于in.inValue()+2 = 3</li>
-</ul>
-<h2 id="in-in-inValue-2-3-又是一个自动装箱"><a href="#in-in-inValue-2-3-又是一个自动装箱" class="headerlink" title="in = in.inValue() + 2 = 3 又是一个自动装箱"></a><code>in = in.inValue() + 2 = 3 又是一个自动装箱</code></h2><h3 id="基本类型与字符串之间得相互转换"><a href="#基本类型与字符串之间得相互转换" class="headerlink" title="基本类型与字符串之间得相互转换"></a>基本类型与字符串之间得相互转换</h3><ul>
-<li><strong>基本类型–&gt;字符串（String)</strong><ol>
-<li>基本类型得值+” “ 最简单得方法(工作中常用)</li>
-<li>包装类得静态方法toString(参数)，不是Object类得toString()重载  static  String toString(int i)返回一个表示指定整数得String对象</li>
-<li>String类得静态方法valueOf(参数) static String valueOf(int i)返回int 参数得字符串表示方式</li>
-<li>字符(String)—-&gt;基本类型 使用int包装类得静态方法parseXXX(“字符串”);<blockquote>
-<p>Integer类:static int parseInt(String s)</p>
-<p>Double类：static double parseDouble(String s)</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><strong>个人总结</strong>：</li>
-</ul>
-<ol>
-<li>基本类型(int)可以通过三个基本方法转换为String类型，其中第一种直接添加字符串是最简单得，还有两个包装类的静态方法</li>
-<li>当Int型转变为String类型时，+不再是数值相加 而是字符串相连接的意思</li>
-<li>要注意参数列表返回的是什么类型 String类型转换为int 可以用Int包装类Integer的静态方法parse</li>
-</ol>
-<ul>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStudy8</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">        String j = i+<span class="string">" "</span>;<span class="comment">/*最简单得方法 直接添加一个空字符串,转变成String类*/</span></span><br><span class="line">        System.out.println(j+<span class="number">200</span>);</span><br><span class="line">        String s1 = Integer.toString(<span class="number">10</span>);<span class="comment">/*通过基本数据类型包装类得静态stoString方法转变成String类*/</span></span><br><span class="line">        System.out.println(s1+<span class="number">100</span>);</span><br><span class="line">        String s = String.valueOf(<span class="number">10</span>);<span class="comment">/*通过String类得静态方法valueOf传入Int型参数 转变成为String类*/</span></span><br><span class="line">        System.out.println(s+<span class="number">300</span>);</span><br><span class="line">        <span class="keyword">int</span> i1 = Integer.parseInt(s1);<span class="comment">/*通过包装类Integer得静态方法parseInt传入字符串参数(只能是数字)然后转换为int型变量*/</span></span><br><span class="line">        System.out.println(i1+<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p><strong>Author : ZhangRenwei</strong></p>
+<p><strong>hexo基本指令</strong></p>
+        
+          <a class="article-more-a" href="/2020/05/08/hello-world/#more">查看全文 >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/08/hello-world/">点击查看全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/22/BlogBook15/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/23/BlogBook16/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java集合框架
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/07/22/BlogBook14/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Calendar+System+StringBuilder类</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -391,14 +215,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -432,8 +254,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
