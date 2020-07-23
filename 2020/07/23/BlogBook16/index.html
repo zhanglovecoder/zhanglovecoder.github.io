@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>部分类及方法使用(Object等) | CoderZhang&#39;s blog</title>
+  <title>Java集合框架 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类和方法Object类中的toString方法 所有类都默认集成了Object类，所以可以使用Object类中的toString方法  String toString()返回该对象的字符串表示   看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）如果重写了toString()方法，那么就按照重写的">
+  <meta name="description" content="Collection集合概述 集合是java中提供的一种容器，用来存储多个数据 数组和集合的区别： 数组的长度是固定的，集合长度是可以改变的 数组存储的是同一类型的元素，可以存储基本类型数值；集合存储的都是对象，而且对象的类型可以不一致，在开发中一般当对象多的时候使用集合进行存储      Author : ZhangRenwei  集合框架及迭代器增强for">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部分类及方法使用(Object等)">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/22/BlogBook13/index.html">
+<meta property="og:title" content="Java集合框架">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/23/BlogBook16/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="类和方法Object类中的toString方法 所有类都默认集成了Object类，所以可以使用Object类中的toString方法  String toString()返回该对象的字符串表示   看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）如果重写了toString()方法，那么就按照重写的">
+<meta property="og:description" content="Collection集合概述 集合是java中提供的一种容器，用来存储多个数据 数组和集合的区别： 数组的长度是固定的，集合长度是可以改变的 数组存储的是同一类型的元素，可以存储基本类型数值；集合存储的都是对象，而且对象的类型可以不一致，在开发中一般当对象多的时候使用集合进行存储      Author : ZhangRenwei  集合框架及迭代器增强for">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-22T01:56:22.000Z">
-<meta property="article:modified_time" content="2020-07-22T02:55:13.038Z">
+<meta property="article:published_time" content="2020-07-23T04:52:01.000Z">
+<meta property="article:modified_time" content="2020-07-23T06:19:23.547Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Java集合">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -147,14 +148,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook13" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook16" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      部分类及方法使用(Object等)
+      Java集合框架
     </h1>
   
 
@@ -176,117 +177,138 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/22/BlogBook13/" class="archive-article-date">
-  	<time datetime="2020-07-22T01:56:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+<a href="/2020/07/23/BlogBook16/" class="archive-article-date">
+  	<time datetime="2020-07-23T04:52:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="类和方法"><a href="#类和方法" class="headerlink" title="类和方法"></a>类和方法</h3><h3 id="Object类中的toString方法"><a href="#Object类中的toString方法" class="headerlink" title="Object类中的toString方法"></a>Object类中的toString方法</h3><ul>
-<li><p><strong>所有类都默认集成了Object类，所以可以使用Object类中的toString方法</strong></p>
-<blockquote>
-<p>String toString()返回该对象的字符串表示</p>
-</blockquote>
+        <h3 id="Collection集合概述"><a href="#Collection集合概述" class="headerlink" title="Collection集合概述"></a>Collection集合概述</h3><ul>
+<li>集合是java中提供的一种<strong>容器</strong>，用来存储多个数据</li>
+<li><strong>数组和集合的区别</strong>：<ol>
+<li>数组的长度是固定的，集合长度是可以改变的</li>
+<li>数组存储的是同一类型的元素，可以存储基本类型数值；集合存储的都是对象，而且对象的类型可以不一致，在开发中一般当对象多的时候<br>使用集合进行存储</li>
+</ol>
 </li>
-<li><p><strong>看一个类是否重写了toString()方法，直接打印这个类对应对象的名称即可，如果没有重写toString()方法，那么打印的就是对象的地址值（默认）<br>如果重写了toString()方法，那么就按照重写的方式打印</strong></p>
-<blockquote>
-<p>public String toString()</p>
-</blockquote>
-</li>
-<li><p>基本代码演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  String string = <span class="string">"你好"</span>;</span><br><span class="line"> System.out.println(string);<span class="comment">//没有重写toString()方法 所以打印出来的是地址值</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>Object类及其他类的使用！！</strong></p>
+<li><p><strong>集合框架及迭代器增强for</strong></p>
 </li>
 </ul>
 <a id="more"></a>
+<h3 id="集合框架概述"><a href="#集合框架概述" class="headerlink" title="集合框架概述"></a>集合框架概述</h3><ul>
+<li>六个集合：<ul>
+<li><strong>Vector集合</strong></li>
+<li><strong>ArrayList集合</strong> </li>
+<li><strong>LinkedList集合</strong></li>
+<li><strong>TreeSet集合</strong> </li>
+<li><strong>HashSet集合</strong> </li>
+<li><strong>LinkedHashSet集合</strong></li>
+</ul>
+</li>
+<li>学习集合的目标<ol>
+<li><strong>会使用集合存储数据</strong></li>
+<li><strong>会遍历集合，把数据取出来</strong></li>
+<li><strong>掌握每种集合的特性</strong></li>
+</ol>
+</li>
+<li>List接口的特点：<br>  <strong>1. 有序的集合（存储和取出的元素序相同）</strong><br>  <strong>2. 允许存储重复元素</strong><br>  <strong>3. 有索引，可以使用普通的for循环遍历</strong><blockquote>
+<p>包含三个子类集合：1. Vector集合 2.ArrayList集合 3. LinkedList集合</p>
+</blockquote>
+</li>
+<li>Set接口的特点：</li>
+</ul>
+<ol>
+<li><strong>不允许存储重复元素</strong></li>
+<li><strong>没有索引（不能使用普通的for循环遍历）</strong><blockquote>
+<p>包含的三个子类集合:1. TreeSet集合 2. HashSet集合 3. LinkedHashSet集合</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>其中TreeSet和HashSet是无序的集合（存储和取出的元素有可能） LinkedHashSet是有序的集合</li>
+<li><strong>最顶层为Collection接口：</strong><ol>
+<li>定义的是所有单列集合中共性的方法</li>
+<li>所有的单列集合都可以使用的共性方法</li>
+<li>没有带索引的方法</li>
+</ol>
+</li>
+<li>学习集合框架的方式</li>
+</ul>
+<ol>
+<li><strong>学习顶层：学习顶层接口/抽象类中的共性方法，所有的子类都可以使用</strong></li>
+<li><strong>使用底层：顶层不是接口就是抽象类，无法创建对象使用，需要使用底层的子类创建对象使用</strong></li>
+</ol>
+<hr>
+<h3 id="Collection集合类中常用方法（适用于六个子类集合）"><a href="#Collection集合类中常用方法（适用于六个子类集合）" class="headerlink" title="Collection集合类中常用方法（适用于六个子类集合）"></a>Collection集合类中常用方法（适用于六个子类集合）</h3><ul>
+<li><strong>public boolean add(E e):把给定的对象添加到集合中</strong></li>
+<li><strong>public void clear():清空集合中所有的元素,但是不清除集合 集合还在</strong></li>
+<li><strong>public boolean remove(E e):把给定的对象在当前集合中删除</strong></li>
+<li><strong>public boolean contanins(E e):判断当前集合中是否包含给定的对象</strong></li>
+<li><strong>public boolean isEmpty(): 判断当前集合是否为空</strong></li>
+<li><strong>public int size():返回当前集合中元素个数</strong></li>
+<li><strong>public Object [] toArray():把集合中的元素 存储到数组中</strong></li>
+<li><strong>基本代码演示</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">          arrayList.add(<span class="number">10</span>);<span class="comment">//集合中add()方法 添加元素</span></span><br><span class="line">          arrayList.add(<span class="number">5</span>);      </span><br><span class="line">          System.out.println(arrayList.remove(<span class="number">0</span>));<span class="comment">//集合中remove()方法 删除元素 参数是索引</span></span><br><span class="line">          System.out.println( arrayList.contains(<span class="number">10</span>));<span class="comment">//集合中的contains()方法 来判断集合中是否有这个元素</span></span><br><span class="line">          System.out.println(arrayList.isEmpty());<span class="comment">//集合的imEmpty()方法 判断集合是否为空</span></span><br><span class="line">          System.out.println(arrayList.size());<span class="comment">//集合的size()方法 判断集合长度</span></span><br><span class="line">          Object[] objects1 = arrayList.toArray();<span class="comment">//集合的toArray()方法 将集合转换为数组</span></span><br><span class="line">          String string = Arrays.toString(objects1);</span><br><span class="line">          System.out.println(string);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="迭代器Iterator"><a href="#迭代器Iterator" class="headerlink" title="迭代器Iterator"></a>迭代器Iterator</h3><ul>
+<li><p><strong>迭代：即Collection集合元素的通用获取方式，在取元素之前要判断集合中有没有元素，如果有，就把这个元素取出来，继续判断<br>如果还有就再取出来，一直把集合中的元素全部取出，这种取出成为迭代</strong></p>
+</li>
+<li><p>获取迭代器的方法： <strong>public Iterator iterator()</strong>:获取集合对应的迭代器，用来遍历集合中的元素</p>
+</li>
+<li><p>有两个常用的方法</p>
+<ol>
+<li><strong>boolean hasNext()</strong> 如果仍有元素可以迭代，则返回true：判断集合中还有没有下一个元素，有就返回true，没有就返回false</li>
+<li><strong>E next()</strong> 返回迭代的下一个元素： 取出集合中的下一个元素</li>
+</ol>
+</li>
+<li><p>Iterator迭代器是一个接口我们无法直接使用，<strong>需要使用Iterator接口的实现类对象</strong>，获取实现类的方式比较特殊</p>
+</li>
+<li><p>Collection接口中有一个方法，叫iterator(),这个方法返回额就是迭代器的实现类对象</p>
+<blockquote>
+<p>Iterator<E> iterator(),返回在此collection的元素上进行迭代的迭代器</E></p>
+</blockquote>
+</li>
+<li><p>迭代器的使用步骤（重点)</p>
+<ol>
+<li><strong>使用集合中的方法iterator()获取迭代器的接口接收(多态)</strong></li>
+<li><strong>使用Iterator接口中的方法hasNext()判断还有没有下一个元素</strong></li>
+<li><strong>使用Iterator接口中的方法next取出集合中的下一个元素</strong></li>
+</ol>
+</li>
+<li><p>可以使用while循环和for循环两种方式进行遍历输出<br>  <code>while(iterator.hasNext()){System.out.println(&quot;iterator.next()&quot;)} 判断是否还有元素 有就输出 没有就停止</code> </p>
+<p>  <code>for (;iterator.hasNext(); System.out.println(iterator.next())){}</code></p>
+<p>  <code>for(Iterator&lt;String&gt; iterator1 = 类集类型.iterator();iterator1.hashNext();){String s = iterator1.next(); System.out.println(s);}</code> </p>
+</li>
+<li><p>迭代器的实现原理：</p>
+<ol>
+<li><strong>Iterator<String> iterator = collection.iterator(); 获取迭代器的实现类对象，并把指针(索引)指向集合的-1索引</String></strong></li>
+<li><strong>然后iterator.hasNext()判断下一个索引位置有没有元素</strong></li>
+<li><strong>iterator.next() 若有：取出下一个索引位置的元素 并将指针向后移动一位 若没有：返回flase</strong></li>
+</ol>
+</li>
+<li><p>基本代码举例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Study</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="string">"你好"</span>);</span><br><span class="line">list.add(<span class="string">"Hello"</span>);</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">        Iterator iterator = list.iterator();<span class="comment">//创建一个Interator接口的实现类对象</span></span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext())<span class="comment">//iterator的方法hasNext()判断下一个元素是否存在 是返回true 不是则返回false</span></span><br><span class="line">        &#123;</span><br><span class="line">            Object object = iterator.next();<span class="comment">//iterator的方法next() 如果元素存在则返回这个元素的值</span></span><br><span class="line">            System.out.println(object);</span><br><span class="line">            String str = (String) object;</span><br><span class="line">            System.out.println(str.length());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h3><ul>
+<li><strong>概念：底层也是使用的迭代器，使用for循环格式，简化了迭代器的书写 JDK1.5后出现的特性</strong></li>
+<li>Collection<E> extends Iterator<E>：<strong>所有的单列集合都可以使用增强for</strong></E></E></li>
+<li><strong>增强for循环：用来遍历集合和数组</strong></li>
+<li>格式：<strong>for(集合/数组数据类型 变量名：集合名/数组名){System.out.println(变量名);}</strong></li>
+<li>注意事项：<strong>新for循环必须有被遍历的目标，目标只能是Collection或者是数组，新式for仅仅作为遍历操作体现</strong></li>
+<li><strong>增强for循环里没有索引</strong></li>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  ArrayList arrayList = <span class="keyword">new</span> ArrayList();<span class="comment">//创建集合</span></span><br><span class="line">arrayList.add(<span class="number">5</span>);</span><br><span class="line">arrayList.add(<span class="number">10</span>);<span class="comment">//向集合中添加元素</span></span><br><span class="line"><span class="keyword">for</span>(Integer integer:arrayList)&#123;<span class="comment">//增强for遍历集合</span></span><br><span class="line">System.out.println(integer);<span class="comment">//输出遍历到的值</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以上是集合的一些常用方法及概念-还有迭代器Inerator和增强for循环的使用"><a href="#以上是集合的一些常用方法及概念-还有迭代器Inerator和增强for循环的使用" class="headerlink" title="以上是集合的一些常用方法及概念 还有迭代器Inerator和增强for循环的使用"></a>以上是集合的一些常用方法及概念 还有迭代器Inerator和增强for循环的使用</h3></li>
+</ul>
 
-<hr>
-<h3 id="Object类的equals方法"><a href="#Object类的equals方法" class="headerlink" title="Object类的equals方法"></a>Object类的equals方法</h3><ul>
-<li>boolean equals(Object obj)指示<strong>其他某个对象是否与此对象“相等”</strong></li>
-<li>equals方法源码：<strong>public boolean equals(Object obj){return (this==obj));}</strong></li>
-<li>参数：</li>
-</ul>
-<ol>
-<li><strong>Object obj:可以传递任何对象,==比较运算符，返回的是一个布尔值 true flase</strong></li>
-<li>==比较运算符，返回的是一个布尔值 true false</li>
-<li>基本数据类型：<strong>比较的是值</strong></li>
-<li>引用数据类型：<strong>比较的是两个对象的地址值</strong></li>
-<li>this是谁？那个对象调用的方法，方法中的this就是那个对象;</li>
-</ol>
-<ul>
-<li>Object类的equals方法，默认比较的是两个对象的地址值，没有意义 所以我们要重写equals方法，比较两个对象的属性(name,age)</li>
-<li>问题：隐含着一个多态 <strong>多态的弊端：无法使用子类特有的内容（属性和方法）,可以使用向下转型</strong></li>
-</ul>
-<h3 id="Objects类的equals方法"><a href="#Objects类的equals方法" class="headerlink" title="Objects类的equals方法"></a>Objects类的equals方法</h3><ul>
-<li><strong>也可以进行两个对象之间比较，常将Objects类中的这个equals方法添加到Object中的equals中： public static boolean equals(Object a, Object b) {<br>return (a == b) || (a != null &amp;&amp; a.equals(b));</strong><blockquote>
-<p>目的是为了更简便的防止空指针异常</p>
-</blockquote>
-</li>
-<li>Object类的equals方法代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    String name ;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">final</span> String name, <span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(<span class="keyword">final</span> Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">//判断参数o是否是本类对象 如果是返回true</span></span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> A)) <span class="keyword">return</span> <span class="keyword">false</span>;<span class="comment">//如果o不是A类对象 返回false</span></span><br><span class="line">        <span class="keyword">final</span> A a = (A) o;<span class="comment">//多态 向下转型 将a转换为A类对象 并将地址值传给a</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getAge() == a.getAge() &amp;&amp;</span><br><span class="line">                Objects.equals(<span class="keyword">this</span>.getName(), a.getName());<span class="comment">//判断两个对象的姓名以及年龄是否相同</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A(<span class="string">"张人伟"</span>,<span class="number">20</span>);</span><br><span class="line">        <span class="keyword">boolean</span> b = a.equals(<span class="keyword">new</span> A(<span class="string">"张人伟"</span>, <span class="number">20</span>));<span class="comment">//对象a调用重写后的Object中的equals方法进行比较</span></span><br><span class="line">        System.out.println(b);<span class="comment">//输出比较结果 相同为true 不同为false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h3><ul>
-<li><strong>java.util.Data:表示日期和时间的类</strong><blockquote>
-<p>表示特定的瞬间，精确到毫秒:千分之一秒 1000毫秒=1秒</p>
-<p>毫秒值的作用：可以对时间和日期进行计算</p>
-</blockquote>
-</li>
-<li>时间原点(0毫秒)：1970年1月1日 00：00：00(英国格林威治)<br>就是计算当前日期到时间原点之间一共经历了多少毫秒(long类型)<blockquote>
-<p>注意：中国属于东八区，会把时间增加八个小时1970.1.1 08：00：00</p>
-<p>System.currentTimeMillis()</p>
-</blockquote>
-</li>
-<li>常用的两个构造方法和一个成员方法<ol>
-<li><strong>Date类的空参构造方法Date() 用来获取当前系统的时间</strong></li>
-<li><strong>Date类的有参构造方法Date(long date)传递毫秒值 把毫秒值转换为Date日期</strong></li>
-<li><strong>Date类中的getTime()方法，返回至1970年1月1日00：00：00的毫秒值，与System.currentTimeMillis()类似</strong></li>
-</ol>
-</li>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(System.currentTimeMillis());<span class="comment">//currentTimeMillis方法输出对应日期的时间毫秒值</span></span><br><span class="line">          Date date1 = <span class="keyword">new</span> Date(<span class="number">1595385502913L</span>);<span class="comment">//Date类的有参构造方法 传递毫秒值 转换为Date日期</span></span><br><span class="line">          System.out.println(date1);</span><br><span class="line">          <span class="keyword">long</span> time = date1.getTime();<span class="comment">//返回至1970年1月1日00：00：00的毫秒值，与System.currentTimeMillis()类似</span></span><br><span class="line">          System.out.println(time);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="DateFormat类（抽象类）"><a href="#DateFormat类（抽象类）" class="headerlink" title="DateFormat类（抽象类）"></a>DateFormat类（抽象类）</h3><ul>
-<li>DateFormat类：<strong>是日期/时间格式化子类的抽象类，我们通过这个可以帮我们完成日期和文本之间的转换，也就是Date对象<br>和String对象之间的转换</strong></li>
-<li>作用:<strong>格式化（也就是日期—&gt;文本）,解析（文本—&gt;日期）</strong></li>
-<li>成员方法：<ol>
-<li><strong>String format(Date date) 按照指定的模式，把Date日期，格式化为符合模式的字符串</strong></li>
-<li><strong>Date parse(String source)把符合模式的字符串，解析为Date日期</strong></li>
-<li><strong>需要使用DateFormat的子类SimpleDateFormat来创建对象</strong></li>
-</ol>
-</li>
-<li>构造方法：<strong>SimpleDateFormat(String pattern):用给定的模式和默认语言环境的日期格式符号构造 SimpleDateFormat</strong></li>
-<li>参数：<strong>String pattern:传递指定的模式</strong></li>
-<li>模式：<strong>区分大小写的  y 年 M 月 d 日 H 是 m分 s 秒 S 毫秒</strong></li>
-<li>写对应的模式，会把模式替换为对应的时期和时间：例如：”yyyy-MM-dd日 HH:mm:ss”</li>
-<li>注意：模式中的字母不能更改，连接模式的符号可以改变：”yyyy年MM月dd日 HH:mm:ss”</li>
-<li>使用DateFormat类中的方法format，把日期格式转化为文本</li>
-</ul>
-<ol>
-<li>创建SimpleDateFormat对象，构造方法中传递指定的模式</li>
-<li>调用SimpleDateFormat对象中的方法format,按照构造方法中指定的模式，把Date日期转化为符合模式的字符串</li>
-</ol>
-<ul>
-<li>使用DateFormat类中的方法parse，把文本解析为日期</li>
-</ul>
-<ol>
-<li>创建SimpleDateFormat对象，构造方法中传递指定的模式</li>
-<li>调用SimpleDateFormat对象中的方法parse,按照构造方法中指定的模式，把符合模式的字符串解析为Date日期<blockquote>
-<p>注意：public Date parse(String source)throws ParseException 如果字符串和构造方法的模式不一样，那么程序就会抛出此异常</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.DateFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.FieldPosition;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextStudy3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">Demo();</span><br><span class="line">Demo1();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Demo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-d HH-mm-ss"</span>);<span class="comment">//创建DateFormat子类对象SimpleDateFormat 传入日期与字符串之间转化的格式</span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();<span class="comment">//获取当前系统日期时间</span></span><br><span class="line">        System.out.println(simpleDateFormat.format(date));<span class="comment">//通过format()成员方法将系统时间转换为构造方法中传入的字符串格式</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Demo1</span><span class="params">()</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-d HH-mm-ss"</span>);<span class="comment">//创建DateFormat子类对象SimpleDateFormat 传入日期与字符串之间转化的格式</span></span><br><span class="line">        Date date = simpleDateFormat1.parse(<span class="string">"2020-03-16 00-24-43"</span>);<span class="comment">//传入符合构造方法格式的字符串自定义时间 然后转化为日期格式文本</span></span><br><span class="line">        System.out.println(date);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="以上是Object类常用方法以及其他类的常用方法使用"><a href="#以上是Object类常用方法以及其他类的常用方法使用" class="headerlink" title="以上是Object类常用方法以及其他类的常用方法使用"></a>以上是Object类常用方法以及其他类的常用方法使用</h3>
       
 
       
@@ -321,6 +343,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
         		</li>
       		
 		</ul>
@@ -376,7 +402,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/22/BlogBook13/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/23/BlogBook16/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -390,18 +416,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/22/BlogBook14/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Calendar+System+StringBuilder类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/21/BlogBook12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">类和接口的几种使用场景</div>
+    <a href="/2020/07/22/BlogBook15/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据装箱拆箱及转换</div>
       <i class="icon-circle-right"></i>
     </a>
   
