@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 26
+    总文章数 27
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/BlogBook15/">数据装箱拆箱及转换</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/22/BlogBook15/" class="archive-article-date">
+  	<time datetime="2020-07-22T03:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><ul>
+<li><strong>概述：Java提供了两个类型系统，基本类型与引用类型，使用基本类型在于效率，很多情况会创建对象使用，因为对象会做更多功能</strong></li>
+<li><strong>概念：使用一个类把一个基本类型的数据包装起来，在类中定义一些方法，这个类叫做包装类，我们可以使用类中的方法来操作这些基本数据类型</strong></li>
+<li>除int,char外的六个基本数据类型的包装类都是首字母大写 <strong>int—-&gt;Integer  char—&gt;character</strong></li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>装箱拆箱及String类型转换！！</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/22/BlogBook15/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/22/BlogBook15/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1048,99 +1139,6 @@ public class B implements A{}</code></li>
 
 
   
-    <article id="post-gc初步了解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/">gc的初步了解</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-07-18T13:26:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一-什么是gc"><a href="#一-什么是gc" class="headerlink" title="一.什么是gc"></a>一.什么是gc</h4><ul>
-<li><p><strong>JVM的gc概述</strong>: <strong>gc（ garbage collection） ： 即垃圾收集， 是指 JVM 用于释放那些不再使用的对象所占用的内存。</strong></p>
-</li>
-<li><p><strong>gc存在的意义</strong>: java 语言并不要求JVM有g，也没有规定gc如何工作。不过常用的JVM都有gc,而且大多数gc都使用类似的算法<br>管理内存和执行收集操作。</p>
-</li>
-<li><p><strong>gc优化机制</strong>: 在充分理解了垃圾收集算法和执行过程后,才能有效的优化它的性能。有些垃圾收集专用于特殊的应用程序。比如，<br>实时应用程序主要是为了避免垃圾收集中断，而大多数 OLTP 应用程序则注重整体效率。<br>理解了应用程序的工作负荷和 JVM 支持的垃圾收集算法，便可以进行优化配置垃圾收集器。垃圾收集的目的在于清除不再使用的对象,gc 通过确定对象是否被活动对象引用来确定是否收集该对象。</p>
-</li>
-</ul>
-<hr>
-<p><strong>Author : ZhangRenwei</strong><br><strong>通过匿名内部类看到gc于是上网浅入的了解学习</strong></p>
-        
-          <a class="article-more-a" href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/18/gc%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1257,11 +1255,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java集合</a>
               </li>
              
               <li class="article-tag-list-item">
