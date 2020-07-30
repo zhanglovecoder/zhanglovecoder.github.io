@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 27
+    总文章数 28
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,101 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/27/BlogBook26/">初步认识线程池及Lambda表达式</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/27/BlogBook26/" class="archive-article-date">
+  	<time datetime="2020-07-27T06:45:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="线程池的概念和原理"><a href="#线程池的概念和原理" class="headerlink" title="线程池的概念和原理"></a>线程池的概念和原理</h3><ul>
+<li><p>线程池：<strong>其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多的资源</strong></p>
+</li>
+<li><p>底层原理：<strong>线程池：容器—-&gt;集合(ArrayList,HashSet,LinkedList<Thread>,HashMap)</Thread></strong>。</p>
+</li>
+<li><p>像一个队列，多个线程添加到一个集合中，哪个任务需要用哪个线程便remove出去 使用完后再将线程添加回来</p>
+</li>
+<li><p>任务排列执行集合中的线程，若任务&gt;线程，那么没排上的就在后面进行等待</p>
+</li>
+<li><p>线程池的使用：<strong>线程池:JDK1.5之后提供的</strong></p>
+</li>
+<li><p><strong>java.util.concurrent.Excutores:线程池的工厂类，用来生成线程池</strong></p>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>线程池和Lambda表达式的初步认识</strong></p></li></ul>
+        
+          <a class="article-more-a" href="/2020/07/27/BlogBook26/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/27/BlogBook26/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1050,104 +1145,6 @@
 
 
   
-    <article id="post-BlogBook16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook16/">Java集合框架</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook16/" class="archive-article-date">
-  	<time datetime="2020-07-23T04:52:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Collection集合概述"><a href="#Collection集合概述" class="headerlink" title="Collection集合概述"></a>Collection集合概述</h3><ul>
-<li>集合是java中提供的一种<strong>容器</strong>，用来存储多个数据</li>
-<li><strong>数组和集合的区别</strong>：<ol>
-<li>数组的长度是固定的，集合长度是可以改变的</li>
-<li>数组存储的是同一类型的元素，可以存储基本类型数值；集合存储的都是对象，而且对象的类型可以不一致，在开发中一般当对象多的时候<br>使用集合进行存储</li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>集合框架及迭代器增强for</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook16/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook16/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1256,19 +1253,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

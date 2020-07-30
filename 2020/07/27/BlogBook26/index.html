@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>面向对象概念及变量 | CoderZhang&#39;s blog</title>
+  <title>初步认识线程池及Lambda表达式 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面向的对象的思想与概念面向的对象的思想举例 面向对象：强调对象  面向过程：强调过程  三大特性：封装，继承，多态  类：是一组相关属性和行为的集合，可以看成是一类事物的模板  属性：就是该事物的状态信息 行为：就是该事物能够做什么    定义成员方法不带有static关键字      Author : ZhangRenwei  面向对象及局部和成员变量">
+  <meta name="description" content="线程池的概念和原理 线程池：其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多的资源  底层原理：线程池：容器—-&gt;集合(ArrayList,HashSet,LinkedList,HashMap)。  像一个队列，多个线程添加到一个集合中，哪个任务需要用哪个线程便remove出去 使用完后再将线程添加回来  任务排列执行集合中的线">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象概念及变量">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/18/BolgBook4/index.html">
+<meta property="og:title" content="初步认识线程池及Lambda表达式">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/27/BlogBook26/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="面向的对象的思想与概念面向的对象的思想举例 面向对象：强调对象  面向过程：强调过程  三大特性：封装，继承，多态  类：是一组相关属性和行为的集合，可以看成是一类事物的模板  属性：就是该事物的状态信息 行为：就是该事物能够做什么    定义成员方法不带有static关键字      Author : ZhangRenwei  面向对象及局部和成员变量">
+<meta property="og:description" content="线程池的概念和原理 线程池：其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多的资源  底层原理：线程池：容器—-&gt;集合(ArrayList,HashSet,LinkedList,HashMap)。  像一个队列，多个线程添加到一个集合中，哪个任务需要用哪个线程便remove出去 使用完后再将线程添加回来  任务排列执行集合中的线">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-18T12:38:41.000Z">
-<meta property="article:modified_time" content="2020-07-19T03:39:11.641Z">
+<meta property="article:published_time" content="2020-07-27T06:45:03.000Z">
+<meta property="article:modified_time" content="2020-07-30T01:52:35.924Z">
 <meta property="article:author" content="CoderZhang">
-<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -147,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BolgBook4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook26" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      面向对象概念及变量
+      初步认识线程池及Lambda表达式
     </h1>
   
 
@@ -176,77 +176,136 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/18/BolgBook4/" class="archive-article-date">
-  	<time datetime="2020-07-18T12:38:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+<a href="/2020/07/27/BlogBook26/" class="archive-article-date">
+  	<time datetime="2020-07-27T06:45:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="面向的对象的思想与概念"><a href="#面向的对象的思想与概念" class="headerlink" title="面向的对象的思想与概念"></a>面向的对象的思想与概念</h3><h4 id="面向的对象的思想举例"><a href="#面向的对象的思想举例" class="headerlink" title="面向的对象的思想举例"></a>面向的对象的思想举例</h4><ul>
-<li><p><del>面向对象：强调对象</del></p>
+        <h3 id="线程池的概念和原理"><a href="#线程池的概念和原理" class="headerlink" title="线程池的概念和原理"></a>线程池的概念和原理</h3><ul>
+<li><p>线程池：<strong>其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多的资源</strong></p>
 </li>
-<li><p>面向过程：强调过程</p>
+<li><p>底层原理：<strong>线程池：容器—-&gt;集合(ArrayList,HashSet,LinkedList<Thread>,HashMap)</Thread></strong>。</p>
 </li>
-<li><p>三大特性：<strong>封装，继承，多态</strong></p>
+<li><p>像一个队列，多个线程添加到一个集合中，哪个任务需要用哪个线程便remove出去 使用完后再将线程添加回来</p>
 </li>
-<li><p>类：是一组相关属性和行为的集合，可以看成是一类事物的模板</p>
-<blockquote>
-<p>属性：就是该事物的状态信息 行为：就是该事物能够做什么</p>
-</blockquote>
-<p>  定义成员方法不带有static关键字 </p>
+<li><p>任务排列执行集合中的线程，若任务&gt;线程，那么没排上的就在后面进行等待</p>
+</li>
+<li><p>线程池的使用：<strong>线程池:JDK1.5之后提供的</strong></p>
+</li>
+<li><p><strong>java.util.concurrent.Excutores:线程池的工厂类，用来生成线程池</strong></p>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>线程池和Lambda表达式的初步认识</strong></p>
+<a id="more"></a>
+</li>
+<li><p>Executor类中的静态方法：</p>
+</li>
+<li><p><em>static ExcutorService newFixedThreadPool(int nThreads)创建一个可重用固定线程数的线程池*</em></p>
+</li>
+<li><p>参数</p>
+<ol>
+<li>int nThreads:创建线程池中包含的线程数量</li>
+<li>返回值：ExecutorService接口，返回的是ExecutorService接口的实现类对象，我们可以使用ExecutorService接口接收(面向接口编程)</li>
+<li>java.uti.concurrent.ExecutorService:线程池接口用来从线程池中获取线程，调用start方法，执行线程任务</li>
+<li>submit(Runnable task)提交一个Runnable任务用于执行</li>
+<li>关闭/销毁线程池的方法 void shutdown()</li>
+</ol>
+</li>
+<li><p>线程池的使用步骤：</p>
+<ol>
+<li><strong>使用线程池的工厂类Exectutors里面提供的静态方法newFixedThreadPool生产一个执行线程数的线程池</strong></li>
+<li><strong>创建一个类，实现Runnable接口，重写run方法，设置线程任务</strong></li>
+<li><strong>调用ExecutorService中的方法submit,传递线程任务(实现类)开启线程，执行run方法</strong></li>
+<li><strong>调用ExecutorService中的方法shutdown销毁线程池(不建议执行)</strong></li>
+</ol>
+</li>
+<li><p>基本代码实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ExecutorService e = Executors.newFixedThreadPool(<span class="number">3</span>);<span class="comment">//创建线程池 3个线程</span></span><br><span class="line">         e.submit(<span class="keyword">new</span> Runnable() &#123;<span class="comment">//添加第一个线程</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"线程A----&gt;"</span> + i);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException ex) &#123;</span><br><span class="line">                        ex.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        e.submit(<span class="keyword">new</span> Runnable() &#123;<span class="comment">//添加第二个线程</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"线程B----&gt;"</span> + i);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException ex) &#123;</span><br><span class="line">                        ex.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        e.shutdown();<span class="comment">//线程关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
+<h3 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h3><ul>
+<li>函数式编程思想：<strong>面向对象过分强调”必须通过对象的形式来做事情”,而函数式思想则尽量忽略面向对象的复杂语法：强调做什么，而不是以什么形式做</strong></li>
+<li>面向对象思想：<strong>做一件事情，找一个能解决这个事情的对象，调用对象的方法，完成事情</strong></li>
+<li>函数式编程思想：<strong>只要能获取到结果，怎么做的都不重要，重视的是结果</strong></li>
+</ul>
+<hr>
+<h3 id="冗余的Runnalbe代码"><a href="#冗余的Runnalbe代码" class="headerlink" title="冗余的Runnalbe代码"></a>冗余的Runnalbe代码</h3><ul>
+<li>通过分析Runnable的匿名内部类用法，可以分析出一下几点内容：<ol>
+<li>Thread类需要Runnable接口作为参数，其中的抽象run方法用来指定线程任务内容的核心</li>
+<li>为了指定run的方法体，不得不需要Runnable接口的实现类：</li>
+<li>为了省去定义一个Runnable的实现类的麻烦，不得不使用匿名内部类</li>
+<li>必须覆盖重写抽象run方法，所以方法名称，方法参数，方法返回值不得不再写一遍，且不能写错</li>
+<li>而实际上，只有方法体才是关键</li>
+</ol>
 </li>
-<li><p><strong>面向对象及局部和成员变量</strong></p>
+<li>JDK1.8中加入了Lambda表达式的重量级新特性，为我们打开了新世界的大门</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">J</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">new</span> Thread(() -&gt;System.out.println(<span class="string">"你好"</span>)).start();<span class="comment">//Lambda表达式</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<a id="more"></a>
-
-<h4 id="对象的创建和使用"><a href="#对象的创建和使用" class="headerlink" title="对象的创建和使用"></a>对象的创建和使用</h4><ol>
-<li><strong>导包</strong>：也就是指出需要使用的类在什么位置  import 包名称.类名称</li>
-<li><strong>创建</strong>：类名称.对象名 = new 类名称();</li>
-<li><strong>使用</strong>：使用成员变量：对象名.成员变量名 使用成员方法：对象名.成员方法名(参数)</li>
-<li>如果成员变量没有赋值，将会有一个默认值，规则跟数组一样</li>
-<li>堆当中的成员方法保存的是<strong>地址值</strong>，<strong>指向方法区的成员方法</strong><h4 id="面向对象的调用概念等"><a href="#面向对象的调用概念等" class="headerlink" title="面向对象的调用概念等"></a>面向对象的调用概念等</h4></li>
+<hr>
+<h3 id="Lambda标准格式"><a href="#Lambda标准格式" class="headerlink" title="Lambda标准格式"></a>Lambda标准格式</h3><ul>
+<li><strong>匿名内部类的好处与弊端：一方面，匿名内部类可以帮我们省去实现类的定义;另一方面，匿名内部类实在太复杂</strong></li>
+<li>格式(多线程举例)：<strong>()-&gt;System.out.println(“多线程任务执行”)</strong>;<ol>
+<li>前面的一对小括号即run方法的参数(无)</li>
+<li>中间的一个箭头代表将前面的参数传递给后面的代码</li>
+<li>后面的输出语句即业务逻辑代码</li>
+</ol>
+</li>
+<li>由三部分组成：<ol>
+<li>一些参数</li>
+<li>一个箭头</li>
+<li>一段代码</li>
+</ol>
+</li>
+<li>标准格式：<strong>(参数列表)-&gt;{一些重写方法的代码}</strong></li>
+<li>解释说明格式：</li>
+</ul>
+<ol>
+<li>():指的是接口中抽象方法的参数列表，没有参数就空着，有参数就写出参数，多个参数用逗号分隔</li>
+<li>-&gt;:传递的意思，把参数传递给方法体()</li>
+<li>{}:重写接口的抽象方法的方法体</li>
 </ol>
 <ul>
-<li>对象之间赋值，进行赋值的是<strong>内存地址</strong></li>
-<li>当一个对象作为参数传递时，传递方法中，实际传递进去的是<strong>对象的地址值</strong><h4 id="局部变量和成员变量"><a href="#局部变量和成员变量" class="headerlink" title="局部变量和成员变量"></a>局部变量和成员变量</h4></li>
-<li>定义的位置不一样<blockquote>
-<p>局部变量：在方法的内部</p>
-<p>成员变量：在方法的外部</p>
+<li>Lambda表达式的三种情况：<ol>
+<li>无参数无返回值</li>
+<li>有参数无返回值</li>
+<li>有参数有返回值</li>
+</ol>
+</li>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">          Arrays.sort(students,(Student o1,Student o2)-&gt;&#123;</span><br><span class="line">              <span class="keyword">return</span>  o1.getAge()-o2.getAge();<span class="comment">//有参数有返回值</span></span><br><span class="line">          &#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Lambda省略格式-amp-amp-Lambda优化"><a href="#Lambda省略格式-amp-amp-Lambda优化" class="headerlink" title="Lambda省略格式&amp;&amp;Lambda优化"></a>Lambda省略格式&amp;&amp;Lambda优化</h3><ul>
+<li>Lambda表达式：<strong>是可推导,可以省略凡是根据上下文推导出来的内容，都可以省略书写(例如JDK1.7以后前写泛型类型后可以省略)</strong></li>
+<li>可省略的内容：</li>
+</ul>
+<ol>
+<li>(参数列表):<strong>括号中的参数列表的数据类型，可以省略不写</strong></li>
+<li>(参数列表)：<strong>括号中的参数如果只有一个，那么类型和()都可以省略</strong></li>
+<li>(一些代码):如果()中的代码只有一行，无论是否有返回值，都可以省略({},return,分号)<blockquote>
+<p>注意:要省略{},return,分号必须一起省略</p>
 </blockquote>
 </li>
-<li>作用范围不一样<blockquote>
-<p>局部变量：只有在方法中才可以使用，除了方法就不能再用</p>
-<p>成员变量：整个类都可以使用</p>
+</ol>
+<ul>
+<li>注意事项(使用前提)：</li>
+</ul>
+<ol>
+<li><strong>使用Lambda必须具有接口，且要求接口中有仅有一个抽象方法，只有当接口中抽象方法存在唯一时，才可以使用Lambda</strong></li>
+<li><strong>使用Lambda必须具有上下文判断，也就是方法的参数和局部变量类型，必须为对应的Lambda的接口类型，才能使用Lambda作为该接口的实例</strong><blockquote>
+<p>注意：有且仅有一个抽象方法的接口，称为”函数式接口”</p>
 </blockquote>
 </li>
-<li>默认值不一样<blockquote>
-<p>局部变量：没有默认值，如果想要使用，必须手动进行赋值</p>
-<p>成员变量：如果没有赋值 会有默认值</p>
-</blockquote>
-</li>
-<li>内存的位置不一样<blockquote>
-<p>局部变量：位于栈内存</p>
-<p>成员变量：位于堆内存</p>
-</blockquote>
-</li>
-<li>生命周期不一样<blockquote>
-<p>局部变量：随着方法进栈而诞生，随着方法出栈而消失</p>
-<p>成员变量：随着对象创建而诞生，随着对象被垃圾回收而消失</p>
-</blockquote>
-</li>
-<li>当方法的局部变量和类的成员变量重名的时候，根据“就近原则”，优先使用局部变量<blockquote>
-<p>如果需要访问本类中的变量，需要使用格式，this.成员变量名</p>
-<p>通过谁调用的方法，谁就是this</p>
-</blockquote>
-</li>
+</ol>
+<ul>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    cook(<span class="number">10</span>,<span class="number">20</span>,(<span class="keyword">int</span> num1,<span class="keyword">int</span> num3)-&gt;&#123;<span class="comment">//有参数无返回值</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> num1+num3;</span><br><span class="line">    &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2, Calculation calculation)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       Integer calculation1 = calculation.calculation(num1, num2);</span><br><span class="line">       System.out.println(calculation1);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="以上是对线程池的浅显理解以及Lambda表达式的初步了解"><a href="#以上是对线程池的浅显理解以及Lambda表达式的初步了解" class="headerlink" title="以上是对线程池的浅显理解以及Lambda表达式的初步了解"></a>以上是对线程池的浅显理解以及Lambda表达式的初步了解</h3></li>
 </ul>
 
       
@@ -282,7 +341,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
         		</li>
       		
 		</ul>
@@ -338,7 +397,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/18/BolgBook4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/27/BlogBook26/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -352,18 +411,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/18/BlogBook5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          面向对象特性之封装性
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/18/BlogBook3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">方法的概念</div>
+    <a href="/2020/07/25/BlogBook25/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程的安全及锁的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
