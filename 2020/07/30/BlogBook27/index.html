@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Java集合之Set接口下的集合 | CoderZhang&#39;s blog</title>
+  <title>File类的初步认识 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Set接口 java.util.Set接口 extends Collection接口 Set接口的特点: 不允许存储重复的元素 没有索引，没有带索引的方法，也不能使用普通的for循环遍历     HashSet集合 java.util.HashSet集合 implements Set接口  HashSet特点:  不允许存储重复的元素 没有索引，没有索引的方法，也不能使用普通的for循环遍历 是一">
+  <meta name="description" content="File类File类的概述 java.io.File类   文件和目录路径名的抽象表示形式 Java把电脑中的文件和文件夹(目录)封装为了一个File类，我们可以使用File类对文件夹进行操作   我们可以使用File类的方法 创建一个文件&#x2F;文件夹 删除文件&#x2F;文件夹 获取文件&#x2F;文件夹 判断文件&#x2F;文件夹是否存在 对文件夹进行遍历 获取文件的大小   File类是一个与系统无关的类，任何的操作系统都可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java集合之Set接口下的集合">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/24/BlogBook20/index.html">
+<meta property="og:title" content="File类的初步认识">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/30/BlogBook27/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="Set接口 java.util.Set接口 extends Collection接口 Set接口的特点: 不允许存储重复的元素 没有索引，没有带索引的方法，也不能使用普通的for循环遍历     HashSet集合 java.util.HashSet集合 implements Set接口  HashSet特点:  不允许存储重复的元素 没有索引，没有索引的方法，也不能使用普通的for循环遍历 是一">
+<meta property="og:description" content="File类File类的概述 java.io.File类   文件和目录路径名的抽象表示形式 Java把电脑中的文件和文件夹(目录)封装为了一个File类，我们可以使用File类对文件夹进行操作   我们可以使用File类的方法 创建一个文件&#x2F;文件夹 删除文件&#x2F;文件夹 获取文件&#x2F;文件夹 判断文件&#x2F;文件夹是否存在 对文件夹进行遍历 获取文件的大小   File类是一个与系统无关的类，任何的操作系统都可">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-24T04:39:42.000Z">
-<meta property="article:modified_time" content="2020-07-24T05:39:41.831Z">
+<meta property="article:published_time" content="2020-07-30T01:54:58.000Z">
+<meta property="article:modified_time" content="2020-07-30T02:45:59.610Z">
 <meta property="article:author" content="CoderZhang">
-<meta property="article:tag" content="Java基础">
-<meta property="article:tag" content="Java集合">
+<meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -148,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook20" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook27" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java集合之Set接口下的集合
+      File类的初步认识
     </h1>
   
 
@@ -177,126 +176,154 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/24/BlogBook20/" class="archive-article-date">
-  	<time datetime="2020-07-24T04:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
+<a href="/2020/07/30/BlogBook27/" class="archive-article-date">
+  	<time datetime="2020-07-30T01:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><ul>
-<li><strong>java.util.Set接口 extends Collection接口</strong></li>
-<li>Set接口的<strong>特点</strong>:<ol>
-<li><strong>不允许存储重复的元素</strong></li>
-<li><strong>没有索引，没有带索引的方法，也不能使用普通的for循环遍历</strong></li>
-</ol>
-</li>
+        <h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><h4 id="File类的概述"><a href="#File类的概述" class="headerlink" title="File类的概述"></a>File类的概述</h4><ul>
+<li>java.io.File类</li>
 </ul>
-<hr>
-<h3 id="HashSet集合"><a href="#HashSet集合" class="headerlink" title="HashSet集合"></a>HashSet集合</h3><ul>
-<li><p><strong>java.util.HashSet集合 implements Set接口</strong></p>
-</li>
-<li><p><strong>HashSet特点:</strong></p>
 <ol>
-<li><strong>不允许存储重复的元素</strong></li>
-<li><strong>没有索引，没有索引的方法，也不能使用普通的for循环遍历</strong></li>
-<li><strong>是一个无序集合，存储的元素和取出的元素有可能不一致</strong></li>
-<li><strong>底层是一个哈希表结构(查询的速度非常快)</strong></li>
+<li><strong>文件和目录路径名的抽象表示形式</strong></li>
+<li><strong>Java把电脑中的文件和文件夹(目录)封装为了一个File类，我们可以使用File类对文件夹进行操作</strong></li>
 </ol>
+<ul>
+<li>我们可以使用File类的方法<ul>
+<li>创建一个文件/文件夹</li>
+<li>删除文件/文件夹</li>
+<li>获取文件/文件夹</li>
+<li>判断文件/文件夹是否存在</li>
+<li>对文件夹进行遍历</li>
+<li>获取文件的大小</li>
+</ul>
 </li>
-<li><p>哈希值：<strong>是一个十进制的整数，由系统随机给出（就是对象的地址值，是一个逻辑地址，是模拟出来的地址，不是数据实际存储的地址）</strong></p>
-</li>
+<li>File类是一个与系统无关的类，任何的操作系统都可以使用这个类中的方法</li>
+<li>重点：记住这三个单词</li>
+</ul>
+<ol>
+<li><strong>file:文件</strong></li>
+<li><strong>directory:文件夹/目录</strong></li>
+<li><strong>path:路径</strong></li>
+</ol>
+<hr>
+<ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>Set接口下的集合以及Collection工具类</strong></p>
-<a id="more"></a></li>
-<li><p>在Object类有一个方法，可以获取对象的哈希值</p>
-<blockquote>
-<p>int hashCode()返回对象的哈希码值</p>
-<p>hashCode方法的源码：public native int hashCode();<br><code>native:代表该方法调用的是本地操作系统的方法</code></p>
-</blockquote>
+<li><p><strong>初步了解File类以及部分方法使用</strong></p>
 </li>
-<li><p>HashSet集合存储元素（哈希表）</p>
+</ul>
+<a id="more"></a>
+<h3 id="File类的静态成员变量"><a href="#File类的静态成员变量" class="headerlink" title="File类的静态成员变量"></a>File类的静态成员变量</h3><ul>
+<li><p><strong>static String pathSeparator 与系统有关的路径分隔符，为了方便，它被表示为一个字符串</strong></p>
 </li>
-<li><p><strong>JDK 1.8版本之前哈希表=数组+链表</strong>  <strong>JDK1.8版本之后哈希表=数组+链表(红黑树) 红黑树为了提高查询速度</strong></p>
+<li><p><strong>static char pathSeparatorChar 与系统有关的路径分隔符</strong></p>
 </li>
-<li><p>存储数据到集合中</p>
-<blockquote>
-<p>先计算元素哈希值；数据结构:把元素进行了分组（相同哈希值的元素是一组）链表/红黑树结构把相同哈希值的元素连接到一起</p>
-</blockquote>
+<li><p><strong>static String separator 与系统有关的默认名称分隔符，为了方便，它被表示为一个字符串</strong></p>
 </li>
-<li><p>给HashSet中存放自定义类型元素</p>
-<blockquote>
-<p>需要重写对象中的hashCode和equals方法，建立自己的比较方式，才能保证hashSet集合中对象唯一</p>
-</blockquote>
+<li><p><strong>static char separatorChar 与系统有关的默认名称分隔符</strong></p>
 </li>
-<li><p>为什么Set集合中不能存储重复元素：</p>
+<li><p>注意事项</p>
+</li>
+</ul>
 <ol>
-<li><strong>当向set集合中添加元素的时候 首先调用add方法</strong></li>
-<li><strong>然后add方法会调用元素的hashCode方法和equals()方法</strong></li>
-<li><strong>首先判断哈希值是否相同，然后通过equals()方法判断字符串是否一样，如果一样则不能存储，不一样则可以存储</strong></li>
+<li>路径分隔符： <strong>windows:分号  linux:冒号</strong></li>
+<li>文件名称分隔符： <strong>windows:反斜杠 linux:冒号</strong></li>
 </ol>
-</li>
-<li><p><strong>若要用HashSet集合存储元素必须重写hashCode和equals方法</strong></p>
-</li>
-<li><p>基本代码演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">School</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  String name;<span class="comment">//定义两个类的成员</span></span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">School</span><span class="params">()</span></span>&#123;&#125;<span class="comment">//无参构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">School</span><span class="params">(String name,<span class="keyword">int</span> age)</span><span class="comment">//有参构造</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;<span class="comment">//Setter Getter方法</span></span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(<span class="keyword">final</span> Object o)</span> </span>&#123;<span class="comment">//重写equals方法</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">//先判断是否是本类</span></span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> School)) <span class="keyword">return</span> <span class="keyword">false</span>;<span class="comment">//如果不是本类就返回false</span></span><br><span class="line">        <span class="keyword">final</span> School school = (School) o;<span class="comment">//数据向下转型 转为School类型的对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getAge() == school.getAge() &amp;&amp;</span><br><span class="line">                <span class="keyword">this</span>.getName().equals(school.getName());<span class="comment">//比较新对象传入的值是否跟已创建的对象中有相同的数据</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(<span class="keyword">this</span>.getName(), <span class="keyword">this</span>.getAge());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//重写Object中的hashCode()方法</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"School&#123;"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", age="</span> + age +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*  hash值获取的源码  public static int hash(Object... values) &#123;</span></span><br><span class="line"><span class="comment">          return Arrays.hashCode(values);</span></span><br><span class="line"><span class="comment">      &#125;*/</span></span><br><span class="line"><span class="comment">//重写Object中的toString方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        School school = <span class="keyword">new</span> School(<span class="string">"学校"</span>,<span class="number">20</span>);<span class="comment">//创建第一个对象 名字为学校 年龄为20</span></span><br><span class="line">        School school1 = <span class="keyword">new</span> School(<span class="string">"学校1"</span>,<span class="number">20</span>);<span class="comment">//创建第二个对象 名字为学校1 年龄为20 在创建的时候其实调用了equals方法进行比较</span></span><br><span class="line">        School school2 = <span class="keyword">new</span> School(<span class="string">"学校"</span>,<span class="number">20</span>);<span class="comment">//创建第三个对象 名字为学校</span></span><br><span class="line">        HashSet&lt;School&gt; hashSet = <span class="keyword">new</span> HashSet&lt;&gt;();<span class="comment">//创建HashSet()集合</span></span><br><span class="line">        hashSet.add(school);</span><br><span class="line">        hashSet.add(school1);</span><br><span class="line">        hashSet.add(school2);</span><br><span class="line">        System.out.println(school.hashCode());</span><br><span class="line">        System.out.println(school1.hashCode());</span><br><span class="line">        System.out.println(school2.hashCode());</span><br><span class="line">        System.out.println(hashSet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="LinkedHashSet集合"><a href="#LinkedHashSet集合" class="headerlink" title="LinkedHashSet集合"></a>LinkedHashSet集合</h3><ul>
-<li><strong>java.util.LinkedHashSet集合 extends HashSet集合</strong></li>
-<li>LinkedHashSet集合特点：<ol>
-<li><strong>底层是一个哈希表(数组+链表/红黑树)+链表</strong></li>
-<li><strong>多了一条链表(用来记录元素得存储顺序)，保证元素有序</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><ul>
-<li><strong>是JDK1.5以后出现的特性</strong></li>
-<li>使用前提:<strong>当方法的参数列表已确定，但是参数的个数不确定，就可以使用可变参数</strong></li>
-<li>使用格式：定义方法时使用：<strong>修饰符 返回值类型 方法名称（数据类型…变量名){}</strong></li>
-<li>可变参数原理:可变参数底层就是一个数组，根据传递参数个数不同，会创建不同长度的数组，来存储这些参数<blockquote>
-<p>传递的参数可以是0个，也可以是1,2,3,4,5…多个</p>
+<ul>
+<li>绝对路径和相对路径：</li>
+<li>绝对路径：<strong>是一个完整的路径 以盘符(c:,D:)开始的路径</strong><blockquote>
+<p>c:\a.txt  D:\demo\b.txt</p>
 </blockquote>
 </li>
-<li>注意事项<ol>
-<li><strong>一个方法的参数列表，只能有一个可变参数</strong></li>
-<li><strong>如果方法的参数有多个，那么可变参数必须写在参数列表的末尾</strong></li>
+<li>相对路径：<strong>是一个简化的路径</strong><blockquote>
+<p>相对指的是相对于当前项目的根目录，如果使用当前项目的根目录，路径可以简化书写</p>
+<p>C:\Users\IdeaProjects\shuangyuan\123.txt—&gt;简化为:123.txt</p>
+</blockquote>
+</li>
+<li>注意事项:<ol>
+<li>路径是不区分大小写</li>
+<li>路径中的文件名分隔符windows使用反斜杠，反斜杠是转义字符，两个反斜杠代表一个普通的反斜杠</li>
 </ol>
 </li>
-<li>终极可变参数：public Object method(Object obj){}</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] ints = ints(<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">        String string = Arrays.toString(ints);</span><br><span class="line">        System.out.println(string);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> <span class="keyword">int</span>[] ints(Integer...integers)&#123;<span class="comment">//可变参数 类型为Integer</span></span><br><span class="line">        <span class="keyword">int</span>[] ints = <span class="keyword">new</span> <span class="keyword">int</span>[integers.length];<span class="comment">//创建一个数组准备接收可变参数数组传入的值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;integers.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ints[i]  = integers[i];</span><br><span class="line">        &#125;<span class="comment">//利用for循环将可变参数数组的值传入给新创建的数组</span></span><br><span class="line">        <span class="keyword">return</span> ints;<span class="comment">//返回数组</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String pathSeparator = File.pathSeparator;<span class="comment">//路径分隔符</span></span><br><span class="line">        System.out.println(pathSeparator);</span><br><span class="line">        <span class="keyword">char</span> pathSeparatorChar = File.pathSeparatorChar;</span><br><span class="line">        System.out.println(pathSeparatorChar);</span><br><span class="line">        String separator = File.separator;<span class="comment">//名字分隔符</span></span><br><span class="line">        System.out.println(separator);</span><br><span class="line">        <span class="keyword">char</span> separatorChar = File.separatorChar;</span><br><span class="line">        System.out.println(separatorChar);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="Collection集合工具类的方法"><a href="#Collection集合工具类的方法" class="headerlink" title="Collection集合工具类的方法"></a>Collection集合工具类的方法</h3><ul>
-<li><strong>public static <T> boolean addAll(Collection<T> c,T…elements):往集合中添加一些元素</T></T></strong></li>
-<li><strong>public static void shuffle(List&lt;?&gt; list)打乱顺序：打乱集合顺序</strong></li>
-<li><strong>public static <T> void sort(List<T> list):将集合中元素按照默认规则排序</T></T></strong></li>
-<li>注意:<ol>
-<li><strong>sort(List<T> list)使用前提</T></strong></li>
-<li><strong>被排序的集合里边存储的元素，必须实现Comparable,重写接口中的方法compareTo定义排序规则public int compareTo(T o);</strong><blockquote>
-<p>Comparable接口的排序规则：自己(this)-参数：升序</p>
+<h3 id="File类中的构造方法"><a href="#File类中的构造方法" class="headerlink" title="File类中的构造方法"></a>File类中的构造方法</h3><ul>
+<li>通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例.<ol>
+<li><strong>参数:String pathname:字符串的路径名称</strong></li>
+<li><strong>路径可以以文件结尾，也可以以文件夹结尾，</strong></li>
+<li><strong>路径可以是相对路径，也可以是绝对路径</strong></li>
+<li><strong>创建File对象，只是把字符串路径封装为File对象，不考虑路径的真假情况</strong></li>
+</ol>
+</li>
+<li>File(String parent, String child) 根据 parent 路径名字符串和 child 路径名字符串创建一个新 File 实例.<ol>
+<li><strong>参数:路径分成了两部分(String parent:父路径)  (String child:子路径)</strong></li>
+<li><strong>好处：父路径和子路径，可以单独书写，使用起来非常灵活;父路径和子路径都可以变化</strong></li>
+</ol>
+</li>
+<li>File(File parent, String child)  根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例.</li>
+</ul>
+<ol>
+<li>参数：把路径分成了两部分 File parent:父路径 String child:子路径</li>
+<li>好处:<blockquote>
+<p>父路径和子路径，可以单独书写，使用起来非常灵活，父路径和子路径都可以变化</p>
+<p>父路径是File类型，可以使用File的方法对路径进行一些操作，再使用路径创建对象</p>
 </blockquote>
 </li>
 </ol>
-</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">A</span></span>&#123;</span><br><span class="line">   <span class="comment">//省略了构造方法 以及getter setter方法   </span></span><br><span class="line">  <span class="comment">// 省略了重写的几个方法</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age-getAge();</span><br><span class="line">    &#125;<span class="comment">//重写了Comparable接口中的compareTo的方法 将排序规则设置为按照年龄升序</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Stduent&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> Stduent(<span class="string">"张人伟"</span>,<span class="number">18</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> Stduent(<span class="string">"张一伟"</span>,<span class="number">20</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> Stduent(<span class="string">"张大伟"</span>,<span class="number">21</span>));</span><br><span class="line">        Collections.sort(arrayList);<span class="comment">//Clollections的sort排序方法 但经过了重写</span></span><br><span class="line">        System.out.println(arrayList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><strong>public static <T> void sort(List<T> list,Comparator&lt;? super T&gt;):将集合中元素按照指定规则排序</T></T></strong></li>
-<li>Comparator和Comparable的区别<ol>
-<li><strong>Comparable:自己(this)和别人(参数)比较，自己需要实现Comparable接口，重写比较的规则compareTo方法</strong></li>
-<li><strong>Comparator:相当于找一个第三方的裁判，比较</strong></li>
-</ol>
-</li>
-<li>Comparator的排序规则：o1- o2升序 o2-o1降序</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;People&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> People(<span class="string">"b张人伟"</span>,<span class="number">18</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> People(<span class="string">"张一伟"</span>,<span class="number">20</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> People(<span class="string">"张大伟"</span>,<span class="number">21</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> People(<span class="string">"a张人伟"</span>,<span class="number">18</span>));</span><br><span class="line">        Collections.sort(arrayList, <span class="keyword">new</span> Comparator&lt;People&gt;() &#123;<span class="comment">//通过Comparator接口进行排序</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(People o1, People o2)</span> </span>&#123;<span class="comment">//重写接口中的compare方法</span></span><br><span class="line">               <span class="keyword">int</span> num =o1.getAge()-o2.getAge();<span class="comment">//先进行年龄比较</span></span><br><span class="line">                <span class="keyword">if</span>(num==<span class="number">0</span>)&#123;<span class="comment">//如果年龄一样的话进行名字的首字母比较</span></span><br><span class="line">                    num=  o1.getName().charAt(<span class="number">0</span>)-o2.getName().charAt(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> num;<span class="comment">//返回数字</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        show();</span><br><span class="line">        show1(<span class="string">"c:\\"</span>,<span class="string">"qaq.txt"</span>);</span><br><span class="line">        show2(<span class="keyword">new</span> File(<span class="string">"c:\\"</span>),<span class="string">"a.txt"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show2</span><span class="params">(File file,String s)</span> </span>&#123;<span class="comment">//前面的参数是传入现有的文件路径 然后在此路径下创建文件</span></span><br><span class="line">        File file2 = <span class="keyword">new</span> File(file,s);</span><br><span class="line">        System.out.println(file2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show1</span><span class="params">(String parent,String child)</span> </span>&#123;<span class="comment">//将父级路径和字级路径分开写</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(parent,child);</span><br><span class="line">        System.out.println(file);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;<span class="comment">//直接在构造方法中输入想创建文件的路径</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"c:\\kkp\\aoligei\\dudu.txt"</span>);</span><br><span class="line">        System.out.println(file);</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="以上是对Set集合的初步了解及部分方法使用"><a href="#以上是对Set集合的初步了解及部分方法使用" class="headerlink" title="以上是对Set集合的初步了解及部分方法使用"></a>以上是对Set集合的初步了解及部分方法使用</h3><h3 id="还有Collection集合工具类中排序的两种方式"><a href="#还有Collection集合工具类中排序的两种方式" class="headerlink" title="还有Collection集合工具类中排序的两种方式"></a>还有Collection集合工具类中排序的两种方式</h3>
+<h3 id="File类获取功能的方法"><a href="#File类获取功能的方法" class="headerlink" title="File类获取功能的方法"></a>File类获取功能的方法</h3><ul>
+<li><strong>String getAbsolutePath() 返回此抽象路径名的绝对路径名字符串</strong><ol>
+<li>获取的构造方法中传递的路径</li>
+<li>无论路径是绝对的还是相对的,getAbsolutePath方法返回的都是绝对路径</li>
+</ol>
+</li>
+<li><strong>String getName()</strong>  <strong>返回由此抽象路径名表示的文件或目录的名称</strong><ol>
+<li>获取的构造方法中传递的路径</li>
+<li>绝对路径返回的就是绝对路径，相对路径返回的就是相对路径</li>
+<li>File类中重写了Object类中toString()方法:return getPath()</li>
+</ol>
+</li>
+<li><strong>String getPath() 将此抽象路径名转换为一个路径名字符串</strong><blockquote>
+<p> 获取的就是构造方法传递路径的结尾部分(文件/文件夹)</p>
+</blockquote>
+</li>
+<li><strong>long length()   返回由此抽象路径名表示的文件的长度</strong> <ol>
+<li>获取的是构造方法指定的文件的大小，以字节为单位</li>
+<li>文件夹是没有大小概念的，不能获取文件夹的大小</li>
+<li>如果构造方法中给出的路径不存在，那么length方法返回0</li>
+</ol>
+</li>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     show();</span><br><span class="line">     show1();</span><br><span class="line">     show2();</span><br><span class="line">     show3();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"E:\\xixihaha"</span>);</span><br><span class="line">        <span class="keyword">long</span> length = file.length();</span><br><span class="line">        System.out.println(length);<span class="comment">//没有此文件 输出0</span></span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\86773\\Pictures\\240.jpg"</span>);</span><br><span class="line">        <span class="keyword">long</span> length1 = file1.length();</span><br><span class="line">        System.out.println(length1);<span class="comment">//有此文件 输出大小</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"C:\\QQ\\Tecent\\ax.txt"</span>);<span class="comment">//绝对路径文件</span></span><br><span class="line">        String path = file.getPath();</span><br><span class="line">        System.out.println(path);<span class="comment">//输出绝对路径</span></span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"ax.txt"</span>);<span class="comment">//相对路径文件</span></span><br><span class="line">        String path1 = file1.getPath();</span><br><span class="line">        System.out.println(path1);<span class="comment">//输出相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"G:\\heihei\\study\\aoligei\\aa.txt"</span>);<span class="comment">//绝对路径文件</span></span><br><span class="line">        String name = file.getName();</span><br><span class="line">        System.out.println(name);<span class="comment">//输出相对路径</span></span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"G:\\heihei\\study\\aoligei"</span>);<span class="comment">//绝对路径文件</span></span><br><span class="line">        String name1 = file1.getName();</span><br><span class="line">        System.out.println(name1);<span class="comment">//输出相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HeimaStudy\\dudu.txt"</span>);<span class="comment">//绝对路径文件</span></span><br><span class="line">        String absolutePath = file.getAbsolutePath();</span><br><span class="line">        System.out.println(absolutePath);<span class="comment">//输出绝对路径</span></span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"dudu.txt"</span>);<span class="comment">//相对路径文件</span></span><br><span class="line">        String absolutePath1 = file1.getAbsolutePath();</span><br><span class="line">        System.out.println(absolutePath1);<span class="comment">//输出绝对路径</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="File类判断功能的方法"><a href="#File类判断功能的方法" class="headerlink" title="File类判断功能的方法"></a>File类判断功能的方法</h3><ul>
+<li>三种判断方法<ol>
+<li><strong>boolean isDirectory() 判断此抽象路径名表示的文件是否是一个目录</strong> </li>
+<li><strong>boolean isFile()  判断此抽象路径名表示的文件是否是一个文件</strong></li>
+<li><strong>boolean exists() 判断此抽象路径名表示的文件或目录是否存在</strong></li>
+</ol>
+</li>
+<li>注意：<ol>
+<li><strong>应该使用exists()方法对是否是文件夹进行判断</strong></li>
+<li><strong>如果文件夹判断为true即存在 那么在使用isDirectory()和isFile()方法进行判断是为目录还是文件(带后缀)</strong></li>
+</ol>
+</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\zr.txt"</span>);<span class="comment">//绝对路径的构造方法</span></span><br><span class="line">        System.out.println(file.exists());<span class="comment">//判断是否存在</span></span><br><span class="line">        <span class="keyword">if</span> (file.exists()==<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file.isDirectory());<span class="comment">//判断是否是目录</span></span><br><span class="line">            System.out.println(file.isFile());<span class="comment">//判断是否是文件或者文件夹</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="初步了解File类以及部分方法的使用"><a href="#初步了解File类以及部分方法的使用" class="headerlink" title="初步了解File类以及部分方法的使用"></a>初步了解File类以及部分方法的使用</h3>
       
 
       
@@ -330,11 +357,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
         		</li>
       		
 		</ul>
@@ -390,7 +413,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/24/BlogBook20/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/30/BlogBook27/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -404,18 +427,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/24/BlogBook21/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/30/BlogBook28/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java集合之Map集合
+          BlogBook28
         
       </div>
     </a>
   
   
-    <a href="/2020/07/23/BlogBook19/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java集合之List接口下的集合</div>
+    <a href="/2020/07/27/BlogBook26/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">初步认识线程池及Lambda表达式</div>
       <i class="icon-circle-right"></i>
     </a>
   

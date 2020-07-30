@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 28
+    总文章数 30
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,294 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/BlogBook28/">BlogBook28</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/30/BlogBook28/" class="archive-article-date">
+  	<time datetime="2020-07-30T02:38:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="File类的创建删除功能的方法"><a href="#File类的创建删除功能的方法" class="headerlink" title="File类的创建删除功能的方法"></a>File类的创建删除功能的方法</h3><ul>
+<li>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </li>
+</ul>
+<ol>
+<li>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</li>
+<li>此方法只能创建文件，不能创建文件夹</li>
+<li>创建文件的路径必须存在，否则会抛出异常</li>
+<li>要处理异常IOException,要么throws这个异常，要么try catch</li>
+<li>相对路径是对于项目的路径 不能相对于包</li>
+</ol>
+<ul>
+<li>boolean delete()  删除此抽象路径名表示的文件或目录 </li>
+</ul>
+<ol>
+<li>此方法可以删除构造方法中的(文件/文件夹)</li>
+<li>true:文件/文件夹删除成功，返回true</li>
+<li>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false </li>
+<li>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</li>
+</ol>
+<ul>
+<li>boolean mkdir() 创建单级空文件夹</li>
+<li>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹</li>
+</ul>
+<ol>
+<li>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</li>
+<li>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</li>
+<li>此方法只能创建文件夹，不能创建文件</li>
+<li>创建文件夹的路径必须存在，不然会抛出异常</li>
+</ol>
+<hr>
+<p>###File类遍历(文件夹)目录功能</p>
+<ul>
+<li>遍历的第一种方法：-public String [] list() : 返回一个String数组，表示该File目录中所有的子文件或目录<blockquote>
+<p>遍历构造方法中给出的目录，将该目录下的所有子文件或文件夹存放到一个String类型的数组中</p>
+</blockquote>
+</li>
+<li>遍历的第二种方法：-public File [] listFiles(): 返回一个File数组，表示该File目录中的所有子文件或目录<blockquote>
+<p>遍历构造方法中给出的目录，会获取目录中所有的文件\文件夹，把文件\文件夹封装为File对象，多个File对象存储到File数组中</p>
+<p>File类重写了toString()方法 所以输出的跟list()方法不一样</p>
+</blockquote>
+</li>
+<li>注意事项：</li>
+</ul>
+<ol>
+<li>list方法和listFiles方法遍历的是构造方法给出的目录</li>
+<li>如果构造方法中给出的目录路径不存在，会抛出空指针异常</li>
+<li>如果构造方法中给出的路径不是一个目录，也会抛出空指针异常</li>
+<li>也可以遍历隐藏属性的文件夹或者文件<br>###递归<br>####递归的概念&amp;分类&amp;注意事项</li>
+</ol>
+<ul>
+<li>概念：指在当前方法内方法自己调用自己</li>
+<li>分类：递归分为两种</li>
+</ul>
+<ol>
+<li>直接递归：为方法自身调用自己</li>
+<li>间接递归：可以用A调用B，B调用C，C调用A</li>
+</ol>
+<ul>
+<li>注意事项：</li>
+</ul>
+<ol>
+<li>递归中一定要有条件限定，保证递归能够停止下来，否则会发生栈内存溢出</li>
+<li>在递归中虽然有限定条件，但是递归次数不能太多，否则也会发生栈内存溢出</li>
+<li>构造方法禁止递归</li>
+<li>递归的使用原理：当调用方法时，方法的主体不变，每次调用方法的参数不同，可以使用递归</li>
+</ol>
+<ul>
+<li>递归练习一：打印1-n的数的和：Text</li>
+<li>递归练习二：计算阶乘:参考Text</li>
+<li>递归练习三：递归打印多级目录Text1</li>
+<li>递归练习四：文件搜索 Text2</li>
+</ul>
+<hr>
+<p>####FileFilter过滤器的原理和使用</p>
+<ul>
+<li>在File类中有两个和listFiles重载的方法，方法的参数传递的就是过滤器</li>
+</ul>
+<ol>
+<li>File[] listFiles(FileFilter filter)</li>
+<li>java.io.FileFilter接口：用于抽象路径名(File对象)的过滤器</li>
+<li>作用:用来过滤文件(File对象) 抽象方法：用来过滤文件的方法</li>
+<li>boolean accpet(File pathname)测试指定抽象路径名是否应该包含在某个路径名列表中</li>
+<li>参数:File pathname:使用listFiles方法遍历目录，得到的每一个文件对象<blockquote>
+<p>可以用匿名内部类 创建实现类 Lambda来实现此接口的方法调用</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>File[] listFiles(FilenameFilter filter)</li>
+</ul>
+<ol>
+<li>java.io.FilenameFilter接口：实现此接口的类实例可用于过滤文件名</li>
+<li>作用：用于过滤文件名称 抽象方法：用来过滤文件的方法</li>
+<li>boolean accept(File file,String name) 测试指定文件是否应该包含在某一文件的列表中</li>
+<li>参数：File file:构造方法中传递的被遍历的目录</li>
+<li>String name:使用listFiles方法遍历目录，获取的每一个文件/文件夹的名称</li>
+</ol>
+<ul>
+<li>注意： 两个过滤器接口是没有实现类的，需要我们自己写实现类，重写过滤的方法accept，在方法中自己定义过滤的规则</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/BlogBook28/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-BlogBook27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/BlogBook27/">File类的初步认识</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/30/BlogBook27/" class="archive-article-date">
+  	<time datetime="2020-07-30T01:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><h4 id="File类的概述"><a href="#File类的概述" class="headerlink" title="File类的概述"></a>File类的概述</h4><ul>
+<li>java.io.File类</li>
+</ul>
+<ol>
+<li><strong>文件和目录路径名的抽象表示形式</strong></li>
+<li><strong>Java把电脑中的文件和文件夹(目录)封装为了一个File类，我们可以使用File类对文件夹进行操作</strong></li>
+</ol>
+<ul>
+<li>我们可以使用File类的方法<ul>
+<li>创建一个文件/文件夹</li>
+<li>删除文件/文件夹</li>
+<li>获取文件/文件夹</li>
+<li>判断文件/文件夹是否存在</li>
+<li>对文件夹进行遍历</li>
+<li>获取文件的大小</li>
+</ul>
+</li>
+<li>File类是一个与系统无关的类，任何的操作系统都可以使用这个类中的方法</li>
+<li>重点：记住这三个单词</li>
+</ul>
+<ol>
+<li><strong>file:文件</strong></li>
+<li><strong>directory:文件夹/目录</strong></li>
+<li><strong>path:路径</strong></li>
+</ol>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解File类以及部分方法使用</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/30/BlogBook27/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/BlogBook27/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -949,202 +1237,6 @@
 
 
   
-    <article id="post-BlogBook18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook18/">数据结构初步了解</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook18/" class="archive-article-date">
-  	<time datetime="2020-07-23T12:09:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="数据结构-栈"><a href="#数据结构-栈" class="headerlink" title="数据结构_栈"></a>数据结构_栈</h3><ul>
-<li>概念:<strong>stack:又称堆栈，它时运算受限的线性表，其限制时允允许在标的<br>一端进行插入和删除操作，不允许在其他任何位置进行添加，查找，删除等操作</strong></li>
-<li>简单的说：采用该结构的集合，对元素的获取有如下的特点</li>
-</ul>
-<ol>
-<li><strong>先进后出</strong>：子弹压进弹夹 先进去的在下 后进去的再上 开枪的时候后进去的先弹出来</li>
-<li>栈的入口，出口都是栈的顶端位置</li>
-</ol>
-<ul>
-<li>图片展示<br><img src="/2020/07/23/BlogBook18/image1.jpg" alt="栈的结构"></li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>几种数据结构的基本概念</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook18/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook18/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BlogBook17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook17/">泛型的概念及使用</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook17/" class="archive-article-date">
-  	<time datetime="2020-07-23T06:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><h4 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h4><ul>
-<li><strong>泛型是一种未知的数据类型，当我们不知道使用什么数据类型的时候，可以使用泛型</strong></li>
-<li><strong>泛型也可以看出是一个变量来接受数据类型</strong><ol>
-<li>E e = Element 元素</li>
-<li>T t = Type 类型</li>
-</ol>
-</li>
-<li><strong>例如添加和获取的两个方法返回值都是E（未知类型) 通过创建集合对象时候确定的泛型<br>数据类型来传递到E中</strong><ol>
-<li><strong>public class ArrayList<E>{public boolean add(E e){}</E></strong></li>
-<li><strong>public E get(int index){}</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>泛型的概念及其使用</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook17/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook17/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1253,11 +1345,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
