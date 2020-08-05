@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>线程的初步了解 | CoderZhang&#39;s blog</title>
+  <title>IO字符输入以及输出流 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="并发与并行了解并发和并行 并发(Concurrent)的概念: 指两个或多个事件在同一时间段内发生(CPU在事件之间来回切换运行) 并发的图片 并行(Parallel)的概念：指两个或多个事件在同一时刻发生(同时发生CPU一起运行事件)抽象理解：并发，就像一个人（cpu）喂2个孩子（程序），轮换着每人喂一口，表面上两个孩子都在吃饭。并行，就是2个人喂2个孩子，两个孩子也同时在吃饭。    Auth">
+  <meta name="description" content="字符输入流读取数据 java.io.FileReader extends InputStreamReader extends Reader FileReader:文件字符输入流 作用: 把硬盘文件中的数据以字符的方式读取到内存中   构造方法: FileReader(Streing fileName) FileReader(File file) 参数:读取文件的数据源 String fileNam">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程的初步了解">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/index.html">
+<meta property="og:title" content="IO字符输入以及输出流">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/05/BlogBook30/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="并发与并行了解并发和并行 并发(Concurrent)的概念: 指两个或多个事件在同一时间段内发生(CPU在事件之间来回切换运行) 并发的图片 并行(Parallel)的概念：指两个或多个事件在同一时刻发生(同时发生CPU一起运行事件)抽象理解：并发，就像一个人（cpu）喂2个孩子（程序），轮换着每人喂一口，表面上两个孩子都在吃饭。并行，就是2个人喂2个孩子，两个孩子也同时在吃饭。    Auth">
+<meta property="og:description" content="字符输入流读取数据 java.io.FileReader extends InputStreamReader extends Reader FileReader:文件字符输入流 作用: 把硬盘文件中的数据以字符的方式读取到内存中   构造方法: FileReader(Streing fileName) FileReader(File file) 参数:读取文件的数据源 String fileNam">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/image2.jpg">
-<meta property="og:image" content="http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/image.jpg">
-<meta property="og:image" content="http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/image3.jpg">
-<meta property="article:published_time" content="2020-07-25T01:25:35.000Z">
-<meta property="article:modified_time" content="2020-07-25T06:21:30.555Z">
+<meta property="article:published_time" content="2020-08-05T02:34:24.000Z">
+<meta property="article:modified_time" content="2020-08-05T11:01:10.751Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/image2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
   
@@ -151,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook24" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook30" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      线程的初步了解
+      IO字符输入以及输出流
     </h1>
   
 
@@ -180,159 +176,130 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/25/BlogBook24/" class="archive-article-date">
-  	<time datetime="2020-07-25T01:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+<a href="/2020/08/05/BlogBook30/" class="archive-article-date">
+  	<time datetime="2020-08-05T02:34:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><h4 id="了解并发和并行"><a href="#了解并发和并行" class="headerlink" title="了解并发和并行"></a>了解并发和并行</h4><ul>
-<li>并发(Concurrent)的概念: <strong>指两个或多个事件在同一时间段内发生(CPU在事件之间来回切换运行)</strong></li>
-<li>并发的图片<br><img src="/2020/07/25/BlogBook24/image2.jpg" alt="并发"></li>
-<li>并行(Parallel)的概念：<strong>指两个或多个事件在同一时刻发生(同时发生CPU一起运行事件)</strong><br><img src="/2020/07/25/BlogBook24/image.jpg" alt="并行"><br><code>抽象理解：并发，就像一个人（cpu）喂2个孩子（程序），轮换着每人喂一口，表面上两个孩子都在吃饭。并行，就是2个人喂2个孩子，两个孩子也同时在吃饭。</code></li>
+        <h3 id="字符输入流读取数据"><a href="#字符输入流读取数据" class="headerlink" title="字符输入流读取数据"></a>字符输入流读取数据</h3><ul>
+<li><strong>java.io.FileReader extends InputStreamReader extends Reader</strong></li>
+<li><strong>FileReader</strong>:文件字符输入流<blockquote>
+<p>作用: 把硬盘文件中的数据以字符的方式读取到内存中</p>
+</blockquote>
+</li>
+<li>构造方法:<ol>
+<li><strong>FileReader(Streing fileName)</strong></li>
+<li><strong>FileReader(File file)</strong></li>
+<li><strong>参数:读取文件的数据源 String fileName:文件的路径 File file:一个文件</strong></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>FileReader构造方法的作用:</li>
+</ul>
+<ol>
+<li><strong>创建一个FileReader对象</strong></li>
+<li><strong>会把FileReader对象指向要读取的文件</strong></li>
+</ol>
+<ul>
+<li>字符输入流的使用步骤：<ol>
+<li><strong>创建FileReader对象，构造方法中绑定要读取的数据流</strong></li>
+<li><strong>使用FileReader对象中的方法read读取文件</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li>方法：<ol>
+<li><strong>int read()</strong> 读取单个字符并返回</li>
+<li><strong>int read(char[] chars)</strong> 一次读取多个字符，将字符读入数组</li>
+</ol>
+</li>
+<li>String类的构造方法：<ol>
+<li><strong>String(char [] value)</strong> 把字符数组转换为字符串</li>
+<li><strong>String(char [] value,int offset,int count)</strong> 把字符数组的一部分转换为字符串 offset数组的开始索引 count转换的个数</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileReader fileReader = <span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwio.txt"</span>));<span class="comment">//创建字符输入流类的对象</span></span><br><span class="line">        <span class="keyword">char</span>[] chars = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];<span class="comment">//创建字符数组</span></span><br><span class="line">        <span class="keyword">int</span> red = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((red=fileReader.read(chars))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> String(chars));</span><br><span class="line">        &#125;</span><br><span class="line">        fileReader.close();</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <hr>
 <ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>线程的初步了解以及匿名内部类(重点)</strong></p>
+<li><p><strong>初步了解字符输入以及输出流以及部分方法使用</strong></p>
+</li>
+</ul>
 <a id="more"></a>
-
+<h3 id="字符输出流写入数据"><a href="#字符输出流写入数据" class="headerlink" title="字符输出流写入数据"></a>字符输出流写入数据</h3><ul>
+<li><strong>java.io.writer:字符输出流，是所有字符输出流的最顶层的一个父类，是一个抽象类</strong></li>
+<li>方法：<ol>
+<li><strong>void close()</strong> 关闭此流，但要先刷新它。 </li>
+<li><strong>void flush()</strong>  刷新该流的缓冲。 </li>
+<li><strong>String getEncoding()</strong> 返回此流使用的字符编码的名称。 </li>
+<li><strong>void write(char[] cbuf, int off, int len)</strong> 写入字符数组的某一部分。 </li>
+<li><strong>void write(int c)</strong> 写入单个字符。 </li>
+<li><strong>void write(String str, int off, int len)</strong>  写入字符串的某一部分 </li>
+</ol>
 </li>
-</ul>
-<h3 id="线程和进程："><a href="#线程和进程：" class="headerlink" title="线程和进程："></a>线程和进程：</h3><ul>
-<li>进程：<strong>是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程;进程也是程序的一次执行过程，<br>是系统运行程序的基本单位;系统运行一个程序即使一个进程从创建–&gt;运行—&gt;消亡的过程</strong><blockquote>
-<p>一般应用程序存储到硬盘中(永久rom)</p>
-<p>内存：所有的应用程序都需要进到内存中执行 临时存储(ram)</p>
-<blockquote>
-<p>点击应用程序执行，进入到内存中占用一些内存执行，进入到内存的程序叫进程</p>
-</blockquote>
-</blockquote>
+<li>构造方法：<ol>
+<li><strong>FileWriter(File file)根据给定的 File 对象构造一个 FileWriter 对象</strong></li>
+<li><strong>FileWriter(String fileName)根据给定的文件名构造一个 FileWriter 对象</strong></li>
+</ol>
 </li>
-<li>线程：<strong>线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程，一个进程中是可以有多个线程的<br>这个应用程序也可以称之为多线程程序</strong><blockquote>
-<p>简而言之：一个程序运行后至少有一个进程，一个进程中可以有多个线程 线程属于进程</p>
-<p>线程是进程的一个执行单元，负责程序的执行</p>
-</blockquote>
+<li>构造方法的作用：<ol>
+<li><strong>会创建一个FileWriter对象</strong></li>
+<li><strong>会根据构造方法中传递的文件/文件的路径，创建文件</strong></li>
+<li><strong>会把FileWriter对象指向创建好的文件</strong></li>
+</ol>
 </li>
-<li>线程的调度:<ol>
-<li><strong>分时调度</strong>：所有线程轮流使用CPU的使用权，平均分配每个线程占用CPU的时间</li>
-<li><strong>抢占式调度</strong>：优先让优先级高的线程使用CPU，如果线程的优先级相同，那么会随机选择一个(线程随机性)，java使用的为抢占式调度</li>
+<li>步骤<ol>
+<li><strong>创建FileWriter对象，构造方法中绑定要写入数据的目的地</strong></li>
+<li><strong>使用FileWriter中的方法writer，把数据写入到内存缓冲区中(字符转换为字节的过程)</strong></li>
+<li><strong>使用FileWriter中的方法flush，把内存缓冲区中的数据，刷新到文件中</strong></li>
+<li><strong>释放资源(会先把内存缓冲区中的数据刷新到文件中)</strong></li>
 </ol>
 </li>
 </ul>
-<h2 id><a href="#" class="headerlink" title></a><img src="/2020/07/25/BlogBook24/image3.jpg" alt="线程的状态"></h2><h3 id="主线程：执行主-main-方法的线程"><a href="#主线程：执行主-main-方法的线程" class="headerlink" title="主线程：执行主(main)方法的线程"></a>主线程：执行主(main)方法的线程</h3><ul>
-<li><strong>单线程程序:java程序中只有一个线程</strong></li>
-<li>执行从main方法开始，从上到下依次执行(执行顺序)<ol>
-<li><strong>JVM执行从main方法，main方法会进入到栈内存</strong></li>
-<li><strong>JVM会找操作系统开辟一条main方法通向cpu的执行路径</strong></li>
-<li><strong>cpu就可以通过这个路径来执行main方法，而这个路径有一个名字，叫main(主)线程</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="创建线程类的第一种方式-继承Thread"><a href="#创建线程类的第一种方式-继承Thread" class="headerlink" title="创建线程类的第一种方式(继承Thread):"></a>创建线程类的第一种方式(继承Thread):</h3><ul>
-<li>java使用<strong>java.lang.Thread</strong>类代表线程，<strong>所有的线程对象都必须是Thread类或其他子类的实例</strong>，每个线程的作用是完成一定任务<br>实际上就是执行一段程序流即一段顺序执行代码，java使用线程执行体来代表这段程序流.</li>
-<li><em>java通过继承Thread类来创建并启动多线程的步骤如下：</em><ol>
-<li><strong>创建一个Thread类的子类</strong></li>
-<li><strong>在Thread类的子类中重写Thread类的方法，设置线程任务(开启线程需要做什么)</strong></li>
-<li><strong>创建Thread类的子对象</strong></li>
-<li><strong>调用Thread类中的方法start方法，开启新的线程，执行run()方法</strong></li>
-<li><strong>void start()使用线程开始执行，java虚拟机调用该线程的run()方法，结果是两个线程并发的运行，当前线程(main线程)和另一个线程(创建的新线程，执行其run方法)</strong></li>
-<li><strong>多次启动一个线程是非法的，特别是当线程已经结束执行后，不能在重新启动</strong><blockquote>
-<p>java程序属于抢占式调度，哪个线程的优先级高，哪个线程优先执行；同一个优先级，随机选择一个执行</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><em>多线程原理:随机打印结果</em><ol>
-<li><strong>首先JVM会找操作系统开辟一条main方法通向cpu的执行路径</strong></li>
-<li><strong>然后创建Thread子类对象，并调用方法start() 实际也是开辟一条执行路径通向cpu</strong></li>
-<li><strong>此时有两个路径 main线程和Thread子类对象线程进行对CPU的抢占 谁抢到就执行谁</strong></li>
-</ol>
-</li>
-<li>第一种方式演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Z</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;<span class="comment">//继承Thread</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;<span class="comment">//重写父类中的run()方法</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">"卖出第"</span>+i+<span class="string">"张票"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Z z = <span class="keyword">new</span> Z();<span class="comment">//创建第一个线程对象</span></span><br><span class="line">        Z z1 = <span class="keyword">new</span> Z();<span class="comment">//创建第二个线程对象</span></span><br><span class="line">        z1.start();<span class="comment">//z1启动线程</span></span><br><span class="line">        z.start();<span class="comment">//z启动线程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="获取和设置线程名称"><a href="#获取和设置线程名称" class="headerlink" title="获取和设置线程名称"></a>获取和设置线程名称</h3><ul>
-<li>获取线程的名称：</li>
+<ul>
+<li>flush方法和close方法的区别</li>
 </ul>
 <ol>
-<li><strong>使用Thread类中的方法getName()  String getName()返回线程的名称</strong></li>
-<li><strong>可以先获取到当前正在执行的线程，使用线程中的方法getName()获取线程的名称</strong><blockquote>
-<p>static Thread currentThread() 返回当前正在执行的对象的引用</p>
-</blockquote>
-</li>
+<li><strong>flush方法：刷新缓冲区，流对象可以继续使用</strong></li>
+<li><strong>close方法：先刷新缓冲区，然后通知系统释放资源，流对象不可以再使用了</strong></li>
 </ol>
 <ul>
-<li>设置线程的名称(了解):</li>
-</ul>
-<ol>
-<li><strong>使用Thread中的setName(名字) void setName(String name) 改变线程名字：使之与参数name相同</strong></li>
-<li><strong>创建一个带参数的构造方法，参数传递线程的名称;调用父类的带参构造方法，把线程名称传给父类，让父类(Thread)给子线程起一个名字</strong><blockquote>
-<p>Thread(String name)分配给新的Thread对象</p>
-</blockquote>
-</li>
+<li>字符输出流写数据的其他方法<ol>
+<li><strong>void write(char [] chars)写入字符串数组</strong></li>
+<li><strong>abstract void write(char[] chars,int off,int len)写入字符数组的一部分，off数组为开始索引 ,len为写入个数</strong></li>
+<li><strong>void write(String str) 写入字符串</strong></li>
+<li><strong>void write(String ,int off ,int len)写入字符串数组的一部分，off为字符串开始索引，len为写入字符数量</strong></li>
 </ol>
+</li>
+</ul>
 <ul>
-<li><strong>线程的休眠: public static void sleep(long millis):使当前正在执行的线程以指定的毫秒数暂停(暂时停止执行)</strong><blockquote>
-<p>毫秒结束之后 线程继续进行</p>
-</blockquote>
-</li>
-<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testThread</span> <span class="keyword">extends</span>  <span class="title">Thread</span></span>&#123;</span><br><span class="line">    String name;<span class="comment">//设置name属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">testThread</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">testThread</span><span class="params">(String name)</span></span>&#123;<span class="comment">//有参构造方法</span></span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">"名字"</span>+getName()+<span class="string">"---&gt;"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        testThread t1 = <span class="keyword">new</span> testThread(<span class="string">"线程A"</span>);<span class="comment">//有参构造方法创建对象</span></span><br><span class="line">        t1.start();</span><br><span class="line">        testThread t2= <span class="keyword">new</span> testThread();<span class="comment">//无参构造方法创建对象</span></span><br><span class="line">        t2.start();</span><br><span class="line">        t2.setName(<span class="string">"线程B"</span>);<span class="comment">//设置线程名称</span></span><br><span class="line">        <span class="keyword">new</span> testThread(<span class="string">"线程C"</span>).start();<span class="comment">//匿名类对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> l = System.currentTimeMillis();</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HeimaStudy\\src\\IoStudy1.cn"</span>);<span class="comment">//创建文件</span></span><br><span class="line">        FileWriter fileWriter = <span class="keyword">new</span> FileWriter(file,<span class="keyword">true</span>);<span class="comment">//创建字符输出流类的对象</span></span><br><span class="line">        fileWriter.write(<span class="string">"奥里给"</span>);<span class="comment">//写入</span></span><br><span class="line">fileWriter.flush();<span class="comment">//刷新</span></span><br><span class="line">        fileWriter.close();<span class="comment">//关闭</span></span><br><span class="line">        <span class="keyword">long</span> l1 = System.currentTimeMillis();</span><br><span class="line">        System.out.println(l1-l);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="创建线程的第二种方式-实现Runnable接口"><a href="#创建线程的第二种方式-实现Runnable接口" class="headerlink" title="创建线程的第二种方式(实现Runnable接口)"></a>创建线程的第二种方式(实现Runnable接口)</h3><ul>
-<li><strong>java.lang.Runnable Runnable 接口应该由那些打算通过某一线程执行其实例的类来实现，类必须定义一个称为run的无参数方法</strong></li>
-<li><strong>java.lang.Thread类的构造方法</strong><ol>
-<li><strong>Thread(Runnable target) 分配新的Thread对象</strong></li>
-<li><strong>Thread(Runnable target,String name) 分配新的Thread对象</strong></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text5</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FileWriter fileWriter = <span class="keyword">new</span> FileWriter(<span class="string">"src\\IoStudy2.cn"</span>);<span class="comment">//创建字符输出流对象</span></span><br><span class="line">        <span class="keyword">char</span> [] chars = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'z'</span>,<span class="string">'r'</span>,<span class="string">'w'</span>&#125;;<span class="comment">//创建字符串数组</span></span><br><span class="line">        fileWriter.write(chars);<span class="comment">//写入字符串数组</span></span><br><span class="line">        fileWriter.write(chars,<span class="number">3</span>,<span class="number">3</span>);<span class="comment">//写入部分字符串数组</span></span><br><span class="line">        fileWriter.write(<span class="string">"你好"</span>);<span class="comment">//写入字符</span></span><br><span class="line">        fileWriter.write(<span class="string">"奥里给"</span>,<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//写入部分字符</span></span><br><span class="line">        fileWriter.flush();<span class="comment">//刷新缓冲区</span></span><br><span class="line">        fileWriter.close();<span class="comment">//关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用try-catch-finally处理流的异常"><a href="#使用try-catch-finally处理流的异常" class="headerlink" title="使用try-catch-finally处理流的异常"></a>使用try-catch-finally处理流的异常</h3><ul>
+<li><strong>在jdk1.7之前使用try catch finally处理流中的异常</strong></li>
+<li>格式<ol>
+<li><strong>try{可能会产出异常的代码}</strong></li>
+<li><strong>catch(异常类变量 变量名){异常的处理器}</strong></li>
+<li><strong>finally{一定会执行的代码 (资源释放)}</strong></li>
 </ol>
 </li>
-<li>实现步骤<ol>
-<li><strong>创建一个Runnable 接口的实现类</strong></li>
-<li><strong>在实现类中重写Runnable接口的run方法，设置线程任务</strong></li>
-<li><strong>创建一个Runnable接口的实现类对象</strong></li>
-<li><strong>创建Thread类对象，构造方法中传递Runnable接口的实现类对象</strong></li>
-<li><strong>调用Thread类中的start方法，开启新的线程执行run方法</strong></li>
-</ol>
-</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">testThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;<span class="comment">//线程创建的第二种方式</span></span><br><span class="line">String name;<span class="comment">//设置类的属性</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">testThread</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="title">testThread</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;<span class="comment">//重写Runnable接口中的run方法</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">"名字"</span>+name+<span class="string">"----&gt;"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        testThread testThread = <span class="keyword">new</span> testThread();<span class="comment">//创建类的对象</span></span><br><span class="line">        <span class="keyword">new</span> Thread(testThread).start();<span class="comment">//创建Thread匿名对象 并将Runnalbe的实现类对象作为参数传入 然后调用start()方法实现</span></span><br><span class="line">        testThread testThread1 = <span class="keyword">new</span> testThread(<span class="string">"线程b"</span>);</span><br><span class="line">        <span class="keyword">new</span> Thread(testThread1).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>具体如何使用看IOStudy.cn Text6</li>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text6</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">        FileWriter fileWriter = <span class="keyword">null</span>;<span class="comment">//创建FileWriter类对象</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fileWriter=<span class="keyword">new</span> FileWriter(<span class="string">"src\\IoStduy4.cn"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                fileWriter.write(<span class="string">"张人伟真帅"</span>+<span class="string">"\r\n"</span>);<span class="comment">//for循环写入</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fileWriter!=<span class="keyword">null</span>)&#123;<span class="comment">//判断写入的对象是否为空</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                fileWriter.close();<span class="comment">//不是的话就关闭</span></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;<span class="comment">//是的话就报异常</span></span><br><span class="line">                System.out.println(e);</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<p>####Runnable接口和Thread的区别</p>
-<ul>
-<li><strong>避免了单继承的局限性：</strong><ol>
-<li><strong>一个类只能继承一个类(一个人只能由一个亲爹)，类继承了Thread类就不能继承其他的类</strong></li>
-<li><strong>实现了Runnable接口，可以继承其他的类，实现其他的接口</strong></li>
-</ol>
-</li>
-<li>增强了程序的扩展性，降低了程序的耦合性(解藕)<ol>
-<li><strong>实现了Runnable接口的方式，把设置线程任务和开启新线程进行了分离(解耦)</strong></li>
-<li><strong>实现类中，重写了run方法，用来设置线程任务</strong></li>
-<li><strong>创建Thread类对象，调用start方法，用来开启新线程</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="匿名内部类实现线程"><a href="#匿名内部类实现线程" class="headerlink" title="匿名内部类实现线程"></a>匿名内部类实现线程</h3><ul>
-<li><strong>匿名：没有名字  内部类：写在其他类内部的类</strong></li>
-<li>匿名内部类作用：简化代码<ol>
-<li><strong>把子类继承父类:重写父类的方法，创建子类对象合一步完成</strong></li>
-<li><strong>把实现类实现类接口，重写接口中的方法，创建实现类对象合成一步完成</strong></li>
-</ol>
-</li>
-<li>匿名内部类的最终产物：<strong>子类/实现类对象，而这个类没有名字</strong></li>
-<li>格式：<strong>new 父类/接口(){重复父类/接口中的方法};</strong></li>
-<li>多线程匿名内部类使用的代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">   <span class="comment">//Runnable匿名实现类</span></span><br><span class="line">    Runnable r = <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">              <span class="meta">@Override</span></span><br><span class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                      System.out.println(<span class="string">"真帅"</span>+i);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;;</span><br><span class="line"><span class="keyword">new</span> Thread(r).start();</span><br><span class="line"><span class="comment">//匿名内部类Thread的使用</span></span><br><span class="line">     <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">         <span class="meta">@Override</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">                 System.out.println(<span class="string">"太秒了"</span>+i);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="以上是对多线程的初步了解以及使用-匿名内部类很重要！！！！"><a href="#以上是对多线程的初步了解以及使用-匿名内部类很重要！！！！" class="headerlink" title="以上是对多线程的初步了解以及使用 匿名内部类很重要！！！！"></a>以上是对多线程的初步了解以及使用 匿名内部类很重要！！！！</h3>
+<h3 id="以上是对字符输入流以及字符输出流的初步了解及使用"><a href="#以上是对字符输入流以及字符输出流的初步了解及使用" class="headerlink" title="以上是对字符输入流以及字符输出流的初步了解及使用"></a>以上是对字符输入流以及字符输出流的初步了解及使用</h3>
       
 
       
@@ -422,7 +389,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/25/BlogBook24/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/05/BlogBook30/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -436,18 +403,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/25/BlogBook25/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/05/algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          线程的安全及锁的使用
+          algorithm
         
       </div>
     </a>
   
   
-    <a href="/2020/07/24/BlogBook23/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">异常的深入了解</div>
+    <a href="/2020/07/30/BlogBook29/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IO字节输入以及输出流</div>
       <i class="icon-circle-right"></i>
     </a>
   
