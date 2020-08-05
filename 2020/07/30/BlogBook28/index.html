@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>BlogBook28 | CoderZhang&#39;s blog</title>
+  <title>File类以及过滤器和递归的初步了解 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="File类的创建删除功能的方法 boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件    返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false 此方法只能创建文件，不能创建文件夹 创建文件的路径必须存在，否则会抛出异常 要处理异常IOException,要么throws">
+  <meta name="description" content="File类的创建删除功能的方法 boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件   返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false 此方法只能创建文件，不能创建文件夹 创建文件的路径必须存在，否则会抛出异常 要处理异常IOException,要么throws这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BlogBook28">
+<meta property="og:title" content="File类以及过滤器和递归的初步了解">
 <meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/30/BlogBook28/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="File类的创建删除功能的方法 boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件    返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false 此方法只能创建文件，不能创建文件夹 创建文件的路径必须存在，否则会抛出异常 要处理异常IOException,要么throws">
+<meta property="og:description" content="File类的创建删除功能的方法 boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件   返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false 此方法只能创建文件，不能创建文件夹 创建文件的路径必须存在，否则会抛出异常 要处理异常IOException,要么throws这">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-30T02:38:55.000Z">
-<meta property="article:modified_time" content="2020-07-30T02:43:45.635Z">
+<meta property="article:modified_time" content="2020-07-30T12:30:07.404Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 30
+    总文章数 31
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -154,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      BlogBook28
+      File类以及过滤器和递归的初步了解
     </h1>
   
 
@@ -185,106 +185,109 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="File类的创建删除功能的方法"><a href="#File类的创建删除功能的方法" class="headerlink" title="File类的创建删除功能的方法"></a>File类的创建删除功能的方法</h3><ul>
-<li>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </li>
-</ul>
+<li><p>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </p>
 <ol>
-<li>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</li>
-<li>此方法只能创建文件，不能创建文件夹</li>
-<li>创建文件的路径必须存在，否则会抛出异常</li>
-<li>要处理异常IOException,要么throws这个异常，要么try catch</li>
-<li>相对路径是对于项目的路径 不能相对于包</li>
+<li><strong>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</strong></li>
+<li><strong>此方法只能创建文件，不能创建文件夹</strong></li>
+<li><strong>创建文件的路径必须存在，否则会抛出异常</strong></li>
+<li><strong>要处理异常IOException,要么throws这个异常，要么try catch</strong></li>
+<li><strong>相对路径是对于项目的路径 不能相对于包</strong>   </li>
 </ol>
-<ul>
-<li>boolean delete()  删除此抽象路径名表示的文件或目录 </li>
-</ul>
+</li>
+<li><p>boolean delete()  删除此抽象路径名表示的文件或目录</p>
 <ol>
-<li>此方法可以删除构造方法中的(文件/文件夹)</li>
-<li>true:文件/文件夹删除成功，返回true</li>
-<li>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false </li>
-<li>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</li>
+<li><strong>此方法可以删除构造方法中的(文件/文件夹)</strong></li>
+<li><strong>true:文件/文件夹删除成功，返回true</strong></li>
+<li><strong>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false</strong> </li>
+<li><strong>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</strong></li>
 </ol>
-<ul>
-<li>boolean mkdir() 创建单级空文件夹</li>
-<li>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹</li>
-</ul>
+</li>
+<li><p>boolean mkdir() 创建单级空文件夹</p>
+</li>
+<li><p>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹**</p>
 <ol>
-<li>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</li>
-<li>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</li>
-<li>此方法只能创建文件夹，不能创建文件</li>
-<li>创建文件夹的路径必须存在，不然会抛出异常</li>
+<li><strong>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</strong></li>
+<li><strong>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</strong></li>
+<li><strong>此方法只能创建文件夹，不能创建文件</strong></li>
+<li><strong>创建文件夹的路径必须存在，不然会抛出异常</strong></li>
 </ol>
+</li>
+<li><p>基本代码演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrw"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> exists = file.exists();<span class="comment">//判断是否存在</span></span><br><span class="line">        <span class="keyword">if</span> (exists==<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file.delete());<span class="comment">//有同名的删除</span></span><br><span class="line">            System.out.println(file.mkdir());<span class="comment">//然后创建文件夹</span></span><br><span class="line">        &#125;</span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\Zzz.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file1.exists()==<span class="keyword">false</span>)<span class="comment">//判断是否存在</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file1.createNewFile());<span class="comment">//创建文件</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>File类以及过滤器和递归的初步了解</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+
 <hr>
-<p>###File类遍历(文件夹)目录功能</p>
-<ul>
-<li>遍历的第一种方法：-public String [] list() : 返回一个String数组，表示该File目录中所有的子文件或目录<blockquote>
+<h3 id="File类遍历-文件夹-目录功能"><a href="#File类遍历-文件夹-目录功能" class="headerlink" title="File类遍历(文件夹)目录功能"></a>File类遍历(文件夹)目录功能</h3><ul>
+<li>遍历的第一种方法：<strong>public String [] list()</strong> : 返回一个String数组，表示该File目录中所有的子文件或目录<blockquote>
 <p>遍历构造方法中给出的目录，将该目录下的所有子文件或文件夹存放到一个String类型的数组中</p>
 </blockquote>
 </li>
-<li>遍历的第二种方法：-public File [] listFiles(): 返回一个File数组，表示该File目录中的所有子文件或目录<blockquote>
+<li>遍历的第二种方法：<strong>public File [] listFiles()</strong>: 返回一个File数组，表示该File目录中的所有子文件或目录<blockquote>
 <p>遍历构造方法中给出的目录，会获取目录中所有的文件\文件夹，把文件\文件夹封装为File对象，多个File对象存储到File数组中</p>
 <p>File类重写了toString()方法 所以输出的跟list()方法不一样</p>
 </blockquote>
 </li>
-<li>注意事项：</li>
-</ul>
-<ol>
-<li>list方法和listFiles方法遍历的是构造方法给出的目录</li>
-<li>如果构造方法中给出的目录路径不存在，会抛出空指针异常</li>
-<li>如果构造方法中给出的路径不是一个目录，也会抛出空指针异常</li>
-<li>也可以遍历隐藏属性的文件夹或者文件<br>###递归<br>####递归的概念&amp;分类&amp;注意事项</li>
+<li>注意事项：<ol>
+<li><strong>list方法和listFiles方法遍历的是构造方法给出的目录</strong></li>
+<li><strong>如果构造方法中给出的目录路径不存在，会抛出空指针异常</strong></li>
+<li><strong>如果构造方法中给出的路径不是一个目录，也会抛出空指针异常</strong></li>
+<li><strong>也可以遍历隐藏属性的文件夹或者文件</strong></li>
 </ol>
-<ul>
-<li>概念：指在当前方法内方法自己调用自己</li>
-<li>分类：递归分为两种</li>
+</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_7</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"G:\\TextProject"</span>);</span><br><span class="line">        String[] list = file.list();<span class="comment">//遍历文件</span></span><br><span class="line">        <span class="keyword">for</span> (String s : list) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"============================"</span>);</span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"F:\\HH"</span>);</span><br><span class="line">        File[] files = file1.listFiles();<span class="comment">//遍历文件/文件夹</span></span><br><span class="line">        <span class="keyword">for</span> (File file2 : files) &#123;</span><br><span class="line">            System.out.println(file2);</span><br><span class="line">        &#125;</span><br><span class="line">        File file2 = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\hhaha"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(file2.delete());</span><br><span class="line">        <span class="keyword">for</span> (File file3 : files) &#123;</span><br><span class="line">            System.out.println(file3);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<ol>
-<li>直接递归：为方法自身调用自己</li>
-<li>间接递归：可以用A调用B，B调用C，C调用A</li>
+<hr>
+<h3 id="递归的概念-amp-分类-amp-注意事项"><a href="#递归的概念-amp-分类-amp-注意事项" class="headerlink" title="递归的概念&amp;分类&amp;注意事项"></a>递归的概念&amp;分类&amp;注意事项</h3><ul>
+<li>概念：<strong>指在当前方法内方法自己调用自己</strong></li>
+<li>分类：递归分为两种<ol>
+<li><strong>直接递归：为方法自身调用自己</strong></li>
+<li><strong>间接递归：可以用A调用B，B调用C，C调用A</strong></li>
 </ol>
-<ul>
-<li>注意事项：</li>
-</ul>
-<ol>
+</li>
+<li>注意事项：<ol>
 <li>递归中一定要有条件限定，保证递归能够停止下来，否则会发生栈内存溢出</li>
 <li>在递归中虽然有限定条件，但是递归次数不能太多，否则也会发生栈内存溢出</li>
 <li>构造方法禁止递归</li>
 <li>递归的使用原理：当调用方法时，方法的主体不变，每次调用方法的参数不同，可以使用递归</li>
 </ol>
-<ul>
-<li>递归练习一：打印1-n的数的和：Text</li>
+</li>
+<li>递归练习一：打印1-n的数的和：Text<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">a</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(i==<span class="number">1</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> i*a(i-<span class="number">1</span>);<span class="comment">//递归</span></span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure></li>
 <li>递归练习二：计算阶乘:参考Text</li>
-<li>递归练习三：递归打印多级目录Text1</li>
-<li>递归练习四：文件搜索 Text2</li>
+<li>递归练习三：递归打印多级目录Text1<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH"</span>);</span><br><span class="line">        pritnff(file);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pritnff</span><span class="params">(File file)</span><span class="comment">//传入文件目录</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        File[] files = file.listFiles();<span class="comment">//遍历文件和文件夹</span></span><br><span class="line">        <span class="keyword">for</span> (File file1 : files) &#123;<span class="comment">//增强for循环遍历</span></span><br><span class="line">            <span class="keyword">if</span> (file1.isFile())<span class="comment">//判断是否是文件</span></span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(file1);<span class="comment">//是的话打印</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(file1.isDirectory())<span class="comment">//判断是否是目录</span></span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(file1);</span><br><span class="line">                pritnff(file1);<span class="comment">//递归方法</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>递归练习四：文件搜索 Text2<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH"</span>);</span><br><span class="line">       See(file);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">See</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        File[] files = file.listFiles(<span class="keyword">new</span> FilenameFilter() &#123;<span class="comment">//重写FilenameFilter内部的方法</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> name.toLowerCase().endsWith(<span class="string">".java"</span>)|| dir.isDirectory();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (File file2 : files) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file2.isDirectory()) &#123;</span><br><span class="line">                See(file2);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(file2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <hr>
-<p>####FileFilter过滤器的原理和使用</p>
-<ul>
-<li>在File类中有两个和listFiles重载的方法，方法的参数传递的就是过滤器</li>
-</ul>
-<ol>
-<li>File[] listFiles(FileFilter filter)</li>
-<li>java.io.FileFilter接口：用于抽象路径名(File对象)的过滤器</li>
-<li>作用:用来过滤文件(File对象) 抽象方法：用来过滤文件的方法</li>
-<li>boolean accpet(File pathname)测试指定抽象路径名是否应该包含在某个路径名列表中</li>
-<li>参数:File pathname:使用listFiles方法遍历目录，得到的每一个文件对象<blockquote>
+<h3 id="FileFilter过滤器的原理和使用"><a href="#FileFilter过滤器的原理和使用" class="headerlink" title="FileFilter过滤器的原理和使用"></a>FileFilter过滤器的原理和使用</h3><ul>
+<li>在File类中有两个和listFiles重载的方法，方法的参数传递的就是过滤器<ol>
+<li><strong>File[] listFiles(FileFilter filter)</strong></li>
+<li><strong>java.io.FileFilter接口：用于抽象路径名(File对象)的过滤器</strong></li>
+<li><strong>作用:用来过滤文件(File对象) 抽象方法：用来过滤文件的方法</strong></li>
+<li><strong>boolean accpet(File pathname)测试指定抽象路径名是否应该包含在某个路径名列表中</strong></li>
+<li><strong>参数:File pathname:使用listFiles方法遍历目录，得到的每一个文件对象</strong><blockquote>
 <p>可以用匿名内部类 创建实现类 Lambda来实现此接口的方法调用</p>
 </blockquote>
 </li>
 </ol>
-<ul>
-<li>File[] listFiles(FilenameFilter filter)</li>
-</ul>
-<ol>
-<li>java.io.FilenameFilter接口：实现此接口的类实例可用于过滤文件名</li>
-<li>作用：用于过滤文件名称 抽象方法：用来过滤文件的方法</li>
-<li>boolean accept(File file,String name) 测试指定文件是否应该包含在某一文件的列表中</li>
-<li>参数：File file:构造方法中传递的被遍历的目录</li>
-<li>String name:使用listFiles方法遍历目录，获取的每一个文件/文件夹的名称</li>
+</li>
+<li>File[] listFiles(FilenameFilter filter)<ol>
+<li><strong>java.io.FilenameFilter接口：实现此接口的类实例可用于过滤文件名</strong></li>
+<li><strong>作用：用于过滤文件名称 抽象方法：用来过滤文件的方法</strong></li>
+<li><strong>boolean accept(File file,String name) 测试指定文件是否应该包含在某一文件的列表中</strong></li>
+<li><strong>参数：File file:构造方法中传递的被遍历的目录</strong></li>
+<li><strong>String name:使用listFiles方法遍历目录，获取的每一个文件/文件夹的名称</strong></li>
 </ol>
-<ul>
-<li>注意： 两个过滤器接口是没有实现类的，需要我们自己写实现类，重写过滤的方法accept，在方法中自己定义过滤的规则</li>
+</li>
+<li><strong>注意： 两个过滤器接口是没有实现类的，需要我们自己写实现类，重写过滤的方法accept，在方法中自己定义过滤的规则</strong></li>
 </ul>
-
+<hr>
+<h3 id="File类以及过滤器和递归的初步了解"><a href="#File类以及过滤器和递归的初步了解" class="headerlink" title="File类以及过滤器和递归的初步了解"></a>File类以及过滤器和递归的初步了解</h3>
       
 
       
@@ -387,6 +390,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/07/30/BlogBook29/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          IO流的学习
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/30/BlogBook27/" id="article-nav-older" class="article-nav-link-wrap">
@@ -527,11 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">

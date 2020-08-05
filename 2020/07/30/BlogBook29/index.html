@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Tag: Java集合 | CoderZhang&#39;s blog</title>
+  <title>IO流的学习 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总有人会赢 为什么不是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CoderZhang&#39;s blog">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/tags/Java%E9%9B%86%E5%90%88/index.html">
+  <meta name="description" content="IO流IO流概述 概述： I：input 输入(读取) O：Output 输出(写入) 流：数据(字符，字节)1字符&#x3D;2个字节 1字节&#x3D;8个二进制   输入：把硬盘中的数据：读取到内存中使用 输出：把内存中的数，写入到硬盘中保存 因为分为字符字节两种情况 所以分为两大类 字节流：输入流：InputStream(所有字节输入流的父类)，OutputStream(字节输出流) 字符流：输入流：Read">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IO流的学习">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/07/30/BlogBook29/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="总有人会赢 为什么不是我">
+<meta property="og:description" content="IO流IO流概述 概述： I：input 输入(读取) O：Output 输出(写入) 流：数据(字符，字节)1字符&#x3D;2个字节 1字节&#x3D;8个二进制   输入：把硬盘中的数据：读取到内存中使用 输出：把内存中的数，写入到硬盘中保存 因为分为字符字节两种情况 所以分为两大类 字节流：输入流：InputStream(所有字节输入流的父类)，OutputStream(字节输出流) 字符流：输入流：Read">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://zhanglovecoder.github.io.com/2020/07/30/BlogBook29/image.jpg">
+<meta property="article:published_time" content="2020-07-30T12:32:18.000Z">
+<meta property="article:modified_time" content="2020-08-05T02:31:30.870Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhanglovecoder.github.io.com/2020/07/30/BlogBook29/image.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
   
@@ -144,194 +149,349 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-BlogBook29" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IO流的学习
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/07/30/BlogBook29/" class="archive-article-date">
+  	<time datetime="2020-07-30T12:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><h4 id="IO流概述"><a href="#IO流概述" class="headerlink" title="IO流概述"></a>IO流概述</h4><ul>
+<li>概述：<ol>
+<li><strong>I：input 输入(读取)</strong></li>
+<li><strong>O：Output 输出(写入)</strong></li>
+<li><strong>流：数据(字符，字节)1字符=2个字节 1字节=8个二进制</strong></li>
+</ol>
+</li>
+<li>输入：<strong>把硬盘中的数据：读取到内存中使用</strong></li>
+<li>输出：<strong>把内存中的数，写入到硬盘中保存</strong></li>
+<li>因为分为字符字节两种情况 所以分为两大类<ol>
+<li><strong>字节流：输入流：InputStream(所有字节输入流的父类)，OutputStream(字节输出流)</strong></li>
+<li><strong>字符流：输入流：Reader(所有字符输入流的父类) 输出流：Writer(所有字节输出流的父类)</strong></li>
+</ol>
+</li>
+</ul>
+<p><img src="/2020/07/30/BlogBook29/image.jpg" alt></p>
+<p><code>一切皆为字节:一切文件数据(文本，图片，视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流
+可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据</code></p>
+<hr>
+<h3 id="字节输出流OutputStream"><a href="#字节输出流OutputStream" class="headerlink" title="字节输出流OutputStream"></a>字节输出流OutputStream</h3><ul>
+<li><strong>java.io.OutputStream:字节输出流 此抽象类是表示输出字节流的所有类的超类</strong></li>
+<li>写了一些子类共性的方法：<ol>
+<li><strong>void close()</strong> 关闭此文件输出流并释放与此流有关的所有系统资源。 </li>
+<li><strong>protected  void finalize()</strong> 清理到文件的连接，并确保在不再引用此文件输出流时调用此流的 close 方法。</li>
+<li><strong>FileChannel getChannel()</strong> 返回与此文件输出流有关的唯一的 FileChannel 对象 </li>
+<li><strong>FileDescriptor getFD()</strong> 返回与此流有关的文件描述符 </li>
+<li><strong>void write(byte[] b)</strong> 将 b.length 个字节从指定 byte 数组写入此文件输出流中。</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此文件输出流</li>
+<li><strong>void write(int b)</strong> 将指定字节写入此文件输出流 </li>
+</ol>
+</li>
+<li><strong>java.io.FileOutputStream extends OutputStream</strong></li>
+<li><strong>FileOutputStream:文件字节输出流 作用：把内存中的数据写入到硬盘的文件中</strong></li>
+<li>构造方法：</li>
+</ul>
+<ol>
+<li><strong>FileOutputStream(Sting name) 创建一个向具有指定名称的文件夹中写入数据的输出文件流</strong></li>
+<li><strong>FileOutputStream(File file) 创建一个向指定File对象表示的文件中写入数据的文件输出流</strong></li>
+</ol>
+<ul>
+<li>参数：参写入数据的目的</li>
+</ul>
+<ol>
+<li><strong>String name:目的地是一个文件的路径</strong></li>
+<li><strong>File file:目的地是一个文件</strong></li>
+</ol>
+<ul>
+<li>构造方法的作用：</li>
+</ul>
+<ol>
+<li><strong>创建一个FileOutputStream类</strong></li>
+<li><strong>会根据构造方法中传递的文件/文件路径，创建一个空的文件</strong></li>
+<li><strong>会把FileOutputStream对象指向创建好的文件</strong></li>
+</ol>
+<ul>
+<li><p>写入数据的原理(内存–&gt;硬盘)</p>
+</li>
+<li><p><em>java程序—&gt;JVM(java虚拟机)—&gt;OS(操作系统)—&gt;OS调用写数据的方法—&gt;把数据写入到文件中*</em></p>
+</li>
+<li><p>字节输出流的使用步骤(重点)</p>
+<ol>
+<li><strong>创建一个FileOutputStream对象，构造方法中传递写入数据的目的地</strong></li>
+<li><strong>调用FileOutputStream对象中的方法write,把数据写入到文件中</strong></li>
+<li><strong>释放资源(流使用会占用一定的内存，使用完毕要把内存清空，提供程序的效率)</strong></li>
+</ol>
+</li>
+<li><p>写数据的时候，会把10进制的整数97，转换为二进制整数97—&gt;1100001</p>
+</li>
+<li><p>硬盘中存储的数据都是字节 1个字节=8个位(101010)</p>
+</li>
+<li><p>0-127会查询ASCII码表，把字节转换为字符表示 其他值：查询系统默认码表</p>
+</li>
+</ul>
+<hr>
+<h3 id="字节输出流多个字节的方法"><a href="#字节输出流多个字节的方法" class="headerlink" title="字节输出流多个字节的方法"></a>字节输出流多个字节的方法</h3><ul>
+<li>一次写多个字节的方法<ol>
+<li><strong>void write(byte[] b)</strong> 将 b.length 个字节从指定 byte 数组写入此文件输出流中。</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此文件输出流 </li>
+</ol>
+</li>
+<li>如果第一个字节是负数，那么第一个字节和第二个字节会组成一个中文显示，查询系统默认码表(GBK)</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 字节数组的一部分写入文件中 in off:数组的开始索引 in len:写入几个指定字节</li>
+<li>写入字符的方法：可以使用String类的方法把字符串转成字节数组<blockquote>
+<p>byte [] getBytes():把字符串转换为字节数组</p>
+</blockquote>
+</li>
+<li>追加/续写:使用两个参数的构造方法<ol>
+<li><strong>FileOutputStream</strong> (String name,boolean,append)创建一个向具有指定name的文件中写入数据的输出文件夹流</li>
+<li><strong>FileOutputStream</strong> (File file,boolean append)创建一个向指定File对象表示的文件写入数据的文件溢出</li>
+</ol>
+</li>
+<li>参数:<ol>
+<li><strong>String name ,File file:</strong> 写入数据的目的地</li>
+<li><strong>boolean append :</strong> 追加写开关<br>true:<strong>创建对象不会覆盖文件，继续再文件的末尾追加写数据</strong><br>false:<strong>创建一个文件，覆盖文件</strong></li>
+</ol>
+</li>
+<li>写换行:换行符号 windows:\r\n linux:/n mac:/r</li>
+<li>基本代码实现 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        OutputStream stream = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwz.txt"</span>),<span class="keyword">true</span>) ;<span class="comment">//创建字节输出流对象,并且可以重复写入</span></span><br><span class="line">        stream.write(<span class="number">49</span>);<span class="comment">//写入49字节</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = &#123;<span class="number">55</span>,<span class="number">88</span>,<span class="number">40</span>&#125;;<span class="comment">//写入字节数组</span></span><br><span class="line">        stream.write(bytes);</span><br><span class="line">        String s = <span class="string">"我喜欢你"</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes1 = s.getBytes();<span class="comment">//将要写入的字符串转换为字节写入</span></span><br><span class="line">        stream.write(bytes1);</span><br><span class="line">        stream.close();</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="字节输入流InputStream"><a href="#字节输入流InputStream" class="headerlink" title="字节输入流InputStream"></a>字节输入流InputStream</h3><ul>
+<li><strong>java.io.InputStream:字节输入流 此抽象类是表示字节输入流的所有类的超类</strong></li>
+<li>定义了所有子类的共性方法<ol>
+<li><strong>int read():</strong> 从输入流中读取数据的下一个字节</li>
+<li><strong>int read(byte [] b):</strong> 从输入流中读取一定数量的字节，并将其存储在缓冲区数组b中</li>
+<li><strong>void close():</strong> 关闭此输入流并释放与该关联所有的系统资源</li>
+</ol>
+</li>
+<li>java.io.FileInputStream extends InputStream<blockquote>
+<p>FileInputStream:文件字节输入流</p>
+<p>作用：把硬盘文件中的数据:读取到内存中使用</p>
+</blockquote>
+</li>
+<li>构造方法：</li>
+</ul>
+<ol>
+<li><strong>FileInputStream(Sting name)</strong></li>
+<li><strong>FileInputStream(File file)</strong><blockquote>
+<p>参数:读取文件的数据源 String name:文件的路径 File file:文件</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>构造方法的作用：</li>
+</ul>
+<ol>
+<li><strong>会创建一个FileInputStream对象</strong></li>
+<li><strong>会把FileInputStream对象指定构造方法中要读取的文件</strong></li>
+</ol>
+<ul>
+<li>读取数据的原理(硬盘–&gt;内存)<blockquote>
+<p>java程序–&gt;JVM—&gt;OS—&gt;OS读取数据的方法—&gt;读取文件</p>
+</blockquote>
+</li>
+<li>字节输入流的使用步骤(重点):<ol>
+<li><strong>创建FileInputStream对象，构造方法中绑定要读取的数据源</strong></li>
+<li><strong>使用FileInputStream对象中的方法read,读取文件</strong></li>
+<li><strong>int read()读取文件中的一个节点并返回，读取到文件的末尾返回-1</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li>可以使用while循环 一直进行读取<ol>
+<li><strong>(len=fileInputStream.read())!=1</strong></li>
+<li><strong>fileInputStream.read()读取一个字节</strong></li>
+<li><strong>len=fileInputStream.read()把读取到的字节赋值给变量len</strong></li>
+<li><strong>(len = fileInputStream.read())!=-1,判断变量len是否不等于-1</strong></li>
+</ol>
+</li>
+<li>字节输入流一次读取多个字节的方法：<ol>
+<li><strong>int read(byte [] b) 从输入流中读取一定数量的字节：并将其存储在缓冲区数组b中</strong></li>
+<li><strong>明确两件事情: 方法的参数byte[]的作用:每次读取字节的个数; 方法的返回值int是什么:返回的是读取字节的数量;</strong></li>
+<li><strong>String 类的构造方法</strong><blockquote>
+<p>String (byte [] bytes):把字节数组转换为字符串</p>
+<p>String(byte [] bytes,int offset,int length):把字节数组的一部分转换为字符串，offset:数组的开始索引 length:转换的字节个数</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileInputStream f = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwz.txt"</span>));<span class="comment">//创建读取字节类的对象</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//创建字节数组 长度为1024</span></span><br><span class="line">        <span class="keyword">int</span> red = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((red=f.read(bytes))!=-<span class="number">1</span>)&#123; <span class="comment">//while循环判断 </span></span><br><span class="line">            System.out.println(<span class="keyword">new</span> java.lang.String(bytes,<span class="number">0</span>,red));<span class="comment">//String类的构造方法 将字节数组转化为字符串显示到控制台上</span></span><br><span class="line">        &#125;</span><br><span class="line">        f.close();<span class="comment">//关闭字节输入流</span></span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>以上是对字节输入流以及字节输出流的初步理解 以及类方法的使用 </li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/24/BlogBook21/" class="archive-article-date">
-  	<time datetime="2020-07-24T05:46:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/BlogBook21/">Java集合之Map集合</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/07/30/BlogBook29/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/24/BlogBook20/" class="archive-article-date">
-  	<time datetime="2020-07-24T04:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/30/BlogBook28/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">File类以及过滤器和递归的初步了解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/BlogBook20/">Java集合之Set接口下的集合</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/23/BlogBook19/" class="archive-article-date">
-  	<time datetime="2020-07-23T12:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/BlogBook19/">Java集合之List接口下的集合</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/23/BlogBook16/" class="archive-article-date">
-  	<time datetime="2020-07-23T04:52:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/BlogBook16/">Java集合框架</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -365,9 +525,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

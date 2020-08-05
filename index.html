@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 30
+    总文章数 31
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -146,6 +146,249 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BlogBook29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/BlogBook29/">IO流的学习</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/30/BlogBook29/" class="archive-article-date">
+  	<time datetime="2020-07-30T12:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><h4 id="IO流概述"><a href="#IO流概述" class="headerlink" title="IO流概述"></a>IO流概述</h4><ul>
+<li>概述：<ol>
+<li><strong>I：input 输入(读取)</strong></li>
+<li><strong>O：Output 输出(写入)</strong></li>
+<li><strong>流：数据(字符，字节)1字符=2个字节 1字节=8个二进制</strong></li>
+</ol>
+</li>
+<li>输入：<strong>把硬盘中的数据：读取到内存中使用</strong></li>
+<li>输出：<strong>把内存中的数，写入到硬盘中保存</strong></li>
+<li>因为分为字符字节两种情况 所以分为两大类<ol>
+<li><strong>字节流：输入流：InputStream(所有字节输入流的父类)，OutputStream(字节输出流)</strong></li>
+<li><strong>字符流：输入流：Reader(所有字符输入流的父类) 输出流：Writer(所有字节输出流的父类)</strong></li>
+</ol>
+</li>
+</ul>
+<p><img src="/2020/07/30/BlogBook29/image.jpg" alt></p>
+<p><code>一切皆为字节:一切文件数据(文本，图片，视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流
+可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据</code></p>
+<hr>
+<h3 id="字节输出流OutputStream"><a href="#字节输出流OutputStream" class="headerlink" title="字节输出流OutputStream"></a>字节输出流OutputStream</h3><ul>
+<li><strong>java.io.OutputStream:字节输出流 此抽象类是表示输出字节流的所有类的超类</strong></li>
+<li>写了一些子类共性的方法：<ol>
+<li><strong>void close()</strong> 关闭此文件输出流并释放与此流有关的所有系统资源。 </li>
+<li><strong>protected  void finalize()</strong> 清理到文件的连接，并确保在不再引用此文件输出流时调用此流的 close 方法。</li>
+<li><strong>FileChannel getChannel()</strong> 返回与此文件输出流有关的唯一的 FileChannel 对象 </li>
+<li><strong>FileDescriptor getFD()</strong> 返回与此流有关的文件描述符 </li>
+<li><strong>void write(byte[] b)</strong> 将 b.length 个字节从指定 byte 数组写入此文件输出流中。</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此文件输出流</li>
+<li><strong>void write(int b)</strong> 将指定字节写入此文件输出流 </li>
+</ol>
+</li>
+<li><strong>java.io.FileOutputStream extends OutputStream</strong></li>
+<li><strong>FileOutputStream:文件字节输出流 作用：把内存中的数据写入到硬盘的文件中</strong></li>
+<li>构造方法：</li>
+</ul>
+<ol>
+<li><strong>FileOutputStream(Sting name) 创建一个向具有指定名称的文件夹中写入数据的输出文件流</strong></li>
+<li><strong>FileOutputStream(File file) 创建一个向指定File对象表示的文件中写入数据的文件输出流</strong></li>
+</ol>
+<ul>
+<li>参数：参写入数据的目的</li>
+</ul>
+<ol>
+<li><strong>String name:目的地是一个文件的路径</strong></li>
+<li><strong>File file:目的地是一个文件</strong></li>
+</ol>
+<ul>
+<li>构造方法的作用：</li>
+</ul>
+<ol>
+<li><strong>创建一个FileOutputStream类</strong></li>
+<li><strong>会根据构造方法中传递的文件/文件路径，创建一个空的文件</strong></li>
+<li><strong>会把FileOutputStream对象指向创建好的文件</strong></li>
+</ol>
+<ul>
+<li><p>写入数据的原理(内存–&gt;硬盘)</p>
+</li>
+<li><p><em>java程序—&gt;JVM(java虚拟机)—&gt;OS(操作系统)—&gt;OS调用写数据的方法—&gt;把数据写入到文件中*</em></p>
+</li>
+<li><p>字节输出流的使用步骤(重点)</p>
+<ol>
+<li><strong>创建一个FileOutputStream对象，构造方法中传递写入数据的目的地</strong></li>
+<li><strong>调用FileOutputStream对象中的方法write,把数据写入到文件中</strong></li>
+<li><strong>释放资源(流使用会占用一定的内存，使用完毕要把内存清空，提供程序的效率)</strong></li>
+</ol>
+</li>
+<li><p>写数据的时候，会把10进制的整数97，转换为二进制整数97—&gt;1100001</p>
+</li>
+<li><p>硬盘中存储的数据都是字节 1个字节=8个位(101010)</p>
+</li>
+<li><p>0-127会查询ASCII码表，把字节转换为字符表示 其他值：查询系统默认码表</p>
+</li>
+</ul>
+<hr>
+<h3 id="字节输出流多个字节的方法"><a href="#字节输出流多个字节的方法" class="headerlink" title="字节输出流多个字节的方法"></a>字节输出流多个字节的方法</h3><ul>
+<li>一次写多个字节的方法<ol>
+<li><strong>void write(byte[] b)</strong> 将 b.length 个字节从指定 byte 数组写入此文件输出流中。</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此文件输出流 </li>
+</ol>
+</li>
+<li>如果第一个字节是负数，那么第一个字节和第二个字节会组成一个中文显示，查询系统默认码表(GBK)</li>
+<li><strong>void write(byte[] b, int off, int len)</strong> 字节数组的一部分写入文件中 in off:数组的开始索引 in len:写入几个指定字节</li>
+<li>写入字符的方法：可以使用String类的方法把字符串转成字节数组<blockquote>
+<p>byte [] getBytes():把字符串转换为字节数组</p>
+</blockquote>
+</li>
+<li>追加/续写:使用两个参数的构造方法<ol>
+<li><strong>FileOutputStream</strong> (String name,boolean,append)创建一个向具有指定name的文件中写入数据的输出文件夹流</li>
+<li><strong>FileOutputStream</strong> (File file,boolean append)创建一个向指定File对象表示的文件写入数据的文件溢出</li>
+</ol>
+</li>
+<li>参数:<ol>
+<li><strong>String name ,File file:</strong> 写入数据的目的地</li>
+<li><strong>boolean append :</strong> 追加写开关<br>true:<strong>创建对象不会覆盖文件，继续再文件的末尾追加写数据</strong><br>false:<strong>创建一个文件，覆盖文件</strong></li>
+</ol>
+</li>
+<li>写换行:换行符号 windows:\r\n linux:/n mac:/r</li>
+<li>基本代码实现 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        OutputStream stream = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwz.txt"</span>),<span class="keyword">true</span>) ;<span class="comment">//创建字节输出流对象,并且可以重复写入</span></span><br><span class="line">        stream.write(<span class="number">49</span>);<span class="comment">//写入49字节</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = &#123;<span class="number">55</span>,<span class="number">88</span>,<span class="number">40</span>&#125;;<span class="comment">//写入字节数组</span></span><br><span class="line">        stream.write(bytes);</span><br><span class="line">        String s = <span class="string">"我喜欢你"</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes1 = s.getBytes();<span class="comment">//将要写入的字符串转换为字节写入</span></span><br><span class="line">        stream.write(bytes1);</span><br><span class="line">        stream.close();</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="字节输入流InputStream"><a href="#字节输入流InputStream" class="headerlink" title="字节输入流InputStream"></a>字节输入流InputStream</h3><ul>
+<li><strong>java.io.InputStream:字节输入流 此抽象类是表示字节输入流的所有类的超类</strong></li>
+<li>定义了所有子类的共性方法<ol>
+<li><strong>int read():</strong> 从输入流中读取数据的下一个字节</li>
+<li><strong>int read(byte [] b):</strong> 从输入流中读取一定数量的字节，并将其存储在缓冲区数组b中</li>
+<li><strong>void close():</strong> 关闭此输入流并释放与该关联所有的系统资源</li>
+</ol>
+</li>
+<li>java.io.FileInputStream extends InputStream<blockquote>
+<p>FileInputStream:文件字节输入流</p>
+<p>作用：把硬盘文件中的数据:读取到内存中使用</p>
+</blockquote>
+</li>
+<li>构造方法：</li>
+</ul>
+<ol>
+<li><strong>FileInputStream(Sting name)</strong></li>
+<li><strong>FileInputStream(File file)</strong><blockquote>
+<p>参数:读取文件的数据源 String name:文件的路径 File file:文件</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>构造方法的作用：</li>
+</ul>
+<ol>
+<li><strong>会创建一个FileInputStream对象</strong></li>
+<li><strong>会把FileInputStream对象指定构造方法中要读取的文件</strong></li>
+</ol>
+<ul>
+<li>读取数据的原理(硬盘–&gt;内存)<blockquote>
+<p>java程序–&gt;JVM—&gt;OS—&gt;OS读取数据的方法—&gt;读取文件</p>
+</blockquote>
+</li>
+<li>字节输入流的使用步骤(重点):<ol>
+<li><strong>创建FileInputStream对象，构造方法中绑定要读取的数据源</strong></li>
+<li><strong>使用FileInputStream对象中的方法read,读取文件</strong></li>
+<li><strong>int read()读取文件中的一个节点并返回，读取到文件的末尾返回-1</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li>可以使用while循环 一直进行读取<ol>
+<li><strong>(len=fileInputStream.read())!=1</strong></li>
+<li><strong>fileInputStream.read()读取一个字节</strong></li>
+<li><strong>len=fileInputStream.read()把读取到的字节赋值给变量len</strong></li>
+<li><strong>(len = fileInputStream.read())!=-1,判断变量len是否不等于-1</strong></li>
+</ol>
+</li>
+<li>字节输入流一次读取多个字节的方法：<ol>
+<li><strong>int read(byte [] b) 从输入流中读取一定数量的字节：并将其存储在缓冲区数组b中</strong></li>
+<li><strong>明确两件事情: 方法的参数byte[]的作用:每次读取字节的个数; 方法的返回值int是什么:返回的是读取字节的数量;</strong></li>
+<li><strong>String 类的构造方法</strong><blockquote>
+<p>String (byte [] bytes):把字节数组转换为字符串</p>
+<p>String(byte [] bytes,int offset,int length):把字节数组的一部分转换为字符串，offset:数组的开始索引 length:转换的字节个数</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileInputStream f = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwz.txt"</span>));<span class="comment">//创建读取字节类的对象</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//创建字节数组 长度为1024</span></span><br><span class="line">        <span class="keyword">int</span> red = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((red=f.read(bytes))!=-<span class="number">1</span>)&#123; <span class="comment">//while循环判断 </span></span><br><span class="line">            System.out.println(<span class="keyword">new</span> java.lang.String(bytes,<span class="number">0</span>,red));<span class="comment">//String类的构造方法 将字节数组转化为字符串显示到控制台上</span></span><br><span class="line">        &#125;</span><br><span class="line">        f.close();<span class="comment">//关闭字节输入流</span></span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>以上是对字节输入流以及字节输出流的初步理解 以及类方法的使用 </li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/BlogBook29/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-BlogBook28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -153,7 +396,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/BlogBook28/">BlogBook28</a>
+      <a class="article-title" href="/2020/07/30/BlogBook28/">File类以及过滤器和递归的初步了解</a>
     </h1>
   
 
@@ -171,106 +414,43 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="File类的创建删除功能的方法"><a href="#File类的创建删除功能的方法" class="headerlink" title="File类的创建删除功能的方法"></a>File类的创建删除功能的方法</h3><ul>
-<li>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </li>
-</ul>
+<li><p>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </p>
 <ol>
-<li>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</li>
-<li>此方法只能创建文件，不能创建文件夹</li>
-<li>创建文件的路径必须存在，否则会抛出异常</li>
-<li>要处理异常IOException,要么throws这个异常，要么try catch</li>
-<li>相对路径是对于项目的路径 不能相对于包</li>
+<li><strong>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</strong></li>
+<li><strong>此方法只能创建文件，不能创建文件夹</strong></li>
+<li><strong>创建文件的路径必须存在，否则会抛出异常</strong></li>
+<li><strong>要处理异常IOException,要么throws这个异常，要么try catch</strong></li>
+<li><strong>相对路径是对于项目的路径 不能相对于包</strong>   </li>
 </ol>
-<ul>
-<li>boolean delete()  删除此抽象路径名表示的文件或目录 </li>
-</ul>
-<ol>
-<li>此方法可以删除构造方法中的(文件/文件夹)</li>
-<li>true:文件/文件夹删除成功，返回true</li>
-<li>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false </li>
-<li>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</li>
-</ol>
-<ul>
-<li>boolean mkdir() 创建单级空文件夹</li>
-<li>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹</li>
-</ul>
-<ol>
-<li>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</li>
-<li>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</li>
-<li>此方法只能创建文件夹，不能创建文件</li>
-<li>创建文件夹的路径必须存在，不然会抛出异常</li>
-</ol>
-<hr>
-<p>###File类遍历(文件夹)目录功能</p>
-<ul>
-<li>遍历的第一种方法：-public String [] list() : 返回一个String数组，表示该File目录中所有的子文件或目录<blockquote>
-<p>遍历构造方法中给出的目录，将该目录下的所有子文件或文件夹存放到一个String类型的数组中</p>
-</blockquote>
 </li>
-<li>遍历的第二种方法：-public File [] listFiles(): 返回一个File数组，表示该File目录中的所有子文件或目录<blockquote>
-<p>遍历构造方法中给出的目录，会获取目录中所有的文件\文件夹，把文件\文件夹封装为File对象，多个File对象存储到File数组中</p>
-<p>File类重写了toString()方法 所以输出的跟list()方法不一样</p>
-</blockquote>
+<li><p>boolean delete()  删除此抽象路径名表示的文件或目录</p>
+<ol>
+<li><strong>此方法可以删除构造方法中的(文件/文件夹)</strong></li>
+<li><strong>true:文件/文件夹删除成功，返回true</strong></li>
+<li><strong>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false</strong> </li>
+<li><strong>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</strong></li>
+</ol>
 </li>
-<li>注意事项：</li>
-</ul>
-<ol>
-<li>list方法和listFiles方法遍历的是构造方法给出的目录</li>
-<li>如果构造方法中给出的目录路径不存在，会抛出空指针异常</li>
-<li>如果构造方法中给出的路径不是一个目录，也会抛出空指针异常</li>
-<li>也可以遍历隐藏属性的文件夹或者文件<br>###递归<br>####递归的概念&amp;分类&amp;注意事项</li>
-</ol>
-<ul>
-<li>概念：指在当前方法内方法自己调用自己</li>
-<li>分类：递归分为两种</li>
-</ul>
-<ol>
-<li>直接递归：为方法自身调用自己</li>
-<li>间接递归：可以用A调用B，B调用C，C调用A</li>
-</ol>
-<ul>
-<li>注意事项：</li>
-</ul>
-<ol>
-<li>递归中一定要有条件限定，保证递归能够停止下来，否则会发生栈内存溢出</li>
-<li>在递归中虽然有限定条件，但是递归次数不能太多，否则也会发生栈内存溢出</li>
-<li>构造方法禁止递归</li>
-<li>递归的使用原理：当调用方法时，方法的主体不变，每次调用方法的参数不同，可以使用递归</li>
-</ol>
-<ul>
-<li>递归练习一：打印1-n的数的和：Text</li>
-<li>递归练习二：计算阶乘:参考Text</li>
-<li>递归练习三：递归打印多级目录Text1</li>
-<li>递归练习四：文件搜索 Text2</li>
-</ul>
-<hr>
-<p>####FileFilter过滤器的原理和使用</p>
-<ul>
-<li>在File类中有两个和listFiles重载的方法，方法的参数传递的就是过滤器</li>
-</ul>
-<ol>
-<li>File[] listFiles(FileFilter filter)</li>
-<li>java.io.FileFilter接口：用于抽象路径名(File对象)的过滤器</li>
-<li>作用:用来过滤文件(File对象) 抽象方法：用来过滤文件的方法</li>
-<li>boolean accpet(File pathname)测试指定抽象路径名是否应该包含在某个路径名列表中</li>
-<li>参数:File pathname:使用listFiles方法遍历目录，得到的每一个文件对象<blockquote>
-<p>可以用匿名内部类 创建实现类 Lambda来实现此接口的方法调用</p>
-</blockquote>
+<li><p>boolean mkdir() 创建单级空文件夹</p>
 </li>
-</ol>
-<ul>
-<li>File[] listFiles(FilenameFilter filter)</li>
-</ul>
+<li><p>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹**</p>
 <ol>
-<li>java.io.FilenameFilter接口：实现此接口的类实例可用于过滤文件名</li>
-<li>作用：用于过滤文件名称 抽象方法：用来过滤文件的方法</li>
-<li>boolean accept(File file,String name) 测试指定文件是否应该包含在某一文件的列表中</li>
-<li>参数：File file:构造方法中传递的被遍历的目录</li>
-<li>String name:使用listFiles方法遍历目录，获取的每一个文件/文件夹的名称</li>
+<li><strong>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</strong></li>
+<li><strong>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</strong></li>
+<li><strong>此方法只能创建文件夹，不能创建文件</strong></li>
+<li><strong>创建文件夹的路径必须存在，不然会抛出异常</strong></li>
 </ol>
-<ul>
-<li>注意： 两个过滤器接口是没有实现类的，需要我们自己写实现类，重写过滤的方法accept，在方法中自己定义过滤的规则</li>
+</li>
+<li><p>基本代码演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrw"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> exists = file.exists();<span class="comment">//判断是否存在</span></span><br><span class="line">        <span class="keyword">if</span> (exists==<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file.delete());<span class="comment">//有同名的删除</span></span><br><span class="line">            System.out.println(file.mkdir());<span class="comment">//然后创建文件夹</span></span><br><span class="line">        &#125;</span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\Zzz.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file1.exists()==<span class="keyword">false</span>)<span class="comment">//判断是否存在</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file1.createNewFile());<span class="comment">//创建文件</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>File类以及过滤器和递归的初步了解</strong></p>
+</li>
 </ul>
-
+        
+          <a class="article-more-a" href="/2020/07/30/BlogBook28/#more">查看全文 >></a>
+        
       
 
       
@@ -1130,116 +1310,9 @@
 
 
   
-    <article id="post-BlogBook19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook19/">Java集合之List接口下的集合</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook19/" class="archive-article-date">
-  	<time datetime="2020-07-23T12:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List<E>接口</E></h4><ul>
-<li><p><strong>java.util.list接口 extends Collection接口</strong></p>
-</li>
-<li><p>特点：</p>
-<ol>
-<li><strong>有序的集合 存储和取出的元素顺序是一致的</strong></li>
-<li><strong>List集合是有索引的，包含了一些带索引的方法</strong></li>
-<li><strong>与Set接口不同 List接口允许存储重复元素</strong></li>
-</ol>
-</li>
-<li><p>List接口中带索引的方法(<strong>特有</strong>)</p>
-<ol>
-<li><strong>public void add(int index,E element)</strong>:将指定的元素，添加到该集合的指定位置上</li>
-<li><strong>public E get(int index)</strong>:返回集合中指定位置的元素</li>
-<li><strong>public E remove(int index)</strong>：移除列表中指定位置的元素，返回的是被移除的元素</li>
-<li><strong>public E set(int index,E element)</strong>：用指定元素替换集合中指定位置的元素，并返回被替换的元素<blockquote>
-<p>注意：操作索引的时候 一定要防止索引越界异常</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>List接口下的集合</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook19/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook19/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1345,11 +1418,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
