@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>algorithm | CoderZhang&#39;s blog</title>
+  <title>Properties集合的学习 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据结构和算法 字符串比较 KMP算法 汉诺塔 分治算法 8✖8皇后棋盘算法 回溯算法 马踏棋盘 使用到图的深度优先遍历算法(DFS)+贪心算法优化">
+  <meta name="description" content="使用Properties集合存储数据了解Properties java.util.Properties集合 extends Hashtable&lt;k,v&gt; implements Map&lt;k,v&gt; Properties 类表示了一个持久的属性值，Properties 可保存在流中或从流中加载 Properties 集合是一个唯一和IO流相结合的集合 作用: 可以使用Proper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="algorithm">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/05/algorithm/index.html">
+<meta property="og:title" content="Properties集合的学习">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/05/BlogBook31/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="数据结构和算法 字符串比较 KMP算法 汉诺塔 分治算法 8✖8皇后棋盘算法 回溯算法 马踏棋盘 使用到图的深度优先遍历算法(DFS)+贪心算法优化">
+<meta property="og:description" content="使用Properties集合存储数据了解Properties java.util.Properties集合 extends Hashtable&lt;k,v&gt; implements Map&lt;k,v&gt; Properties 类表示了一个持久的属性值，Properties 可保存在流中或从流中加载 Properties 集合是一个唯一和IO流相结合的集合 作用: 可以使用Proper">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-05T03:16:20.853Z">
-<meta property="article:modified_time" content="2020-08-05T03:22:06.346Z">
+<meta property="article:published_time" content="2020-08-05T11:05:30.000Z">
+<meta property="article:modified_time" content="2020-08-05T12:18:43.526Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java集合">
+<meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -146,14 +148,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-algorithm" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook31" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      algorithm
+      Properties集合的学习
     </h1>
   
 
@@ -175,21 +177,99 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/08/05/algorithm/" class="archive-article-date">
-  	<time datetime="2020-08-05T03:16:20.853Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+<a href="/2020/08/05/BlogBook31/" class="archive-article-date">
+  	<time datetime="2020-08-05T11:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h3><ol>
-<li>字符串比较 KMP算法</li>
-<li>汉诺塔 分治算法</li>
-<li>8✖8皇后棋盘算法 回溯算法</li>
-<li>马踏棋盘 使用到图的深度优先遍历算法(DFS)+贪心算法优化</li>
+        <h3 id="使用Properties集合存储数据"><a href="#使用Properties集合存储数据" class="headerlink" title="使用Properties集合存储数据"></a>使用Properties集合存储数据</h3><h4 id="了解Properties"><a href="#了解Properties" class="headerlink" title="了解Properties"></a>了解Properties</h4><ul>
+<li><strong>java.util.Properties集合 extends Hashtable&lt;k,v&gt; implements Map&lt;k,v&gt;</strong></li>
+<li><strong>Properties 类表示了一个持久的属性值，Properties 可保存在流中或从流中加载</strong></li>
+<li><strong>Properties 集合是一个唯一和IO流相结合的集合</strong></li>
+<li>作用:<ol>
+<li><strong>可以使用Properties集合中的方法store,把集合中的临时数据，持久化写入硬盘中存储</strong></li>
+<li><strong>可以使用Properties集合中的方法load,把硬盘中保存的文件(键值对)，读取到集合中使用</strong></li>
+<li><strong>属性列表中每个键对其对应值都是一个字符串，Properties集合是一个双列集合，key和value默认都是字符串</strong></li>
 </ol>
-
+</li>
+</ul>
+<p><code>Properties集合是一个双列集合，key和value默认都是字符串*</code></p>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解对Properties类的以及使用方式</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><em>Properties集合有一些操作字符串的特有方法：</em><ol>
+<li><strong>Object setProperty(String key,String value)调用Hashtable的方法put</strong></li>
+<li><strong>String getProperty(String key)通过key找到value值，此方法相当于Map集合中的get(key)方法</strong></li>
+<li><strong>Set <String> stringPropertyNames()返回此属性列表中的键集，其中该键及其对应值事字符串，此方法相当于集合中的ketSet方法</String></strong></li>
+</ol>
+</li>
+<li>基本代码举例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();<span class="comment">//创建Properties类的对象</span></span><br><span class="line">        properties.setProperty(<span class="string">"张"</span>,<span class="string">"10"</span>);<span class="comment">//输入集合数据</span></span><br><span class="line">        properties.setProperty(<span class="string">"人"</span>,<span class="string">"11"</span>);<span class="comment">//输入集合数据</span></span><br><span class="line">        properties.setProperty(<span class="string">"伟"</span>,<span class="string">"12"</span>);<span class="comment">//输入集合数据</span></span><br><span class="line">        Set&lt;String&gt; strings = properties.stringPropertyNames();<span class="comment">//返回key值 类似于Map集合的keySet方法</span></span><br><span class="line">        <span class="keyword">for</span> (String string : strings) &#123;<span class="comment">//增强for循环</span></span><br><span class="line">            String property = properties.getProperty(string);<span class="comment">//getProperty()方法得到key键对应的值</span></span><br><span class="line">            System.out.println(string+<span class="string">":"</span>+property);<span class="comment">//输出键和对应的值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Properties中的sotre方法"><a href="#Properties中的sotre方法" class="headerlink" title="Properties中的sotre方法"></a>Properties中的sotre方法</h3><ul>
+<li><strong>可以使用Properties集合中的方法store，把集合中的临时数据，持久化写入到硬盘中存储</strong></li>
+</ul>
+<ol>
+<li><strong>void store</strong> (OutputStream out, String comments)</li>
+<li><strong>void store</strong> (Writer writer,String comments)</li>
+</ol>
+<ul>
+<li>参数注意事项：<ol>
+<li><strong>OutputStream out:字节输出流，不能写入中文</strong></li>
+<li><strong>Writer writer:字符输出流，可以写中文</strong></li>
+<li><strong>String comments:注释，用来解释说明保存的文件是做什么的，不能使用中文，会产生乱码</strong><blockquote>
+<p>默认是Unicode编码 但是Java是JDK编码，一般使用” “空字符串</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>使用步骤<ol>
+<li><strong>创建Properties集合对象，添加数据</strong></li>
+<li><strong>创建字符或字节流输出对象，构造方法中指定输出的目的地</strong></li>
+<li><strong>使用Properties集合中的store方法，把集合中的临时数据，持久化写入到硬盘中存储</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();<span class="comment">//创建Properties类的对象</span></span><br><span class="line">        properties.setProperty(<span class="string">"张"</span>,<span class="string">"10"</span>);<span class="comment">//写入数据</span></span><br><span class="line">        properties.setProperty(<span class="string">"人"</span>,<span class="string">"11"</span>);<span class="comment">//写入数据</span></span><br><span class="line">        properties.setProperty(<span class="string">"伟"</span>,<span class="string">"12"</span>);<span class="comment">//写入数据</span></span><br><span class="line">        FileWriter file = <span class="keyword">new</span> FileWriter(<span class="string">"F:\\HH\\1.txt"</span>);<span class="comment">//创建字符输出流对象</span></span><br><span class="line">     properties.store(file,<span class="string">"save"</span>);<span class="comment">//把集合中的数据写到硬盘并保存</span></span><br><span class="line">     file.close();<span class="comment">//关闭流</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Properties中的load方法"><a href="#Properties中的load方法" class="headerlink" title="Properties中的load方法"></a>Properties中的load方法</h3><ul>
+<li><strong>可以使用Properties集合中的方法Load,把硬盘中保存的文件(键值对)，读取到集合中使用</strong></li>
+</ul>
+<ol>
+<li><strong>void load</strong> (InputStream inStream)</li>
+<li><strong>void load</strong> (Reader reader)</li>
+</ol>
+<ul>
+<li>参数:<ol>
+<li><strong>InputStream inStream:</strong> 字节输入流，不能读取含有中文的键值对</li>
+<li><strong>Reader reader:</strong> 字符输入流，能读取含有中文的键值对</li>
+</ol>
+</li>
+<li>使用步骤<ol>
+<li><strong>创建Properties集合对象</strong></li>
+<li><strong>使用Properties集合对象中的方法load读取保存键值对的文件</strong></li>
+<li><strong>遍历Properties集合</strong></li>
+</ol>
+</li>
+<li>注意<blockquote>
+</blockquote>
+  存储键值对的文件中，键与值默认的连接符号可以使用=，空格(其他符号)<br>  存储键值对的文件中，可以在开头使用一个#进行注释，被注释的键值不会被读取<br>  存储键值对的文件中，键与值默认都是字符串，不用再加引号</li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line"></span><br><span class="line">        FileReader file = <span class="keyword">new</span> FileReader(<span class="string">"F:\\HH\\1.txt"</span>);</span><br><span class="line">        properties.load(file);<span class="comment">//读取硬盘的集合并保存到Properties类中</span></span><br><span class="line">        Set&lt;String&gt; strings = properties.stringPropertyNames();<span class="comment">//获取键</span></span><br><span class="line">        <span class="keyword">for</span> (String string : strings) &#123;<span class="comment">//遍历</span></span><br><span class="line">            System.out.println(string+properties.getProperty(string));<span class="comment">//输出键以及对应的值</span></span><br><span class="line">        &#125;</span><br><span class="line">file.close();</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="以上是对Properties类的初步了解以及使用方式"><a href="#以上是对Properties类的初步了解以及使用方式" class="headerlink" title="以上是对Properties类的初步了解以及使用方式"></a>以上是对Properties类的初步了解以及使用方式</h3>
       
 
       
@@ -218,6 +298,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -268,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/05/algorithm/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/05/BlogBook31/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -421,11 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
