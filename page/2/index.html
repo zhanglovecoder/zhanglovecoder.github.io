@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 33
+    总文章数 34
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/24/BlogBook22/">异常的初步了解</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/24/BlogBook22/" class="archive-article-date">
+  	<time datetime="2020-07-24T06:51:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
+<li><strong>概念：指的是程序在执行过程中，出现的非正常情况,最终会导致JVM(虚拟机)的非正常停止</strong><blockquote>
+<p>在java等面向对象的编程中，异常本身是一个类，产生异常就是创建异常对象并抛出了一个异常对象，java处理异常<br>的方式就是终端处理.</p>
+</blockquote>
+</li>
+<li>异常指的并不是语法错误，语法错了，编译不通过，不会产生字节码文件，根本不能运行</li>
+<li>异常机制其实是帮助我们找到程序中的问题，异常的根类是java.lang.Throwable,其下有两个子类：<br><code>java.lang.Error与java.lang.Exception,平常所说的异常指java.lang.Exception</code><ol>
+<li><strong>Error:工程师不能处理 只能尽量避免</strong></li>
+<li><strong>Exception:由于使用不当导致，可以避免的</strong></li>
+</ol>
+</li>
+<li>Error:<strong>严重错误Error,无法通过处理的错误，只能事先避免，好比绝症</strong></li>
+<li>Excepiton:<strong>表示异常，异常产生后程序员可以通过代码的方式纠正，使程序继续运行，是必须要处理的，好比感冒.</strong></li>
+<li><strong>java.lang.Throwable:类是Java语言中所有的错误或者异常的超类</strong><ol>
+<li><strong>Exception:编译器异常，进行编码(写代码)java程序出现问题</strong></li>
+<li><strong>RuntimeException:运行期异常，java程序运行过程中出现问题</strong></li>
+<li><strong>Error:错误</strong></li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>异常的初步了解</strong></p></li></ul>
+        
+          <a class="article-more-a" href="/2020/07/24/BlogBook22/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/24/BlogBook22/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1050,93 +1154,6 @@
 
 
   
-    <article id="post-BlogBook12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/21/BlogBook12/">类和接口的几种使用场景</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/21/BlogBook12/" class="archive-article-date">
-  	<time datetime="2020-07-21T09:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类可以作为成员变量的类型使用"><a href="#类可以作为成员变量的类型使用" class="headerlink" title="类可以作为成员变量的类型使用"></a>类可以作为成员变量的类型使用</h3><ul>
-<li><p>代码演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*类作为成员变量使用*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Text</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Demo_O demo_o = <span class="keyword">new</span> Demo_O();</span><br><span class="line">  demo_o.setName(<span class="string">"张人伟"</span>);</span><br><span class="line">  demo_o.setAge(<span class="number">22</span>);</span><br><span class="line">demo_o.setBo(<span class="keyword">new</span> Demo_C(<span class="string">"36D"</span>));</span><br><span class="line">  demo_o.LIke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>接口和类的几种使用场景代码举例</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/21/BlogBook12/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/21/BlogBook12/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1245,11 +1262,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
