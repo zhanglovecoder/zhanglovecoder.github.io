@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>字节缓冲的输出与输入流 | CoderZhang&#39;s blog</title>
+  <title>字符编码流 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缓冲流缓冲流的原理 概念：能够进行高效的读写，能够转换编码的转换流，能够之旧话存储对象的序列化流等，在基本的流对象基础上创建而来，相当于对基本流对象的一种增强 字节缓冲流：BufferedInputStream BuffedOutputStream 字符缓冲流：BufferedFileWriter BufferedFileReader 基本原理: 在创建流对象时，会创建一个内置的默认大小的缓冲区数">
+  <meta name="description" content="转换流字符编码和字符集 字符编码：就是一套自然语言的字符与二进制数之间的对应规则 编码表：生活中文字和计算机二进制的对应规则   字符集：也叫编码表，是一个系统支持的所有字符的集合，包括各国文字，标点符号，图形符号，数字等 ASCII字符集：ASCII编码 GBK字符集：GBK编码 Unicode字符集：UTF8编码 UTF16编码 UTF32编码   ADCII字符集 使用7位表示一个字符，共1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字节缓冲的输出与输入流">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/05/BlogBook32/index.html">
+<meta property="og:title" content="字符编码流">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/09/BlogBook34/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="缓冲流缓冲流的原理 概念：能够进行高效的读写，能够转换编码的转换流，能够之旧话存储对象的序列化流等，在基本的流对象基础上创建而来，相当于对基本流对象的一种增强 字节缓冲流：BufferedInputStream BuffedOutputStream 字符缓冲流：BufferedFileWriter BufferedFileReader 基本原理: 在创建流对象时，会创建一个内置的默认大小的缓冲区数">
+<meta property="og:description" content="转换流字符编码和字符集 字符编码：就是一套自然语言的字符与二进制数之间的对应规则 编码表：生活中文字和计算机二进制的对应规则   字符集：也叫编码表，是一个系统支持的所有字符的集合，包括各国文字，标点符号，图形符号，数字等 ASCII字符集：ASCII编码 GBK字符集：GBK编码 Unicode字符集：UTF8编码 UTF16编码 UTF32编码   ADCII字符集 使用7位表示一个字符，共1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-05T12:22:42.000Z">
-<meta property="article:modified_time" content="2020-08-06T13:22:50.439Z">
+<meta property="article:published_time" content="2020-08-09T02:14:23.000Z">
+<meta property="article:modified_time" content="2020-08-13T02:20:20.948Z">
 <meta property="article:author" content="CoderZhang">
 <meta property="article:tag" content="Java进阶">
 <meta name="twitter:card" content="summary">
@@ -147,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BlogBook32" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BlogBook34" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      字节缓冲的输出与输入流
+      字符编码流
     </h1>
   
 
@@ -176,96 +176,112 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/08/05/BlogBook32/" class="archive-article-date">
-  	<time datetime="2020-08-05T12:22:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+<a href="/2020/08/09/BlogBook34/" class="archive-article-date">
+  	<time datetime="2020-08-09T02:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><h4 id="缓冲流的原理"><a href="#缓冲流的原理" class="headerlink" title="缓冲流的原理"></a>缓冲流的原理</h4><ul>
-<li><strong>概念：能够进行高效的读写，能够转换编码的转换流，能够之旧话存储对象的序列化流等，在基本的流对象基础上创建而来，相当于对基本流对象的一种增强</strong></li>
-<li>字节缓冲流：<strong>BufferedInputStream BuffedOutputStream</strong></li>
-<li>字符缓冲流：<strong>BufferedFileWriter BufferedFileReader</strong></li>
-<li>基本原理: <strong>在创建流对象时，会创建一个内置的默认大小的缓冲区数组，通过缓冲区的读写，减少系统IO次数，从而提高读写的效率</strong></li>
-</ul>
-<hr>
-<h3 id="字节缓冲输出流"><a href="#字节缓冲输出流" class="headerlink" title="字节缓冲输出流"></a>字节缓冲输出流</h3><ul>
-<li><p><strong>java.io.BufferOutputStream extends OutputStream</strong></p>
-<blockquote>
-<p>BufferedOutputStream:字节缓冲输出流</p>
+        <h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><h4 id="字符编码和字符集"><a href="#字符编码和字符集" class="headerlink" title="字符编码和字符集"></a>字符编码和字符集</h4><ul>
+<li>字符编码：<strong>就是一套自然语言的字符与二进制数之间的对应规则</strong><blockquote>
+<p>编码表：生活中文字和计算机二进制的对应规则</p>
 </blockquote>
 </li>
-<li><p>继承自父类的共性成员方法：</p>
-<ol>
-<li><strong>void flush()</strong>  刷新此缓冲的输出流。 </li>
-<li><strong>void write(byte[] b, int off, int len)</strong>  将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此缓冲的输出流。 </li>
-<li><strong>void write(int b)</strong>   将指定的字节写入此缓冲的输出流 </li>
+<li>字符集：<strong>也叫编码表，是一个系统支持的所有字符的集合，包括各国文字，标点符号，图形符号，数字等</strong><ol>
+<li>ASCII字符集：<strong>ASCII编码</strong></li>
+<li>GBK字符集：<strong>GBK编码</strong></li>
+<li>Unicode字符集：<strong>UTF8编码 UTF16编码 UTF32编码</strong></li>
 </ol>
 </li>
+<li>ADCII字符集<blockquote>
+<p>使用7位表示一个字符，共128字符。ASCII的扩展字符集使用8位表示一个字符，共256字符，方便支持欧洲常用字符</p>
+</blockquote>
+</li>
+<li>GBK编码：<strong>常用的中文码表。使用双字节编码方案</strong></li>
+<li>Unicode编码：<ol>
+<li><strong>UTF-8编码，可以用来表示Unicode标准中任何字符</strong></li>
+<li><strong>大部分常用文字，使用三个字节编码</strong></li>
+<li><strong>拉丁文等字符，需要两个字节编码</strong></li>
+<li><strong>128个US-ASCII字符，只需要一个字节编码</strong></li>
+</ol>
+</li>
+<li><strong>FileReader可以读取默认编码格式(UTF-8)的文件</strong></li>
+<li><strong>FileReader读取系统默认编码(中文GBK)会产生乱码</strong></li>
+</ul>
+<hr>
+<ul>
 <li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><p><strong>初步了解字节缓冲输入以及输出流及部分方法使用</strong></p>
+<li><p><strong>初步了解字符缓冲输入以及输出流及部分方法使用</strong></p>
 </li>
 </ul>
 <a id="more"></a>
-<ul>
-<li>构造方法：<ol>
-<li><strong>BufferedOutputStream(OutputStream out)</strong> 创建一个新的缓冲输出流，以将数据写入指定的底层输出流。 </li>
-<li><strong>BufferedOutputStream(OutputStream out, int size)</strong>  创建一个新的缓冲输出流，以将具有指定缓冲区大小的数据写入指定的底层输出流 </li>
-</ol>
-</li>
-<li>参数：<ol>
-<li><strong>OutputStream out :字符输出流，我们可以传递FileOutputStream ,缓冲流会给FileOutputStream增加一个缓冲区，提高FileOutputStream的写入效率</strong></li>
-<li><strong>int size:指定缓冲内部缓冲区的大小，不指定就为默认值</strong></li>
-</ol>
-</li>
-<li>使用步骤<ol>
-<li><strong>创建FileOutputStream对象，构造方法中绑定要输出的目的地</strong></li>
-<li><strong>创建BufferedOutputStream对象，构造方法中传递FileOutputStream对象，提高FileOutputStream使用效率</strong></li>
-<li><strong>使用BufferedOutputStream对象中的方法write，把数据写入到内部缓冲区中</strong></li>
-<li><strong>使用BufferedOuputStream对象中的方法flush，把内部缓冲区中的数据，刷新到文件中</strong></li>
-<li><strong>释放资源(会先调用flush方法刷新数据，第四步可以省略)</strong></li>
-</ol>
-</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileOutputStream stream = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">"f:\\HH\\as.txt"</span>));<span class="comment">//创建字节输出流对象</span></span><br><span class="line">        BufferedOutputStream bufferedOutputStream = <span class="keyword">new</span> BufferedOutputStream(stream);<span class="comment">//创建字节缓冲流输出对象</span></span><br><span class="line">        bufferedOutputStream.write(<span class="number">50</span>);<span class="comment">//写入数据</span></span><br><span class="line">        bufferedOutputStream.flush();<span class="comment">//刷新流</span></span><br><span class="line">        bufferedOutputStream.close();<span class="comment">//关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="字节缓冲输入流"><a href="#字节缓冲输入流" class="headerlink" title="字节缓冲输入流"></a>字节缓冲输入流</h3><ul>
-<li><strong>java.io.BufferedInpuStream extends InputStream</strong><blockquote>
-<p>BufferedInputStream:字节缓冲输入流</p>
-</blockquote>
-</li>
-<li>定义所有子类共性方法:<ol>
-<li><strong>void close()</strong> 关闭此输入流并释放与该流关联的所有系统资源 </li>
-<li><strong>int read()</strong> 参见 InputStream 的 read 方法的常规协定。 </li>
-<li><strong>int read(byte[] b, int off, int len)</strong> 从此字节输入流中给定偏移量处开始将各字节读取到指定的 byte 数组中 </li>
+<h3 id="OutputStreamWriter介绍"><a href="#OutputStreamWriter介绍" class="headerlink" title="OutputStreamWriter介绍"></a>OutputStreamWriter介绍</h3><ul>
+<li><strong>java.io.OutputStreamWriter extends Writer</strong></li>
+<li><strong>OutputStreamWirter:是字符通向字节流的桥梁，可使用指定的charset将要写入流中的字符编码成节。(把能看懂的变得看不懂)</strong></li>
+<li>继承自父类得共性方法<ol>
+<li><strong>void close() 关闭此流，但要先刷新它</strong></li>
+<li><strong>void flush()  刷新该流的缓冲</strong></li>
+<li><strong>String getEncoding()  返回此流使用的字符编码的名称。</strong> </li>
+<li><strong>void write(char[] cbuf, int off, int len) 写入字符数组的某一部分。</strong> </li>
+<li><strong>void write(int c) 写入单个字符。</strong></li>
+<li><strong>void write(String str, int off, int len)写入字符串的某一部分</strong></li>
 </ol>
 </li>
 <li>构造方法：<ol>
-<li><strong>BufferedInputStream(InputStream in)</strong> 创建一个 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用。 </li>
-<li><strong>BufferedInputStream(InputStream in, int size)</strong> 创建具有指定缓冲区大小的 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用 </li>
+<li>OutputStreamWriter(OutputStream out)创建使用默认字符编码的 OutputStreamWriter</li>
+<li>OutputStreamWriter(OutputStream out, String charsetName) 创建使用指定字符集的 OutputStreamWriter</li>
 </ol>
 </li>
 <li>参数:<ol>
-<li><strong>InputStream in</strong>：字节输入流，我们可以传递FileInputStream对象，缓冲流会给FileInputStream增加一个缓冲区，提高效率</li>
-<li><strong>int size:</strong> 指定缓冲内部缓冲区的大小，不指定就为默认值</li>
+<li><strong>OutputStream out:字节输出流，可以用来写转换之后得字符文件中</strong></li>
+<li><strong>String charsetName:指定的编码表名称，不区分大小写，可以是UTF-8,UTF-16…..GBK等</strong></li>
 </ol>
 </li>
-<li>使用步骤<ol>
-<li><strong>创建FileInputStream对象，构造方法中绑定要读取的数据</strong></li>
-<li><strong>创建BufferedInputStream对象，构造方法中传递FileInputStream对象，提高FileInputStream对象的读取效率</strong></li>
-<li><strong>使用BufferedInputStream对象中的方法read,读取文件</strong></li>
+<li>使用步骤：<ol>
+<li><strong>创建OutputStreamWriter对象，构造方法中传递字节输出流和指定得编码表名称</strong></li>
+<li><strong>使用OutputStreamWriter对象中得方法write，把字符转换为字节存储缓冲区(编码)</strong></li>
+<li><strong>使用OutputStreamWriter对象中得方法flush,把内存缓冲区中的字节刷新到文件中(使用字节流写字节得过程)</strong></li>
 <li><strong>释放资源</strong></li>
 </ol>
 </li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\1.txt"</span>));<span class="comment">//创建字节输入流对象</span></span><br><span class="line">        BufferedInputStream bufferedInputStream = <span class="keyword">new</span> BufferedInputStream(fileInputStream,<span class="number">1024</span>);<span class="comment">//创建字节缓冲输入流对象</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//创建字节数组对象</span></span><br><span class="line">        <span class="keyword">int</span> red = <span class="number">0</span>;<span class="comment">//定义整型变量</span></span><br><span class="line">        <span class="keyword">while</span>((red=bufferedInputStream.read(bytes))!=-<span class="number">1</span>)<span class="comment">//while循环遍历判断</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> String(bytes,<span class="number">0</span>,red));<span class="comment">//输出读取到的</span></span><br><span class="line">        &#125;</span><br><span class="line">bufferedInputStream.close();</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        OutputStreamWriter outputStreamWriter = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"F:\\HH\\zhangR.txt"</span>), <span class="string">"GBK"</span>);<span class="comment">//创建字符转化字节流对象，并将编码格式改为GBK</span></span><br><span class="line">        outputStreamWriter.write(<span class="string">"你好"</span>);<span class="comment">//写入字符你好然后内部转化为GBK字节编码</span></span><br><span class="line">        System.out.println(outputStreamWriter.getEncoding());<span class="comment">//输出编码的</span></span><br><span class="line">        outputStreamWriter.flush();<span class="comment">//刷新</span></span><br><span class="line">        outputStreamWriter.close();<span class="comment">//关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="以上是对缓冲输入流以及缓冲输出流的初步了解以及使用"><a href="#以上是对缓冲输入流以及缓冲输出流的初步了解以及使用" class="headerlink" title="以上是对缓冲输入流以及缓冲输出流的初步了解以及使用"></a>以上是对缓冲输入流以及缓冲输出流的初步了解以及使用</h3>
+<h3 id="InputStreamReader介绍"><a href="#InputStreamReader介绍" class="headerlink" title="InputStreamReader介绍"></a>InputStreamReader介绍</h3><ul>
+<li><strong>java.io.InputSreamReader extends Reader</strong></li>
+<li>InputStreamReader:是字符通向字节流得桥梁，可使用指定得charset读取字节并将其解码为字符(解码：把看不懂得变成能看懂得)</li>
+<li>方法<ol>
+<li><strong>void close() 关闭该流并释放与之关联的所有资源。</strong></li>
+<li><strong>String getEncoding() 返回此流使用的字符编码的名称。</strong> </li>
+<li><strong>int read() 读取单个字符。</strong></li>
+<li><strong>int read(char[] cbuf, int offset, int length)  将字符读入数组中的某一部分。</strong> </li>
+<li><strong>boolean ready() 判断此流是否已经准备好用于读取</strong> </li>
+</ol>
+</li>
+<li>构造方法<br>  `</li>
+</ul>
+<pre><code>1. InputStreamReader(InputStream in) 创建一个使用默认字符集的 InputStreamReader
+2. InputStreamReader(InputStream in, String charsetName) 创建使用指定字符集的 InputStreamReader</code></pre><ul>
+<li>参数：<br>  `</li>
+</ul>
+<pre><code>1. InputStream in:  创建一个使用默认字符集的 InputStreamReader
+2. String charsetName:指定的编码表名称，不区分大小写，可以是UTF-8,UTF-16.....GBK等</code></pre><ul>
+<li>使用步骤：<ol>
+<li><strong>创建InputStreamReader对象，构造方法中传递字节输入流和指定得编码表名称</strong></li>
+<li><strong>使用InputStreamReader对象中得方法read读取文件</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li><code>注意事项：构造方法中指定得编码表名称要和文件得编码相同，否则会发生乱码</code></li>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">"F:\\HH\\Client.txt"</span>), <span class="string">"UTF-8"</span>);<span class="comment">//创建字符转字节的输入流对象，编码格式为UTF-8</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;<span class="comment">//整型变量len</span></span><br><span class="line">        <span class="keyword">while</span> ((len=inputStreamReader.read())!=-<span class="number">1</span>)<span class="comment">//while循环判断读取字节</span></span><br><span class="line">        &#123;</span><br><span class="line">           System.out.println((<span class="keyword">char</span>)len);<span class="comment">//输出读取到的字符</span></span><br><span class="line">        &#125;</span><br><span class="line">        inputStreamReader.close();</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="以上是对字符转换字节流的初步了解和方法的使用"><a href="#以上是对字符转换字节流的初步了解和方法的使用" class="headerlink" title="以上是对字符转换字节流的初步了解和方法的使用"></a>以上是对字符转换字节流的初步了解和方法的使用</h3>
       
 
       
@@ -355,7 +371,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/05/BlogBook32/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/09/BlogBook34/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,18 +385,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/06/BlogBook33/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          字符缓冲流的输入以及输出
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/05/BlogBook31/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Properties集合的学习</div>
+    <a href="/2020/08/06/BlogBook33/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符缓冲流的输入以及输出</div>
       <i class="icon-circle-right"></i>
     </a>
   
