@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 38
+    总文章数 39
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,117 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/BlogBook27/">File类的初步认识</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/30/BlogBook27/" class="archive-article-date">
+  	<time datetime="2020-07-30T01:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><h4 id="File类的概述"><a href="#File类的概述" class="headerlink" title="File类的概述"></a>File类的概述</h4><ul>
+<li>java.io.File类</li>
+</ul>
+<ol>
+<li><strong>文件和目录路径名的抽象表示形式</strong></li>
+<li><strong>Java把电脑中的文件和文件夹(目录)封装为了一个File类，我们可以使用File类对文件夹进行操作</strong></li>
+</ol>
+<ul>
+<li>我们可以使用File类的方法<ul>
+<li>创建一个文件/文件夹</li>
+<li>删除文件/文件夹</li>
+<li>获取文件/文件夹</li>
+<li>判断文件/文件夹是否存在</li>
+<li>对文件夹进行遍历</li>
+<li>获取文件的大小</li>
+</ul>
+</li>
+<li>File类是一个与系统无关的类，任何的操作系统都可以使用这个类中的方法</li>
+<li>重点：记住这三个单词</li>
+</ul>
+<ol>
+<li><strong>file:文件</strong></li>
+<li><strong>directory:文件夹/目录</strong></li>
+<li><strong>path:路径</strong></li>
+</ol>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解File类以及部分方法使用</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/30/BlogBook27/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/BlogBook27/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1046,105 +1157,6 @@
 
 
   
-    <article id="post-BlogBook17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook17/">泛型的概念及使用</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook17/" class="archive-article-date">
-  	<time datetime="2020-07-23T06:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><h4 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h4><ul>
-<li><strong>泛型是一种未知的数据类型，当我们不知道使用什么数据类型的时候，可以使用泛型</strong></li>
-<li><strong>泛型也可以看出是一个变量来接受数据类型</strong><ol>
-<li>E e = Element 元素</li>
-<li>T t = Type 类型</li>
-</ol>
-</li>
-<li><strong>例如添加和获取的两个方法返回值都是E（未知类型) 通过创建集合对象时候确定的泛型<br>数据类型来传递到E中</strong><ol>
-<li><strong>public class ArrayList<E>{public boolean add(E e){}</E></strong></li>
-<li><strong>public E get(int index){}</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>泛型的概念及其使用</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook17/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook17/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1253,11 +1265,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,15 +1277,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java进阶</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
