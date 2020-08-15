@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 39
+    总文章数 40
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,131 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook38" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/14/BlogBook38/">TCP通信</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/08/14/BlogBook38/" class="archive-article-date">
+  	<time datetime="2020-08-14T07:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="TCP通信"><a href="#TCP通信" class="headerlink" title="TCP通信"></a>TCP通信</h3><h4 id="TCP通信的概述"><a href="#TCP通信的概述" class="headerlink" title="TCP通信的概述"></a>TCP通信的概述</h4><ul>
+<li>通信步骤：<ol>
+<li><strong>服务器端先启动 服务器端不会主动的请求客户端</strong></li>
+<li><strong>必须使用客户端请求服务器端，客户端和服务器端建立一个逻辑链接</strong></li>
+<li><strong>这个连接中包含一个对象，这个对象就是IP对象</strong></li>
+<li><strong>客户端和服务器端可以使用IO对象进行通信，通信的数据不仅仅是字符，所以IO对象是字节流对象</strong></li>
+</ol>
+</li>
+<li>具体</li>
+</ul>
+<ol>
+<li>客户端：IP ：端口号 Socket类<blockquote>
+<p>客户端给服务器发送数据：OutputStream:你好服务器</p>
+<p>客户端读取服务器端发送的数据：InputStream:收到谢谢</p>
+</blockquote>
+</li>
+<li>服务器端:IP: 端口号 ServerSocket类<blockquote>
+<p>服务器端读取客户端发送的数据：InputStream:你好服务器</p>
+<p>服务器端给客户端发送数据：OutputStream:收到谢谢</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><strong>服务器端和客户端进行一个数据的交互，需要四个IO流对象</strong></p>
+</li>
+<li><p>服务器端必须明确两件事情：</p>
+<ol>
+<li><strong>多个客户端和服务器进行交互，服务器端必须明确和哪个客户端进行的交互，在服务器端有个方法，叫accept客户端获取到<br>请求的客户端对象</strong></li>
+<li><strong>多个客户端同时和服务器进行交互，就需要使用多个IO流对象</strong><blockquote>
+<p>服务器是没有IO流的，服务器可以获取到请求的客户端对象Socket，使用每个客户端Socket中提供的IO流和客户端进行交互</p>
+<p>服务器使用客户端的字节输入流读取客户端发送的数据 服务端使用客户端的字节输出流给客户端回写数据</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>简单记：<strong>服务器使用客户端的流和客户端交互</strong></p>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>计算机网络初步了解</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/14/BlogBook38/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TCP通信</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/14/BlogBook38/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook37" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1128,120 +1253,6 @@
 
 
   
-    <article id="post-BlogBook28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/BlogBook28/">File类以及过滤器和递归的初步了解</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/30/BlogBook28/" class="archive-article-date">
-  	<time datetime="2020-07-30T02:38:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="File类的创建删除功能的方法"><a href="#File类的创建删除功能的方法" class="headerlink" title="File类的创建删除功能的方法"></a>File类的创建删除功能的方法</h3><ul>
-<li><p>boolean createNewFile() 当且仅当不存在具有此抽象路径名指定名称的文件时，不可分地创建一个新的空文件 </p>
-<ol>
-<li><strong>返回值：布尔值 true:文件夹不存在，成功创建返回true false:文件夹存在，不会创建，返回false</strong></li>
-<li><strong>此方法只能创建文件，不能创建文件夹</strong></li>
-<li><strong>创建文件的路径必须存在，否则会抛出异常</strong></li>
-<li><strong>要处理异常IOException,要么throws这个异常，要么try catch</strong></li>
-<li><strong>相对路径是对于项目的路径 不能相对于包</strong>   </li>
-</ol>
-</li>
-<li><p>boolean delete()  删除此抽象路径名表示的文件或目录</p>
-<ol>
-<li><strong>此方法可以删除构造方法中的(文件/文件夹)</strong></li>
-<li><strong>true:文件/文件夹删除成功，返回true</strong></li>
-<li><strong>flase:如果此路径名表示一个目录，则该目录必须为空才能删除false;构造方法中路径如果不存在返回false</strong> </li>
-<li><strong>注意: delete方法是直接在硬盘删除文件，不走回收站，删除需谨慎</strong></li>
-</ol>
-</li>
-<li><p>boolean mkdir() 创建单级空文件夹</p>
-</li>
-<li><p>boolean mkdirs() 既可以创建单级文件夹，也可以创建多级文件夹**</p>
-<ol>
-<li><strong>创建文件夹的路径和名称在构造方法中给出(构造方法的参数)</strong></li>
-<li><strong>true:文件夹不存在，创建文件夹，返回true  false:文件存在不会创建，返回false</strong></li>
-<li><strong>此方法只能创建文件夹，不能创建文件</strong></li>
-<li><strong>创建文件夹的路径必须存在，不然会抛出异常</strong></li>
-</ol>
-</li>
-<li><p>基本代码演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrw"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> exists = file.exists();<span class="comment">//判断是否存在</span></span><br><span class="line">        <span class="keyword">if</span> (exists==<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file.delete());<span class="comment">//有同名的删除</span></span><br><span class="line">            System.out.println(file.mkdir());<span class="comment">//然后创建文件夹</span></span><br><span class="line">        &#125;</span><br><span class="line">        File file1 = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\Zzz.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file1.exists()==<span class="keyword">false</span>)<span class="comment">//判断是否存在</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(file1.createNewFile());<span class="comment">//创建文件</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>File类以及过滤器和递归的初步了解</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/07/30/BlogBook28/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/30/BlogBook28/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1350,11 +1361,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,11 +1373,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java进阶</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java进阶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,6 +1386,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TCP通信</a>
               </li>
              
               <li class="article-tag-list-item">

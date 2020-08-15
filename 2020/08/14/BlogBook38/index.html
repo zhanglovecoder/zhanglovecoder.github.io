@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Tag: Java特性 | CoderZhang&#39;s blog</title>
+  <title>TCP通信 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总有人会赢 为什么不是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CoderZhang&#39;s blog">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/tags/Java%E7%89%B9%E6%80%A7/index.html">
+  <meta name="description" content="TCP通信TCP通信的概述 通信步骤： 服务器端先启动 服务器端不会主动的请求客户端 必须使用客户端请求服务器端，客户端和服务器端建立一个逻辑链接 这个连接中包含一个对象，这个对象就是IP对象 客户端和服务器端可以使用IO对象进行通信，通信的数据不仅仅是字符，所以IO对象是字节流对象   具体   客户端：IP ：端口号 Socket类 客户端给服务器发送数据：OutputStream:你好服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP通信">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/14/BlogBook38/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="总有人会赢 为什么不是我">
+<meta property="og:description" content="TCP通信TCP通信的概述 通信步骤： 服务器端先启动 服务器端不会主动的请求客户端 必须使用客户端请求服务器端，客户端和服务器端建立一个逻辑链接 这个连接中包含一个对象，这个对象就是IP对象 客户端和服务器端可以使用IO对象进行通信，通信的数据不仅仅是字符，所以IO对象是字节流对象   具体   客户端：IP ：端口号 Socket类 客户端给服务器发送数据：OutputStream:你好服务器">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://zhanglovecoder.github.io.com/2020/08/14/BlogBook38/image.jpg">
+<meta property="article:published_time" content="2020-08-14T07:09:42.000Z">
+<meta property="article:modified_time" content="2020-08-15T05:39:32.706Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java进阶">
+<meta property="article:tag" content="TCP通信">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhanglovecoder.github.io.com/2020/08/14/BlogBook38/image.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
   
@@ -144,151 +150,298 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-BlogBook38" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TCP通信
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/08/14/BlogBook38/" class="archive-article-date">
+  	<time datetime="2020-08-14T07:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="TCP通信"><a href="#TCP通信" class="headerlink" title="TCP通信"></a>TCP通信</h3><h4 id="TCP通信的概述"><a href="#TCP通信的概述" class="headerlink" title="TCP通信的概述"></a>TCP通信的概述</h4><ul>
+<li>通信步骤：<ol>
+<li><strong>服务器端先启动 服务器端不会主动的请求客户端</strong></li>
+<li><strong>必须使用客户端请求服务器端，客户端和服务器端建立一个逻辑链接</strong></li>
+<li><strong>这个连接中包含一个对象，这个对象就是IP对象</strong></li>
+<li><strong>客户端和服务器端可以使用IO对象进行通信，通信的数据不仅仅是字符，所以IO对象是字节流对象</strong></li>
+</ol>
+</li>
+<li>具体</li>
+</ul>
+<ol>
+<li>客户端：IP ：端口号 Socket类<blockquote>
+<p>客户端给服务器发送数据：OutputStream:你好服务器</p>
+<p>客户端读取服务器端发送的数据：InputStream:收到谢谢</p>
+</blockquote>
+</li>
+<li>服务器端:IP: 端口号 ServerSocket类<blockquote>
+<p>服务器端读取客户端发送的数据：InputStream:你好服务器</p>
+<p>服务器端给客户端发送数据：OutputStream:收到谢谢</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><strong>服务器端和客户端进行一个数据的交互，需要四个IO流对象</strong></p>
+</li>
+<li><p>服务器端必须明确两件事情：</p>
+<ol>
+<li><strong>多个客户端和服务器进行交互，服务器端必须明确和哪个客户端进行的交互，在服务器端有个方法，叫accept客户端获取到<br>请求的客户端对象</strong></li>
+<li><strong>多个客户端同时和服务器进行交互，就需要使用多个IO流对象</strong><blockquote>
+<p>服务器是没有IO流的，服务器可以获取到请求的客户端对象Socket，使用每个客户端Socket中提供的IO流和客户端进行交互</p>
+<p>服务器使用客户端的字节输入流读取客户端发送的数据 服务端使用客户端的字节输出流给客户端回写数据</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>简单记：<strong>服务器使用客户端的流和客户端交互</strong></p>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>计算机网络初步了解</strong></p>
+</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h3 id="TCP客户端代码实现"><a href="#TCP客户端代码实现" class="headerlink" title="TCP客户端代码实现"></a>TCP客户端代码实现</h3><ul>
+<li>TCP通信的客户端：<strong>向服务器发送请求，给服务器发送数据，读取服务器回写的数据</strong></li>
+<li>表示客户端的类：<strong>java.net.Socket:此类实现客户端套接字(也可以叫做“套接字”),套接字是两台机器通信的端点</strong><blockquote>
+<p>套接字:包含了IP地址和端口号的网络单位</p>
+</blockquote>
+</li>
+<li>构造方法：<strong>Socket(String host,int port)创建一个流套接字并将其连接到指定主机上的指定端口号</strong></li>
+<li>参数:<ol>
+<li><strong>String host:服务器的主机名称/服务器的IP地址</strong></li>
+<li><strong>int port:服务器的端口号</strong></li>
+</ol>
+</li>
+<li>成员方法：<ol>
+<li><strong>OutputStream getOutputStream()返回此套接字的输出流</strong></li>
+<li><strong>InputStream getInputStream()返回此套接字的输入流</strong></li>
+<li><strong>void close()关闭此套接字</strong></li>
+</ol>
+</li>
+<li>实现步骤：<ol>
+<li><strong>创建一个客户端对象Socket,构造方法绑定服务器的IP地址和端口号</strong></li>
+<li><strong>使用Socket对象中的方法getOutputStream()获取网络字节输出流OutputStream对象</strong></li>
+<li><strong>使用网络字节输出流OutputStream对象中的方法write，给服务器发送数据</strong></li>
+<li><strong>使用Socket对象中的方法getInputStream()获取网络字节输入流InputStream对象</strong></li>
+<li><strong>使用网络字节输入流InputStream对象中的方法read，读取服务器回写的数据</strong></li>
+<li><strong>释放资源(Socket)</strong></li>
+</ol>
+</li>
+<li>注意事项：<ol>
+<li><strong>客户端和服务器端进行交互，必须使用Socket中提供的网络流，不能使用自己创建的流对象</strong></li>
+<li><strong>当我们创建客户端对象Socket的时候，就会出去请求服务器和服务器经过3次握手建立连接通路</strong></li>
+<li><strong>这是如果服务器没有启动，会抛出异常；如果已经启动，就可以进行交互了</strong></li>
+</ol>
+</li>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientZ</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.2"</span>, <span class="number">8888</span>);<span class="comment">//创建客户端对象Socket并写上IP地址和端口号</span></span><br><span class="line">        OutputStream outputStream = socket.getOutputStream();<span class="comment">//返回字节输出流对象</span></span><br><span class="line">        outputStream.write(<span class="string">"TCP通信"</span>.getBytes());<span class="comment">//写入数据</span></span><br><span class="line">        InputStream inputStream = socket.getInputStream();<span class="comment">//返回字节输入流对象</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//创建字节数组对象</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;<span class="comment">//创建整型变量</span></span><br><span class="line">        <span class="keyword">while</span> ((len=inputStream.read(bytes))!=-<span class="number">1</span>)<span class="comment">//while遍历循环判断</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> java.lang.String(bytes,<span class="number">0</span>,len));<span class="comment">//输出从服务器端读取到的数据</span></span><br><span class="line">        &#125;</span><br><span class="line">        socket.close();<span class="comment">//关闭Socket流</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Tcp通信的服务端代码实现"><a href="#Tcp通信的服务端代码实现" class="headerlink" title="Tcp通信的服务端代码实现"></a>Tcp通信的服务端代码实现</h3><ul>
+<li>Tcp通信的服务器端:<strong>接受客户端的请求，读取客户端发送的数据，给客户端回写数据</strong></li>
+<li>表示服务器的类：<strong>java.net.ServerSocket:此类实现服务器套接字</strong></li>
+<li>构造方法:<strong>ServerSocket(int port):创建绑定到特定端口的服务器套接字</strong></li>
+<li><em>服务器端必须明确一件事，必须得知道是那个客户端请求的服务器，所以可以使用accept()方法获取到请求的客户端对象Socket</em></li>
+<li>成员方法：<strong>Socket accpet() 侦听并接受到此套接字的连接</strong></li>
+<li>服务器端的实现步骤：<ol>
+<li><strong>创建服务器ServerSocket对象和系统要指定的端口号</strong></li>
+<li><strong>使用ServerSocket对象中的方法accept，获取到请求的客户端对象Socket</strong></li>
+<li><strong>使用Socket对象中的方法getInputStream()获取网络字节输入流InputStream对象</strong></li>
+<li><strong>使用网络字节输入流InputStream对象中的方法read，读取客户端发送的数据</strong></li>
+<li><strong>使用Socket对象中的方法getOutputStream()获取网络字节输出流OutputStream对象</strong></li>
+<li><strong>使用网络字节输出流OutputStream对象中的方法write，给客户端回写数据</strong></li>
+<li><strong>释放资源(ServerSocket,Socket)</strong></li>
+</ol>
+</li>
+<li>注意事项：</li>
+</ul>
+<ol>
+<li><strong>客户端和服务器端进行交互，必须得使用Socket中提供的网络流，不能使用自己创建的流对象</strong></li>
+<li><strong>当我们创建客户端对象Socket的时候，就会去请求服务器和服务器经过3次握手建立连接通路</strong><blockquote>
+<p>这时如果服务器没有启动，那么就会抛出异常ConnectException:Connection refused:connect 如果服务器已经启动，那么就可以进行交互了</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServerR</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);<span class="comment">//创建服务器端套接字对象</span></span><br><span class="line">        Socket accept = serverSocket.accept();<span class="comment">//获取请求客户端对象Socket</span></span><br><span class="line">        InputStream inputStream = accept.getInputStream();<span class="comment">//获取网络字节输入流对象</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//创建字节数组对象</span></span><br><span class="line">       <span class="keyword">int</span> len = inputStream.read(bytes);<span class="comment">//网络字节输入流读取</span></span><br><span class="line">       System.out.println(<span class="keyword">new</span> String(bytes,<span class="number">0</span>,len));<span class="comment">//输出读取到的数据</span></span><br><span class="line">        OutputStream outputStream = accept.getOutputStream();<span class="comment">//获取网络字节输出流对象</span></span><br><span class="line">       outputStream.write(<span class="string">"收到TCP通信"</span>.getBytes());<span class="comment">//写入数据传给客户端</span></span><br><span class="line">       accept.close();<span class="comment">//关闭accept流</span></span><br><span class="line">        serverSocket.close();<span class="comment">//关闭服务器端套接字流</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2020/08/14/BlogBook38/image.jpg" alt></li>
+</ul>
+<hr>
+<h3 id="初步了解TCP通信以及首次连通客户端和服务器端之间信息的发送"><a href="#初步了解TCP通信以及首次连通客户端和服务器端之间信息的发送" class="headerlink" title="初步了解TCP通信以及首次连通客户端和服务器端之间信息的发送"></a>初步了解TCP通信以及首次连通客户端和服务器端之间信息的发送</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/19/BlogBook6/" class="archive-article-date">
-  	<time datetime="2020-07-19T03:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/19/BlogBook6/">面向对象之继承性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TCP通信</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/14/BlogBook38/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/19/BlogBook7/" class="archive-article-date">
-  	<time datetime="2020-07-19T03:45:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/13/BlogBook37/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络编程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/19/BlogBook7/">面向对象之多态性</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/BlogBook5/" class="archive-article-date">
-  	<time datetime="2020-07-18T13:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/BlogBook5/">面向对象特性之封装性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -322,9 +475,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
