@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhanglovecoder.github.io.com">
-  <title>Tag: TCP通信 | CoderZhang&#39;s blog</title>
+  <title>TCP通信文件案例 | CoderZhang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总有人会赢 为什么不是我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CoderZhang&#39;s blog">
-<meta property="og:url" content="http://zhanglovecoder.github.io.com/tags/TCP%E9%80%9A%E4%BF%A1/index.html">
+  <meta name="description" content="文件案例通信服务器端代码实现 明确：  数据源：客户端上传的文件 目的地服务器的硬盘   实现步骤：  创建一个服务器对象ServerSocket，和系统要指定的端口号 使用ServerSocket对象中的方法accept，获取到请求的客户端Socket对象 使用Socket对象中的方法getInputStream，获取到网络字节输入流InputStream对象 判断要接受的路径文件是否存在，不存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP通信文件案例">
+<meta property="og:url" content="http://zhanglovecoder.github.io.com/2020/08/15/BlogBook39/index.html">
 <meta property="og:site_name" content="CoderZhang&#39;s blog">
-<meta property="og:description" content="总有人会赢 为什么不是我">
+<meta property="og:description" content="文件案例通信服务器端代码实现 明确：  数据源：客户端上传的文件 目的地服务器的硬盘   实现步骤：  创建一个服务器对象ServerSocket，和系统要指定的端口号 使用ServerSocket对象中的方法accept，获取到请求的客户端Socket对象 使用Socket对象中的方法getInputStream，获取到网络字节输入流InputStream对象 判断要接受的路径文件是否存在，不存">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-15T05:41:24.000Z">
+<meta property="article:modified_time" content="2020-08-16T03:41:47.335Z">
 <meta property="article:author" content="CoderZhang">
+<meta property="article:tag" content="Java进阶">
+<meta property="article:tag" content="TCP通信">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CoderZhang&#39;s blog" type="application/atom+xml">
@@ -144,37 +148,138 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-BlogBook39" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      TCP通信文件案例
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/08/15/BlogBook39/" class="archive-article-date">
   	<time datetime="2020-08-15T05:41:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/15/BlogBook39/">TCP通信文件案例</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="文件案例通信服务器端代码实现"><a href="#文件案例通信服务器端代码实现" class="headerlink" title="文件案例通信服务器端代码实现"></a>文件案例通信服务器端代码实现</h3><ul>
+<li><p>明确：</p>
+<ol>
+<li><strong>数据源：客户端上传的文件</strong></li>
+<li><strong>目的地服务器的硬盘</strong></li>
+</ol>
+</li>
+<li><p>实现步骤：</p>
+<ol>
+<li><strong>创建一个服务器对象ServerSocket，和系统要指定的端口号</strong></li>
+<li><strong>使用ServerSocket对象中的方法accept，获取到请求的客户端Socket对象</strong></li>
+<li><strong>使用Socket对象中的方法getInputStream，获取到网络字节输入流InputStream对象</strong></li>
+<li><strong>判断要接受的路径文件是否存在，不存在则创建</strong></li>
+<li><strong>创建一个本地字节输出流FileOutputStream对象，构造方法中要绑定输出目的地</strong></li>
+<li><strong>使用网络字节输入流InputStream对象中的方法read，读取客户端上传的文件</strong></li>
+<li><strong>使用本地字节输出流FileOutputStream对象中的方法write，把读到的文件保存到服务器的硬盘上</strong></li>
+<li><strong>使用Socket对象中的方法getOutputStream,获取到网络字节输出流OutputStream对象</strong></li>
+<li><strong>使用网络字节输出流OutputStream对象中的方法write,给客户端回写”***</strong>“等</li>
+<li><strong>释放资源(FileOutputStream,Socket,ServerSocket)</strong></li>
+</ol>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>TCP文案通信案例</strong></p>
+</li>
+</ul>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<ul>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TcpFileClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">                FileOutputStream outputStream = <span class="keyword">null</span>;</span><br><span class="line">                    outputStream = <span class="keyword">new</span> FileOutputStream(<span class="string">"F:\\HH\\Client.txt"</span>);<span class="comment">//创建字节输出流对象</span></span><br><span class="line">                    outputStream.write(<span class="string">"给服务端的文件"</span>.getBytes());<span class="comment">//输入数据</span></span><br><span class="line">                    Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>,<span class="number">8088</span>);<span class="comment">//创建套节子流对象 写上IP地址和端口号</span></span><br><span class="line">                    InputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"F:\\HH\\Client.txt"</span>);<span class="comment">//创建字节输入流对象</span></span><br><span class="line">                    OutputStream outputStream1 = socket.getOutputStream();<span class="comment">//socket的方法得到用于通信的输出流对象</span></span><br><span class="line">                    <span class="keyword">byte</span> [] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                    <span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> ((len=inputStream.read(bytes))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                        outputStream1.write(bytes,<span class="number">0</span>,len);<span class="comment">//将一开始创建的文件中写入的数据进行复制然后传给服务器端</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    InputStream inputStream1 = socket.getInputStream();<span class="comment">//socket方法返回用于通信的输入流对象</span></span><br><span class="line">                    <span class="keyword">byte</span> [] bytes1 = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                    <span class="keyword">int</span> len1=<span class="number">0</span>;</span><br><span class="line">                    socket.shutdownOutput();<span class="comment">//提示服务器端上传完成 防止阻塞</span></span><br><span class="line">                    <span class="keyword">while</span>((len1=inputStream1.read(bytes1))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                        System.out.println(<span class="keyword">new</span> String(bytes1,<span class="number">0</span>,len1));</span><br><span class="line">                    &#125;<span class="comment">//输出从服务器端收到的消息</span></span><br><span class="line">            outputStream.close();<span class="comment">//关闭输出流</span></span><br><span class="line">            inputStream.close();<span class="comment">//关闭输入流</span></span><br><span class="line">            socket.close();<span class="comment">//关闭套接字</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文件案例通信客户端代码实现"><a href="#文件案例通信客户端代码实现" class="headerlink" title="文件案例通信客户端代码实现"></a>文件案例通信客户端代码实现</h3></li>
+<li>明确：<ol>
+<li><strong>数据源</strong></li>
+<li><strong>服务器</strong></li>
+</ol>
+</li>
+<li>实现步骤：<ol>
+<li><strong>创建一个客户端对象Socket,构造方法中绑定服务器的IP地址和端口号</strong></li>
+<li><strong>创建一个本地字节输入流FileOutputStream对象，构造方法中绑定要读取的数据源</strong></li>
+<li><strong>使用Socket中的方法getOutputStream,获取网络字节输出流OutputStream对象</strong></li>
+<li><strong>使用本地字节输入流FileInputStream对象中的方法read,读取本地文件</strong></li>
+<li><strong>使用网络字节输出流OutputStream对象中的方法write,把读取到的文件上传到服务器</strong></li>
+<li><strong>使用Socket中的方法getInputStream,获取网络字节输入流InputStream对象</strong></li>
+<li><strong>使用网络字节输入流InputStream对象中的方法read读取服务回写的数据</strong></li>
+<li><strong>释放资源(FileInputStream,Socket)</strong></li>
+</ol>
+</li>
+<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TcpFileServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket socket =  <span class="keyword">new</span> ServerSocket(<span class="number">8088</span>);<span class="comment">//创建服务器端通信Socket对象</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;<span class="comment">//while循环</span></span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;<span class="comment">//多线程</span></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Socket accept1 = socket.accept();<span class="comment">//获取请求客户端对象</span></span><br><span class="line">                        InputStream inputStream = accept1.getInputStream();<span class="comment">//返回自己输入流对象</span></span><br><span class="line">                        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">while</span> ((len = inputStream.read(bytes)) != -<span class="number">1</span>) &#123;<span class="comment">//while遍历循环</span></span><br><span class="line">                            File file = <span class="keyword">new</span> File(<span class="string">"F:\\HH\\Server"</span>);<span class="comment">//创建虚拟文件路径</span></span><br><span class="line">                            String s = <span class="string">"zrw"</span> + System.currentTimeMillis() + <span class="keyword">new</span> Random().nextInt(<span class="number">500</span>) + <span class="string">".txt"</span>;<span class="comment">//创建字符串对象</span></span><br><span class="line">                            <span class="keyword">boolean</span> exists = file.exists();<span class="comment">//判断文件是否存在</span></span><br><span class="line">                            <span class="keyword">if</span> (exists == <span class="keyword">false</span>) &#123;<span class="comment">//如果不存在</span></span><br><span class="line">                                FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(file + s);<span class="comment">//创建文件</span></span><br><span class="line">                                fileOutputStream.write(bytes, <span class="number">0</span>, len);<span class="comment">//写入从客户端接收到的数据</span></span><br><span class="line">                                fileOutputStream.close();<span class="comment">//关闭输出流对象</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        OutputStream outputStream = accept1.getOutputStream();<span class="comment">//返回服务器端的输出流对象</span></span><br><span class="line">                        outputStream.write(<span class="string">"收到了谢谢"</span>.getBytes());<span class="comment">//写入数据发送给客户端</span></span><br><span class="line">                        accept1.close();<span class="comment">//关闭服务器端流</span></span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                        System.out.println(e);<span class="comment">//捕捉异常</span></span><br><span class="line">                    &#125;&#125;</span><br><span class="line">            &#125;).start();<span class="comment">//线程执行，服务器端可以一直执行，等待客户端的多次连接 优化效率</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="阻塞问题"><a href="#阻塞问题" class="headerlink" title="阻塞问题"></a>阻塞问题</h3><ul>
+<li>当客户端向服务器端上传文件的时候，会遇到阻塞问题，由于客户端上传完文件，并没有给服务器端一个上传完成后的指令<br>所以会到时候while后面的语句不能正常执行，导致整个程序无法终止</li>
+<li>解决办法：<strong>public void shutdownOutput()throws IOException：</strong><br>禁用此套接字的输出流。对于 TCP 套接字，任何以前写入的数据都将被发送，并且后跟 TCP 的正常连接终止序列。 如果在套接字上调用 shutdownOutput() 后写入套接字输出流，则该流将抛出 IOException。</li>
+<li>可以在上传完文件的while语句后面添加此方法 格式为:<strong>Socket对象名.shutdownOutput():此方法将提示服务器端上传文件完成，从而保证双方后续的while代码执行，直到程序执行完成后关闭</strong></li>
+</ul>
+<hr>
+<h3 id="文件案例的优化："><a href="#文件案例的优化：" class="headerlink" title="文件案例的优化："></a>文件案例的优化：</h3><ul>
+<li>优化</li>
+</ul>
+<ol>
+<li><strong>首先可以在accept方法前加一个while死循环，这样就可以做到服务端一直运行 客户端可以多次传输数据</strong></li>
+<li><strong>可以在服务器端保存数据路径上面修改命名，可以通过添加获取系统时间和随机数等等的方法，以此可以保证多次相同文件的数据传输</strong></li>
+<li><strong>可以采用多线程的方法来执行，优化效率</strong></li>
+</ol>
+<hr>
+<h3 id="以上是文件通信案例的代码实现以及文件案例的优化和遇到阻塞问题的处理方式"><a href="#以上是文件通信案例的代码实现以及文件案例的优化和遇到阻塞问题的处理方式" class="headerlink" title="以上是文件通信案例的代码实现以及文件案例的优化和遇到阻塞问题的处理方式"></a>以上是文件通信案例的代码实现以及文件案例的优化和遇到阻塞问题的处理方式</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的来访<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,62 +295,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhanglovecoder.github.io.com/2020/08/15/BlogBook39/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/14/BlogBook38/" class="archive-article-date">
-  	<time datetime="2020-08-14T07:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/14/BlogBook38/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TCP通信</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/14/BlogBook38/">TCP通信</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TCP通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -279,9 +428,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

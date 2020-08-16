@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 40
+    总文章数 41
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/30/BlogBook29/">IO字节输入以及输出流</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/07/30/BlogBook29/" class="archive-article-date">
+  	<time datetime="2020-07-30T12:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><h4 id="IO流概述"><a href="#IO流概述" class="headerlink" title="IO流概述"></a>IO流概述</h4><ul>
+<li>概述：<ol>
+<li><strong>I：input 输入(读取)</strong></li>
+<li><strong>O：Output 输出(写入)</strong></li>
+<li><strong>流：数据(字符，字节)1字符=2个字节 1字节=8个二进制</strong></li>
+</ol>
+</li>
+<li>输入：<strong>把硬盘中的数据：读取到内存中使用</strong></li>
+<li>输出：<strong>把内存中的数，写入到硬盘中保存</strong></li>
+<li>因为分为字符字节两种情况 所以分为两大类<ol>
+<li><strong>字节流：输入流：InputStream(所有字节输入流的父类)，OutputStream(字节输出流)</strong></li>
+<li><strong>字符流：输入流：Reader(所有字符输入流的父类) 输出流：Writer(所有字节输出流的父类)</strong></li>
+</ol>
+</li>
+</ul>
+<p><img src="/2020/07/30/BlogBook29/image.jpg" alt></p>
+<p><code>一切皆为字节:一切文件数据(文本，图片，视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流
+可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据</code></p>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解字节输入以及输出流类以及部分方法使用</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/30/BlogBook29/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/30/BlogBook29/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1067,116 +1171,9 @@
 
 
   
-    <article id="post-BlogBook19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/BlogBook19/">Java集合之List接口下的集合</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/23/BlogBook19/" class="archive-article-date">
-  	<time datetime="2020-07-23T12:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List<E>接口</E></h4><ul>
-<li><p><strong>java.util.list接口 extends Collection接口</strong></p>
-</li>
-<li><p>特点：</p>
-<ol>
-<li><strong>有序的集合 存储和取出的元素顺序是一致的</strong></li>
-<li><strong>List集合是有索引的，包含了一些带索引的方法</strong></li>
-<li><strong>与Set接口不同 List接口允许存储重复元素</strong></li>
-</ol>
-</li>
-<li><p>List接口中带索引的方法(<strong>特有</strong>)</p>
-<ol>
-<li><strong>public void add(int index,E element)</strong>:将指定的元素，添加到该集合的指定位置上</li>
-<li><strong>public E get(int index)</strong>:返回集合中指定位置的元素</li>
-<li><strong>public E remove(int index)</strong>：移除列表中指定位置的元素，返回的是被移除的元素</li>
-<li><strong>public E set(int index,E element)</strong>：用指定元素替换集合中指定位置的元素，并返回被替换的元素<blockquote>
-<p>注意：操作索引的时候 一定要防止索引越界异常</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>List接口下的集合</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/07/23/BlogBook19/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/BlogBook19/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
