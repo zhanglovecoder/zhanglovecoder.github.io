@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 41
+    总文章数 42
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,134 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook30" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/05/BlogBook30/">IO字符输入以及输出流</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/08/05/BlogBook30/" class="archive-article-date">
+  	<time datetime="2020-08-05T02:34:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字符输入流读取数据"><a href="#字符输入流读取数据" class="headerlink" title="字符输入流读取数据"></a>字符输入流读取数据</h3><ul>
+<li><strong>java.io.FileReader extends InputStreamReader extends Reader</strong></li>
+<li><strong>FileReader</strong>:文件字符输入流<blockquote>
+<p>作用: 把硬盘文件中的数据以字符的方式读取到内存中</p>
+</blockquote>
+</li>
+<li>构造方法:<ol>
+<li><strong>FileReader(Streing fileName)</strong></li>
+<li><strong>FileReader(File file)</strong></li>
+<li><strong>参数:读取文件的数据源 String fileName:文件的路径 File file:一个文件</strong></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>FileReader构造方法的作用:</li>
+</ul>
+<ol>
+<li><strong>创建一个FileReader对象</strong></li>
+<li><strong>会把FileReader对象指向要读取的文件</strong></li>
+</ol>
+<ul>
+<li>字符输入流的使用步骤：<ol>
+<li><strong>创建FileReader对象，构造方法中绑定要读取的数据流</strong></li>
+<li><strong>使用FileReader对象中的方法read读取文件</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+<li>方法：<ol>
+<li><strong>int read()</strong> 读取单个字符并返回</li>
+<li><strong>int read(char[] chars)</strong> 一次读取多个字符，将字符读入数组</li>
+</ol>
+</li>
+<li>String类的构造方法：<ol>
+<li><strong>String(char [] value)</strong> 把字符数组转换为字符串</li>
+<li><strong>String(char [] value,int offset,int count)</strong> 把字符数组的一部分转换为字符串 offset数组的开始索引 count转换的个数</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        FileReader fileReader = <span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"F:\\HH\\zrwio.txt"</span>));<span class="comment">//创建字符输入流类的对象</span></span><br><span class="line">        <span class="keyword">char</span>[] chars = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];<span class="comment">//创建字符数组</span></span><br><span class="line">        <span class="keyword">int</span> red = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((red=fileReader.read(chars))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> String(chars));</span><br><span class="line">        &#125;</span><br><span class="line">        fileReader.close();</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解字符输入以及输出流以及部分方法使用</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/05/BlogBook30/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/05/BlogBook30/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1034,114 +1162,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/24/BlogBook21/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BlogBook20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/24/BlogBook20/">Java集合之Set接口下的集合</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/24/BlogBook20/" class="archive-article-date">
-  	<time datetime="2020-07-24T04:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><ul>
-<li><strong>java.util.Set接口 extends Collection接口</strong></li>
-<li>Set接口的<strong>特点</strong>:<ol>
-<li><strong>不允许存储重复的元素</strong></li>
-<li><strong>没有索引，没有带索引的方法，也不能使用普通的for循环遍历</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="HashSet集合"><a href="#HashSet集合" class="headerlink" title="HashSet集合"></a>HashSet集合</h3><ul>
-<li><p><strong>java.util.HashSet集合 implements Set接口</strong></p>
-</li>
-<li><p><strong>HashSet特点:</strong></p>
-<ol>
-<li><strong>不允许存储重复的元素</strong></li>
-<li><strong>没有索引，没有索引的方法，也不能使用普通的for循环遍历</strong></li>
-<li><strong>是一个无序集合，存储的元素和取出的元素有可能不一致</strong></li>
-<li><strong>底层是一个哈希表结构(查询的速度非常快)</strong></li>
-</ol>
-</li>
-<li><p>哈希值：<strong>是一个十进制的整数，由系统随机给出（就是对象的地址值，是一个逻辑地址，是模拟出来的地址，不是数据实际存储的地址）</strong></p>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>Set接口下的集合以及Collection工具类</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/07/24/BlogBook20/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java集合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/24/BlogBook20/">点击查看全文 >></a>
         </p>
       
 
