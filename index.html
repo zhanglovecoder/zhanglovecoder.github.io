@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 43
+    总文章数 44
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -146,6 +146,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BlogBook42" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/21/BlogBook42/">Stream流的初步了解</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/08/21/BlogBook42/" class="archive-article-date">
+  	<time datetime="2020-08-21T01:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Stream流"><a href="#Stream流" class="headerlink" title="Stream流"></a>Stream流</h3><h3 id="Stream流的概念"><a href="#Stream流的概念" class="headerlink" title="Stream流的概念"></a>Stream流的概念</h3><ul>
+<li><p><strong>使用Stream流的方式，遍历集合，对集合中的数据进行过滤，JDK1.8以后产生的</strong></p>
+</li>
+<li><p>Stream流其实是一个集合元素的函数模型，它并不是集合，也不是数据结构，其本身<strong>不存储任何元素(或地址值)</strong></p>
+</li>
+<li><p><strong>Stream流是一个来自数据源的元素队列</strong></p>
+<ol>
+<li>元素是特定类型的对象，形成一个队列。java中的Stream并不会存储元素，而是按需计算</li>
+<li>数据源:<strong>流的来源。可以是集合，数组等</strong></li>
+</ol>
+</li>
+<li><p>Stream操作还有两个特征:</p>
+<ol>
+<li><strong>pipelining:中间操作都会返回流对象本身，这样多个操作可以串联成一个管道，如同流式风格，这样可以对操作进行优化，比如延迟执行(laziness)和短路(short-circuiting)</strong></li>
+<li><strong>内部迭代:Stream提供了内部迭代的方式，流可以直接调用遍历方法</strong></li>
+</ol>
+</li>
+<li><p>当使用一个流的时候有三个步骤</p>
+<ol>
+<li><strong>获取一个数据源(source)-&gt;数据转换-&gt;执行操作获取想要的结果</strong></li>
+<li><strong>每次转换原有的Stream对象不变，返回一个新的Stream对象(可以有多次转换)，这就允许对其操作可以像链条一样排列，变成一个管道</strong></li>
+</ol>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>Stream流</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/21/BlogBook42/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/21/BlogBook42/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-BlogBook41" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -198,77 +305,15 @@
 <li>概念：<strong>JDK提供了大量常用的函数式接口以丰富Lambda的典型使用场景，它们主要在java.util.function包中被提供</strong></li>
 </ul>
 <hr>
-<h3 id="Supplier接口"><a href="#Supplier接口" class="headerlink" title="Supplier接口"></a>Supplier接口</h3><ul>
-<li><strong>java.util.function.Supplier<T>接口仅包含一个无参的方法：T get()。用来获取一个泛型参数指定类型的对象数据</T></strong></li>
-<li><strong>Supplier<T>接口被称之为生产型接口，指定接口的泛型是什么类型，那么接口中的get方法就会生产什么类型的数据</T></strong></li>
-<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">        Integer sup = Sup(()-&gt;<span class="number">66</span>);<span class="comment">//Lambda表达式</span></span><br><span class="line">        System.out.println(sup);<span class="comment">//输出</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">Sup</span><span class="params">(Supplier&lt;Integer&gt; supplier)</span><span class="comment">//静态方法调用Supplier接口</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">         <span class="keyword">return</span>  supplier.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Supplier1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> [] ints = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">5</span>,<span class="number">8</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">21</span>,<span class="number">45</span>,<span class="number">98</span>&#125;;<span class="comment">//int型数组</span></span><br><span class="line">getMax(() -&gt;&#123;</span><br><span class="line">        <span class="keyword">int</span> max = ints[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> anInt : ints) &#123;<span class="comment">//遍历数组</span></span><br><span class="line">            <span class="keyword">if</span> (anInt&gt;max)&#123;</span><br><span class="line">                max=anInt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(max);<span class="comment">//输出最大值</span></span><br><span class="line">      <span class="keyword">return</span> max;</span><br><span class="line">&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">getMax</span><span class="params">(Supplier &lt;Integer&gt; supplier)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> supplier.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>函数式接口</strong></p>
 </li>
 </ul>
-<hr>
-<h3 id="Consumer接口"><a href="#Consumer接口" class="headerlink" title="Consumer接口"></a>Consumer接口</h3><ul>
-<li><strong>java.util.function.Consumer<T>接口则正好与Supplier接口相反，它不是生产要给数据，而是消费一个数据，其数据类型由泛型决定</T></strong></li>
-<li><strong>Consumer接口中包含抽象方法void accept(T t),意为消费一个指定泛型的数据</strong></li>
-<li><strong>Consumer接口是一个消费型接口，泛型执行什么类型，就可以使用accept方法消费什么类型的数据，至于具体则么消费(使用)，需要自定义(输出，计算…)</strong></li>
-<li>使用步骤：<ol>
-<li><strong>定义一个方法</strong></li>
-<li><strong>方法的参数传递一个字符串或者其他类型</strong></li>
-<li><strong>方法的参数传递Consumer接口，泛型使用String</strong></li>
-<li><strong>可以使用Consumer接口消费字符串的姓名</strong></li>
-</ol>
-</li>
-<li>Consumer接口的默认方法andThen<ol>
-<li>作用：<strong>需要两个Consumer接口，可以把两个Consumer接口组合到一起，对数据进行消费</strong></li>
-<li>例如：<strong>Consumer<String> con1 Conumer<String>con2 String s = “hello”; con1.accept(s),con2.accept(s),连接两个Consumer接口 再进行消费，con1.andThen(con2).accept(s);<br>谁写前面谁先消费</String></String></strong></li>
-</ol>
-</li>
-<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">   Aceept(<span class="string">"你好"</span>,(String s)-&gt;System.out.println(s));<span class="comment">//Lambda表达式</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">Aceept</span><span class="params">(String string,Consumer&lt;String&gt; consumer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    consumer.accept(string);<span class="comment">//Consumer接口使用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Consumer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Consumer2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String [] strings = &#123;<span class="string">"张人伟,18"</span>,<span class="string">"罗文隆,18"</span>&#125;;<span class="comment">//String数组</span></span><br><span class="line">      get(strings,(s)-&gt;&#123;</span><br><span class="line">          String  split = s.split(<span class="string">","</span>)[<span class="number">0</span>];</span><br><span class="line">          System.out.println(split);</span><br><span class="line">          &#125;,(s)-&gt;&#123;</span><br><span class="line">          String s1 = s.split(<span class="string">","</span>)[<span class="number">1</span>];</span><br><span class="line">          System.out.println(s1);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">(String [] strings, Consumer&lt;String&gt; consumer,Consumer&lt;String&gt; consumer1)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (String string : strings) &#123;<span class="comment">//for遍历数组</span></span><br><span class="line">            consumer.andThen(consumer1).accept(string);<span class="comment">//将数据连接到一起进行消费</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="Predicate接口"><a href="#Predicate接口" class="headerlink" title="Predicate接口"></a>Predicate<T>接口</T></h3><ul>
-<li><strong>java.util.function.Predicate<T>接口 作用：对于某种数据类型的数据进行判断，结果返回一个boolean值</T></strong></li>
-<li>Predicate<T>接口中包含一个抽象方法：<strong>boolean test<T t>:用来对指定数据类型数进行判断的方法</T></strong></T></li>
-<li><strong>结果：符合条件：返回true 不符合条件：返回false</strong></li>
-<li>使用步骤<ol>
-<li><strong>定义一个方法</strong></li>
-<li><strong>参数传递一个String类型的字符串</strong></li>
-<li><strong>传递一个Predicate接口，泛型使用String</strong></li>
-<li><strong>使用Predicate中的方法test对字符串进行判断，并把判断的结果返回</strong></li>
-</ol>
-</li>
-<li>Predicate接口中还定义了三种默认方法：来判断：与，或，非</li>
-<li>第一种方法与： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">and()方法表示并且关系，也可以用于连接两个判断条件：default Predicate&lt;T&gt; and(Predicate&lt;? super T&gt; other) &#123;</span><br><span class="line"></span><br><span class="line">Objects.requireNonNull(other);</span><br><span class="line"></span><br><span class="line">return (t) -&gt; test(t) &amp;&amp; other.test(t);&#125;</span><br></pre></td></tr></table></figure></li>
-<li>第一种方法基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> s1 = s(<span class="string">"Zrw"</span>, (s) -&gt; s.contains(<span class="string">"R"</span>), s -&gt; s.contains(<span class="string">"w"</span>));<span class="comment">//传入参数s为“Zrw"，然后通过函数接口继续判断</span></span><br><span class="line">        System.out.println(s1);<span class="comment">//输出结果</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">s</span><span class="params">(String s, Predicate&lt;String&gt; predicate,Predicate&lt;String&gt; predicate1)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> test = predicate.and(predicate1).test(s);<span class="comment">//Predicate接口的应用</span></span><br><span class="line">        <span class="keyword">return</span>  test;<span class="comment">//返回判断结果</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>第二种方法或： or()方法表示或关系，也可以用于连接两个判断条件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">default Predicate&lt;T&gt; or(Predicate&lt;? super T&gt; other) &#123;</span><br><span class="line">       Objects.requireNonNull(other);</span><br><span class="line">       return (t) -&gt; test(t) || other.test(t);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li>第三种方法非：nagate()方法表示非关系<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">default Predicate&lt;T&gt; negate() &#123;</span><br><span class="line">               return (t) -&gt; !test(t);</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure></li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Predicate;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Predicate4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String [] strings = &#123;<span class="string">"古力娜扎,女"</span>,<span class="string">"马儿扎哈,男"</span>,<span class="string">"赵丽颖,女"</span>&#125;;<span class="comment">//String数组</span></span><br><span class="line">        ArrayList&lt;String&gt; list = method(strings, (s) -&gt; &#123;</span><br><span class="line">            String s1 = s.split(<span class="string">","</span>)[<span class="number">0</span>];<span class="comment">//分割</span></span><br><span class="line">            <span class="keyword">return</span> s1.length() == <span class="number">4</span>;<span class="comment">//判断姓名长度是否等于4，如果是的话就添加</span></span><br><span class="line">        &#125;, (s) -&gt; &#123;</span><br><span class="line">            String s1 = s.split(<span class="string">","</span>)[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">return</span> s1.equals(<span class="string">"女"</span>);<span class="comment">//判断性别是否为女，如果是的话就添加</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (String s : list) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;String&gt; <span class="title">method</span><span class="params">(String[] s, Predicate&lt;String&gt; predicate, Predicate&lt;String&gt; predicate1)</span></span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();<span class="comment">//创建ArrayList数组</span></span><br><span class="line">        <span class="keyword">for</span> (String s1 : s) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> test = predicate.and(predicate1).test(s1);<span class="comment">//for循环遍历，进行与判断</span></span><br><span class="line">            <span class="keyword">if</span> (test)&#123;<span class="comment">//test为true或者false的返回值 如果为true就添加</span></span><br><span class="line">                arrayList.add(s1);<span class="comment">//添加数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arrayList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="Funcion函数接口"><a href="#Funcion函数接口" class="headerlink" title="Funcion函数接口"></a>Funcion函数接口</h3><ul>
-<li><strong>java.util.Function&lt;T,R&gt;接口用来根据一个类型的数据得到另一个类型的数据，前者称为前置条件，后者称为后置条件</strong></li>
-<li>Function接口中最主要的抽象方法为：<strong>R apply&lt;T,t&gt;,根据T的类型来获取R的类型的结果 使用场景：例如将String 类型转换为Integer类型</strong></li>
-<li><strong>Function接口中的默认方法andThen:用来进行组合操作</strong></li>
-<li>需求：<ol>
-<li><strong>把String类型的”123”，转换为Integer类型，把转换后的结果加10</strong></li>
-<li><strong>把增加之后的Inteter类型的数据，转换为String类型</strong></li>
-</ol>
-</li>
-<li>分析:<ol>
-<li>转换了两次 第一次是把String 类型转换为了Integer类型</li>
-<li>所以我们可以使用Function&lt;String,Integer&gt;fun1 Integer i = fun1.apply(“123”)+10;</li>
-<li>第二次是把Integer类型转换为String类型 可以使用Function&lt;Integer,String&gt;fun2 string s = fun2.apply();</li>
-<li>我们可以使用andThen方法，把两次转换组合在一起使用：String s = fun1.andThen(fun2).apply(“123”);<br>fun1先调用apply方法，把字符串转换为Integer,fun2再调用apply方法，把Integer转换为字符串</li>
-</ol>
-</li>
-<li>基本代码实现<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Function1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        method(<span class="number">10</span>, (Integer x)-&gt;String.valueOf(x)<span class="comment">//将Integer类型转换为String类型</span></span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> s, Function&lt;Integer,String&gt; function)</span></span>&#123;</span><br><span class="line">        String apply = function.apply(s);<span class="comment">//将Integer类型转换为String类型</span></span><br><span class="line">        System.out.println(apply+<span class="string">"你好"</span>);<span class="comment">//输出转换成string+字符串”你好“</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.function.Function;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_Function2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        mehtod(<span class="string">"你好,20"</span>,(String s)-&gt;&#123;<span class="comment">//传入参数</span></span><br><span class="line">            String s1 = s.split(<span class="string">","</span>)[<span class="number">1</span>];<span class="comment">//分割逗号</span></span><br><span class="line">            <span class="keyword">int</span> i = Integer.parseInt(s1);<span class="comment">//将String类型转换为Integer类型</span></span><br><span class="line">            <span class="keyword">return</span> i+<span class="number">20</span>;&#125;,(Integer integer)-&gt;String.valueOf(integer)<span class="comment">//将Integer类型转换为String类型</span></span><br><span class="line">        );&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mehtod</span><span class="params">(String str, Function&lt;String,Integer&gt;function,Function&lt;Integer,String&gt;function1)</span></span>&#123;</span><br><span class="line">        String apply = function.andThen(function1).apply(str);</span><br><span class="line">        System.out.println(apply);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h3 id="以上是对函数接口的初步了解-以及部分函数式接口的使用"><a href="#以上是对函数接口的初步了解-以及部分函数式接口的使用" class="headerlink" title="以上是对函数接口的初步了解 以及部分函数式接口的使用"></a>以上是对函数接口的初步了解 以及部分函数式接口的使用</h3>
+        
+          <a class="article-more-a" href="/2020/08/19/BlogBook41/#more">查看全文 >></a>
+        
       
 
       
@@ -1195,114 +1240,6 @@
 
 
   
-    <article id="post-BlogBook32" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/05/BlogBook32/">字节缓冲的输出与输入流</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/08/05/BlogBook32/" class="archive-article-date">
-  	<time datetime="2020-08-05T12:22:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><h4 id="缓冲流的原理"><a href="#缓冲流的原理" class="headerlink" title="缓冲流的原理"></a>缓冲流的原理</h4><ul>
-<li><strong>概念：能够进行高效的读写，能够转换编码的转换流，能够之旧话存储对象的序列化流等，在基本的流对象基础上创建而来，相当于对基本流对象的一种增强</strong></li>
-<li>字节缓冲流：<strong>BufferedInputStream BuffedOutputStream</strong></li>
-<li>字符缓冲流：<strong>BufferedFileWriter BufferedFileReader</strong></li>
-<li>基本原理: <strong>在创建流对象时，会创建一个内置的默认大小的缓冲区数组，通过缓冲区的读写，减少系统IO次数，从而提高读写的效率</strong></li>
-</ul>
-<hr>
-<h3 id="字节缓冲输出流"><a href="#字节缓冲输出流" class="headerlink" title="字节缓冲输出流"></a>字节缓冲输出流</h3><ul>
-<li><p><strong>java.io.BufferOutputStream extends OutputStream</strong></p>
-<blockquote>
-<p>BufferedOutputStream:字节缓冲输出流</p>
-</blockquote>
-</li>
-<li><p>继承自父类的共性成员方法：</p>
-<ol>
-<li><strong>void flush()</strong>  刷新此缓冲的输出流。 </li>
-<li><strong>void write(byte[] b, int off, int len)</strong>  将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此缓冲的输出流。 </li>
-<li><strong>void write(int b)</strong>   将指定的字节写入此缓冲的输出流 </li>
-</ol>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>初步了解字节缓冲输入以及输出流及部分方法使用</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/08/05/BlogBook32/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/05/BlogBook32/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1411,11 +1348,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
