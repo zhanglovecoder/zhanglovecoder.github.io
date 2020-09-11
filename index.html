@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 46
+    总文章数 47
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -146,6 +146,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BlogBook45" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/22/BlogBook45/">初步了解反射</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/08/22/BlogBook45/" class="archive-article-date">
+  	<time datetime="2020-08-22T00:46:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="反射：框架设计的灵魂"><a href="#反射：框架设计的灵魂" class="headerlink" title="反射：框架设计的灵魂"></a>反射：框架设计的灵魂</h3><ul>
+<li><p>框架：<strong>半成品软件。可以在框架的基础上进行软件开发，简化编码</strong></p>
+</li>
+<li><p>反射：<strong>将类的各个组成部分封装为其他对象，这就是反射机制</strong></p>
+</li>
+<li><p>好处:</p>
+<ol>
+<li><strong>可以在程序运行过程中，操作这些对象</strong></li>
+<li><strong>可以解耦，提高程序的可扩展性</strong></li>
+</ol>
+</li>
+<li><p>Java代码在计算机经理的阶段：三个阶段</p>
+<ol>
+<li><strong>javac编译阶段 将Person.java编译称为Person.class (Source源代码阶段)</strong></li>
+<li><strong>类加载器：Class类对象阶段：将成员变量封装为Field[] fields,将构造方法封装为Constructor[] cons，将成员方法封装为Method[] methods</strong></li>
+<li><strong>运行阶段：Person对象：new Person();</strong></li>
+</ol>
+</li>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解反射</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/22/BlogBook45/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/22/BlogBook45/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-BlogBook44" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -180,39 +282,21 @@
 <li><strong>定义一个测试类(测试用例)</strong></li>
 </ol>
 <ul>
-<li>建议:<ol>
+<li><p>建议:</p>
+<ol>
 <li><strong>测试类名 被测试的类名Test CalculatorTest</strong></li>
 <li><strong>包名：XXX.XXX.XX.test cn.itcast.test</strong></li>
 <li><strong>定义测试方法：可以独立运行</strong></li>
 </ol>
 </li>
-<li>建议：<ol>
-<li><strong>方法名:test测试的方法名 testAdd()</strong></li>
-<li><strong>返回值：void</strong></li>
-<li><strong>参数列表:空参</strong></li>
-</ol>
+<li><p><strong>Author : ZhangRenwei</strong></p>
 </li>
-<li><strong>给方法加@Test</strong></li>
-<li><strong>导入Junit依赖环境</strong></li>
-<li>判定结果：<ol>
-<li><strong>红色：失败</strong></li>
-<li><strong>绿色：成功</strong></li>
-<li><strong>一般我们会使用断言操作来处理结果</strong><blockquote>
-<p>Assert.assertEqual(期望的结果，运算的结果)</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li>补充:<ol>
-<li><strong>@Before:修饰的方法会在测试方法之前被自动执行</strong></li>
-<li><strong>@After:修饰的方法会在测试方法执行之后自动被执行</strong></li>
-</ol>
-</li>
-<li>基本代码演示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span><span class="comment">//sum计算和方法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  a+b;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> c,<span class="keyword">int</span> d)</span><span class="comment">//sub计算减方法</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c-d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookText</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"测试开始执行"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subText</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Book book = <span class="keyword">new</span> Book();</span><br><span class="line">        <span class="keyword">int</span> sub = book.sub(<span class="number">60</span>, <span class="number">50</span>);</span><br><span class="line">        System.out.println(sub);</span><br><span class="line">        Assert.assertEquals(<span class="number">10</span>,sub);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sumText</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Book book = <span class="keyword">new</span> Book();</span><br><span class="line">        <span class="keyword">int</span> sum = book.sum(<span class="number">10</span>, <span class="number">50</span>);</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">        Assert.assertEquals(<span class="number">60</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"测试执行结束"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p><strong>初步了解测试</strong></p>
 </li>
 </ul>
-<hr>
-
+        
+          <a class="article-more-a" href="/2020/08/21/BlogBook44/#more">查看全文 >></a>
+        
       
 
       
@@ -1116,116 +1200,6 @@
 
 
   
-    <article id="post-BlogBook35" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/13/BlogBook35/">序列化</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/08/13/BlogBook35/" class="archive-article-date">
-  	<time datetime="2020-08-13T02:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
-<li><strong>java提供了一种对象序列化机制，用一个字节序列可以表示一个对象，该字节序列包含了该对象的数据，类型和对象中存储的属性等信息。字节序列写出到<br>文件之后，相当于文件中持久保存了一个对象的信息</strong></li>
-<li><strong>反之 该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化，对象的数据，对象的类型，和对象中存储的数据信息，都可以用来在内容中创建</strong><br>对象；</li>
-<li>java.io.ObjectOutputStream extends OutputStream<blockquote>
-<p>ObjectOutputStream:对象的序列化表</p>
-<p>作用：把对象以流的方式写入到文件中保存</p>
-</blockquote>
-</li>
-<li>构造方法：<strong>ObjectOutputStream(OutputStream out)创建写入指定的OutputStream的ObjectOutputStream</strong><blockquote>
-<p>参数:OutputStream out:字节输出流</p>
-</blockquote>
-</li>
-<li>特有的成员方法：<strong>void writeObject(Object obj)将指定的对象写入ObjectOutputStream</strong></li>
-<li>使用步骤<ol>
-<li><strong>创建ObjectOutputStream对象，构造方法中传递字节输出流</strong></li>
-<li><strong>使用ObjectOutputStream对象中的方法writeObject,把对象写入到文件中</strong></li>
-<li><strong>释放资源</strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>初步了解序列化流及部分方法使用</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/08/13/BlogBook35/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/13/BlogBook35/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1334,11 +1308,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,11 +1332,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">TCP通信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TCP通信</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

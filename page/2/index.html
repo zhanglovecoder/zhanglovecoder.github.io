@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 46
+    总文章数 47
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -145,6 +145,116 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-BlogBook35" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/13/BlogBook35/">序列化</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        
+<a href="/2020/08/13/BlogBook35/" class="archive-article-date">
+  	<time datetime="2020-08-13T02:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
+<li><strong>java提供了一种对象序列化机制，用一个字节序列可以表示一个对象，该字节序列包含了该对象的数据，类型和对象中存储的属性等信息。字节序列写出到<br>文件之后，相当于文件中持久保存了一个对象的信息</strong></li>
+<li><strong>反之 该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化，对象的数据，对象的类型，和对象中存储的数据信息，都可以用来在内容中创建</strong><br>对象；</li>
+<li>java.io.ObjectOutputStream extends OutputStream<blockquote>
+<p>ObjectOutputStream:对象的序列化表</p>
+<p>作用：把对象以流的方式写入到文件中保存</p>
+</blockquote>
+</li>
+<li>构造方法：<strong>ObjectOutputStream(OutputStream out)创建写入指定的OutputStream的ObjectOutputStream</strong><blockquote>
+<p>参数:OutputStream out:字节输出流</p>
+</blockquote>
+</li>
+<li>特有的成员方法：<strong>void writeObject(Object obj)将指定的对象写入ObjectOutputStream</strong></li>
+<li>使用步骤<ol>
+<li><strong>创建ObjectOutputStream对象，构造方法中传递字节输出流</strong></li>
+<li><strong>使用ObjectOutputStream对象中的方法writeObject,把对象写入到文件中</strong></li>
+<li><strong>释放资源</strong></li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Author : ZhangRenwei</strong></p>
+</li>
+<li><p><strong>初步了解序列化流及部分方法使用</strong></p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/13/BlogBook35/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/13/BlogBook35/">点击查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-BlogBook34" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1138,103 +1248,6 @@
 
 
   
-    <article id="post-BlogBook25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/25/BlogBook25/">线程的安全及锁的使用</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        
-<a href="/2020/07/25/BlogBook25/" class="archive-article-date">
-  	<time datetime="2020-07-25T06:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="线程的安全问题"><a href="#线程的安全问题" class="headerlink" title="线程的安全问题"></a>线程的安全问题</h3><ul>
-<li><strong>多线程访问了共享数据，会产生线程安全问题(卖票问题)</strong></li>
-<li><strong>原因：多个线程同时抢占CPU，我们可以让一个线程在访问共享数据时，无论是否失去了CPU的执行权;让其他线程只能进行等待，等待当前线程结束<br>再执行其他线程</strong></li>
-</ul>
-<hr>
-<h3 id="解决线程安全的第一种方法-同步代码块"><a href="#解决线程安全的第一种方法-同步代码块" class="headerlink" title="解决线程安全的第一种方法(同步代码块)"></a>解决线程安全的第一种方法(同步代码块)</h3><ul>
-<li><p><strong>格式：synchronized(锁对象){可能会出现线程安全问题的代码(访问了共享数据的代码)}</strong></p>
-</li>
-<li><p><strong>注意：</strong></p>
-<ol>
-<li><strong>同步代码块中的锁对象，可以使用任意对象</strong></li>
-<li><strong>但是必须保证多个对象使用的锁对象是同一个</strong></li>
-<li><strong>锁对象作用：把同步代码块锁住，只让一个线程在同步代码块中执行.</strong></li>
-</ol>
-</li>
-<li><p><strong>Author : ZhangRenwei</strong></p>
-</li>
-<li><p><strong>解决线程安全方式以及吃包子的小案例</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2020/07/25/BlogBook25/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java进阶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/25/BlogBook25/">点击查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1343,11 +1356,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1367,11 +1380,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">TCP通信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TCP通信</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
